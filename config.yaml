@@ -1,0 +1,47 @@
+# Web Scraper Configuration
+
+# Keywords to search for
+keywords:
+  - "artificial intelligence"
+  - "machine learning"
+  - "deep learning"
+  - "natural language processing"
+
+# Scraping settings
+scraping:
+  # Maximum number of URLs to scrape per keyword
+  max_urls_per_keyword: 5
+  
+  # Only scrape English sites
+  english_only: true
+  
+  # Request timeout in seconds
+  timeout: 10
+  
+  # Delay between requests in seconds (to be polite)
+  delay: 1
+  
+  # User agent string
+  user_agent: "Mozilla/5.0 (compatible; UTN-Scraper/1.0)"
+
+# Output settings
+output:
+  # Directory for markdown output files
+  output_dir: "output"
+  
+  # Directory for HTML cache
+  cache_dir: "cache"
+  
+  # Name of the JSON index file
+  index_file: "index.json"
+
+# Cleaning settings
+cleaning:
+  # Remove URLs from markdown content
+  remove_urls: true
+  
+  # Remove email addresses
+  remove_emails: true
+  
+  # Remove extra whitespace
+  normalize_whitespace: true

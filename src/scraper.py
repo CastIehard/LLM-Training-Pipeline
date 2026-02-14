@@ -75,7 +75,7 @@ class WebScraper:
     
     def search_keyword(self, keyword):
         """
-        Search for URLs using a keyword via Google search.
+        Search for URLs using a keyword via DuckDuckGo search.
         
         Args:
             keyword (str): Keyword to search for

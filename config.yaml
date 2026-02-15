@@ -27,10 +27,10 @@ scraping:
 # Output settings
 output:
   # Directory for markdown output files
-  output_dir: "output"
+  output_dir: "/Users/d0366589/Desktop/UTN-3-LLM-Final-Project/output"
   
   # Directory for HTML cache
-  cache_dir: "cache"
+  cache_dir: "/Users/d0366589/Desktop/UTN-3-LLM-Final-Project/cache"
   
   # Name of the JSON index file
   index_file: "index.json"

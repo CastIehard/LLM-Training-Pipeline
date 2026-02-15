@@ -1,36 +1,36 @@
 """
 Main Pipeline Script
-Orchestrates the web scraping, HTML to Markdown conversion, cleaning, and output generation.
+
+Runs the Scrapy-based web scraper with keyword search and full processing pipeline.
+Loads configuration from config.yaml and runs the spider programmatically.
 """
+
+import logging
 import os
 import sys
+
 import yaml
-import logging
+from scrapy.crawler import CrawlerProcess
+from scrapy.utils.project import get_project_settings
 
-# Add src to path
-sys.path.insert(0, os.path.dirname(__file__))
-
-from src.scraper import WebScraper
-from src.parser import MarkdownParser
-from src.cleaner import MarkdownCleaner
-from src.output_manager import OutputManager
-
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+)
 logger = logging.getLogger(__name__)
 
 
-def load_config(config_path='config.yaml'):
+def load_config(config_path="config.yaml"):
     """
     Load configuration from YAML file.
-    
+
     Args:
-        config_path (str): Path to configuration file
-        
+        config_path: Path to configuration file
+
     Returns:
-        dict: Configuration dictionary
+        Configuration dictionary
     """
     try:
-        with open(config_path, 'r', encoding='utf-8') as f:
+        with open(config_path, "r", encoding="utf-8") as f:
             config = yaml.safe_load(f)
         logger.info(f"Loaded configuration from {config_path}")
         return config
@@ -40,71 +40,82 @@ def load_config(config_path='config.yaml'):
 
 
 def main():
-    """Main pipeline execution"""
+    """Main pipeline execution using Scrapy."""
     logger.info("=" * 80)
-    logger.info("Starting Web Scraper Pipeline")
+    logger.info("Starting Scrapy Web Scraper Pipeline")
     logger.info("=" * 80)
-    
+
     # Load configuration
     config = load_config()
-    
-    # Extract settings
-    keywords = config.get('keywords', [])
-    cache_dir = config['output'].get('cache_dir', 'cache')
-    
+
+    # Extract settings from config
+    keywords = config.get("keywords", [])
+    max_urls = config["scraping"].get("max_urls_per_keyword", 5)
+    english_only = config["scraping"].get("english_only", True)
+    delay = config["scraping"].get("delay", 1)
+    timeout = config["scraping"].get("timeout", 10)
+    user_agent = config["scraping"].get("user_agent", "Mozilla/5.0")
+
+    cache_dir = config["output"].get("cache_dir", "cache")
+    output_dir = config["output"].get("output_dir", "output")
+    index_file = config["output"].get("index_file", "index.json")
+
+    remove_urls = config["cleaning"].get("remove_urls", True)
+    remove_emails = config["cleaning"].get("remove_emails", True)
+    normalize_whitespace = config["cleaning"].get("normalize_whitespace", True)
+
     if not keywords:
         logger.error("No keywords found in configuration")
         sys.exit(1)
-    
+
     logger.info(f"Keywords to search: {', '.join(keywords)}")
-    
-    # Initialize components
-    logger.info("\nInitializing components...")
-    scraper = WebScraper(config)
-    parser = MarkdownParser(config)
-    cleaner = MarkdownCleaner(config)
-    output_manager = OutputManager(config)
-    
-    # Step 1: Scrape websites
+    logger.info(f"Max URLs per keyword: {max_urls}")
+    logger.info(f"English only: {english_only}")
+
+    # Get Scrapy project settings and override with config values
+    settings = get_project_settings()
+
+    # Override settings from config.yaml
+    settings.set("USER_AGENT", user_agent)
+    settings.set("DOWNLOAD_DELAY", delay)
+    settings.set("DOWNLOAD_TIMEOUT", timeout)
+    settings.set("ENGLISH_ONLY", english_only)
+    settings.set("CACHE_DIR", cache_dir)
+    settings.set("OUTPUT_DIR", output_dir)
+    settings.set("INDEX_FILE", index_file)
+    settings.set("CLEANING_REMOVE_URLS", remove_urls)
+    settings.set("CLEANING_REMOVE_EMAILS", remove_emails)
+    settings.set("CLEANING_NORMALIZE_WHITESPACE", normalize_whitespace)
+
+    # Ensure directories exist
+    os.makedirs(cache_dir, exist_ok=True)
+    os.makedirs(output_dir, exist_ok=True)
+
+    # Create and run crawler
+    process = CrawlerProcess(settings)
+
+    # Run the spider with keywords from config
+    process.crawl(
+        "keyword_spider",
+        keywords=keywords,
+        max_urls_per_keyword=max_urls,
+    )
+
     logger.info("\n" + "=" * 80)
-    logger.info("Step 1: Scraping websites")
-    logger.info("=" * 80)
-    scraped_results = scraper.scrape_keywords(keywords, cache_dir)
-    
-    if not scraped_results:
-        logger.warning("No content was scraped. Exiting.")
-        sys.exit(0)
-    
-    # Step 2: Convert HTML to Markdown
+    logger.info("Starting Scrapy spider...")
+    logger.info("=" * 80 + "\n")
+
+    # This will block until the spider is finished
+    process.start()
+
     logger.info("\n" + "=" * 80)
-    logger.info("Step 2: Converting HTML to Markdown")
+    logger.info("Pipeline completed!")
     logger.info("=" * 80)
-    html_contents = [result[2] for result in scraped_results]  # Extract HTML content
-    markdown_contents = parser.parse_batch(html_contents)
-    
-    # Step 3: Clean Markdown
-    logger.info("\n" + "=" * 80)
-    logger.info("Step 3: Cleaning Markdown content")
-    logger.info("=" * 80)
-    cleaned_contents = cleaner.clean_batch(markdown_contents)
-    
-    # Step 4: Generate output files and index
-    logger.info("\n" + "=" * 80)
-    logger.info("Step 4: Generating output files and index")
-    logger.info("=" * 80)
-    output_files = output_manager.process_scraped_data(scraped_results, cleaned_contents)
-    
-    # Summary
-    logger.info("\n" + "=" * 80)
-    logger.info("Pipeline completed successfully!")
-    logger.info("=" * 80)
-    logger.info(f"Total URLs scraped: {len(scraped_results)}")
-    logger.info(f"Total markdown files created: {len(output_files)}")
-    logger.info(f"Output directory: {config['output']['output_dir']}")
+    logger.info(f"Output directory: {output_dir}")
     logger.info(f"Cache directory: {cache_dir}")
-    logger.info(f"Index file: {os.path.join(config['output']['output_dir'], config['output']['index_file'])}")
+    logger.info(f"Index file: {os.path.join(output_dir, index_file)}")
     logger.info("=" * 80)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

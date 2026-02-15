@@ -1,0 +1,448 @@
+"""
+Scrapy Pipelines Module
+
+Defines processing pipelines for scraped items. Each pipeline handles
+a specific step in the data processing workflow.
+
+Pipeline Order (configured in settings.py):
+1. LanguageFilterPipeline (100) - Filter non-English pages
+2. HtmlCachePipeline (200) - Cache HTML to disk
+3. MarkdownConversionPipeline (300) - Convert HTML to Markdown
+4. MarkdownCleaningPipeline (400) - Clean markdown content
+5. HashGenerationPipeline (500) - Generate content hash
+6. OutputPipeline (600) - Save markdown files and create index
+"""
+
+import hashlib
+import json
+import logging
+import os
+import re
+from datetime import datetime
+
+import html2text
+from bs4 import BeautifulSoup
+from scrapy.exceptions import DropItem
+
+logger = logging.getLogger(__name__)
+
+
+class LanguageFilterPipeline:
+    """
+    Filter out non-English pages.
+
+    Checks HTML lang attribute and meta tags to determine page language.
+    Drops items that are not in English when english_only is enabled.
+    """
+
+    def __init__(self, english_only=True):
+        """
+        Initialize the language filter.
+
+        Args:
+            english_only: If True, drop non-English pages
+        """
+        self.english_only = english_only
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        """Create pipeline instance from crawler settings."""
+        return cls(
+            english_only=crawler.settings.getbool("ENGLISH_ONLY", True),
+        )
+
+    def process_item(self, item, spider):
+        """
+        Check if page is in English and filter accordingly.
+
+        Args:
+            item: WebPageItem to process
+            spider: Spider instance
+
+        Returns:
+            item: Processed item with language_detected field
+
+        Raises:
+            DropItem: If page is not in English and english_only is True
+        """
+        if not self.english_only:
+            item["language_detected"] = "unknown"
+            return item
+
+        html_content = item.get("html_content", "")
+        url = item.get("url", "")
+
+        try:
+            soup = BeautifulSoup(html_content, "html.parser")
+
+            # Check html lang attribute
+            html_tag = soup.find("html")
+            if html_tag and html_tag.get("lang"):
+                lang = html_tag.get("lang", "").lower()
+                if lang.startswith("en"):
+                    item["language_detected"] = lang
+                    return item
+                elif lang:
+                    spider.logger.info(f"Non-English page ({lang}), dropping: {url}")
+                    raise DropItem(f"Non-English page: {lang}")
+
+            # Check meta language tags
+            meta_lang = soup.find("meta", attrs={"http-equiv": "content-language"})
+            if meta_lang:
+                content = meta_lang.get("content", "").lower()
+                if content.startswith("en"):
+                    item["language_detected"] = content
+                    return item
+                elif content:
+                    spider.logger.info(f"Non-English page ({content}), dropping: {url}")
+                    raise DropItem(f"Non-English page: {content}")
+
+            # No explicit language marker, assume English
+            item["language_detected"] = "unknown-assumed-en"
+            return item
+
+        except DropItem:
+            raise
+        except Exception as e:
+            spider.logger.warning(f"Error checking language for {url}: {e}")
+            item["language_detected"] = "error"
+            return item
+
+
+class HtmlCachePipeline:
+    """
+    Cache HTML content to disk.
+
+    Saves raw HTML to cache directory for potential reprocessing.
+    Uses MD5 hash of URL as filename.
+    """
+
+    def __init__(self, cache_dir):
+        """
+        Initialize the HTML cache pipeline.
+
+        Args:
+            cache_dir: Directory to store cached HTML files
+        """
+        self.cache_dir = cache_dir
+        os.makedirs(cache_dir, exist_ok=True)
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        """Create pipeline instance from crawler settings."""
+        return cls(
+            cache_dir=crawler.settings.get("CACHE_DIR", "cache"),
+        )
+
+    def process_item(self, item, spider):
+        """
+        Cache HTML content to disk.
+
+        Args:
+            item: WebPageItem to process
+            spider: Spider instance
+
+        Returns:
+            item: Item with cache_file field populated
+        """
+        url = item.get("url", "")
+        html_content = item.get("html_content", "")
+
+        # Generate cache filename from URL hash
+        url_hash = hashlib.md5(url.encode()).hexdigest()
+        cache_file = os.path.join(self.cache_dir, f"{url_hash}.html")
+
+        try:
+            with open(cache_file, "w", encoding="utf-8") as f:
+                f.write(html_content)
+            spider.logger.debug(f"Cached HTML: {cache_file}")
+            item["cache_file"] = cache_file
+        except Exception as e:
+            spider.logger.error(f"Error caching HTML for {url}: {e}")
+            item["cache_file"] = None
+
+        return item
+
+
+class MarkdownConversionPipeline:
+    """
+    Convert HTML content to Markdown.
+
+    Uses html2text library for conversion with sensible defaults.
+    """
+
+    def __init__(self):
+        """Initialize the Markdown converter."""
+        self.converter = html2text.HTML2Text()
+        self.converter.ignore_links = False
+        self.converter.ignore_images = False
+        self.converter.ignore_emphasis = False
+        self.converter.body_width = 0  # Don't wrap lines
+        self.converter.single_line_break = False
+
+    def process_item(self, item, spider):
+        """
+        Convert HTML to Markdown.
+
+        Args:
+            item: WebPageItem to process
+            spider: Spider instance
+
+        Returns:
+            item: Item with markdown_content field populated
+
+        Raises:
+            DropItem: If conversion fails and produces empty result
+        """
+        html_content = item.get("html_content", "")
+        url = item.get("url", "")
+
+        try:
+            markdown = self.converter.handle(html_content)
+            if not markdown or not markdown.strip():
+                spider.logger.warning(f"Empty markdown result for {url}")
+                raise DropItem(f"Empty markdown content for {url}")
+            item["markdown_content"] = markdown
+            spider.logger.debug(f"Converted to markdown: {url}")
+        except DropItem:
+            raise
+        except Exception as e:
+            spider.logger.error(f"Error converting HTML to markdown for {url}: {e}")
+            raise DropItem(f"Markdown conversion failed: {e}")
+
+        return item
+
+
+class MarkdownCleaningPipeline:
+    """
+    Clean markdown content.
+
+    Removes URLs, emails, common junk patterns, and normalizes whitespace.
+    """
+
+    def __init__(self, remove_urls=True, remove_emails=True, normalize_whitespace=True):
+        """
+        Initialize the Markdown cleaner.
+
+        Args:
+            remove_urls: If True, remove URLs from content
+            remove_emails: If True, remove email addresses
+            normalize_whitespace: If True, normalize whitespace
+        """
+        self.remove_urls = remove_urls
+        self.remove_emails = remove_emails
+        self.normalize_whitespace = normalize_whitespace
+
+        # Common junk patterns to remove
+        self.junk_patterns = [
+            r"(?i)(skip to (main )?content|jump to navigation)",
+            r"(?i)(cookie policy|privacy policy|terms of service|terms and conditions)",
+            r"(?i)(subscribe to (our )?newsletter)",
+            r"(?i)(follow us on|share on social media)",
+            r"(?i)(copyright|©)\s*\d{4}",
+            r"(?i)(all rights reserved)",
+        ]
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        """Create pipeline instance from crawler settings."""
+        return cls(
+            remove_urls=crawler.settings.getbool("CLEANING_REMOVE_URLS", True),
+            remove_emails=crawler.settings.getbool("CLEANING_REMOVE_EMAILS", True),
+            normalize_whitespace=crawler.settings.getbool(
+                "CLEANING_NORMALIZE_WHITESPACE", True
+            ),
+        )
+
+    def _remove_urls(self, text):
+        """Remove URLs from text."""
+        # Remove markdown links but keep the link text
+        text = re.sub(r"\[([^\]]+)\]\([^\)]+\)", r"\1", text)
+        # Remove standalone URLs
+        text = re.sub(r"https?://[^\s\)]+", "", text)
+        text = re.sub(r"www\.[^\s]+", "", text)
+        return text
+
+    def _remove_emails(self, text):
+        """Remove email addresses from text."""
+        text = re.sub(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b", "", text)
+        return text
+
+    def _normalize_whitespace(self, text):
+        """Normalize whitespace in text."""
+        # Replace multiple spaces with single space
+        text = re.sub(r" +", " ", text)
+        # Replace multiple newlines with maximum 2 newlines
+        text = re.sub(r"\n\s*\n\s*\n+", "\n\n", text)
+        # Remove trailing whitespace from lines
+        text = re.sub(r"[ \t]+$", "", text, flags=re.MULTILINE)
+
+        # Handle leading whitespace (preserve code blocks)
+        lines = text.split("\n")
+        cleaned_lines = []
+        in_code_block = False
+
+        for line in lines:
+            if line.strip().startswith("```"):
+                in_code_block = not in_code_block
+                cleaned_lines.append(line)
+            elif in_code_block:
+                cleaned_lines.append(line)
+            else:
+                cleaned_lines.append(line.lstrip())
+
+        text = "\n".join(cleaned_lines)
+        return text.strip()
+
+    def _remove_junk(self, text):
+        """Remove common junk patterns from text."""
+        for pattern in self.junk_patterns:
+            text = re.sub(pattern, "", text)
+        return text
+
+    def process_item(self, item, spider):
+        """
+        Clean markdown content.
+
+        Args:
+            item: WebPageItem to process
+            spider: Spider instance
+
+        Returns:
+            item: Item with cleaned_markdown field populated
+        """
+        markdown = item.get("markdown_content", "")
+        url = item.get("url", "")
+
+        if self.remove_urls:
+            markdown = self._remove_urls(markdown)
+
+        if self.remove_emails:
+            markdown = self._remove_emails(markdown)
+
+        # Always remove junk
+        markdown = self._remove_junk(markdown)
+
+        if self.normalize_whitespace:
+            markdown = self._normalize_whitespace(markdown)
+
+        item["cleaned_markdown"] = markdown
+        spider.logger.debug(f"Cleaned markdown for: {url}")
+
+        return item
+
+
+class HashGenerationPipeline:
+    """
+    Generate SHA256 hash for content.
+
+    Hash is used as filename for deduplication and identification.
+    """
+
+    def process_item(self, item, spider):
+        """
+        Generate content hash.
+
+        Args:
+            item: WebPageItem to process
+            spider: Spider instance
+
+        Returns:
+            item: Item with content_hash field populated
+        """
+        cleaned_markdown = item.get("cleaned_markdown", "")
+        content_hash = hashlib.sha256(cleaned_markdown.encode("utf-8")).hexdigest()
+        item["content_hash"] = content_hash
+        item["timestamp"] = datetime.now().isoformat()
+        spider.logger.debug(f"Generated hash: {content_hash[:16]}...")
+
+        return item
+
+
+class OutputPipeline:
+    """
+    Save markdown files and generate index.
+
+    Final pipeline that persists processed content to disk and
+    maintains a JSON index of all scraped content.
+    """
+
+    def __init__(self, output_dir, index_file):
+        """
+        Initialize the output pipeline.
+
+        Args:
+            output_dir: Directory to save markdown files
+            index_file: Name of the JSON index file
+        """
+        self.output_dir = output_dir
+        self.index_file = os.path.join(output_dir, index_file)
+        self.index_data = []
+        os.makedirs(output_dir, exist_ok=True)
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        """Create pipeline instance from crawler settings."""
+        return cls(
+            output_dir=crawler.settings.get("OUTPUT_DIR", "output"),
+            index_file=crawler.settings.get("INDEX_FILE", "index.json"),
+        )
+
+    def process_item(self, item, spider):
+        """
+        Save markdown file and add to index.
+
+        Args:
+            item: WebPageItem to process
+            spider: Spider instance
+
+        Returns:
+            item: Item with output_file field populated
+        """
+        content_hash = item.get("content_hash", "")
+        cleaned_markdown = item.get("cleaned_markdown", "")
+        url = item.get("url", "")
+
+        filename = f"{content_hash}.md"
+        filepath = os.path.join(self.output_dir, filename)
+
+        try:
+            with open(filepath, "w", encoding="utf-8") as f:
+                f.write(cleaned_markdown)
+
+            spider.logger.info(f"Saved: {filename}")
+            item["output_file"] = filepath
+
+            # Add to index
+            index_entry = {
+                "hash": content_hash,
+                "filename": filename,
+                "source_url": url,
+                "keyword": item.get("keyword", ""),
+                "scraped_at": item.get("timestamp", ""),
+                "content_length": len(cleaned_markdown),
+                "cache_file": item.get("cache_file", ""),
+                "language_detected": item.get("language_detected", ""),
+            }
+            self.index_data.append(index_entry)
+
+        except Exception as e:
+            spider.logger.error(f"Error saving markdown for {url}: {e}")
+            item["output_file"] = None
+
+        return item
+
+    def close_spider(self, spider):
+        """
+        Save index file when spider closes.
+
+        Args:
+            spider: Spider instance
+        """
+        try:
+            with open(self.index_file, "w", encoding="utf-8") as f:
+                json.dump(self.index_data, f, indent=2, ensure_ascii=False)
+            spider.logger.info(f"Saved index: {self.index_file}")
+            spider.logger.info(f"Total entries: {len(self.index_data)}")
+        except Exception as e:
+            spider.logger.error(f"Error saving index file: {e}")

@@ -25,6 +25,7 @@ class WebPageItem(scrapy.Item):
     url = scrapy.Field()
     keyword = scrapy.Field()
     html_content = scrapy.Field()
+    depth = scrapy.Field()  # 0 = from url.txt, 1+ = discovered from links
 
     # Language detection
     language_detected = scrapy.Field()

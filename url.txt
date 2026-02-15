@@ -1,0 +1,5 @@
+# URLs to scrape (one per line)
+# Lines starting with # are comments
+
+https://utn.de
+https://castlehard.com

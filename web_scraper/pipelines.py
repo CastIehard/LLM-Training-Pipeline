@@ -51,20 +51,8 @@ class LanguageFilterPipeline:
             english_only=crawler.settings.getbool("ENGLISH_ONLY", True),
         )
 
-    def process_item(self, item, spider):
-        """
-        Check if page is in English and filter accordingly.
-
-        Args:
-            item: WebPageItem to process
-            spider: Spider instance
-
-        Returns:
-            item: Processed item with language_detected field
-
-        Raises:
-            DropItem: If page is not in English and english_only is True
-        """
+    def process_item(self, item):
+        """Check if page is in English and filter accordingly."""
         if not self.english_only:
             item["language_detected"] = "unknown"
             return item
@@ -83,7 +71,7 @@ class LanguageFilterPipeline:
                     item["language_detected"] = lang
                     return item
                 elif lang:
-                    spider.logger.info(f"Non-English page ({lang}), dropping: {url}")
+                    logger.info(f"Non-English page ({lang}), dropping: {url}")
                     raise DropItem(f"Non-English page: {lang}")
 
             # Check meta language tags
@@ -94,7 +82,7 @@ class LanguageFilterPipeline:
                     item["language_detected"] = content
                     return item
                 elif content:
-                    spider.logger.info(f"Non-English page ({content}), dropping: {url}")
+                    logger.info(f"Non-English page ({content}), dropping: {url}")
                     raise DropItem(f"Non-English page: {content}")
 
             # No explicit language marker, assume English
@@ -104,7 +92,7 @@ class LanguageFilterPipeline:
         except DropItem:
             raise
         except Exception as e:
-            spider.logger.warning(f"Error checking language for {url}: {e}")
+            logger.warning(f"Error checking language for {url}: {e}")
             item["language_detected"] = "error"
             return item
 
@@ -134,17 +122,8 @@ class HtmlCachePipeline:
             cache_dir=crawler.settings.get("CACHE_DIR", "cache"),
         )
 
-    def process_item(self, item, spider):
-        """
-        Cache HTML content to disk.
-
-        Args:
-            item: WebPageItem to process
-            spider: Spider instance
-
-        Returns:
-            item: Item with cache_file field populated
-        """
+    def process_item(self, item):
+        """Cache HTML content to disk."""
         url = item.get("url", "")
         html_content = item.get("html_content", "")
 
@@ -155,10 +134,10 @@ class HtmlCachePipeline:
         try:
             with open(cache_file, "w", encoding="utf-8") as f:
                 f.write(html_content)
-            spider.logger.debug(f"Cached HTML: {cache_file}")
+            logger.debug(f"Cached HTML: {cache_file}")
             item["cache_file"] = cache_file
         except Exception as e:
-            spider.logger.error(f"Error caching HTML for {url}: {e}")
+            logger.error(f"Error caching HTML for {url}: {e}")
             item["cache_file"] = None
 
         return item
@@ -180,34 +159,22 @@ class MarkdownConversionPipeline:
         self.converter.body_width = 0  # Don't wrap lines
         self.converter.single_line_break = False
 
-    def process_item(self, item, spider):
-        """
-        Convert HTML to Markdown.
-
-        Args:
-            item: WebPageItem to process
-            spider: Spider instance
-
-        Returns:
-            item: Item with markdown_content field populated
-
-        Raises:
-            DropItem: If conversion fails and produces empty result
-        """
+    def process_item(self, item):
+        """Convert HTML to Markdown."""
         html_content = item.get("html_content", "")
         url = item.get("url", "")
 
         try:
             markdown = self.converter.handle(html_content)
             if not markdown or not markdown.strip():
-                spider.logger.warning(f"Empty markdown result for {url}")
+                logger.warning(f"Empty markdown result for {url}")
                 raise DropItem(f"Empty markdown content for {url}")
             item["markdown_content"] = markdown
-            spider.logger.debug(f"Converted to markdown: {url}")
+            logger.debug(f"Converted to markdown: {url}")
         except DropItem:
             raise
         except Exception as e:
-            spider.logger.error(f"Error converting HTML to markdown for {url}: {e}")
+            logger.error(f"Error converting HTML to markdown for {url}: {e}")
             raise DropItem(f"Markdown conversion failed: {e}")
 
         return item
@@ -300,19 +267,9 @@ class MarkdownCleaningPipeline:
             text = re.sub(pattern, "", text)
         return text
 
-    def process_item(self, item, spider):
-        """
-        Clean markdown content.
-
-        Args:
-            item: WebPageItem to process
-            spider: Spider instance
-
-        Returns:
-            item: Item with cleaned_markdown field populated
-        """
+    def process_item(self, item):
+        """Clean markdown content."""
         markdown = item.get("markdown_content", "")
-        url = item.get("url", "")
 
         if self.remove_urls:
             markdown = self._remove_urls(markdown)
@@ -327,7 +284,7 @@ class MarkdownCleaningPipeline:
             markdown = self._normalize_whitespace(markdown)
 
         item["cleaned_markdown"] = markdown
-        spider.logger.debug(f"Cleaned markdown for: {url}")
+        logger.debug(f"Cleaned markdown for: {item.get('url', '')}")
 
         return item
 
@@ -339,22 +296,13 @@ class HashGenerationPipeline:
     Hash is used as filename for deduplication and identification.
     """
 
-    def process_item(self, item, spider):
-        """
-        Generate content hash.
-
-        Args:
-            item: WebPageItem to process
-            spider: Spider instance
-
-        Returns:
-            item: Item with content_hash field populated
-        """
+    def process_item(self, item):
+        """Generate content hash."""
         cleaned_markdown = item.get("cleaned_markdown", "")
         content_hash = hashlib.sha256(cleaned_markdown.encode("utf-8")).hexdigest()
         item["content_hash"] = content_hash
         item["timestamp"] = datetime.now().isoformat()
-        spider.logger.debug(f"Generated hash: {content_hash[:16]}...")
+        logger.debug(f"Generated hash: {content_hash[:16]}...")
 
         return item
 
@@ -367,18 +315,44 @@ class OutputPipeline:
     maintains a JSON index of all scraped content.
     """
 
-    def __init__(self, output_dir, index_file):
+    def __init__(self, output_dir, index_file, save_interval=10):
         """
         Initialize the output pipeline.
 
         Args:
             output_dir: Directory to save markdown files
-            index_file: Name of the JSON index file
+            index_file: Path to the JSON index file (in main directory)
+            save_interval: Save index every N items (for crash recovery)
         """
         self.output_dir = output_dir
-        self.index_file = os.path.join(output_dir, index_file)
-        self.index_data = []
+        self.index_file = index_file
+        self.save_interval = save_interval
+        self.items_since_save = 0
         os.makedirs(output_dir, exist_ok=True)
+
+        # Load existing index for resuming
+        self.index_data = self._load_existing_index()
+
+    def _load_existing_index(self):
+        """Load existing index file to allow resuming."""
+        if os.path.exists(self.index_file):
+            try:
+                with open(self.index_file, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                logger.info(f"Loaded existing index with {len(data)} entries")
+                return data
+            except Exception as e:
+                logger.warning(f"Error loading existing index: {e}")
+        return []
+
+    def _save_index(self):
+        """Save index file to disk."""
+        try:
+            with open(self.index_file, "w", encoding="utf-8") as f:
+                json.dump(self.index_data, f, indent=2, ensure_ascii=False)
+            logger.info(f"Saved index: {len(self.index_data)} entries")
+        except Exception as e:
+            logger.error(f"Error saving index file: {e}")
 
     @classmethod
     def from_crawler(cls, crawler):
@@ -386,19 +360,11 @@ class OutputPipeline:
         return cls(
             output_dir=crawler.settings.get("OUTPUT_DIR", "output"),
             index_file=crawler.settings.get("INDEX_FILE", "index.json"),
+            save_interval=crawler.settings.getint("INDEX_SAVE_INTERVAL", 10),
         )
 
-    def process_item(self, item, spider):
-        """
-        Save markdown file and add to index.
-
-        Args:
-            item: WebPageItem to process
-            spider: Spider instance
-
-        Returns:
-            item: Item with output_file field populated
-        """
+    def process_item(self, item):
+        """Save markdown file and add to index."""
         content_hash = item.get("content_hash", "")
         cleaned_markdown = item.get("cleaned_markdown", "")
         url = item.get("url", "")
@@ -410,7 +376,7 @@ class OutputPipeline:
             with open(filepath, "w", encoding="utf-8") as f:
                 f.write(cleaned_markdown)
 
-            spider.logger.info(f"Saved: {filename}")
+            logger.info(f"Saved: {filename}")
             item["output_file"] = filepath
 
             # Add to index
@@ -418,31 +384,27 @@ class OutputPipeline:
                 "hash": content_hash,
                 "filename": filename,
                 "source_url": url,
-                "keyword": item.get("keyword", ""),
+                "depth": item.get("depth", 0),
                 "scraped_at": item.get("timestamp", ""),
                 "content_length": len(cleaned_markdown),
-                "cache_file": item.get("cache_file", ""),
                 "language_detected": item.get("language_detected", ""),
             }
             self.index_data.append(index_entry)
 
+            # Periodic save for crash recovery
+            self.items_since_save += 1
+            if self.items_since_save >= self.save_interval:
+                self._save_index()
+                self.items_since_save = 0
+
         except Exception as e:
-            spider.logger.error(f"Error saving markdown for {url}: {e}")
+            logger.error(f"Error saving markdown for {url}: {e}")
             item["output_file"] = None
 
         return item
 
     def close_spider(self, spider):
-        """
-        Save index file when spider closes.
-
-        Args:
-            spider: Spider instance
-        """
-        try:
-            with open(self.index_file, "w", encoding="utf-8") as f:
-                json.dump(self.index_data, f, indent=2, ensure_ascii=False)
-            spider.logger.info(f"Saved index: {self.index_file}")
-            spider.logger.info(f"Total entries: {len(self.index_data)}")
-        except Exception as e:
-            spider.logger.error(f"Error saving index file: {e}")
+        """Save final index file when spider closes."""
+        self._save_index()
+        logger.info(f"Final index saved: {self.index_file}")
+        logger.info(f"Total entries: {len(self.index_data)}")

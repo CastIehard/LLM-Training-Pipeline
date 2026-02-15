@@ -1,10 +1,11 @@
 # UTN-3-LLM-Final-Project
 
-A Scrapy-based web scraping pipeline that searches for content using keywords, converts HTML to Markdown, cleans the content, and outputs organized files with metadata.
+A Scrapy-based web scraping pipeline that scrapes URLs from a file, optionally follows links up to a configurable depth, converts HTML to Markdown, cleans the content, and outputs organized files with metadata.
 
 ## Features
 
-- **Keyword-based web scraping**: Search DuckDuckGo and scrape content based on configurable keywords
+- **URL-based web scraping**: Scrape URLs from `url.txt` file with configurable depth
+- **Depth-based crawling**: Follow links found on scraped pages up to maximum depth (0 = seed URLs only, 1 = links from seeds, etc.)
 - **Asynchronous scraping**: Built on Scrapy for fast, concurrent requests
 - **URL deduplication**: Automatically avoids scraping duplicate URLs
 - **English site filtering**: Optionally filter for English-language websites only
@@ -12,7 +13,7 @@ A Scrapy-based web scraping pipeline that searches for content using keywords, c
 - **HTML to Markdown conversion**: Converts HTML to clean Markdown format via pipeline
 - **Content cleaning**: Uses regex patterns to remove URLs, emails, and other junk
 - **Hash-based file naming**: Generates SHA256 hash from content for unique file naming
-- **Metadata tracking**: Creates JSON index with source URL, keywords, timestamps, and more
+- **Metadata tracking**: Creates JSON index with source URL, depth level, timestamps, and more
 
 ## Installation
 
@@ -31,35 +32,43 @@ pip install -r requirements.txt
 
 Edit `config.yaml` to customize the scraping behavior:
 
-- **keywords**: List of search keywords
-- **scraping**: Scraping settings (max URLs, timeout, delays, English-only mode)
+- **url_file**: Path to the file containing URLs to scrape (one per line)
+- **scraping**: Scraping settings (max crawl depth, timeout, delays, English-only mode, concurrent requests, etc.)
 - **output**: Output and cache directory paths
 - **cleaning**: Content cleaning options (remove URLs, emails, whitespace normalization)
 
 Example configuration:
 ```yaml
-keywords:
-  - "artificial intelligence"
-  - "machine learning"
+url_file: "url.txt"
 
 scraping:
-  max_urls_per_keyword: 5
-  english_only: true
-  timeout: 10
-  delay: 1
+  max_depth: 1
+  english_only: false
+  timeout: 3
+  delay: 0.1
+  concurrent_requests: 8
 ```
 
 ## Usage
 
-Run the pipeline:
+1. Add URLs to scrape in `url.txt` (one URL per line):
+```
+https://example.com
+https://another.com
+https://example.org/page
+```
+
+2. Run the pipeline:
 ```bash
 python main.py
 ```
 
-Or use Scrapy directly:
-```bash
-scrapy crawl keyword_spider -a keywords="artificial intelligence,machine learning"
-```
+The pipeline will:
+1. Read URLs from `url.txt`
+2. Check against existing entries in `index.json` to avoid duplicates
+3. Scrape each URL and follow links up to `max_depth` level
+4. Convert HTML to Markdown, clean content, and generate hashes
+5. Save processed files to `output/` directory with metadata in `index.json`
 
 ## Pipeline Architecture
 
@@ -96,7 +105,7 @@ The `index.json` file contains metadata for each scraped page:
     "hash": "abc123...",
     "filename": "abc123....md",
     "source_url": "https://example.com/article",
-    "keyword": "artificial intelligence",
+    "depth": 0,
     "scraped_at": "2026-02-14T15:23:00",
     "content_length": 5432,
     "cache_file": "cache/def456....html",
@@ -112,15 +121,16 @@ The `index.json` file contains metadata for each scraped page:
 ├── main.py                 # Entry point (runs Scrapy programmatically)
 ├── config.yaml             # Configuration file
 ├── requirements.txt        # Python dependencies
+├── url.txt                 # Input file with URLs to scrape (one per line)
 ├── scrapy.cfg              # Scrapy project configuration
 ├── web_scraper/
 │   ├── __init__.py
 │   ├── items.py            # Scrapy item definitions
 │   ├── pipelines.py        # Processing pipelines
-│   ├── settings.py         # Scrapy settings
+│   ├── middlewares.py      # Custom middlewares
 │   └── spiders/
 │       ├── __init__.py
-│       └── keyword_spider.py  # Main spider
+│       └── url_spider.py   # Main spider for URL scraping
 ├── output/                 # Output markdown files (generated)
 └── cache/                  # Cached HTML files (generated)
 ```

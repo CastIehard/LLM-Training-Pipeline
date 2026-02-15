@@ -10,10 +10,10 @@ keywords:
 # Scraping settings
 scraping:
   # Maximum number of URLs to scrape per keyword
-  max_urls_per_keyword: 5
+  max_urls_per_keyword: 1
   
   # Only scrape English sites
-  english_only: true
+  english_only: false
   
   # Request timeout in seconds
   timeout: 10

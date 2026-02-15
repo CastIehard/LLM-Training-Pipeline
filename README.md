@@ -1,14 +1,15 @@
 # UTN-3-LLM-Final-Project
 
-A Python-based web scraping pipeline that searches for content using keywords, converts HTML to Markdown, cleans the content, and outputs organized files with metadata.
+A Scrapy-based web scraping pipeline that searches for content using keywords, converts HTML to Markdown, cleans the content, and outputs organized files with metadata.
 
 ## Features
 
-- **Keyword-based web scraping**: Search and scrape content based on configurable keywords
+- **Keyword-based web scraping**: Search DuckDuckGo and scrape content based on configurable keywords
+- **Asynchronous scraping**: Built on Scrapy for fast, concurrent requests
 - **URL deduplication**: Automatically avoids scraping duplicate URLs
 - **English site filtering**: Optionally filter for English-language websites only
 - **HTML caching**: Caches HTML content for reference
-- **HTML to Markdown conversion**: Converts HTML to clean Markdown format on-the-fly
+- **HTML to Markdown conversion**: Converts HTML to clean Markdown format via pipeline
 - **Content cleaning**: Uses regex patterns to remove URLs, emails, and other junk
 - **Hash-based file naming**: Generates SHA256 hash from content for unique file naming
 - **Metadata tracking**: Creates JSON index with source URL, keywords, timestamps, and more
@@ -55,15 +56,21 @@ Run the pipeline:
 python main.py
 ```
 
-The pipeline will:
-1. Search for URLs using the configured keywords
-2. Scrape the found URLs (avoiding duplicates)
-3. Cache HTML content in the `cache/` directory
-4. Convert HTML to Markdown
-5. Clean the Markdown content (remove URLs, emails, junk)
-6. Generate SHA256 hash from content
-7. Save cleaned content as `<hash>.md` in the `output/` directory
-8. Create an `index.json` file with metadata for all scraped content
+Or use Scrapy directly:
+```bash
+scrapy crawl keyword_spider -a keywords="artificial intelligence,machine learning"
+```
+
+## Pipeline Architecture
+
+The scraper uses Scrapy pipelines for modular data processing:
+
+1. **LanguageFilterPipeline** - Filters out non-English pages
+2. **HtmlCachePipeline** - Caches raw HTML to disk
+3. **MarkdownConversionPipeline** - Converts HTML to Markdown
+4. **MarkdownCleaningPipeline** - Removes URLs, emails, junk patterns
+5. **HashGenerationPipeline** - Generates SHA256 content hash
+6. **OutputPipeline** - Saves markdown files and creates JSON index
 
 ## Output Structure
 
@@ -92,7 +99,8 @@ The `index.json` file contains metadata for each scraped page:
     "keyword": "artificial intelligence",
     "scraped_at": "2026-02-14T15:23:00",
     "content_length": 5432,
-    "cache_file": "cache/def456....html"
+    "cache_file": "cache/def456....html",
+    "language_detected": "en"
   }
 ]
 ```
@@ -101,23 +109,26 @@ The `index.json` file contains metadata for each scraped page:
 
 ```
 .
-├── main.py                 # Main pipeline script
+├── main.py                 # Entry point (runs Scrapy programmatically)
 ├── config.yaml             # Configuration file
 ├── requirements.txt        # Python dependencies
-├── src/
+├── scrapy.cfg              # Scrapy project configuration
+├── web_scraper/
 │   ├── __init__.py
-│   ├── scraper.py         # Web scraper module
-│   ├── parser.py          # HTML to Markdown parser
-│   ├── cleaner.py         # Markdown cleaner
-│   └── output_manager.py  # Output and index manager
+│   ├── items.py            # Scrapy item definitions
+│   ├── pipelines.py        # Processing pipelines
+│   ├── settings.py         # Scrapy settings
+│   └── spiders/
+│       ├── __init__.py
+│       └── keyword_spider.py  # Main spider
 ├── output/                 # Output markdown files (generated)
 └── cache/                  # Cached HTML files (generated)
 ```
 
 ## Requirements
 
-- Python 3.7+
-- requests
+- Python 3.8+
+- scrapy
 - beautifulsoup4
 - pyyaml
 - html2text

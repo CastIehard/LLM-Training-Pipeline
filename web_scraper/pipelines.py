@@ -267,6 +267,12 @@ class MarkdownCleaningPipeline:
             text = re.sub(pattern, "", text)
         return text
 
+    def _remove_navigation_menus(self, text):
+        """Remove navigation menu bullet lines (lines starting with '* ')."""
+        lines = text.split("\n")
+        cleaned_lines = [line for line in lines if not line.startswith("* ")]
+        return "\n".join(cleaned_lines)
+
     def _remove_empty_images(self, text):
         """Remove markdown image syntax with empty URLs like ![alt text]()."""
         text = re.sub(r"!\[[^\]]*\]\(\)", "", text)
@@ -282,9 +288,10 @@ class MarkdownCleaningPipeline:
         if self.remove_emails:
             markdown = self._remove_emails(markdown)
 
-        # Always remove empty images and junk
+        # Always remove empty images, junk, and navigation menus
         markdown = self._remove_empty_images(markdown)
         markdown = self._remove_junk(markdown)
+        markdown = self._remove_navigation_menus(markdown)
 
         if self.normalize_whitespace:
             markdown = self._normalize_whitespace(markdown)

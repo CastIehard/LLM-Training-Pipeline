@@ -1,12 +1,4 @@
-* Zur Hauptnavigation
-* Zum Inhalt
-* Zu den Nutzungshinweisen und zum Impressum
-
 Menü
-
-* * []( "Interner Link: Informationen in Gebärdensprache")
-* * Alltagssprache
-* Leichte Sprache
 
 [](/internet/stadtportal/ "Zur Startseite von nuernberg.de")
 
@@ -20,8 +12,6 @@ Suche
 2. Mietrechtsinformationen
 3. Mietenspiegel
 
-* * *
-
 # Nürnberger Mietenspiegel
 
 ## Aufgabe und Funktion des Mietenspiegels der Stadt Nürnberg
@@ -29,10 +19,6 @@ Suche
 Aufgabe des Mietenspiegels ist es, das Mietpreisgefüge im nicht preisgebundenen Wohnungsbestand möglichst transparent zu machen.
 
 Der Nürnberger Mietenspiegel setzt keine Preise fest, sondern ist als Richtlinie zu verstehen, um
-
-* die Vertragsparteien bei Fragen zur Miethöhe zu unterstützen,
-* den Mietvertragsparteien eine wichtige Orientierungshilfe bei der Festlegung des Mietpreises zu geben und damit eine Befriedungswirkung im Vorfeld gerichtlicher Auseinandersetzungen zu erzielen,
-* den Gerichten in Streitfällen Orientierungsgrundlagen zu liefern.
 
 Die ortsübliche Vergleichsmiete wird folgendermaßen ermittelt:
 
@@ -54,21 +40,9 @@ Abweichungen nach oben oder unten von der in diesem Mietspiegel errechneten durc
 
 Insgesamt ist zu beachten, dass bei der Mietspiegelerstellung viele Wohnwertmerkmale erhoben und neben den in den Tabellen 1 bis 2 enthaltenen Wohnwertmerkmalen auf deren Mietpreiseinfluss analysiert wurden. Wohnwertmerkmale, die in ausreichender Anzahl für die Auswertung vorhanden waren und im Mittel keinen signifikanten Mietpreiseinfluss hatten, sind nachfolgender Auflistung zu entnehmen:
 
-* Liste der Wohnwertmerkmale ohne Einfluss (PDF, 493 KB)")</imperia/md/wohnen/dokumente/msp2024_liste_wohnwertmerkmale_ohne_einfluss.pdf>
-
 Der Nürnberger Mietenspiegel weist Nettokaltmieten aus. Daher sind die in § 2 Betriebskostenverordnung (BetrKV) aufgelisteten Betriebskosten grundsätzlich gesondert neben der Miete anzusetzen, soweit sie im Mietvertrag vereinbart sind.
 
 ## Übersichtskarten zu Wohnlagekriterien finden Sie hier:
-
-* Parks
-* Parkanlagen (PDF, 53.5 MB)")</imperia/md/wohnen/dokumente/2024_parkanlagen.pdf>
-* Einzelhandelsstandorte mit mind. 200m² Ladenfläche
-* Standorte Einzelhandel (PDF, 3.0 MB)")</imperia/md/wohnen/dokumente/2024_wh23_msp_standorteezh.pdf>
-* Abgrenzung des Gebietes "Altstadt, Altstadtrandgebiete"
-* Altstadt und engere Innenstadt (PDF, 4.1 MB)")</imperia/md/wohnen/dokumente/2020_altstadt_und_engere_innenstadt_0.pdf>
-* Straßenverzeichnis Altstadt und engere Innenstadt (PDF, 441 KB)")</imperia/md/wohnen/dokumente/msp2024strassenverzeichnis.pdf>
-
-* * *
 
 ## Bezug des Nürnberger Mietenspiegels
 
@@ -80,12 +54,7 @@ Der Nürnberger Mietenspiegel ist bei den Bürgerämtern Nord, Ost, Süd gegen e
 
 Sie können den Mietenspiegel auch online als Download bestellen. Klicken Sie hierfür auf:
 
-* Mietenspiegel als Download bestellen")<
-
 Eine kostenfreie Leseversion des Mietenspiegels sowie der Methodenbericht sind unter den folgenden Links aufrufbar:
-
-* Mietenspiegel 2024 - Leseversion (PDF, 371 KB)")</imperia/md/wohnen/dokumente/mietenspiegel2024_leseversion.pdf>
-* Mietenspiegel 2024 - Methodische und inhaltliche Erläuterungen (PDF, 7.9 MB)")</imperia/md/wohnen/dokumente/mietenspiegel2024_methodenbericht_neu.pdf>
 
 Hinweis:
 Das Vervielfältigen und Kopieren des Mietenspiegels ist ausdrücklich nicht gestattet.
@@ -109,43 +78,17 @@ Hans-Traut-Str. 80911 / 231 - 74 97<tel:09112317497>0911 / 231 - 40 53<tel:09112
 
 ## Weitere Informationen zum Mietenspiegel
 
-* Grund- und Hausbesitzerverein Nürnberg und Umgebung e. V.")<
-* Mieterverein Nürnberg und Umgebung e. V.")<
-* Mieter helfen Mietern, Nürnberger MieterInnengemeinschaft e. V.")<
-
 ## Service
-
-* Kontakt</internet/wohnen/kontakt.html>
-* Sitemap</internet/wohnen/sitemap.html>
-* Behördenwegweiser<
-* Mein Nürnberg<
-* Karriere<
-* Hilfe<
 
 ## Info
 
-* Datenschutz<
-* Cookies<
-* Zugangseröffnung<
-* Barrierefreiheit<
-* Impressum</internet/wohnen/impressum.html>
-
 ## Folgen Sie uns
-
-* X
-* YouTube
 
 ## Bildquellen
 
 Menü
 
-* [](/internet/wohnen/kontakt.html "Kontakt")
-* []( "Mein Nürnberg Login")
-* []( "Stellenangebote der Stadt Nürnberg")
-
 Suche
-
-* * *
 
 Startseite
 

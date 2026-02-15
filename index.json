@@ -1,65 +1,38 @@
 [
   {
-    "hash": "d8bb9d1d655b44243a13b046c98889270a898f5073b75f67ca7b5298568ab87f",
-    "filename": "d8bb9d1d655b44243a13b046c98889270a898f5073b75f67ca7b5298568ab87f.md",
-    "source_url": "https://castlehard.com",
-    "depth": 0,
-    "scraped_at": "2026-02-15T19:03:11.837958",
-    "content_length": 2187,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "01bc7f6ebd28b68aa01b439f9d7b90985c38c7df83344ae3414fc5093d503d40",
-    "filename": "01bc7f6ebd28b68aa01b439f9d7b90985c38c7df83344ae3414fc5093d503d40.md",
-    "source_url": "https://castlehard.com/kontakt",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:12.030454",
-    "content_length": 709,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "05d82e5c24f6a46340afd52475a3d71c8ba2afc7ea3d7aabe11a2c3f5c48cd17",
-    "filename": "05d82e5c24f6a46340afd52475a3d71c8ba2afc7ea3d7aabe11a2c3f5c48cd17.md",
-    "source_url": "https://consent.google.com/ml?continue=https://www.google.com/maps/reviews/data%3D!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTUNJMzQ2YVlREAE!2m1!1s0x0:0x8a5d3210fd9a77e7!3m1!1s2@1:CIHM0ogKEICAgMCI346aYQ%257CCgsI_6bGvwYQuLeWAw%257C?entry%3Dtts%26g_ep%3DEgoyMDI1MDQwMi4xIPu8ASoASAFQAw%253D%253D%26skid%3D63fd2fd3-d6af-437c-85d4-3bc2d182b423&gl=DE&m=0&pc=m&uxe=eomtm&cm=2&hl=de&src=1",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:12.781530",
-    "content_length": 2356,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "ac4797eae504a9eba00e5267994922c34ead9de5fd6f9fc56da62115e6f287aa",
-    "filename": "ac4797eae504a9eba00e5267994922c34ead9de5fd6f9fc56da62115e6f287aa.md",
+    "hash": "b7472d5b0ffd1ea714df492f40bf1f1fd8d39fc914e436502f8fca92e1281f12",
+    "filename": "b7472d5b0ffd1ea714df492f40bf1f1fd8d39fc914e436502f8fca92e1281f12.md",
     "source_url": "https://www.utn.de/",
     "depth": 0,
-    "scraped_at": "2026-02-15T19:03:13.075631",
-    "content_length": 12037,
+    "scraped_at": "2026-02-15T19:35:11.105269",
+    "content_length": 11683,
     "language_detected": "unknown"
   },
   {
-    "hash": "a332f244838162bf73c3d974748c7616e831c2c81d6c36337f73a3aaf3efe2c6",
-    "filename": "a332f244838162bf73c3d974748c7616e831c2c81d6c36337f73a3aaf3efe2c6.md",
+    "hash": "66de4e15e91288ef449fcb814a501e44b4f7dc538d54de06eba0c7d65389b4ec",
+    "filename": "66de4e15e91288ef449fcb814a501e44b4f7dc538d54de06eba0c7d65389b4ec.md",
     "source_url": "https://www.utn.de/karriere/stellenangebote-verwaltung-technik/",
     "depth": 1,
-    "scraped_at": "2026-02-15T19:03:14.818443",
-    "content_length": 13597,
+    "scraped_at": "2026-02-15T19:35:12.372198",
+    "content_length": 13048,
     "language_detected": "unknown"
   },
   {
-    "hash": "7be212b5ba858644bde34dc58a2e925e66db44eef4bff62efb47a9291b94121a",
-    "filename": "7be212b5ba858644bde34dc58a2e925e66db44eef4bff62efb47a9291b94121a.md",
-    "source_url": "https://www.utn.de/karriere/stellenangebote-professuren/",
+    "hash": "fea75654410ef3e01a62894b5fa84f6dbb4aa38c198914bf22517b8474787eb8",
+    "filename": "fea75654410ef3e01a62894b5fa84f6dbb4aa38c198914bf22517b8474787eb8.md",
+    "source_url": "https://www.utn.de/presse/",
     "depth": 1,
-    "scraped_at": "2026-02-15T19:03:14.854356",
-    "content_length": 16759,
+    "scraped_at": "2026-02-15T19:35:12.446800",
+    "content_length": 8869,
     "language_detected": "unknown"
   },
   {
-    "hash": "601e2e09d4bce99e4073a08d5236af49715dc65589d595fcc78bd3864e159ccb",
-    "filename": "601e2e09d4bce99e4073a08d5236af49715dc65589d595fcc78bd3864e159ccb.md",
+    "hash": "8247292c203a4264eb9d9c337c8a89a809a77ceb75783622e98f69f1988a4f10",
+    "filename": "8247292c203a4264eb9d9c337c8a89a809a77ceb75783622e98f69f1988a4f10.md",
     "source_url": "https://www.utn.de/en/",
     "depth": 1,
-    "scraped_at": "2026-02-15T19:03:14.985955",
-    "content_length": 11501,
+    "scraped_at": "2026-02-15T19:35:12.676001",
+    "content_length": 11133,
     "language_detected": "unknown"
   },
   {
@@ -67,809 +40,809 @@
     "filename": "49aa69e038d5e7932a93fd5b31a877b6afe435fa1cf0a4069bd2219147a1384b.md",
     "source_url": "https://www.nuernberg.de/internet/stadtportal/technische_universitaet_nuernberg.html",
     "depth": 1,
-    "scraped_at": "2026-02-15T19:03:15.027994",
+    "scraped_at": "2026-02-15T19:35:12.707317",
     "content_length": 16099,
     "language_detected": "unknown"
   },
   {
-    "hash": "29f7dbc6e44bc9dd11d74d3cc41e7e92de46d2cacfaa90c2a04b95f0e2f3d00e",
-    "filename": "29f7dbc6e44bc9dd11d74d3cc41e7e92de46d2cacfaa90c2a04b95f0e2f3d00e.md",
+    "hash": "1d323b7f30219efb464d5c0995f08b83fda5e96c91e477bc579e5d78a65472ca",
+    "filename": "1d323b7f30219efb464d5c0995f08b83fda5e96c91e477bc579e5d78a65472ca.md",
     "source_url": "https://www.stmwk.bayern.de/",
     "depth": 1,
-    "scraped_at": "2026-02-15T19:03:15.222972",
-    "content_length": 4766,
+    "scraped_at": "2026-02-15T19:35:12.828321",
+    "content_length": 4621,
     "language_detected": "unknown"
   },
   {
-    "hash": "124a72098727dc7e8f2c651946b1c06e0ab45df1c68331bdc479c7808e9e56f0",
-    "filename": "124a72098727dc7e8f2c651946b1c06e0ab45df1c68331bdc479c7808e9e56f0.md",
+    "hash": "1be8a972fd250850de57f62f9f85ff59b8e1ef06d75daf827d43b97617fe6138",
+    "filename": "1be8a972fd250850de57f62f9f85ff59b8e1ef06d75daf827d43b97617fe6138.md",
     "source_url": "https://www.studieren-in-bayern.de/",
     "depth": 1,
-    "scraped_at": "2026-02-15T19:03:15.257511",
-    "content_length": 5813,
+    "scraped_at": "2026-02-15T19:35:12.942861",
+    "content_length": 5779,
     "language_detected": "unknown"
   },
   {
-    "hash": "aa0d4ac172b78abd5b6c3b8fd7b483c296942fb165d6a62a696a239831cbaa08",
-    "filename": "aa0d4ac172b78abd5b6c3b8fd7b483c296942fb165d6a62a696a239831cbaa08.md",
-    "source_url": "https://shop.utn.de/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:16.047522",
-    "content_length": 2448,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "3cf42911bc4d371028b3409e277886b4a13e9425ef0f2df632a62939af58c82e",
-    "filename": "3cf42911bc4d371028b3409e277886b4a13e9425ef0f2df632a62939af58c82e.md",
-    "source_url": "https://www.utn.de/vergabebekanntmachungen/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:16.992418",
-    "content_length": 8449,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "f137cfd8cda4de62db02fe3dcbd07c77f8bf21af4824a8a0a66dafa23af494e2",
-    "filename": "f137cfd8cda4de62db02fe3dcbd07c77f8bf21af4824a8a0a66dafa23af494e2.md",
-    "source_url": "https://www.utn.de/barrierefreiheit/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:18.474012",
-    "content_length": 9104,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "a983f8f8048c32d7196912d682a6dbd6e174ea813d3b808a6cd5f4b29ddf6f2d",
-    "filename": "a983f8f8048c32d7196912d682a6dbd6e174ea813d3b808a6cd5f4b29ddf6f2d.md",
-    "source_url": "https://www.utn.de/events/online-info-session-zum-studium-an-der-utn-3/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:18.508882",
-    "content_length": 7233,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "100055eac751b09e091257191e2c8ac135632c733505b371d70a755b82df47d8",
-    "filename": "100055eac751b09e091257191e2c8ac135632c733505b371d70a755b82df47d8.md",
-    "source_url": "https://www.utn.de/events/universityfuture-festival-2026/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:18.523526",
-    "content_length": 8078,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "8550a2db75bb589ffe6688d109464488bd54323461207e4bbe7bb1f7c0d5f7fb",
-    "filename": "8550a2db75bb589ffe6688d109464488bd54323461207e4bbe7bb1f7c0d5f7fb.md",
-    "source_url": "https://www.utn.de/kontakt/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:18.571585",
-    "content_length": 8196,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "c966d6d4c19b15e499401face5d65b576ef65efb66a3bc43b26b0e8d60e9e51f",
-    "filename": "c966d6d4c19b15e499401face5d65b576ef65efb66a3bc43b26b0e8d60e9e51f.md",
-    "source_url": "https://www.utn.de/events/online-info-session-zum-studium-an-der-utn-2/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:18.757111",
-    "content_length": 7239,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "6df74f6dbff7d95974e5ac8d0d2d3e73db44e68aa25af4220b08a4e56e1d6609",
-    "filename": "6df74f6dbff7d95974e5ac8d0d2d3e73db44e68aa25af4220b08a4e56e1d6609.md",
-    "source_url": "https://www.utn.de/2025/12/15/technische-universitaet-nuernberg-tritt-allianz-gegen-rechtsextremismus-bei/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:20.125370",
-    "content_length": 9565,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "c653e31026ebdba173278755baa2c2e4cefac600e62591d819c852a63dfa7e12",
-    "filename": "c653e31026ebdba173278755baa2c2e4cefac600e62591d819c852a63dfa7e12.md",
-    "source_url": "https://www.utn.de/2025/12/10/expertenkommission-zum-energiewende-monitoring-mit-prof-veronika-grimm-legt-bericht-vor/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:20.193861",
-    "content_length": 10607,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "fd7a145952e3829c63ea129961c8694811a2c4789706ccf07adc675d415cdedc",
-    "filename": "fd7a145952e3829c63ea129961c8694811a2c4789706ccf07adc675d415cdedc.md",
-    "source_url": "https://www.utn.de/2026/02/12/arina-zonner-wird-die-erste-gruendungsvizepraesidentin-fuer-beschaeftigte-alumni-und-gleichstellung-an-der-utn/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:20.274985",
-    "content_length": 12529,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "add1cc2551f416446223fb5278c1764b5232a308e4f7ad212b2f8dd988be3cdb",
-    "filename": "add1cc2551f416446223fb5278c1764b5232a308e4f7ad212b2f8dd988be3cdb.md",
-    "source_url": "https://www.utn.de/2025/12/22/klimaneutralitaet-2040-utn-veroeffentlicht-konzept-fuer-nachhaltigen-aufbau/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:20.312111",
-    "content_length": 10478,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "b7c943999293f2db03c97e4f1f3842cf0b7ff4374f4a13981a067620640334a5",
-    "filename": "b7c943999293f2db03c97e4f1f3842cf0b7ff4374f4a13981a067620640334a5.md",
-    "source_url": "https://www.utn.de/karriere/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:20.336196",
-    "content_length": 12882,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "b1eb4ebb8a6b5a6df2cb96087521f6b3cbd6847e178d9749b41a4f2dac5ccec5",
-    "filename": "b1eb4ebb8a6b5a6df2cb96087521f6b3cbd6847e178d9749b41a4f2dac5ccec5.md",
-    "source_url": "https://www.utn.de/2026/01/09/utn-feiert-auftakt-ihres-fuenfjaehrigen-jubilaeumsjahres/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:20.380577",
-    "content_length": 9694,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "1466d47cb2f32f575a55fb1b14c65f1998d6608492f602020f6dcff4209abf53",
-    "filename": "1466d47cb2f32f575a55fb1b14c65f1998d6608492f602020f6dcff4209abf53.md",
-    "source_url": "https://www.utn.de/bavarian-ai-taxation-laboratory/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:21.310649",
-    "content_length": 10099,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "c37bbfd8bfe98b12753e282fbd2d86b168e21d7706f3066b48c957fbdc41ba83",
-    "filename": "c37bbfd8bfe98b12753e282fbd2d86b168e21d7706f3066b48c957fbdc41ba83.md",
-    "source_url": "https://www.utn.de/forschung/promotion/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:21.330540",
-    "content_length": 10391,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "76d5766f8a74f6fb8866872b0a1f4a2d50213db78c258bd281e311f73f949c88",
-    "filename": "76d5766f8a74f6fb8866872b0a1f4a2d50213db78c258bd281e311f73f949c88.md",
-    "source_url": "https://www.utn.de/forschung/agile-teams/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:21.843546",
-    "content_length": 11210,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "8efb514996fec6e073b315490c960bba4ab62ec71f5f69191684688422d8e26a",
-    "filename": "8efb514996fec6e073b315490c960bba4ab62ec71f5f69191684688422d8e26a.md",
-    "source_url": "https://www.utn.de/forschung/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:22.196782",
-    "content_length": 10539,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "ac157a19c3f918b3c03da692d3dc72022e050e93b7d3b70859c7e98c9bb391c0",
-    "filename": "ac157a19c3f918b3c03da692d3dc72022e050e93b7d3b70859c7e98c9bb391c0.md",
-    "source_url": "https://www.utn.de/forschung/forschungs-und-transferservice/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:22.352269",
-    "content_length": 10805,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "d87dc7477f4f0c9a2b776fb5e1173fd3a109e7d0d7a2eb9a4c6ea0f217e501ac",
-    "filename": "d87dc7477f4f0c9a2b776fb5e1173fd3a109e7d0d7a2eb9a4c6ea0f217e501ac.md",
-    "source_url": "https://www.utn.de/departments/department-liberal-arts-and-social-sciences/discrete-optimization/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:23.052843",
-    "content_length": 13114,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "45f6d59244a9eaac7d711221edc8afaf300a9df56a18158ef4d0e35d91b991c7",
-    "filename": "45f6d59244a9eaac7d711221edc8afaf300a9df56a18158ef4d0e35d91b991c7.md",
-    "source_url": "https://www.utn.de/departments/department-liberal-arts-and-social-sciences/early-modern/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:23.157221",
-    "content_length": 16440,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "47464ba51132e95832179b13a2a13a0ba588f170204e3db961d5f3abec5ed0e0",
-    "filename": "47464ba51132e95832179b13a2a13a0ba588f170204e3db961d5f3abec5ed0e0.md",
-    "source_url": "https://www.utn.de/departments/department-liberal-arts-and-social-sciences/cognitive-psychology/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:24.295295",
-    "content_length": 16998,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "5cd0f1f4b20fe5cd78edcf95564fa408bd42f874628ca728866f85f4cae093af",
-    "filename": "5cd0f1f4b20fe5cd78edcf95564fa408bd42f874628ca728866f85f4cae093af.md",
-    "source_url": "https://www.utn.de/departments/department-liberal-arts-and-social-sciences/cognitive-psychology/forschungsprojekte-cpl/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:24.506306",
-    "content_length": 10626,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "8a1a4ec22dddb4bf0214a78e8533d398e267290c69fa89b0474216008a00d70f",
-    "filename": "8a1a4ec22dddb4bf0214a78e8533d398e267290c69fa89b0474216008a00d70f.md",
-    "source_url": "https://www.utn.de/departments/department-liberal-arts-and-social-sciences/applied-discrete-mathematics/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:25.061702",
-    "content_length": 13157,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "8e6fc7b861cbdda30ee62cc76a1d05335e0b220671cf8564dcca2158d03420ec",
-    "filename": "8e6fc7b861cbdda30ee62cc76a1d05335e0b220671cf8564dcca2158d03420ec.md",
-    "source_url": "https://www.utn.de/departments/department-liberal-arts-and-social-sciences/cognitive-neuroscience/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:25.088402",
-    "content_length": 10137,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "f89f5af02e6fe510bc129f4b29af3e92717a1b810861b32d816a4173c50b8661",
-    "filename": "f89f5af02e6fe510bc129f4b29af3e92717a1b810861b32d816a4173c50b8661.md",
-    "source_url": "https://www.utn.de/departments/department-liberal-arts-and-social-sciences/classics/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:25.110373",
-    "content_length": 14872,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "34a2456360438f0356d10f24f56e8d55d71e45b21b5aca11c32d99d70e1b24cd",
-    "filename": "34a2456360438f0356d10f24f56e8d55d71e45b21b5aca11c32d99d70e1b24cd.md",
-    "source_url": "https://www.utn.de/departments/department-liberal-arts-and-social-sciences/analytics-and-optimization/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:26.040142",
-    "content_length": 14730,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "d3f77a4e87a0da3382763276441cbd28b1331710c32022519339a754b7436983",
-    "filename": "d3f77a4e87a0da3382763276441cbd28b1331710c32022519339a754b7436983.md",
-    "source_url": "https://www.utn.de/departments/department-liberal-arts-and-social-sciences/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:26.064597",
-    "content_length": 10644,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "1b40966e0d2e74e4686cf5c5dd59fde136842178155c3ac394eba50e0a0c2ba3",
-    "filename": "1b40966e0d2e74e4686cf5c5dd59fde136842178155c3ac394eba50e0a0c2ba3.md",
-    "source_url": "https://www.utn.de/departments/department-computer-science-artificial-intelligence/nllg/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:26.378271",
-    "content_length": 11625,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "e819c19fbd56375db67311b613a0ef11000c9c1521c195c99bb99763a6b21dfc",
-    "filename": "e819c19fbd56375db67311b613a0ef11000c9c1521c195c99bb99763a6b21dfc.md",
-    "source_url": "https://www.utn.de/departments/department-computer-science-artificial-intelligence/machine-learning-and-positioning-systems/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:26.578439",
-    "content_length": 11173,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "44f814b2ef05b7d11a7e4501a20b2e065f806cb0764b305c02ca16051e857514",
-    "filename": "44f814b2ef05b7d11a7e4501a20b2e065f806cb0764b305c02ca16051e857514.md",
-    "source_url": "https://www.utn.de/departments/department-computer-science-artificial-intelligence/nlu/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:26.645625",
-    "content_length": 11348,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "a73691adba934f2fbd0c9d9a364b83b8ef5ef5b253d9010575709d53c9ec97ae",
-    "filename": "a73691adba934f2fbd0c9d9a364b83b8ef5ef5b253d9010575709d53c9ec97ae.md",
-    "source_url": "https://www.utn.de/departments/department-computer-science-artificial-intelligence/learning-technologies/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:27.435320",
-    "content_length": 11986,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "e60d52a4bb9053e80b8b21c0e33ec22094d1cd6810458ca54292c1dfb026d04b",
-    "filename": "e60d52a4bb9053e80b8b21c0e33ec22094d1cd6810458ca54292c1dfb026d04b.md",
-    "source_url": "https://www.utn.de/departments/department-computer-science-artificial-intelligence/machine-learning/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:27.736813",
-    "content_length": 14639,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "1fe6e31ead2ab74e6a06e940ed4e0595bb6047a49258366608ae17af70d2b9b6",
-    "filename": "1fe6e31ead2ab74e6a06e940ed4e0595bb6047a49258366608ae17af70d2b9b6.md",
-    "source_url": "https://www.utn.de/departments/department-computer-science-artificial-intelligence/artificial-intelligence-and-robotics/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:29.722928",
-    "content_length": 15794,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "95001f63d04fa31f40b0f0182d411549f8281ccd111d6a4f7fa1347539b86d98",
-    "filename": "95001f63d04fa31f40b0f0182d411549f8281ccd111d6a4f7fa1347539b86d98.md",
-    "source_url": "https://www.utn.de/departments/department-computer-science-artificial-intelligence/assistive-and-rehabilitation-robotics/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:29.749685",
-    "content_length": 9624,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "25e2f58a19bc238f9425d0cf335ae4955bf4505a91579e7be6b290c6303fc09e",
-    "filename": "25e2f58a19bc238f9425d0cf335ae4955bf4505a91579e7be6b290c6303fc09e.md",
-    "source_url": "https://www.utn.de/departments/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:30.416666",
-    "content_length": 11039,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "a2d72c7327e90febafa87d56f2db735d020c5659f00141228c3eb3a973d026e7",
-    "filename": "a2d72c7327e90febafa87d56f2db735d020c5659f00141228c3eb3a973d026e7.md",
-    "source_url": "https://www.utn.de/departments/department-computer-science-artificial-intelligence/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:30.444769",
-    "content_length": 15332,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "c60edb582671a145ad28eb03e38211363f6be52e382bc167766efb447b9a0b74",
-    "filename": "c60edb582671a145ad28eb03e38211363f6be52e382bc167766efb447b9a0b74.md",
-    "source_url": "https://www.utn.de/studium/faq/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:31.471097",
-    "content_length": 19436,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "9eb4fc84a14e57425d6370f4ff5a63a59de9b73a011e03b09c76faa216a5617b",
-    "filename": "9eb4fc84a14e57425d6370f4ff5a63a59de9b73a011e03b09c76faa216a5617b.md",
-    "source_url": "https://www.utn.de/studium/kontakt-stars/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:31.515819",
-    "content_length": 11479,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "50374669809c3d5a5c0b4855b9d294b7c909874258fd81ed3cf98fc79812fa4d",
-    "filename": "50374669809c3d5a5c0b4855b9d294b7c909874258fd81ed3cf98fc79812fa4d.md",
-    "source_url": "https://www.utn.de/studium/tipps-fuer-den-alltag/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:31.706942",
-    "content_length": 14122,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "dfb46fbbed02fd513979cb43dd31815551ff07599644248e6f8a40a39c414804",
-    "filename": "dfb46fbbed02fd513979cb43dd31815551ff07599644248e6f8a40a39c414804.md",
-    "source_url": "https://www.utn.de/studium/stipendium/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:31.728488",
-    "content_length": 12531,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "7fc50695129e3526a134c94a29a10cbb3e1ef657b6a528e5141f52ce1526f481",
-    "filename": "7fc50695129e3526a134c94a29a10cbb3e1ef657b6a528e5141f52ce1526f481.md",
-    "source_url": "https://www.utn.de/studium/finanzielle-aspekte/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:31.759586",
-    "content_length": 10668,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "e79a673b456bf2e37f8934371b142f5bdd287bd353999ec0e5528dcbee59db3c",
-    "filename": "e79a673b456bf2e37f8934371b142f5bdd287bd353999ec0e5528dcbee59db3c.md",
-    "source_url": "https://www.utn.de/studium/visum-und-aufenthaltstitel/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:32.591147",
-    "content_length": 12787,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "cfca2df9f24ff72d34e956d8bf86be86689f76e8a488e4b2e6ccafe48ea8d496",
-    "filename": "cfca2df9f24ff72d34e956d8bf86be86689f76e8a488e4b2e6ccafe48ea8d496.md",
-    "source_url": "https://www.utn.de/studium/versicherungssystem/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:32.651020",
-    "content_length": 12945,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "89bed36223215769432bdf304cccc86fe07baa3574c578aafb7e234383494611",
-    "filename": "89bed36223215769432bdf304cccc86fe07baa3574c578aafb7e234383494611.md",
-    "source_url": "https://www.utn.de/studium/einwohnermeldeamt/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:32.892142",
-    "content_length": 9531,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "6fda7d1f88b2d315a5c56e370adf6a69f722ff4f025eb33082c166e0cd3ab988",
-    "filename": "6fda7d1f88b2d315a5c56e370adf6a69f722ff4f025eb33082c166e0cd3ab988.md",
-    "source_url": "https://www.utn.de/studium/dein-start-an-der-utn/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:34.234029",
-    "content_length": 11488,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "40e5358b9d8922edf02f939dbda37e0279c63a0945dc4ae6a04233577d7d0708",
-    "filename": "40e5358b9d8922edf02f939dbda37e0279c63a0945dc4ae6a04233577d7d0708.md",
-    "source_url": "https://www.utn.de/studium/deutsche-mietvertraege/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:34.260639",
-    "content_length": 16363,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "0bd532fb1bc42a4d7f5bf7a1edf861b0835c2b6d5764b8d17362404765190d36",
-    "filename": "0bd532fb1bc42a4d7f5bf7a1edf861b0835c2b6d5764b8d17362404765190d36.md",
-    "source_url": "https://www.utn.de/studium/human-and-artificial-intelligence/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:34.285996",
-    "content_length": 19318,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "dfa2b30dc3cbdba3344b1395ec01418e3b668dd27853708b4b8b9ed6fa9b64be",
-    "filename": "dfa2b30dc3cbdba3344b1395ec01418e3b668dd27853708b4b8b9ed6fa9b64be.md",
-    "source_url": "https://www.utn.de/studium/immatrikulation/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:34.307462",
-    "content_length": 12040,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "8421bb8dac595b80e535dcb28a2c94b5a172a81c29059d57c1be5867e3b80f53",
-    "filename": "8421bb8dac595b80e535dcb28a2c94b5a172a81c29059d57c1be5867e3b80f53.md",
-    "source_url": "https://www.utn.de/studium/zentrale-studienberatung/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:34.322446",
-    "content_length": 9753,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "dc22c73f8c46b5dbaed0afa83a841ff03123fc57dae9502fe8ea0998d67cdde1",
-    "filename": "dc22c73f8c46b5dbaed0afa83a841ff03123fc57dae9502fe8ea0998d67cdde1.md",
-    "source_url": "https://www.utn.de/studium/ai-robotics/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:35.179710",
-    "content_length": 16731,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "169b798eb0bbe506a1cda35a2af17d18469105d1e8e0cbd9a3e2f2aa882dd5da",
-    "filename": "169b798eb0bbe506a1cda35a2af17d18469105d1e8e0cbd9a3e2f2aa882dd5da.md",
-    "source_url": "https://www.utn.de/studium/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:35.239396",
-    "content_length": 12809,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "2277f7764ebd35f1c7569a7e358304dcc0c9b40e1a1c3869bcb170327043d930",
-    "filename": "2277f7764ebd35f1c7569a7e358304dcc0c9b40e1a1c3869bcb170327043d930.md",
-    "source_url": "https://www.utn.de/ueber/anreise/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:36.180685",
-    "content_length": 9465,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "366afbbd8e0690abbe4876306dadc7944606a7ae9a47032f5d9073cdce1dd7e4",
-    "filename": "366afbbd8e0690abbe4876306dadc7944606a7ae9a47032f5d9073cdce1dd7e4.md",
-    "source_url": "https://www.utn.de/ueber/standorte/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:36.473408",
-    "content_length": 9088,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "ea50e9d03af95289ccf31662bbc8ad5188d23def651bea08535ed9d96885142c",
-    "filename": "ea50e9d03af95289ccf31662bbc8ad5188d23def651bea08535ed9d96885142c.md",
-    "source_url": "https://www.utn.de/ueber/rechtsdokumente/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:36.492799",
-    "content_length": 9832,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "46a384f220cb5e1f0ecbf21909f732d3821afc95044daa0d01e708b14901207f",
-    "filename": "46a384f220cb5e1f0ecbf21909f732d3821afc95044daa0d01e708b14901207f.md",
-    "source_url": "https://www.utn.de/ueber/new-work/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:36.509335",
-    "content_length": 8813,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "d27fe79f696e34ff4133e95f3fcf59f75a360a43cfb25d925ce7884723406d07",
-    "filename": "d27fe79f696e34ff4133e95f3fcf59f75a360a43cfb25d925ce7884723406d07.md",
-    "source_url": "https://www.utn.de/ueber/vielfalt-gleichberechtigung-und-inklusion/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:36.528018",
-    "content_length": 10004,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "421d28278b4345d7bd0796e5d2020d750e360e4b6cf0c00a98a682de9d003554",
-    "filename": "421d28278b4345d7bd0796e5d2020d750e360e4b6cf0c00a98a682de9d003554.md",
-    "source_url": "https://www.utn.de/ueber/nachhaltigkeit/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:37.372214",
-    "content_length": 9512,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "0183f0779c149b296b7b52b412890a726ec66b1eb98246b4babf61b6575e55f9",
-    "filename": "0183f0779c149b296b7b52b412890a726ec66b1eb98246b4babf61b6575e55f9.md",
-    "source_url": "https://www.utn.de/ueber/klimaschutz/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:37.406824",
-    "content_length": 16681,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "f2036b690221c672a28ce97cfd08f70710990e4c3dfe7166b4aae346a230b1fa",
-    "filename": "f2036b690221c672a28ce97cfd08f70710990e4c3dfe7166b4aae346a230b1fa.md",
-    "source_url": "https://www.utn.de/ueber/baufortschritt/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:37.638628",
-    "content_length": 13638,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "50a9447d63de5a07e207254c29f342cdee9f2ad2296d9664eb22062c059db847",
-    "filename": "50a9447d63de5a07e207254c29f342cdee9f2ad2296d9664eb22062c059db847.md",
-    "source_url": "https://www.utn.de/ueber/experience-cubes/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:37.655630",
-    "content_length": 8668,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "c8fa2b0a00d90b131a05e7bdceb85d2b7ffad275e24a9c65cdb6de4984f9e85e",
-    "filename": "c8fa2b0a00d90b131a05e7bdceb85d2b7ffad275e24a9c65cdb6de4984f9e85e.md",
-    "source_url": "https://www.utn.de/ueber/campus/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:39.265401",
-    "content_length": 19284,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "3d4f6f53ad91adbf09bde08c17ad5c7e9548b70b6135e42740c358493bedd295",
-    "filename": "3d4f6f53ad91adbf09bde08c17ad5c7e9548b70b6135e42740c358493bedd295.md",
-    "source_url": "https://www.utn.de/ueber/meilensteine-2/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:39.300406",
-    "content_length": 35433,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "5f57012352c736b59a6102981b85fad680c61160b74b6089ca8c891d4a59caf6",
-    "filename": "5f57012352c736b59a6102981b85fad680c61160b74b6089ca8c891d4a59caf6.md",
-    "source_url": "https://www.utn.de/ueber/graduate-school/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:39.424960",
-    "content_length": 11377,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "03c20438f1949083b155632a54ef7c7096c50b4da30f3c2d7b99e7be410be12a",
-    "filename": "03c20438f1949083b155632a54ef7c7096c50b4da30f3c2d7b99e7be410be12a.md",
-    "source_url": "https://www.utn.de/ueber/graduate-school/forschung-und-betreuung/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:39.444790",
-    "content_length": 10848,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "0507ace228377a3f54c7a266d985bbc357dd155a5df35c9edff9b7362d126cfa",
-    "filename": "0507ace228377a3f54c7a266d985bbc357dd155a5df35c9edff9b7362d126cfa.md",
-    "source_url": "https://www.utn.de/ueber/internationales-engagement/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:39.464780",
-    "content_length": 11185,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "3b922e24405dfbda0f94cfc57cbefc7a885efb0d5bd2a784e589d4feda224939",
-    "filename": "3b922e24405dfbda0f94cfc57cbefc7a885efb0d5bd2a784e589d4feda224939.md",
-    "source_url": "https://www.utn.de/ueber/graduate-school/promotionsleitfaden/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:39.496423",
-    "content_length": 19550,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "35e0f1465f9452e0efe0feff30a17478015c1d497299464c9dd9ab603d118693",
-    "filename": "35e0f1465f9452e0efe0feff30a17478015c1d497299464c9dd9ab603d118693.md",
-    "source_url": "https://www.utn.de/ueber/hochschulvertrag/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:40.279092",
-    "content_length": 12756,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "1144af898be0b42169170b880b4a2832c9bf576387ce773a5c47d2de99b9efaf",
-    "filename": "1144af898be0b42169170b880b4a2832c9bf576387ce773a5c47d2de99b9efaf.md",
-    "source_url": "https://www.utn.de/ueber/organisation/gruendungskommission/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:40.877543",
-    "content_length": 9973,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "065220434cbb24c594432d6c44be7c3a38df34f5ed9564a60673ad118670c4aa",
-    "filename": "065220434cbb24c594432d6c44be7c3a38df34f5ed9564a60673ad118670c4aa.md",
-    "source_url": "https://www.utn.de/ueber/organisation/gruendungspraesidium/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:41.389365",
-    "content_length": 14085,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "cd4aaac476cb311b3d80d80bfb31578efc042ff4770dd5a0cdb6bf50ed28b5f6",
-    "filename": "cd4aaac476cb311b3d80d80bfb31578efc042ff4770dd5a0cdb6bf50ed28b5f6.md",
-    "source_url": "https://www.utn.de/ueber/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:42.375392",
-    "content_length": 8916,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "25534909eaf6112889b2e3e02c9c8ca196e5a1fe2bb632613d15cf9fbdb699ab",
-    "filename": "25534909eaf6112889b2e3e02c9c8ca196e5a1fe2bb632613d15cf9fbdb699ab.md",
-    "source_url": "https://www.utn.de/ueber/organisation/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:42.453998",
-    "content_length": 9816,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "88077e7f889ed02e42185a8c3569acbf8d7c84f8ad5e52e9cc3c92bfac99396c",
-    "filename": "88077e7f889ed02e42185a8c3569acbf8d7c84f8ad5e52e9cc3c92bfac99396c.md",
-    "source_url": "https://www.utn.de/studium/arbeiten-neben-dem-studium/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:43.212124",
-    "content_length": 12337,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "3bc162413185603d5b011e0a16ce2eb021293eefbf451cc1453093e7892a8d4e",
-    "filename": "3bc162413185603d5b011e0a16ce2eb021293eefbf451cc1453093e7892a8d4e.md",
-    "source_url": "https://www.utn.de/studium/infos-fuer-internationals/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:43.340467",
-    "content_length": 11239,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "5e5f637b92e6d5c1db5b5a51d4e11e233bbfde47528f26f5c5357f0a14983e6e",
-    "filename": "5e5f637b92e6d5c1db5b5a51d4e11e233bbfde47528f26f5c5357f0a14983e6e.md",
-    "source_url": "https://www.utn.de/studium/lehr-und-lernkonzept/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:43.374238",
-    "content_length": 16542,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "76b1369ae910eb38588df967e5c9b1565e12cd1ac2d747fde676b1e7f335ec77",
-    "filename": "76b1369ae910eb38588df967e5c9b1565e12cd1ac2d747fde676b1e7f335ec77.md",
-    "source_url": "https://www.utn.de/ueber/jubilaeum-2026/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:44.157872",
-    "content_length": 17231,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "08a714a248ba0049b5acf000402e68250ff55b8b284d5ff368333f32a775e40a",
-    "filename": "08a714a248ba0049b5acf000402e68250ff55b8b284d5ff368333f32a775e40a.md",
-    "source_url": "https://www.utn.de/departments/department-computer-science-artificial-intelligence/data-systems/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:44.180519",
-    "content_length": 8982,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "35d2db25c95c292203d113dc336a39a19c483213a862cb10184ba37687988965",
-    "filename": "35d2db25c95c292203d113dc336a39a19c483213a862cb10184ba37687988965.md",
-    "source_url": "https://www.utn.de/departments/department-liberal-arts-and-social-sciences/energy-systems-and-market-design/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:44.573808",
-    "content_length": 11986,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "389c20ccb946859c0261b1def91f7d291c2a025cd1e7af16f6a5f9e39f98cc11",
-    "filename": "389c20ccb946859c0261b1def91f7d291c2a025cd1e7af16f6a5f9e39f98cc11.md",
-    "source_url": "https://www.utn.de/departments/department-computer-science-artificial-intelligence/funai/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:44.660782",
-    "content_length": 10040,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "e797847a2ef1d6c48823cb3534f754299127edb3569071619f786a517dcc8169",
-    "filename": "e797847a2ef1d6c48823cb3534f754299127edb3569071619f786a517dcc8169.md",
-    "source_url": "https://www.utn.de/events/online-info-session-zum-studium-an-der-utn/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:45.646793",
-    "content_length": 7239,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "9d6e8ea1fd48b8ed286590429fbdc299edc7ce2ff649c1547661698ee2eba54e",
-    "filename": "9d6e8ea1fd48b8ed286590429fbdc299edc7ce2ff649c1547661698ee2eba54e.md",
-    "source_url": "https://www.utn.de/hinweisgeber/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:45.667028",
-    "content_length": 9062,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "c5c92ae74e1c77add0d6ffef21f1ec200dc1dc33bd79e306651f96862d0e434c",
-    "filename": "c5c92ae74e1c77add0d6ffef21f1ec200dc1dc33bd79e306651f96862d0e434c.md",
-    "source_url": "https://www.utn.de/presse/",
-    "depth": 1,
-    "scraped_at": "2026-02-15T19:03:45.708495",
-    "content_length": 9179,
-    "language_detected": "unknown"
-  },
-  {
-    "hash": "87a2b9bb0237f4d8a044d16bb47b83fffd4aa752926f3d0d01116488510f8ba0",
-    "filename": "87a2b9bb0237f4d8a044d16bb47b83fffd4aa752926f3d0d01116488510f8ba0.md",
+    "hash": "c4ef8922054d339ab6ff611945e72ff34bd22e7379cb3822819228663649243f",
+    "filename": "c4ef8922054d339ab6ff611945e72ff34bd22e7379cb3822819228663649243f.md",
     "source_url": "https://www.utn.de/karriere/angebote-fuer-promovierende/",
     "depth": 1,
-    "scraped_at": "2026-02-15T19:03:45.727214",
-    "content_length": 9609,
+    "scraped_at": "2026-02-15T19:35:13.235182",
+    "content_length": 9349,
     "language_detected": "unknown"
   },
   {
-    "hash": "1a7210482e56d304c35254ade63ac2698039508b07e60d1775b5c035c0d2d6cc",
-    "filename": "1a7210482e56d304c35254ade63ac2698039508b07e60d1775b5c035c0d2d6cc.md",
+    "hash": "2f27673fbcf8e08787028fabc62daef066458c54c482be58db0d0bbccc8ecf67",
+    "filename": "2f27673fbcf8e08787028fabc62daef066458c54c482be58db0d0bbccc8ecf67.md",
     "source_url": "https://www.utn.de/presse/pressematerial/",
     "depth": 1,
-    "scraped_at": "2026-02-15T19:03:46.574574",
-    "content_length": 13052,
+    "scraped_at": "2026-02-15T19:35:13.396011",
+    "content_length": 12737,
     "language_detected": "unknown"
   },
   {
-    "hash": "fdae90b1b9d73115c88d928026bfac58accff5de8f8fd11035a7f893776f4428",
-    "filename": "fdae90b1b9d73115c88d928026bfac58accff5de8f8fd11035a7f893776f4428.md",
-    "source_url": "https://www.utn.de/departments/department-computer-science-artificial-intelligence/foundations-of-machine-learning/",
+    "hash": "3de05270af1f3b2aed00ab78d3c9b904bffe7aee30463b124d135600295324c0",
+    "filename": "3de05270af1f3b2aed00ab78d3c9b904bffe7aee30463b124d135600295324c0.md",
+    "source_url": "https://www.utn.de/karriere/stellenangebote-professuren/",
     "depth": 1,
-    "scraped_at": "2026-02-15T19:03:46.751256",
-    "content_length": 9185,
+    "scraped_at": "2026-02-15T19:35:13.791517",
+    "content_length": 16341,
     "language_detected": "unknown"
   },
   {
-    "hash": "56df9c7a3eea06932c1d747c53d1e5b81d300fb0e31eead1012e9bd8fc1a555b",
-    "filename": "56df9c7a3eea06932c1d747c53d1e5b81d300fb0e31eead1012e9bd8fc1a555b.md",
+    "hash": "232a42a6b618f5f8f02f482518532d5834106f5aad11d77bf1412a52a71ffba3",
+    "filename": "232a42a6b618f5f8f02f482518532d5834106f5aad11d77bf1412a52a71ffba3.md",
     "source_url": "https://www.utn.de/podcast-utn-explorer/",
     "depth": 1,
-    "scraped_at": "2026-02-15T19:03:47.392347",
-    "content_length": 16480,
+    "scraped_at": "2026-02-15T19:35:13.816137",
+    "content_length": 16131,
     "language_detected": "unknown"
   },
   {
-    "hash": "489dabba6067895370d02108812e721844fee2998a3f1eb0f874ed924b655561",
-    "filename": "489dabba6067895370d02108812e721844fee2998a3f1eb0f874ed924b655561.md",
+    "hash": "0b609ccae2b9103730aade3800a6784a3dfd7f41489a8a3494f3c8eb66dff796",
+    "filename": "0b609ccae2b9103730aade3800a6784a3dfd7f41489a8a3494f3c8eb66dff796.md",
+    "source_url": "https://www.utn.de/hinweisgeber/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:14.919942",
+    "content_length": 8802,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "ec51d90da277f333b81fa436881613e9f2a59479fd7645ff6c487a750acc2925",
+    "filename": "ec51d90da277f333b81fa436881613e9f2a59479fd7645ff6c487a750acc2925.md",
+    "source_url": "https://www.utn.de/vergabebekanntmachungen/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:15.004290",
+    "content_length": 8185,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "6e5db81f46f0e05ec7422530ee9eb95026b37cafb8505755b451e78fae8b6c76",
+    "filename": "6e5db81f46f0e05ec7422530ee9eb95026b37cafb8505755b451e78fae8b6c76.md",
+    "source_url": "https://www.utn.de/barrierefreiheit/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:15.047135",
+    "content_length": 8840,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "05d23c531a6a8451a21cc8c5f50e917849bfaf7e9a0d9c078aa30507c6b8caec",
+    "filename": "05d23c531a6a8451a21cc8c5f50e917849bfaf7e9a0d9c078aa30507c6b8caec.md",
+    "source_url": "https://www.utn.de/kontakt/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:16.086019",
+    "content_length": 7932,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "6a8a165d2b6bdae7ba602b1859688bf4d090fa6705517006fec8e6c64b72aac4",
+    "filename": "6a8a165d2b6bdae7ba602b1859688bf4d090fa6705517006fec8e6c64b72aac4.md",
+    "source_url": "https://www.utn.de/events/universityfuture-festival-2026/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:16.308953",
+    "content_length": 7814,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "c6d60a271279c8ab71eeb2b28ee59caeb6ba040094d8e8a3e4fc3dd32874a5d9",
+    "filename": "c6d60a271279c8ab71eeb2b28ee59caeb6ba040094d8e8a3e4fc3dd32874a5d9.md",
+    "source_url": "https://www.utn.de/events/online-info-session-zum-studium-an-der-utn-3/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:16.323783",
+    "content_length": 6969,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "6aa9ae340d73cc4d56b6287cefde96a09e4939fe60355bab691f71356f1ceb5a",
+    "filename": "6aa9ae340d73cc4d56b6287cefde96a09e4939fe60355bab691f71356f1ceb5a.md",
+    "source_url": "https://www.utn.de/events/online-info-session-zum-studium-an-der-utn/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:16.359104",
+    "content_length": 6979,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "3f9b3161c730ba1a1b5fbb55b8e68695cc2c932ac65ce8b7a1de0b9f2bf3bf65",
+    "filename": "3f9b3161c730ba1a1b5fbb55b8e68695cc2c932ac65ce8b7a1de0b9f2bf3bf65.md",
+    "source_url": "https://www.utn.de/events/online-info-session-zum-studium-an-der-utn-2/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:16.399869",
+    "content_length": 6975,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "749049f206074e1727924d27246720114d31d9f108e1a5540cc56c2faf9734a3",
+    "filename": "749049f206074e1727924d27246720114d31d9f108e1a5540cc56c2faf9734a3.md",
+    "source_url": "https://www.utn.de/2025/12/15/technische-universitaet-nuernberg-tritt-allianz-gegen-rechtsextremismus-bei/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:17.433438",
+    "content_length": 9301,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "bc00f15e31e8d81049dc1734b8f5f5b36cc560a9208d3c677d87817f168b3471",
+    "filename": "bc00f15e31e8d81049dc1734b8f5f5b36cc560a9208d3c677d87817f168b3471.md",
+    "source_url": "https://www.utn.de/2025/12/10/expertenkommission-zum-energiewende-monitoring-mit-prof-veronika-grimm-legt-bericht-vor/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:17.518172",
+    "content_length": 10343,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "129b332af5a1a728bf05fd667a535fd8a87b5ad96f85e307c1b247af638d82e6",
+    "filename": "129b332af5a1a728bf05fd667a535fd8a87b5ad96f85e307c1b247af638d82e6.md",
+    "source_url": "https://www.utn.de/2025/12/22/klimaneutralitaet-2040-utn-veroeffentlicht-konzept-fuer-nachhaltigen-aufbau/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:17.720811",
+    "content_length": 10214,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "7efcde1c02bf2024cc4ef9495ca6ee4c561bfc89e3395887baeb5c4a6d84f691",
+    "filename": "7efcde1c02bf2024cc4ef9495ca6ee4c561bfc89e3395887baeb5c4a6d84f691.md",
+    "source_url": "https://www.utn.de/2026/01/09/utn-feiert-auftakt-ihres-fuenfjaehrigen-jubilaeumsjahres/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:18.555484",
+    "content_length": 9430,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "7d38b312c60bcb29ef186289a7e284449bfd50f2453aef66795ad17a1341a994",
+    "filename": "7d38b312c60bcb29ef186289a7e284449bfd50f2453aef66795ad17a1341a994.md",
+    "source_url": "https://www.utn.de/2026/02/12/arina-zonner-wird-die-erste-gruendungsvizepraesidentin-fuer-beschaeftigte-alumni-und-gleichstellung-an-der-utn/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:18.677427",
+    "content_length": 12258,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "9a71cf6ee84c181ae2b4ffa5ebe2a6eba0f350444d3db96fa8230639c55776cd",
+    "filename": "9a71cf6ee84c181ae2b4ffa5ebe2a6eba0f350444d3db96fa8230639c55776cd.md",
+    "source_url": "https://www.utn.de/karriere/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:18.787732",
+    "content_length": 12361,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "8aeedb046b2c97dc0f0024cd1631c7572063f7368cb438393d1bf16f8e071e33",
+    "filename": "8aeedb046b2c97dc0f0024cd1631c7572063f7368cb438393d1bf16f8e071e33.md",
+    "source_url": "https://www.utn.de/forschung/agile-teams/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:18.804903",
+    "content_length": 10813,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "aca6335037cb5e43eaaa39f8df6b9f3dac7ff608d079969c8a120b38fbd9d12b",
+    "filename": "aca6335037cb5e43eaaa39f8df6b9f3dac7ff608d079969c8a120b38fbd9d12b.md",
+    "source_url": "https://shop.utn.de/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:19.032945",
+    "content_length": 2331,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "5906b8209b1c91d1e15d5175f6b26779d10771e4ff325b5ef5d9dc4c15061c1b",
+    "filename": "5906b8209b1c91d1e15d5175f6b26779d10771e4ff325b5ef5d9dc4c15061c1b.md",
+    "source_url": "https://www.utn.de/bavarian-ai-taxation-laboratory/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:19.848252",
+    "content_length": 9742,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "2a10a25c325a363e890a8b22bd4c5d58508b33e1d01375d11cfb4f7bddda2203",
+    "filename": "2a10a25c325a363e890a8b22bd4c5d58508b33e1d01375d11cfb4f7bddda2203.md",
+    "source_url": "https://www.utn.de/forschung/promotion/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:19.866010",
+    "content_length": 9961,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "90fc392660e328195e541e0412a446b7e7ec0bb17664a99e61779e55824805d1",
+    "filename": "90fc392660e328195e541e0412a446b7e7ec0bb17664a99e61779e55824805d1.md",
+    "source_url": "https://www.utn.de/forschung/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:20.065041",
+    "content_length": 10107,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "547553a6e935b376ca85a95e399f0dd0914d78b22aff29ea760243df16db4670",
+    "filename": "547553a6e935b376ca85a95e399f0dd0914d78b22aff29ea760243df16db4670.md",
+    "source_url": "https://www.utn.de/forschung/forschungs-und-transferservice/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:20.115746",
+    "content_length": 10356,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "5743a9667c546b1cf8ff96912ab1da675d3e1ddbd3299934c77aa765572215e0",
+    "filename": "5743a9667c546b1cf8ff96912ab1da675d3e1ddbd3299934c77aa765572215e0.md",
+    "source_url": "https://www.utn.de/departments/department-liberal-arts-and-social-sciences/energy-systems-and-market-design/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:21.047811",
+    "content_length": 11216,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "686850c5627b60debad670d239027d0956d9ca5678b7190373277fa1de539c21",
+    "filename": "686850c5627b60debad670d239027d0956d9ca5678b7190373277fa1de539c21.md",
+    "source_url": "https://www.utn.de/departments/department-liberal-arts-and-social-sciences/discrete-optimization/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:21.558816",
+    "content_length": 12780,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "a59c7b1ff91d95f8a188912c16d1de590942ddf0d444b30a468af18ec755c343",
+    "filename": "a59c7b1ff91d95f8a188912c16d1de590942ddf0d444b30a468af18ec755c343.md",
+    "source_url": "https://www.utn.de/departments/department-liberal-arts-and-social-sciences/early-modern/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:21.581764",
+    "content_length": 16056,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "1fde3b63638dc3f3824457594f2d4f107dfc72d67c6e3e205654f69baff31ff2",
+    "filename": "1fde3b63638dc3f3824457594f2d4f107dfc72d67c6e3e205654f69baff31ff2.md",
+    "source_url": "https://www.utn.de/departments/department-liberal-arts-and-social-sciences/cognitive-psychology/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:21.605689",
+    "content_length": 16606,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "fb8a192fdc0d72130e16b7057cbc90534f9f9465e3524de202da9318fc3a1c40",
+    "filename": "fb8a192fdc0d72130e16b7057cbc90534f9f9465e3524de202da9318fc3a1c40.md",
+    "source_url": "https://www.utn.de/departments/department-liberal-arts-and-social-sciences/cognitive-neuroscience/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:21.622951",
+    "content_length": 9777,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "bcdc916d9045cad53fe62c1790d17f52b9f45bbfc9ee430e80f246d91b528d3f",
+    "filename": "bcdc916d9045cad53fe62c1790d17f52b9f45bbfc9ee430e80f246d91b528d3f.md",
+    "source_url": "https://www.utn.de/departments/department-liberal-arts-and-social-sciences/cognitive-psychology/forschungsprojekte-cpl/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:21.642852",
+    "content_length": 10347,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "d884ff56c5d8d38e69ac00179537398f2d189b03b51ed91c43f3559b67cfd084",
+    "filename": "d884ff56c5d8d38e69ac00179537398f2d189b03b51ed91c43f3559b67cfd084.md",
+    "source_url": "https://www.utn.de/departments/department-liberal-arts-and-social-sciences/classics/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:22.372837",
+    "content_length": 14462,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "949dd88e09a7e572f1109cdc3114388a3d9b44bf97e3adca5dadc9c537d20272",
+    "filename": "949dd88e09a7e572f1109cdc3114388a3d9b44bf97e3adca5dadc9c537d20272.md",
+    "source_url": "https://www.utn.de/departments/department-liberal-arts-and-social-sciences/analytics-and-optimization/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:22.634811",
+    "content_length": 14110,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "16d812f903e36b0098aa0de2bdb9bf7ff6dbec6c6168e1e00e9ccc3e7cb96b93",
+    "filename": "16d812f903e36b0098aa0de2bdb9bf7ff6dbec6c6168e1e00e9ccc3e7cb96b93.md",
+    "source_url": "https://www.utn.de/departments/department-liberal-arts-and-social-sciences/applied-discrete-mathematics/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:23.633522",
+    "content_length": 12803,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "8edfca9940db60def92588f9c9158ab92443f64c18da20d9d63b91d3ef52507e",
+    "filename": "8edfca9940db60def92588f9c9158ab92443f64c18da20d9d63b91d3ef52507e.md",
+    "source_url": "https://www.utn.de/departments/department-liberal-arts-and-social-sciences/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:23.830743",
+    "content_length": 10241,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "dc34fdff2083567d84a5bcd94274440647f1c118994664029c779ce5a69a746d",
+    "filename": "dc34fdff2083567d84a5bcd94274440647f1c118994664029c779ce5a69a746d.md",
+    "source_url": "https://www.utn.de/departments/department-computer-science-artificial-intelligence/nlu/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:23.907806",
+    "content_length": 10969,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "a6ffa24e563a5801ee1736563822b20d835b1b70a40fe76e4adcf9d49ac282a7",
+    "filename": "a6ffa24e563a5801ee1736563822b20d835b1b70a40fe76e4adcf9d49ac282a7.md",
+    "source_url": "https://www.utn.de/departments/department-computer-science-artificial-intelligence/machine-learning/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:24.044689",
+    "content_length": 14104,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "3d9bd41358059427484fbc0ef53cf0e96a07a43622d8f9c5b20e54b523569cfb",
+    "filename": "3d9bd41358059427484fbc0ef53cf0e96a07a43622d8f9c5b20e54b523569cfb.md",
+    "source_url": "https://www.utn.de/departments/department-computer-science-artificial-intelligence/nllg/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:24.065984",
+    "content_length": 11212,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "4d802e5d45d97a663714eddfc9fbc8a09eb5de1694ad3213ba91aa44074654d2",
+    "filename": "4d802e5d45d97a663714eddfc9fbc8a09eb5de1694ad3213ba91aa44074654d2.md",
+    "source_url": "https://www.utn.de/departments/department-computer-science-artificial-intelligence/machine-learning-and-positioning-systems/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:24.083105",
+    "content_length": 10822,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "1b2af12e84b6dfb1d594514a03e46240bc791770e604b0807280de5cb16b5e93",
+    "filename": "1b2af12e84b6dfb1d594514a03e46240bc791770e604b0807280de5cb16b5e93.md",
+    "source_url": "https://www.utn.de/departments/department-computer-science-artificial-intelligence/funai/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:24.872944",
+    "content_length": 9623,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "5eced3616d19810ffe3861f114449cd01234795d1897b95ad4146903c77b392c",
+    "filename": "5eced3616d19810ffe3861f114449cd01234795d1897b95ad4146903c77b392c.md",
+    "source_url": "https://www.utn.de/departments/department-computer-science-artificial-intelligence/data-systems/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:25.062365",
+    "content_length": 8581,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "1fd5be0d280f5bfe5fa2a80d2f75a422a36c7dc49ca9be248a9d1300d907b3d9",
+    "filename": "1fd5be0d280f5bfe5fa2a80d2f75a422a36c7dc49ca9be248a9d1300d907b3d9.md",
+    "source_url": "https://www.utn.de/departments/department-computer-science-artificial-intelligence/foundations-of-machine-learning/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:25.649140",
+    "content_length": 8828,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "0b21cb760c3524e5451128fa5722d1180f4eed85cafd8d4cad83601135b9e916",
+    "filename": "0b21cb760c3524e5451128fa5722d1180f4eed85cafd8d4cad83601135b9e916.md",
+    "source_url": "https://www.utn.de/departments/department-computer-science-artificial-intelligence/artificial-intelligence-and-robotics/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:26.851694",
+    "content_length": 15136,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "61aecc443cc210b9b54d13e9d43cdde94e5ad766e3f3fd4f6822fd0899b011d5",
+    "filename": "61aecc443cc210b9b54d13e9d43cdde94e5ad766e3f3fd4f6822fd0899b011d5.md",
+    "source_url": "https://www.utn.de/departments/department-computer-science-artificial-intelligence/assistive-and-rehabilitation-robotics/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:26.904411",
+    "content_length": 9306,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "20ae37feb76559cca35ef805d9c4a9df288223a07595d49b5fa07ee597f1b2bf",
+    "filename": "20ae37feb76559cca35ef805d9c4a9df288223a07595d49b5fa07ee597f1b2bf.md",
+    "source_url": "https://www.utn.de/departments/department-computer-science-artificial-intelligence/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:27.042064",
+    "content_length": 14794,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "a6f679cc04dd976bc8b000fe1e022e4e5cdd35c3e603599e7669e868d9899415",
+    "filename": "a6f679cc04dd976bc8b000fe1e022e4e5cdd35c3e603599e7669e868d9899415.md",
+    "source_url": "https://www.utn.de/departments/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:27.071256",
+    "content_length": 10768,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "ad19b2b3a3718063fd09688f9dcac4c1aa1fe0edafa6aefa187fa6475b04a0b1",
+    "filename": "ad19b2b3a3718063fd09688f9dcac4c1aa1fe0edafa6aefa187fa6475b04a0b1.md",
+    "source_url": "https://www.utn.de/studium/kontakt-stars/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:27.097945",
+    "content_length": 10606,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "a3c4c9fbdfc36988b9d0ce7ab3106c6bb2e6accc2cc69c8da390a67b27d26a33",
+    "filename": "a3c4c9fbdfc36988b9d0ce7ab3106c6bb2e6accc2cc69c8da390a67b27d26a33.md",
+    "source_url": "https://www.utn.de/studium/stipendium/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:28.123525",
+    "content_length": 12267,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "71a33769becd741d9e0fc59cd2ecfc4e9197ab6f52438b7821233d4b5c5c13b2",
+    "filename": "71a33769becd741d9e0fc59cd2ecfc4e9197ab6f52438b7821233d4b5c5c13b2.md",
+    "source_url": "https://www.utn.de/studium/arbeiten-neben-dem-studium/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:28.253276",
+    "content_length": 12066,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "6fd80cd9bdfa62774e51515382ebed254a1c7e73a4b9208b34ea20337af883c2",
+    "filename": "6fd80cd9bdfa62774e51515382ebed254a1c7e73a4b9208b34ea20337af883c2.md",
+    "source_url": "https://www.utn.de/studium/tipps-fuer-den-alltag/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:28.313237",
+    "content_length": 13851,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "10c49955fc6f1a75ab15855250ed64846d53e90074d421682fb52fc50656c38a",
+    "filename": "10c49955fc6f1a75ab15855250ed64846d53e90074d421682fb52fc50656c38a.md",
+    "source_url": "https://www.utn.de/studium/faq/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:28.924084",
+    "content_length": 19172,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "f7b1c0db08a6b4bdbfef2f132a24e3fa4d55e340dc146e4c79ebc0809c94079a",
+    "filename": "f7b1c0db08a6b4bdbfef2f132a24e3fa4d55e340dc146e4c79ebc0809c94079a.md",
+    "source_url": "https://www.utn.de/studium/versicherungssystem/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:29.374862",
+    "content_length": 12674,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "50f6891d31aed48b684eff7c3a23c441c19172ca1ba2f9eed1441c609b2fbd7d",
+    "filename": "50f6891d31aed48b684eff7c3a23c441c19172ca1ba2f9eed1441c609b2fbd7d.md",
+    "source_url": "https://www.utn.de/studium/finanzielle-aspekte/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:29.395773",
+    "content_length": 10397,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "fabd91b18ce6aec54a702c6cb24fe0aca031db98617fe461df6e02217c1f4798",
+    "filename": "fabd91b18ce6aec54a702c6cb24fe0aca031db98617fe461df6e02217c1f4798.md",
+    "source_url": "https://www.utn.de/studium/infos-fuer-internationals/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:29.667416",
+    "content_length": 10968,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "640affd7efca5a9f69c86c93ed6842254133ea9e87b7586dbf43634aee2b1b40",
+    "filename": "640affd7efca5a9f69c86c93ed6842254133ea9e87b7586dbf43634aee2b1b40.md",
+    "source_url": "https://www.utn.de/studium/visum-und-aufenthaltstitel/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:29.708789",
+    "content_length": 12516,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "e8af330ab8fab168ec042ef7a06dae890a694d0a56c503fd4a09e30133189c7a",
+    "filename": "e8af330ab8fab168ec042ef7a06dae890a694d0a56c503fd4a09e30133189c7a.md",
+    "source_url": "https://www.utn.de/studium/einwohnermeldeamt/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:29.724030",
+    "content_length": 9260,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "83782555c9c39c2eb8913ac7a55f826be86f5d57c821b9d1bcfb535edf0df61a",
+    "filename": "83782555c9c39c2eb8913ac7a55f826be86f5d57c821b9d1bcfb535edf0df61a.md",
+    "source_url": "https://www.utn.de/studium/deutsche-mietvertraege/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:30.887597",
+    "content_length": 16092,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "bc8d85c8dd2301268ffc4f986c4f09697567291a77c3e9d85e5332a3a9b132a0",
+    "filename": "bc8d85c8dd2301268ffc4f986c4f09697567291a77c3e9d85e5332a3a9b132a0.md",
+    "source_url": "https://www.utn.de/studium/dein-start-an-der-utn/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:30.906903",
+    "content_length": 11217,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "22318f073649d10040a672479b278d307ee29436096e43283b6e0bff92fa9e21",
+    "filename": "22318f073649d10040a672479b278d307ee29436096e43283b6e0bff92fa9e21.md",
+    "source_url": "https://www.utn.de/studium/zentrale-studienberatung/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:31.096245",
+    "content_length": 9460,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "8678360e7a7ee7f52a10de5487938e1655080d3ffe46a9a4ea43beac6b5b0353",
+    "filename": "8678360e7a7ee7f52a10de5487938e1655080d3ffe46a9a4ea43beac6b5b0353.md",
+    "source_url": "https://www.utn.de/studium/immatrikulation/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:31.254416",
+    "content_length": 11769,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "fddc257036645f75498d0a4b3f0c5a3b8691ce288cbcdd7c35b302ece221a74f",
+    "filename": "fddc257036645f75498d0a4b3f0c5a3b8691ce288cbcdd7c35b302ece221a74f.md",
+    "source_url": "https://www.utn.de/studium/lehr-und-lernkonzept/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:31.276978",
+    "content_length": 16229,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "f577cce9bd667e996e5d450bf8027a53fe5ea54fdaaf2f28654b3009ac2dc015",
+    "filename": "f577cce9bd667e996e5d450bf8027a53fe5ea54fdaaf2f28654b3009ac2dc015.md",
+    "source_url": "https://www.utn.de/studium/human-and-artificial-intelligence/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:32.309539",
+    "content_length": 18977,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "d0eb14687255574827878681ba62aba27b006c849db438853ca207c10bdbf97f",
+    "filename": "d0eb14687255574827878681ba62aba27b006c849db438853ca207c10bdbf97f.md",
+    "source_url": "https://www.utn.de/ueber/anreise/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:32.502943",
+    "content_length": 9187,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "73de6bcdf99c81fa3a556dab80448c488ff5170e649c28e4dfb95990ed19d38e",
+    "filename": "73de6bcdf99c81fa3a556dab80448c488ff5170e649c28e4dfb95990ed19d38e.md",
+    "source_url": "https://www.utn.de/studium/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:32.527324",
+    "content_length": 12538,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "2db5776db28c78e7a44d942ca0ea030e5d5ba14b06661ae0588615638dc44cb4",
+    "filename": "2db5776db28c78e7a44d942ca0ea030e5d5ba14b06661ae0588615638dc44cb4.md",
+    "source_url": "https://www.utn.de/ueber/standorte/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:32.560069",
+    "content_length": 8814,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "64a25eeeb946fc5160afb1b75365150e71c07046fe23b307aa9b6cba4c0f59bb",
+    "filename": "64a25eeeb946fc5160afb1b75365150e71c07046fe23b307aa9b6cba4c0f59bb.md",
+    "source_url": "https://www.utn.de/studium/ai-robotics/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:32.961228",
+    "content_length": 16411,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "88ff76810d59f409c884f9b22474c26c0b14c7d3b2fc671ebfd18c84c04dc716",
+    "filename": "88ff76810d59f409c884f9b22474c26c0b14c7d3b2fc671ebfd18c84c04dc716.md",
+    "source_url": "https://www.utn.de/ueber/rechtsdokumente/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:34.003505",
+    "content_length": 9561,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "fa9bc493e27185c9af4d2ae87238686d99614d3d7dcb5e37ef26143e7d246017",
+    "filename": "fa9bc493e27185c9af4d2ae87238686d99614d3d7dcb5e37ef26143e7d246017.md",
+    "source_url": "https://www.utn.de/ueber/new-work/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:34.122490",
+    "content_length": 8521,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "d11c5772f641dd97b81276ba1c438132917550ee8671e4bcdf1e77aa20508ffd",
+    "filename": "d11c5772f641dd97b81276ba1c438132917550ee8671e4bcdf1e77aa20508ffd.md",
+    "source_url": "https://www.utn.de/ueber/nachhaltigkeit/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:34.265299",
+    "content_length": 9213,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "9ec4a6d03b0c6bef3d81d639e04d65b78ffb0da9184b821981c257a2e9fe5d90",
+    "filename": "9ec4a6d03b0c6bef3d81d639e04d65b78ffb0da9184b821981c257a2e9fe5d90.md",
+    "source_url": "https://www.utn.de/ueber/baufortschritt/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:34.391446",
+    "content_length": 13198,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "e809dfbe8d2905dbb6dd089dd374b0c8abfc6ddabcc192c87f2ea551652c3ae8",
+    "filename": "e809dfbe8d2905dbb6dd089dd374b0c8abfc6ddabcc192c87f2ea551652c3ae8.md",
+    "source_url": "https://www.utn.de/ueber/experience-cubes/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:34.407124",
+    "content_length": 8397,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "3cc6da525ec659f6ceb7aae58545dee85e440c0957cdb0efe44bbed576b2e892",
+    "filename": "3cc6da525ec659f6ceb7aae58545dee85e440c0957cdb0efe44bbed576b2e892.md",
+    "source_url": "https://www.utn.de/ueber/klimaschutz/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:35.318606",
+    "content_length": 16205,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "63003b5ad7f6e11171e2a4250bfcbaa8595315d4a02db2bd193ad964445c4b99",
+    "filename": "63003b5ad7f6e11171e2a4250bfcbaa8595315d4a02db2bd193ad964445c4b99.md",
+    "source_url": "https://www.utn.de/ueber/campus/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:35.765919",
+    "content_length": 18978,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "db9f0ee163549f83f1dd94d5a32279bf39725606e8c787f2bd3b3a03964d0295",
+    "filename": "db9f0ee163549f83f1dd94d5a32279bf39725606e8c787f2bd3b3a03964d0295.md",
+    "source_url": "https://www.utn.de/ueber/meilensteine-2/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:35.808825",
+    "content_length": 33226,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "1875a67fc0c0dd734cdb786c2ab576d9a28d044d8b03cc7f4dac615797c5624c",
+    "filename": "1875a67fc0c0dd734cdb786c2ab576d9a28d044d8b03cc7f4dac615797c5624c.md",
+    "source_url": "https://www.utn.de/ueber/graduate-school/forschung-und-betreuung/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:35.855712",
+    "content_length": 10015,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "cea4ef5d742692cd2676ed54f284814b24ad35fa53c7caf9cefde2839e119eda",
+    "filename": "cea4ef5d742692cd2676ed54f284814b24ad35fa53c7caf9cefde2839e119eda.md",
+    "source_url": "https://www.utn.de/ueber/graduate-school/promotionsleitfaden/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:35.951399",
+    "content_length": 19251,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "203c0bea7c40154be97c969b5f350dcd37782808d31ee8a4d40e836c19b0face",
+    "filename": "203c0bea7c40154be97c969b5f350dcd37782808d31ee8a4d40e836c19b0face.md",
+    "source_url": "https://www.utn.de/ueber/graduate-school/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:36.796179",
+    "content_length": 11037,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "bd7947b21a9e6c9abf468f3b2aae3c1c933b0ac47770f6a318b49c06039b858f",
+    "filename": "bd7947b21a9e6c9abf468f3b2aae3c1c933b0ac47770f6a318b49c06039b858f.md",
+    "source_url": "https://www.utn.de/ueber/internationales-engagement/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:36.823646",
+    "content_length": 10843,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "f053479f03e92a0be1813b8041927a91db7c37e218ee804a5a723a135fe2d781",
+    "filename": "f053479f03e92a0be1813b8041927a91db7c37e218ee804a5a723a135fe2d781.md",
+    "source_url": "https://www.utn.de/ueber/hochschulvertrag/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:37.033056",
+    "content_length": 12492,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "1d8db1687b7c32d7ebbae94e0ed360995c486cbda01b87fcc01786dbe49283fc",
+    "filename": "1d8db1687b7c32d7ebbae94e0ed360995c486cbda01b87fcc01786dbe49283fc.md",
+    "source_url": "https://www.utn.de/ueber/organisation/gruendungspraesidium/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:38.548837",
+    "content_length": 13720,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "bda0adc2b7d1a32966a7d8a47b76856d10d35d0077b534b2847a2f0819fd3533",
+    "filename": "bda0adc2b7d1a32966a7d8a47b76856d10d35d0077b534b2847a2f0819fd3533.md",
+    "source_url": "https://www.utn.de/ueber/organisation/gruendungskommission/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:38.594543",
+    "content_length": 9668,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "90c892727099aa9ef85b5b18d2003f5a57f5c089b59dd30fa3fb9bd27e1f7693",
+    "filename": "90c892727099aa9ef85b5b18d2003f5a57f5c089b59dd30fa3fb9bd27e1f7693.md",
+    "source_url": "https://www.utn.de/ueber/organisation/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:38.920658",
+    "content_length": 9552,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "fe10b870a4ad99b8d95830932a0fd32591a17b81a82b70b713cabb6eafad627f",
+    "filename": "fe10b870a4ad99b8d95830932a0fd32591a17b81a82b70b713cabb6eafad627f.md",
+    "source_url": "https://www.utn.de/ueber/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:38.954511",
+    "content_length": 8560,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "f989ae72cbd8eef9d19b0c8532cc2b814d111ed4b654d8abc3826989d24c06d9",
+    "filename": "f989ae72cbd8eef9d19b0c8532cc2b814d111ed4b654d8abc3826989d24c06d9.md",
     "source_url": "https://www.utn.de/departments/department-computer-science-artificial-intelligence/cvmp/",
     "depth": 1,
-    "scraped_at": "2026-02-15T19:03:47.654967",
-    "content_length": 11798,
+    "scraped_at": "2026-02-15T19:35:39.535512",
+    "content_length": 11307,
     "language_detected": "unknown"
   },
   {
-    "hash": "0eaa4c44f2ebfc4e014c4b3dcc3ea129af60c12033942f5a4e226ccfa8288ab0",
-    "filename": "0eaa4c44f2ebfc4e014c4b3dcc3ea129af60c12033942f5a4e226ccfa8288ab0.md",
+    "hash": "d4c7491d3034793e2594f8f9da5554b67647681e77567c3678890f8339579bee",
+    "filename": "d4c7491d3034793e2594f8f9da5554b67647681e77567c3678890f8339579bee.md",
     "source_url": "https://www.utn.de/karriere/angebote-fuer-studierende/",
     "depth": 1,
-    "scraped_at": "2026-02-15T19:03:48.147897",
-    "content_length": 8658,
+    "scraped_at": "2026-02-15T19:35:40.568578",
+    "content_length": 8394,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "e65425e5c7bcf7744cd29b53161677fac3ee24c618225171c255ce4d8b9411bd",
+    "filename": "e65425e5c7bcf7744cd29b53161677fac3ee24c618225171c255ce4d8b9411bd.md",
+    "source_url": "https://www.utn.de/departments/department-computer-science-artificial-intelligence/learning-technologies/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:40.758413",
+    "content_length": 11616,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "987f2ac606558f9fb888b3fe713e514cda2aa99d205eabcff3731650aa4f9823",
+    "filename": "987f2ac606558f9fb888b3fe713e514cda2aa99d205eabcff3731650aa4f9823.md",
+    "source_url": "https://www.utn.de/ueber/jubilaeum-2026/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:40.801766",
+    "content_length": 16552,
+    "language_detected": "unknown"
+  },
+  {
+    "hash": "63ef89c39763dce3fad342ed0ad01a6684727b4a725c313d242f58e551044f1a",
+    "filename": "63ef89c39763dce3fad342ed0ad01a6684727b4a725c313d242f58e551044f1a.md",
+    "source_url": "https://www.utn.de/ueber/vielfalt-gleichberechtigung-und-inklusion/",
+    "depth": 1,
+    "scraped_at": "2026-02-15T19:35:41.582848",
+    "content_length": 9464,
     "language_detected": "unknown"
   }
 ]

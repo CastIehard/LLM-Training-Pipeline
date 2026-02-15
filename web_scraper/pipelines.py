@@ -267,6 +267,11 @@ class MarkdownCleaningPipeline:
             text = re.sub(pattern, "", text)
         return text
 
+    def _remove_empty_images(self, text):
+        """Remove markdown image syntax with empty URLs like ![alt text]()."""
+        text = re.sub(r"!\[[^\]]*\]\(\)", "", text)
+        return text
+
     def process_item(self, item):
         """Clean markdown content."""
         markdown = item.get("markdown_content", "")
@@ -277,7 +282,8 @@ class MarkdownCleaningPipeline:
         if self.remove_emails:
             markdown = self._remove_emails(markdown)
 
-        # Always remove junk
+        # Always remove empty images and junk
+        markdown = self._remove_empty_images(markdown)
         markdown = self._remove_junk(markdown)
 
         if self.normalize_whitespace:

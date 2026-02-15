@@ -6,7 +6,7 @@ url_file: "url.txt"
 # Scraping settings
 scraping:
   # Crawl depth: 0 = only URLs from file, 1 = also links found on those pages, etc.
-  max_depth: 0
+  max_depth: 1
   
   # Only scrape English sites
   english_only: false

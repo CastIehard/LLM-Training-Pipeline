@@ -1,4 +1,143 @@
 # URLs to scrape (one per line)
 # Lines starting with # are comments
-
-https://utn.de
+# UTN (utn.de) – Studium, Bewerbung, Einschreibung, Guides & Services (DE)
+https://www.utn.de/
+https://www.utn.de/studium/
+https://www.utn.de/studium/ai-robotics/
+https://www.utn.de/studium/human-and-artificial-intelligence/
+https://www.utn.de/studium/bewerbung-zum-studium/
+https://www.utn.de/studium/immatrikulation/
+https://www.utn.de/studium/faq/
+https://www.utn.de/studium/lehr-und-lernkonzept/
+https://www.utn.de/studium/zentrale-studienberatung/
+https://www.utn.de/studium/kontakt-stars/
+https://www.utn.de/studium/dein-start-an-der-utn/
+https://www.utn.de/studium/wohnungssuche/
+https://www.utn.de/studium/deutsche-mietvertraege/
+https://www.utn.de/studium/einwohnermeldeamt/
+https://www.utn.de/studium/infos-fuer-internationals/
+https://www.utn.de/studium/visum-und-aufenthaltstitel/
+https://www.utn.de/studium/versicherungssystem/
+https://www.utn.de/studium/arbeiten-neben-dem-studium/
+https://www.utn.de/studium/tipps-fuer-den-alltag/
+https://www.utn.de/studium/stipendium/
+https://www.utn.de/ueber/rechtsdokumente/
+https://www.utn.de/kontakt/
+https://www.utn.de/ueber/anreise/
+https://www.utn.de/ueber/standorte/
+# UTN (EN) – zentral für internationale Bewerber:innen
+https://www.utn.de/en/
+https://www.utn.de/en/study/
+https://www.utn.de/en/study/ai-robotics-en/
+https://www.utn.de/en/study/human-and-artificial-intelligence/
+https://www.utn.de/en/study/application-to-study/
+https://www.utn.de/en/study/enrollment/
+https://www.utn.de/en/study/your-start-at-utn/
+https://www.utn.de/en/study/information-for-internationals/
+https://www.utn.de/en/study/visa-and-residence-permit/
+https://www.utn.de/en/study/financial-aspects/
+https://www.utn.de/en/study/working-as-a-student/
+https://www.utn.de/en/study/scholarship/
+https://www.utn.de/en/about-us/legal-documents/
+# UTN (PDFs) – Ordnungen, Beiträge, Modulhandbücher, Formulare
+https://www.utn.de/files/2025/02/2025_Semester_und_Kurszeiten.pdf
+https://www.utn.de/files/2025/10/250522_ASPO_L01_I.pdf
+https://www.utn.de/files/2025/02/250220_Eignungssatzung_L2.pdf
+https://www.utn.de/files/2024/12/241003_ImmaS_L1.pdf
+https://www.utn.de/files/2024/12/231001_Vorlesungszeiten_L0.pdf
+https://www.utn.de/files/2024/12/231201_STW_Grundbeitrag.pdf
+https://www.utn.de/files/2025/06/250602_Richtlinie-Deutschlandstipendium_L0.pdf
+https://www.utn.de/files/2025/02/20250224_module-handbook-MSc-AI-Robotics-WiSe25-26.pdf
+https://www.utn.de/files/2025/07/module-handbook-MSc-MA-HAI-WiSe25-26.pdf
+https://www.utn.de/files/2026/01/Anmeldung_Masterarbeit_Masters_Thesis_Registration_2026.pdf
+# Deutschlandweit (amtlich/primär) – DAAD & „Study in Germany“
+https://www.daad.de/de/in-deutschland-studieren/voraussetzungen/ueberblick/
+https://www.daad.de/de/in-deutschland-studieren/leben-in-deutschland/visum/
+https://www.daad.de/de/in-deutschland-studieren/leben-in-deutschland/krankenversicherung/
+https://www.daad.de/de/in-deutschland-studieren/leben-in-deutschland/finanzen/
+https://www.daad.de/de/in-deutschland-studieren/leben-in-deutschland/wohnen/
+https://www.daad.de/de/in-deutschland-studieren/arbeit-karriere/nebenjobs/
+https://www.daad.de/ziel-deutschland/pages/de/ankommen.html
+https://www2.daad.de/deutschland/stipendium/datenbank/de/21148-stipendiendatenbank/
+https://www.study-in-germany.com/de/
+https://www.study-in-germany.com/de/studium-planen/voraussetzungen/krankenversicherung/
+https://www.study-in-germany.com/de/deutschland/ankunft/aufenthaltserlaubnis/
+# Deutschlandweit (amtlich/primär) – BAMF (Aufenthalt/Integration/Sprachkurse)
+https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Bildung/Studium/studium-node.html
+https://bamf-navi.bamf.de/de/Themen/Integrationskurse/
+# Deutschlandweit (amtlich/primär) – Auswärtiges Amt & Make-it-in-Germany
+https://www.auswaertiges-amt.de/resource/blob/2666740/2fddb25ac21779d9659ab9008192167/240711-handreichung-studierendenvisa-data.pdf
+https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/studieren
+https://www.make-it-in-germany.com/de/studium-ausbildung/studieren-in-deutschland/absolvieren/finanzierung-sichern
+https://www.make-it-in-germany.com/de/studium-ausbildung/studieren-in-deutschland/arbeit
+# Rechtsgrundlagen/Anerkennung (primär)
+https://www.gesetze-im-internet.de/aufenthg_2004/__16b.html
+https://www.anerkennung-in-deutschland.de/html/de/index.php
+https://anabin.kmk.org/anabin.html
+# Bewerbungstools für internationale Abschlüsse (primär)
+https://www.uni-assist.de/
+https://www.uni-assist.de/bewerben/
+https://www.uni-assist.de/bewerben/vorab-informieren/master/
+https://www.uni-assist.de/bewerben/dokumente-sammeln
+# BAföG (amtlich)
+https://www.xn--bafg-7qa.de/bafoeg/de/antrag-stellen/antrag-stellen_node.html
+https://www.bafoeg-digital.de/
+# Steuern/ID/Bankkonto (amtlich)
+https://www.bzst.de/DE/Privatpersonen/SteuerlicheIdentifikationsnummer/steuerlicheidentifikationsnummer_node.html
+https://online.portal.bzst.de/SharedDocs/Leistungsbeschreibung/DE/erneute_mitteilung_der_ID-Nr.html
+https://www.elster.de/eportal/
+https://www.bafin.de/DE/Verbraucher/Bank/Produkte/Basiskonto/basiskonto_node.html
+# Krankenversicherung (amtlich/primär)
+https://gesund.bund.de/krankenversicherung-studierende
+https://www.dvka.de/de/versicherte/studierende-und-praktikanten/
+# Arbeiten neben dem Studium (amtlich/primär)
+https://www.arbeitsagentur.de/bildung/studium/jobben-neben-dem-studium
+https://www.minijob-zentrale.de/DE/die-minijobs/studenten
+# Studierendenwerke (bundesweit) – Wohnen/Arbeiten/Internationales
+https://www.internationale-studierende.de/
+https://www.studierendenwerke.de/themen/internationale-studierende/informationen-fuer-internationale-studierende
+https://www.studierendenwerke.de/themen/wohnen/studierendenwohnheime/bewerbung
+https://www.studierendenwerke.de/fileadmin/user_upload/Jobben_internationale_Studierende_bf.pdf
+# Nürnberg (amtlich/primär) – Ausländerbehörde, Aufenthalt, Anmeldung, Mietenspiegel, Mobilität
+https://www.nuernberg.de/internet/auslaenderbehoerde/index.html
+https://www.nuernberg.de/internet/stadtportal/behoerdenwegweiser/dienstleistung/aufenthaltstitel.html
+https://www.nuernberg.de/internet/stadtportal/behoerdenwegweiser/dienstleistung/wohnungswechsel.html
+https://www.nuernberg.de/internet/stadtportal/behoerdenwegweiser/dienstleistung/nationales_visum.html
+https://nuernberg.termine-reservieren.de/?lang=de_DE
+https://www.bayernportal.de/dokumente/leistung/8444082781?behoerde=40553755388&gemeinde=6063439844249&plz=90403
+https://www.nuernberg.de/internet/stadtportal/studieren_in_nuernberg.html
+https://www.nuernberg.de/internet/wohnen/mietenspiegel.html
+https://www.nuernberg.de/imperia/md/wohnen/dokumente/mietenspiegel2024_leseversion.pdf
+https://www.nuernberg.de/internet/digitales_nuernberg/nuernbergmobil.html
+# ÖPNV (Region Nürnberg) – Studierendentickets & VGN-App
+https://www.vgn.de/ermaessigungsticket-studi
+https://www.vag.de/tickets-abo/alle-tickets/detail/ermaessigungsticket-studierende
+https://www.vgn.de/service/app/
+# Studierendenwerk Erlangen‑Nürnberg – Wohnen, BAföG, Mensen
+https://www.werkswelt.de/index.php?id=wohnen
+https://www.werkswelt.de/index.php?id=wohnen-bei-uns
+https://www.werkswelt.de/index.php?id=bafoeg
+https://www.werkswelt.de/gastronomie
+# Sprache/Deutschkurse (Nürnberg)
+https://bz.nuernberg.de/programm/ding/deutsch
+https://www.goethe.de/ins/de/de/ort/nbg.html
+# Karriere/Praktika (Region)
+https://www.th-nuernberg.de/studium-karriere/karriere/career-service/
+https://jobboerse.th-nuernberg.de/
+# Rundfunkbeitrag (Pflicht/BEFREIUNG – wichtig für Wohnsituation/WG)
+https://www.rundfunkbeitrag.de/buergerinnen-und-buerger/informationen/informationen-fuer-studierende
+https://www.rundfunkbeitrag.de/buergerinnen-und-buerger/formulare/befreiung-oder-ermaessigung-beantragen
+# Foren/Blogs/Social (Erfahrungswissen; mind. 10 Quellen)
+https://www.redditmedia.com/r/germany/comments/1ez5pwv/confusion_about_health_insurance/
+https://www.redditmedia.com/r/germany/comments/1eg1hp3/blocked_account_proof_with_scholarship/
+https://www.redditmedia.com/r/SchengenVisa/comments/1jy0r2b/blocked_account_increased_for_german_study_visa/
+https://www.redditmedia.com/r/studyinGermany/comments/1iivtoh/what_to_do_if_blocked_account_confirmation_is_not/
+https://www.redditmedia.com/r/SchengenVisa/comments/1etoo8w/struggling_to_get_a_german_student_visa_slotneed/
+https://www.studis-online.de/studium/nuernberg/
+https://www.studis-online.de/wohnen/wohnungssuche.php
+https://www.studis-online.de/jobben/
+https://www.expat.com/en/forum/europe/germany/
+https://www.expat.com/en/forum/europe/germany/1099292-change-a-student-visa-to-an-ausbildung-visa.html
+https://www.gutefrage.net/frage/wohnen-in-nuernberg-rechtsradikal-gute-wohngegenden-etc
+https://deinnaemberch.de/was-du-als-nuernberger-student-wissen-musst/
+https://handbookgermany.de/de/node/501

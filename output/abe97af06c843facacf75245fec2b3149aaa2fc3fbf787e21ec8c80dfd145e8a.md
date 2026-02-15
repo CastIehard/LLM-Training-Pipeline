@@ -1,0 +1,204 @@
+* Zur Hauptnavigation
+* Zum Inhalt
+* Zu den Nutzungshinweisen und zum Impressum
+
+Menü
+
+* * []( "Interner Link: Informationen in Gebärdensprache")
+* * Alltagssprache
+* Leichte Sprache
+
+[](/internet/stadtportal/ "Zur Startseite von nuernberg.de")
+
+!Häuserblock mit Büschen und Gehweg
+
+Stab Wohnen
+
+Suche
+
+1. Startseite
+2. Mietrechtsinformationen
+3. Mietenspiegel
+
+* * *
+
+# Nürnberger Mietenspiegel
+
+## Aufgabe und Funktion des Mietenspiegels der Stadt Nürnberg
+
+Aufgabe des Mietenspiegels ist es, das Mietpreisgefüge im nicht preisgebundenen Wohnungsbestand möglichst transparent zu machen.
+
+Der Nürnberger Mietenspiegel setzt keine Preise fest, sondern ist als Richtlinie zu verstehen, um
+
+* die Vertragsparteien bei Fragen zur Miethöhe zu unterstützen,
+* den Mietvertragsparteien eine wichtige Orientierungshilfe bei der Festlegung des Mietpreises zu geben und damit eine Befriedungswirkung im Vorfeld gerichtlicher Auseinandersetzungen zu erzielen,
+* den Gerichten in Streitfällen Orientierungsgrundlagen zu liefern.
+
+Die ortsübliche Vergleichsmiete wird folgendermaßen ermittelt:
+
+1. Als erstes wird die monatliche Basis-Nettokaltmiete in Euro je m² nach Wohnfläche aus Tabelle 1 ermittelt.
+2. Alle anderen Merkmale einer Wohnung – wie Baujahr, Art, Ausstattung, Beschaffenheit oder Lage* – werden über prozentuale Zu- und Abschläge in der Tabelle 2 berücksichtigt.
+3. Wohnwerterhöhende oder –mindernde, nicht durch das Zu-/ Abschlagssystem abgedeckte Sondermerkmale, sowie eine vom Standard abweichende Merkmalsqualität bei den Zu-/ Abschlagsmerkmalen, können im Bereich der Spannbreite berücksichtigt werden. Diese liegt in Nürnberg bei plus/minus 23 % um die durchschnittliche ortsübliche Vergleichsmiete (Mittelwert).
+
+## 2/3- Spannbreite um den Mittelwert:
+
+Bei dem in Tabelle 3 Anleitung zur Ermittlung der ortsüblichen Vergleichsmiete (Punkt 4) ermittelten Vergleichswert handelt es sich um die durchschnittliche ortsübliche Vergleichsmiete, die für eine Wohnung bestimmter Größe, Art, Ausstattung, Beschaffenheit und Lage im Schnitt pro Monat gezahlt wird. Die Auswertung zeigt, dass die Mietpreise von gleichen Wohnungen erheblich differieren können.
+
+## weiterlesen
+
+Der Mietspiegel kann wesentliche Mietpreisunterschiede grundsätzlich durch die in den Tabellen 1 bis 2 angeführten Wohnwertmerkmale erklären. Trotzdem verbleibt ein Streubereich der Nettomieten für gleichartige Wohnungstypen, der statistisch nicht erklärt werden kann. Dies liegt sowohl u.a. an der Vertragsfreiheit als auch an qualitativen Unterschieden von im Mietspiegel enthaltenen Wohnwertmerkmalen, an nicht erfassten Wohnwertmerkmalen, an aufgrund rechtlicher Vorgaben nicht verwertbarer Mieter-, Vermieter- und Wohnwertmerkmale (z.B. Mietdauer, soziale Gesinnung des Vermieters) sowie an Wohnwertmerkmalen, die im Mietspiegel nicht enthalten sind und nicht analysiert wurden.
+
+Die Miete einer Wohnung gilt im Allgemeinen als ortsüblich, wenn sie innerhalb einer Spann-breite liegt, in der sich zwei Drittel aller Mieten dieser Wohnungsklasse befinden. Diese 2/3-Spanne liegt in Nürnberg bei +/-23 % um die durchschnittlich ortsübliche Vergleichsmiete. Grundsätzlich ist es aber sinnvoll, sich bei der Festlegung der Miete an der durchschnittlichen ortsüblichen Vergleichsmiete zu orientieren, da damit die Miete einer nach Standard und Größe üblichen Wohnung am ehesten getroffen wird.
+
+Abweichungen nach oben oder unten von der in diesem Mietspiegel errechneten durchschnittlichen ortsüblichen Vergleichsmiete können im Bereich der Spannbreite berücksichtigt werden und sind gemäß Bundesgerichtshof BGH - VIII ZR 227/10 - zu begründen. Zur Begründung können insbesondere nicht im Mietspiegel ausgewiesene Merkmale herangezogen werden: der Zustand einer Wohnung oder durchgeführte energetische Maßnahmen können hier z.B. angemessen bewertet werden. Eine gut instand gehaltene Wohnung mit einfacher Ausstattung kann einer besser ausgestatteten, aber vernachlässigten Wohnung überlegen sein.
+
+Insgesamt ist zu beachten, dass bei der Mietspiegelerstellung viele Wohnwertmerkmale erhoben und neben den in den Tabellen 1 bis 2 enthaltenen Wohnwertmerkmalen auf deren Mietpreiseinfluss analysiert wurden. Wohnwertmerkmale, die in ausreichender Anzahl für die Auswertung vorhanden waren und im Mittel keinen signifikanten Mietpreiseinfluss hatten, sind nachfolgender Auflistung zu entnehmen:
+
+* Liste der Wohnwertmerkmale ohne Einfluss (PDF, 493 KB)")</imperia/md/wohnen/dokumente/msp2024_liste_wohnwertmerkmale_ohne_einfluss.pdf>
+
+Der Nürnberger Mietenspiegel weist Nettokaltmieten aus. Daher sind die in § 2 Betriebskostenverordnung (BetrKV) aufgelisteten Betriebskosten grundsätzlich gesondert neben der Miete anzusetzen, soweit sie im Mietvertrag vereinbart sind.
+
+## Übersichtskarten zu Wohnlagekriterien finden Sie hier:
+
+* Parks
+* Parkanlagen (PDF, 53.5 MB)")</imperia/md/wohnen/dokumente/2024_parkanlagen.pdf>
+* Einzelhandelsstandorte mit mind. 200m² Ladenfläche
+* Standorte Einzelhandel (PDF, 3.0 MB)")</imperia/md/wohnen/dokumente/2024_wh23_msp_standorteezh.pdf>
+* Abgrenzung des Gebietes "Altstadt, Altstadtrandgebiete"
+* Altstadt und engere Innenstadt (PDF, 4.1 MB)")</imperia/md/wohnen/dokumente/2020_altstadt_und_engere_innenstadt_0.pdf>
+* Straßenverzeichnis Altstadt und engere Innenstadt (PDF, 441 KB)")</imperia/md/wohnen/dokumente/msp2024strassenverzeichnis.pdf>
+
+* * *
+
+## Bezug des Nürnberger Mietenspiegels
+
+## Abholung oder Einsicht vor Ort
+
+Der Nürnberger Mietenspiegel ist bei den Bürgerämtern Nord, Ost, Süd gegen eine Schutzgebühr von 3,50 Euro sowie bei den Verbänden der Mieter und Vermieter erhältlich. Er ist außerdem in der Zentralbibliothek einsehbar.
+
+## Online-Bestellung
+
+Sie können den Mietenspiegel auch online als Download bestellen. Klicken Sie hierfür auf:
+
+* Mietenspiegel als Download bestellen")<
+
+Eine kostenfreie Leseversion des Mietenspiegels sowie der Methodenbericht sind unter den folgenden Links aufrufbar:
+
+* Mietenspiegel 2024 - Leseversion (PDF, 371 KB)")</imperia/md/wohnen/dokumente/mietenspiegel2024_leseversion.pdf>
+* Mietenspiegel 2024 - Methodische und inhaltliche Erläuterungen (PDF, 7.9 MB)")</imperia/md/wohnen/dokumente/mietenspiegel2024_methodenbericht_neu.pdf>
+
+Hinweis:
+Das Vervielfältigen und Kopieren des Mietenspiegels ist ausdrücklich nicht gestattet.
+Mit dem Download des Mietenspiegels erhalten Sie eine Rechnung.
+
+## Bürgerservice vor Ort - Adressen für die Abholung der Broschüre des Nürnberger Mietenspiegels:
+
+## Bürgerämter der Stadt Nürnberg
+
+### Bürgeramt Nord
+
+Großgründlacher Hauptstraße 510911 / 231 - 41 38<tel:09112314138>0911 / 231 - 22 21<tel:09112312221>Bürgeramt Nord<
+
+### Bürgeramt Ost
+
+Fischbacher Hauptstrasse 1210911 / 231 - 50 60<tel:09112315060>0911 / 231 - 50 80<tel:09112315080>Bürgeramt Ost<
+
+### Bürgeramt Süd
+
+Hans-Traut-Str. 80911 / 231 - 74 97<tel:09112317497>0911 / 231 - 40 53<tel:09112314053>Bürgeramt Süd<
+
+## Weitere Informationen zum Mietenspiegel
+
+* Grund- und Hausbesitzerverein Nürnberg und Umgebung e. V.")<
+* Mieterverein Nürnberg und Umgebung e. V.")<
+* Mieter helfen Mietern, Nürnberger MieterInnengemeinschaft e. V.")<
+
+## Service
+
+* Kontakt</internet/wohnen/kontakt.html>
+* Sitemap</internet/wohnen/sitemap.html>
+* Behördenwegweiser<
+* Mein Nürnberg<
+* Karriere<
+* Hilfe<
+
+## Info
+
+* Datenschutz<
+* Cookies<
+* Zugangseröffnung<
+* Barrierefreiheit<
+* Impressum</internet/wohnen/impressum.html>
+
+## Folgen Sie uns
+
+* X
+* YouTube
+
+## Bildquellen
+
+Menü
+
+* [](/internet/wohnen/kontakt.html "Kontakt")
+* []( "Mein Nürnberg Login")
+* []( "Stellenangebote der Stadt Nürnberg")
+
+Suche
+
+* * *
+
+Startseite
+
+1. Einfach online machen
+2. Wohnungsbauförderung
+1. Mietwohnungen
+2. Wohneigentum
+3. Wohnraum für Auszubildende
+4. Weitere Förderprogramme
+3. Gemeinschaftliche Wohnformen / Baugruppen und Baugemeinschaften
+4. Quotenregelung für den geförderten Wohnungsbau
+5. Mietrechtsinformationen
+1. Mietenspiegel
+6. Zweckentfremdung
+7. Wohnungspolitik und Wohnungsmarkt
+1. Gefördert Wohnen in Nürnberg - Realisierte Projekte 2011-2021
+8. Publikationen
+
+1. Kontakt
+2. Sitemap
+
+*[de]: Deutsch
+*[BZSt]: Bundeszentralamt für Steuern
+*[IdNr]: Identifikationsnummer
+*[ZKG]: Zahlungskontengesetz
+*[Abs.]: Absatz
+*[PDF]: Portable Document Format
+*[z. B.]: zum Beispiel
+*[ IdNr]: Identifikationsnummer
+*[ELSTER]: Elektronische Steuererklärung
+*[ggf.]: gegebenenfalls
+*[St]: Steuerabteilung
+*[AO]: Abgabenordnung
+*[DE]: Deutsch
+*[IdNrn]: Identifikationsnummern
+*[BMF]: Bundesministerium der Finanzen
+*[ViOlA]: Virtuelle Online Auskunft
+*[USt-IdNr.]: Umsatzsteuer-Identifikationsnummer
+*[IdNr.]: Identifikationsnummer
+*[Tel.]: Telefon
+*[Mo]: Montag
+*[Fr]: Freitag
+*[BOP]: BZStOnline-Portal
+*[IBAN]: International Bank Account Number
+*[EStG]: Einkommensteuergesetz
+*[ELStAM]: Elektronische Lohnsteuerabzugsmerkmale
+*[PStTG]: Plattformen-Steuertransparenzgesetz
+*[Nr.]: Nummer/number
+*[FVG]: Finanzverwaltungsgesetz/Finance Administration Act
+*[sog.]: so genannten
+*[CRS]: Common Reporting Standard
+*[FATCA]: Foreign Account Tax Compliance Act
+*[EU]: Europäische Union
+*[BAMF]: Bundesamt für Migration und Flüchtlinge
+*[en]: English
+*[FAQ]: Häufig gestellte Fragen

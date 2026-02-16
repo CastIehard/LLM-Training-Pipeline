@@ -1,0 +1,292 @@
+
+Navigation und Service
+
+_Springe direkt zu:_
+
+
+Menu
+
+
+Suchbegriff
+
+**Häufig gesucht:**
+
+Schließen
+
+
+Menü
+
+Schließen
+
+
+![Logo: die Minijobzentrale \(Link zur Startseite\) !Logo: die Minijobzentrale \(Link zur Startseite\) ]( "Startseite")
+
+Servicemenu
+
+
+Hauptmenu
+
+
+Über Minijobs
+
+
+
+
+!Bild-Dokument für das Frontend
+
+
+Minijobber anmelden
+
+
+
+!Bild-Dokument für das Frontend
+
+
+Für Gewerbetreibende
+
+
+
+
+!Bild-Dokument für das Frontend
+
+
+Für Haushalte
+
+
+
+
+!Bild-Dokument für das Frontend
+
+
+Service
+
+
+
+
+!Bild-Dokument für das Frontend
+
+
+Magazin
+
+!Bild-Dokument für das Frontend
+
+
+Suchbegriff
+
+**Häufig gesucht:**
+
+!Bild-Dokument für das Frontend
+
+Navigationspfad
+
+1. Startseite
+2. Über Minijobs
+3. Studenten
+
+# Minijob für Studenten und Studentinnen
+
+Sich während des Studiums etwas dazuverdienen – das geht zum Beispiel mit einem Minijob. Was für Studierende mit Minijob und für Werkstudentinnen und Werkstudenten wichtig ist, erfahren Sie hier.
+
+## Zum Inhalt springen
+
+
+Teilen
+
+
+## Video - Studium und Minijob: Alle Informationen in einem Video
+
+Video | 4:49 min
+
+Welche Möglichkeiten bietet ein Minijob neben dem Studium? Und worauf ist zu achten? In diesem Video erklärt Muriel, wann ein Nebenjob als Minijob gilt und wo der Unterschied zwischen einem Minijob mit Verdienstgrenze und einem kurzfristigen Minijob liegt. Schon vorab: Ein Job als Werkstudentin oder Werkstudent ist kein Minijob.
+
++++Zum Stand in unserem Video haben sich folgende Änderungen ergeben+++ Zum 1. Januar 2026 ist der gesetzliche Mindestlohn auf 13,90 Euro pro Stunde gestiegen. Dadurch hat sich ab Januar 2026 auch die Minijob-Grenze auf 603 Euro monatlich erhöht. Seit dem 1. Januar 2025 wurde der Freibetrag beim Bezug von BAföG auf die Verdienstgrenze von Minijobs erhöht. Studierende können also im Monat bis zur Minijob-Verdienstgrenze hinzuverdienen, ohne dass das BAföG gekürzt wird.
+
+## Minijob, kurzfristige Beschäftigung oder Werkstudentenstelle?
+
+Sie studieren und möchten nebenbei arbeiten? Folgende mögliche Beschäftigungsformen gibt es:
+
+
+### Abgaben für Ihren Minijob mit Verdienstgrenze
+
+!Junge lächelnde weiße Frau sitzt mit Laptop auf dem Schoß zuhause auf ihrer Couch.
+
+Im Minijob mit Verdienstgrenze zahlen Sie als Student oder Studentin keine Beiträge zur Kranken- und Arbeitslosenversicherung und damit auch keine zur Pflegeversicherung.
+
+Als Studentin oder Student sind Sie in Ihrem Minijob mit Verdienstgrenze **in der Rentenversicherung versicherungspflichtig**.
+
+Die Pflichtbeiträge zur Rentenversicherung betragen für Minijobs mit Verdienstgrenze 18,6 Prozent Ihres Bruttoarbeitslohnes. Bei einem Minijob im gewerblichen Bereich zahlen Sie einen Eigenanteil von 3,6 Prozent. Den Rest zahlt Ihr Arbeitgeber oder Ihre Arbeitgeberin. Arbeiten Sie in einem Minijob im Privathaushalt? Dann zahlt Ihr Arbeitgeber oder Ihre Arbeitgeberin Beiträge zur Rentenversicherung in Höhe von 5 Prozent. Sie selbst zahlen 13,6 Prozent Eigenanteil zum Pflichtbeitrag.
+
+Als Studentin oder Student können Sie sich bei Ihrem Arbeitgeber auf Antrag **von der Rentenversicherungspflicht befreien lassen** und zahlen dann Ihren Eigenanteil nicht. Aber aufgepasst: Ohne Eigenanteil erhalten Sie auch keine vollen Ansprüche auf die Leistungen der gesetzlichen Rentenversicherung.
+
+Mehr zur Rentenversicherungspflicht im Minijob")
+
+### Minijob und BAföG
+
+Erhalten Sie BAföG-Leistungen? Als Bezieherin oder Bezieher von BAföG ist es ohne weiteres möglich einen Minijob mit Verdienstgrenze auszuüben. Studierende sowie Schülerinnen und Schüler können 603 Euro im Monat hinzuverdienen, ohne dass das BAföG gekürzt wird.
+
+### Arbeitgeber-Info: Anmeldung studentischer Minijobber
+
+Als Arbeitgeber oder Arbeitgeberin melden Sie Ihre studentischen Minijobber genau wie alle anderen Personengruppen bei uns an. Das gilt sowohl für Studenten und Studentinnen im Minijob mit Verdienstgrenze als auch für die kurzfristige Beschäftigung. Sind Sie gewerblicher Arbeitgeber melden Sie Ihren studentischen Arbeitnehmer für das Gewerbe") an. Ist die Tätigkeit hingegen haushaltsnah, handelt es sich um eine Anmeldung im Privathaushalt.")
+
+Ein Minijob neben dem Studium – lohnt sich das? Lesen Sie die folgenden fünf Vorteile und entscheiden Sie selbst!
+
+### Die Finanzen neben dem Studium stetig aufbessern
+
+Mit einem Minijob können Studenten und Studentinnen Ihre finanzielle Situation während des Studiums selbst aufbessern und auf ein kontinuierliches Nebeneinkommen zählen. So wird am Monatsende das Geld nicht mehr so schnell knapp.
+
+### Frühzeitig Berufserfahrung sammeln
+
+Ein Minijob kann für Ihre Karriere ein echter Kickstarter sein. So können Sie schon während des Studiums Arbeitserfahrung sammeln, nützliche berufliche Kontakte knüpfen und Ihre Chancen beim Jobeinstieg erhöhen.
+
+### Nicht nur den eigenen Haushalt managen lernen
+
+Ein Minijob im Unternehmen ist nichts für Sie? Bei einem Nebenjob als Student oder Studentin im Haushalt können Sie Privatpersonen zum Beispiel bei der Kinderbetreuung, dem Putzen oder der Gartenarbeit unterstützen.
+
+Der Vorteil: Im Haushaltsjob können Sie sich die Arbeitszeiten oft flexibler einteilen und mit einem grünen Daumen oder einem Herz für Kinder fühlt sich Ihr Minijob als Student oder Studentin im Haushalt vielleicht auch kaum nach Arbeit an. Eine Auswahl an Haushaltsjobs in Ihrer Nähe finden Sie in der Haushaltsjob-Börse.
+
+mehr anzeigen
+
+### Im Semester büffeln, in den Ferien Geld verdienen
+
+Als Werkstudent oder Werkstudentin dürfen Sie **im Semester 20 Stunden pro Woche **arbeiten und damit auch mehr als 556 Euro verdienen und länger als drei Monate oder 70 Arbeitstage im Kalenderjahr beschäftigt werden. Achtung: Das ist kein Minijob!
+
+Abhängig von der Höhe Ihres Verdienstes kann Ihre Werkstudentenstelle aber ein Midijob sein.
+
+In der vorlesungsfreien Zeit dürfen Werkstudenten und Werkstudentinnen ohne Wochenstundenbegrenzung arbeiten. So können Sie sich einen guten Puffer für das Semester aufbauen oder das Geld zum Beispiel für Reisen nutzen. Denn als Werkstudent oder Werkstudentin haben Sie außerdem einen geregelten **Urlaubsanspruch**.
+
+mehr anzeigen
+
+### Gut versichert bei Unfall und Krankheit
+
+Mit einem angemeldeten Minijob als Student oder Studentin im Büro oder im Haushalt und auch als Werkstudent oder Werkstudentin sichert Sie Ihr Arbeitgeber für Unfälle bei der Arbeit und auf dem Weg dahin ab. Und im Krankheitsfall zahlt er Ihnen bis zu sechs Wochen Ihren Lohn weiter.
+
+![ Studentenjobs: 5 Minijobs für Studierende Wer studiert, weiß: Meist ist am Ende des Monats das Geld knapp. Da liegt es nahe, sich während der Semesterferien mit einem Minijob etwas dazu zu verdienen. Aber welche Stellenangebote eignen sich auch während des Semesters und worauf müssen Studierende achten, wenn sie einen Job annehmen? Im Artikel verraten wir dir, was du als Student oder Studentin wissen musst und welche Minijobs besonders gut ins Studentenleben passen – egal, ob Semesterferien oder Vorlesungszeit. ]( "Student mit Sonnenbrille auf einer Kirmes \(Öffnet neues Fenster\)")
+
+## Nebenjob als Werkstudent – die wichtigsten Voraussetzungen
+
+Als Werkstudentin oder Werkstudent gelten Sie in folgendem Fall:
+
+
+### Wer gilt als ordentlich Studierender?
+
+Sie gelten als ordentlich Studierender oder ordentlich Studierende, wenn Sie Ihre Zeit **überwiegend für Ihr Studium** nutzen. Das heißt: Ihr Nebenjob als Student oder Studentin darf nicht mehr Zeit in Anspruch nehmen als Ihr Studium.
+
+Ihr Verdienst spielt für diese Einordnung keine Rolle. Vom **Werkstudentenprivileg** , das heißt von den damit verbundenen Vorzügen in der Sozialversicherung, können Sie nur in den folgenden Fällen profitieren.
+
+Sie sind ordentlich Studierender oder ordentlich Studierende, wenn
+
+
+Wenn Sie während der Vorlesungszeit **regelmäßig mehr als 20 Stunden pro Woche** arbeiten, sind Sie **kein** **ordentlich Studierender** oder ordentlich Studierende.
+
+### Wer ist vom Werkstudentenprivileg ausgenommen?
+
+Vom Werkstudentenprivileg, das heißt von den damit verbundenen Vorzügen in der Sozialversicherung, sind Sie insbesondere in folgenden Fällen ausgenommen:
+
+
+## Versicherungen als Werkstudent und Minijobber
+
+Auch Minijobber sind Arbeitnehmer und Arbeitnehmerinnen, die versichert werden sollten. Welche Versicherungen und Abgaben sind aber speziell für Werkstudentinnen und Werkstudenten und Minijobber im Studium relevant?
+
+### Kranken- und Pflegeversicherung
+
+Als Werkstudentin oder Werkstudent sind Sie in Bezug auf Ihren Nebenjob **versicherungsfrei in der Krankenversicherung** und **nicht versicherungspflichtig in der Pflegeversicherung. **Das gilt auch für studentische Minijobber. Für Fragen rund um Ihren Werkstudenten-Status ist Ihre Krankenkasse zuständig.
+
+### Arbeitslosenversicherung
+
+Als Werkstudentin oder Werkstudent und als Minijobber sind Sie ebenfalls **versicherungsfrei in der Arbeitslosenversicherung**. Das bedeutet allerdings auch: Sie haben mit Ihrer Werkstudentenstelle oder Ihrem Minijob als Student oder Studentin keinen Anspruch auf Arbeitslosengeld oder Kurzarbeitergeld.
+
+### Rentenversicherung
+
+Als Werkstudentin oder Werkstudent sind Sie nur **versicherungspflichtig in der Rentenversicherung")**. Das heißt, Sie können schon im Studium Rentenpunkte sammeln und die Beschäftigungszeit wird auf die Wartezeit angerechnet. Die Beiträge zur Rentenversicherung teilen Sie sich zur Hälfte mit Ihrem Arbeitgeber. Liegt Ihr Verdienst allerdings zwischen 603,01 Euro und 2.000 Euro, fällt Ihr Anteil geringer aus - es gelten dann die Midijob-Regelungen. Im Gegensatz zu Minijobbern können Sie sich als Werkstudentin oder Werkstudent übrigens nicht von der Rentenversicherungspflicht befreien lassen.
+
+### Info für Arbeitgeber: Meldung von Werkstudenten
+
+Nicht vergessen: Als Arbeitgeber melden Sie rentenversicherungspflichtige Werkstudenten und Werkstudentinnen unter Angabe der Personengruppe 106 und des Beitragsgruppenschlüssels 0-1-0-0 bei der zuständigen Krankenkasse an.
+
+Haben Sie noch Fragen? Dann beachten Sie das Schaubild zur versicherungsrechtlichen Beurteilung von Werkstudenten.
+
+Schaubild zur versicherungsrechtlichen Beurteilung von Werkstudenten
+
+## Testen Sie Ihr Wissen zu Minijobs für Studenten
+
+Wie viel dürfen Studierende in einem Minijob mit Verdienstgrenze monatlich verdienen?
+
+Frage 1 von 5
+
+### Wie viel dürfen Studierende in einem Minijob mit Verdienstgrenze monatlich verdienen?
+
+250 Euro
+
+603 Euro
+
+Unbegrenzt, da bei Studierenden keine Verdienstgrenze gilt.
+
+![ Finden Sie Ihr Match! Gesucht, geklickt, gefunden: Die Börse für Minijobs im Privathaushalt. ]( "Illustration über einen Hundesitter. \(Öffnet neues Fenster\)")
+
+## Ihre Infos rund um den Minijob
+
+
+## Das könnte Sie auch interessieren
+
+Seite Abmeldung, Jahresmeldung und sonstige Meldungen
+
+Seite Kontakt
+
+Seite Mehrere Minijobs gleichzeitig – geht das?
+
+x
+
+## Bleiben Sie auf dem Laufenden!
+
+Abonnieren Sie unseren Newsletter und erhalten Sie wertvolle Tipps, Neuigkeiten und rechtliche Updates rund um Minijobs:
+
+Seiteninformationen:
+
+Diese Seite
+
+
+
+
+Sie finden uns auch auf
+
+
+Seiteninformationen
+
+Die Minijob-Zentrale ist Teil des Verbundsystems der Deutschen Rentenversicherung Knappschaft-Bahn-See.
+
+(C) 2026 Minijob-Zentrale
+*[de]: Deutsch
+*[BZSt]: Bundeszentralamt für Steuern
+*[IdNr]: Identifikationsnummer
+*[ZKG]: Zahlungskontengesetz
+*[Abs.]: Absatz
+*[PDF]: Portable Document Format
+*[z. B.]: zum Beispiel
+*[ IdNr]: Identifikationsnummer
+*[ELSTER]: Elektronische Steuererklärung
+*[ggf.]: gegebenenfalls
+*[St]: Steuerabteilung
+*[AO]: Abgabenordnung
+*[DE]: Deutsch
+*[IdNrn]: Identifikationsnummern
+*[BMF]: Bundesministerium der Finanzen
+*[ViOlA]: Virtuelle Online Auskunft
+*[USt-IdNr.]: Umsatzsteuer-Identifikationsnummer
+*[IdNr.]: Identifikationsnummer
+*[Tel.]: Telefon
+*[Mo]: Montag
+*[Fr]: Freitag
+*[BOP]: BZStOnline-Portal
+*[IBAN]: International Bank Account Number
+*[EStG]: Einkommensteuergesetz
+*[ELStAM]: Elektronische Lohnsteuerabzugsmerkmale
+*[PStTG]: Plattformen-Steuertransparenzgesetz
+*[Nr.]: Nummer/number
+*[FVG]: Finanzverwaltungsgesetz/Finance Administration Act
+*[sog.]: so genannten
+*[CRS]: Common Reporting Standard
+*[FATCA]: Foreign Account Tax Compliance Act
+*[EU]: Europäische Union
+*[BAMF]: Bundesamt für Migration und Flüchtlinge
+*[en]: English
+*[FAQ]: Häufig gestellte Fragen

@@ -1,0 +1,202 @@
+
+
+Search
+
+Search
+
+
+Menu
+
+
+
+Menu
+
+Close
+
+Search
+
+
+
+
+# AI & Robotics (M.Sc.)
+
+Artificial intelligence is a rapidly growing field that is changing the way we live and work. As a result, there is a growing demand for professionals with experience in robotics and artificial intelligence in various industries.
+
+The Master degree program in Artificial Intelligence and Robotics provides students with the opportunity to develop advanced skills and knowledge in these exciting fields. **By combining theoretical and practical courses with our new learning design, students will gain an in-depth understanding of the concepts, algorithms, and applications of robotics and artificial intelligence.** They also learn to design, implement and evaluate complex robotic systems and artificial intelligence algorithms.
+
+Graduates of the program are equipped to pursue careers in a variety of industries, including manufacturing, healthcare, transportation, and entertainment. They are also ready to pursue research and academic opportunities in robotics and artificial intelligence.
+
+**The degree program is accredited.** View document.
+
+Not in the mood for a long search? Jump straight to the **admission requirements**.
+
+## **Your benefits at the UTN**
+
+Our close **supervision ratio** is one of the best in Germany. You will quickly get to know the professors personally.
+
+Our **learning design** with small seminar groups and new forms of examination ensures digital and state-of-the-art university teaching.
+
+Develop a **profile** that aligns with **your goals** through an individual **Track** : from key skills to research focus.
+
+Learn to cross disciplinary boundaries and discover **solution-oriented and interdisciplinary collaboration** in teaching and research.
+
+The **city of Nuremberg** is a hidden champion with diverse career opportunities and a high quality of life.
+
+## Key Data
+
+****Degree program****| Artificial Intelligence & Robotics (M.Sc.)
+---|---
+****Required course work****| 4 semesters (**full-time studies** , **approx. 40 hours per week** , with 120 ECTS)
+****Location****| Nuremberg
+****Language****| English
+****Application period****| March 1 until and including May 31, 2026
+****Enrollment period****| Expected April 1, 2026 until and including September 30, 2026
+****Semester period****| October 1, 2026 until March 31, 2027
+****Course period****| Expected October 12, 2026 until and including February 5, 2027
+**Welcome Week**for new students****| Expected October 5, 2026 until and including October 9, 2026
+
+A detailed overview of the **course schedule** can be found in the following PDF list: Download
+
+## **Learn More: Online Info Sessions About Studying at UTN**
+
+Would you like to learn more about studying at UTN? Our online info sessions offer a concise overview of our degree programs, the application process, and what it’s like to study and learn at UTN.
+
+View Dates
+
+## As a graduate, you will
+
+
+
+
+
+
+## Study Program concept
+
+Our innovative teaching and learning approach, rooted in extensive research, emphasizes active engagement and reflective practices. Rather than memorization-based learning, our approach entails undertaking learning-oriented assignments throughout the semester and receiving personalized feedback from faculty on your progress.
+
+The scientific core of your studies will be the essential content of your program. In the case of M.Sc. AI & Robotics, the following six base modules serve as your scientific core:
+
+1. Artificial Intelligence
+2. Mobile Robot Navigation
+3. Machine Learning
+4. Computer Vision
+5. Deep Learning
+6. Data Engineering
+
+**Find more information about our unique learning design here:**
+
+To our Learning Design
+
+## Curriculum
+
+###### 1\. Semester
+
+###### 4 Mandatory Modules
+1 Key Competencies Module
+
+###### 2\. Semester
+
+###### 2 Mandatory Modules
+1 Key Competencies Module
+1 Interdisciplinary Module
+
+###### 3\. Semester
+
+###### 3 Advanced Modules
+1 Interdisciplinary Module
+
+###### 4\. Semester
+
+###### 1 Key Competencies Module
+1 Master Thesis
+
+The curriculum of the master program Artificial Intelligence and Robotics is a **modularised study program**. Students will learn about problem solving, decision-making, and knowledge representation in AI, as well as the design and implementation of algorithms for autonomous robot navigation. They will study neural networks, training algorithms, optimization techniques, and applications in computer vision and natural language processing. Students will also learn about data analysis, statistical methods, data visualization, and data mining techniques. Through practical assignments and projects, they will gain hands-on experience in designing and implementing algorithms and systems in these fields.
+
+The unique highlight is the **Learning in Transformation Project** , an interdisciplinary scientific research project that focuses on practical learning experiences. The project aims to provide students with a scientific-based approach to solving real-world problems.
+
+**Please note that the Master 's in AI & Robotics is a full-time program. You should plan about 40 hours of work per week.**
+
+****Module Handbook** AIR M.Sc. **
+**Winter semester 2025/26:
+** Read
+
+******Module Handbook** **AIR M.Sc. **
+**Winter semester 2024/25:
+** Read
+
+******Module Handbook** **AIR M.Sc. **
+**2023/24:
+** Read
+
+## Admission Requirements
+
+
+### **Necessary Documents**
+
+If the degree certificate is not yet available, it can be submitted up to 5 weeks after start of the semester at the latest.
+Your explanatory letter is part of the aptitude assessment by the selection committee. Describe your specific interest as well as your particular talent and motivation for the degree program. You can also mention any involvement with subject-specific or interdisciplinary aspects outside of your studies. You can also list relevant internships or course-specific vocational training. We would also like to know how and why our teaching and learning concept is beneficial for your skill development.
+You can prove your language skills with a German Abitur with a certificate in English or the completion of a Bachelor's degree course taught entirely in English. You can also present a successfully completed language test that is no more than two years old. We will accept the following certificates: TOEFL internet-based min. 90 points, TOEFL computer-based min. 233 points, IELTS min. overall score 6.5, Cambridge language assessment C1 advanced.
+The proof can also be submitted later up to the registration of the final paper (beginning of 4th semester). If a language test is already submitted for the application or enrollment, it must not be older than two years.
+For example relevant internships or work experience.
+**An APS certificate is necessary if you obtained your university degree in India, China or Vietnam.
+
+You can always refer to the General Study and Examination Regulations (Allgemeine Studien- und Prüfungsordnung) as well as the Aptitude Regulations (Satzung zum Eignungsverfahren) to read all admission requirements. Both documents can be found in the Legal Documents section (German only). Further information can also be found in our FAQ.
+
+## Do you meet the requirements?
+
+Join a new university and apply now for the Master's program Artificial Intelligence and Robotics (M.Sc.)!
+
+Apply now
+
+## Contact
+
+#### Student advisory service
+
+If you have any queries regarding the M.Sc. Artificial Intelligence and Robotics degree program, please feel free to contact the student advisory service. We are more than happy to assist you!
+
+**Here you can find additional information on the Department of Computer Science & Artificial Intelligence:**
+
+Computer Science & Artificial Intelligence
+
+Headerimage: © Unsplash
+
+
+Follow us
+
+
+Back to top
+*[de]: Deutsch
+*[BZSt]: Bundeszentralamt für Steuern
+*[IdNr]: Identifikationsnummer
+*[ZKG]: Zahlungskontengesetz
+*[Abs.]: Absatz
+*[PDF]: Portable Document Format
+*[z. B.]: zum Beispiel
+*[ IdNr]: Identifikationsnummer
+*[ELSTER]: Elektronische Steuererklärung
+*[ggf.]: gegebenenfalls
+*[St]: Steuerabteilung
+*[AO]: Abgabenordnung
+*[DE]: Deutsch
+*[IdNrn]: Identifikationsnummern
+*[BMF]: Bundesministerium der Finanzen
+*[ViOlA]: Virtuelle Online Auskunft
+*[USt-IdNr.]: Umsatzsteuer-Identifikationsnummer
+*[IdNr.]: Identifikationsnummer
+*[Tel.]: Telefon
+*[Mo]: Montag
+*[Fr]: Freitag
+*[BOP]: BZStOnline-Portal
+*[IBAN]: International Bank Account Number
+*[EStG]: Einkommensteuergesetz
+*[ELStAM]: Elektronische Lohnsteuerabzugsmerkmale
+*[PStTG]: Plattformen-Steuertransparenzgesetz
+*[Nr.]: Nummer/number
+*[FVG]: Finanzverwaltungsgesetz/Finance Administration Act
+*[sog.]: so genannten
+*[CRS]: Common Reporting Standard
+*[FATCA]: Foreign Account Tax Compliance Act
+*[EU]: Europäische Union
+*[BAMF]: Bundesamt für Migration und Flüchtlinge
+*[en]: English
+*[FAQ]: Häufig gestellte Fragen

@@ -1,0 +1,431 @@
+"""
+Benchmark Module for UTN Project.
+
+This script benchmarks LLM performance on Q&A pairs:
+1. Samples questions from each category
+2. Gets answers from a test LLM
+3. Uses a judge LLM to score the answers
+4. Saves detailed results to timestamped folders
+"""
+
+import json
+import os
+import random
+import time
+from collections import defaultdict
+from datetime import datetime
+from pathlib import Path
+
+import yaml
+from dotenv import load_dotenv
+from openai import OpenAI
+from tenacity import retry, stop_after_attempt, wait_exponential
+from tqdm.auto import tqdm
+
+# Load environment variables from .env file
+load_dotenv()
+
+
+def load_config(config_path: str = "4_benchmark/config.yaml") -> dict:
+    """Load configuration from YAML file."""
+    with open(config_path, "r", encoding="utf-8") as f:
+        config = yaml.safe_load(f)
+
+    # Replace environment variables in API keys
+    for llm_key in ["answer_llm", "judge_llm"]:
+        if config[llm_key]["openai"]["api_key"].startswith("${"):
+            env_var = config[llm_key]["openai"]["api_key"][2:-1]
+            config[llm_key]["openai"]["api_key"] = os.environ.get(env_var, "")
+
+    return config
+
+
+def create_llm_client(llm_config: dict) -> OpenAI:
+    """Create OpenAI client based on provider setting."""
+    provider = llm_config["provider"]
+    timeout = float(os.getenv("OPENAI_TIMEOUT", "60"))
+    max_retries = int(os.getenv("OPENAI_MAX_RETRIES", "2"))
+
+    if provider == "openai":
+        api_key = llm_config["openai"]["api_key"]
+        if not api_key:
+            raise ValueError("OPENAI_API_KEY not found in environment variables")
+        return OpenAI(api_key=api_key, timeout=timeout, max_retries=max_retries)
+    elif provider == "local":
+        return OpenAI(
+            base_url=llm_config["local"]["base_url"],
+            api_key="lm-studio",
+            timeout=timeout,
+        )
+    else:
+        raise ValueError(f"Unknown LLM provider: {provider}")
+
+
+def get_llm_settings(llm_config: dict) -> dict:
+    """Get model settings based on provider."""
+    provider = llm_config["provider"]
+    if provider == "openai":
+        return llm_config["openai"]
+    return llm_config["local"]
+
+
+def load_qna_data(qna_file: str) -> list[dict]:
+    """Load Q&A pairs from JSONL file."""
+    entries = []
+    with open(qna_file, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if line:
+                entries.append(json.loads(line))
+    return entries
+
+
+def sample_questions(
+    qna_data: list[dict], questions_per_category: int, categories: list[str]
+) -> list[dict]:
+    """Sample questions from each category."""
+    # Group by category
+    by_category = defaultdict(list)
+    for entry in qna_data:
+        cat = entry.get("category", "Unknown")
+        by_category[cat].append(entry)
+
+    # Filter categories if specified
+    if categories:
+        by_category = {k: v for k, v in by_category.items() if k in categories}
+
+    # Sample from each category
+    sampled = []
+    for cat, entries in by_category.items():
+        n_sample = min(questions_per_category, len(entries))
+        sampled.extend(random.sample(entries, n_sample))
+        print(f"  {cat}: {n_sample} questions sampled (from {len(entries)} available)")
+
+    random.shuffle(sampled)
+    return sampled
+
+
+def save_benchmark_file(benchmark_file: str, questions: list[dict]) -> None:
+    """Save sampled questions to benchmark JSONL file."""
+    Path(benchmark_file).parent.mkdir(parents=True, exist_ok=True)
+    with open(benchmark_file, "w", encoding="utf-8") as f:
+        for q in questions:
+            f.write(json.dumps(q, ensure_ascii=False) + "\n")
+
+
+@retry(wait=wait_exponential(multiplier=1, min=2, max=10), stop=stop_after_attempt(5))
+def get_answer_with_retry(
+    client: OpenAI, settings: dict, prompt: str
+) -> str:
+    """Get answer from LLM with automatic retry."""
+    response = client.chat.completions.create(
+        model=settings["model"],
+        messages=[
+            {"role": "user", "content": prompt},
+        ],
+        temperature=settings["temperature"],
+        max_tokens=settings["max_tokens"],
+    )
+    return response.choices[0].message.content.strip()
+
+
+def get_answer(
+    client: OpenAI, settings: dict, config: dict, question: str
+) -> str | None:
+    """Get answer from the answer LLM."""
+    prompt = config["answer_prompt"].format(question=question)
+
+    try:
+        return get_answer_with_retry(client, settings, prompt)
+    except Exception as e:
+        actual_error = e.__cause__ if e.__cause__ else e
+        print(f"\n  Answer Error: {type(actual_error).__name__}: {actual_error}")
+        return None
+
+
+@retry(wait=wait_exponential(multiplier=1, min=2, max=10), stop=stop_after_attempt(5))
+def judge_answer_with_retry(
+    client: OpenAI, settings: dict, prompt: str
+) -> dict:
+    """Judge answer with automatic retry."""
+    response = client.chat.completions.create(
+        model=settings["model"],
+        messages=[
+            {
+                "role": "system",
+                "content": "You are a fair evaluator. Always respond with valid JSON.",
+            },
+            {"role": "user", "content": prompt},
+        ],
+        temperature=settings["temperature"],
+        max_tokens=settings["max_tokens"],
+    )
+
+    content = response.choices[0].message.content.strip()
+
+    # Handle markdown code blocks
+    if content.startswith("```"):
+        content = content.split("```")[1]
+        if content.startswith("json"):
+            content = content[4:]
+        content = content.strip()
+
+    result = json.loads(content)
+
+    # Validate score
+    score = result.get("score", 0)
+    if score not in [0, 0.5, 1, 0.0, 1.0]:
+        # Round to nearest valid score
+        if score < 0.25:
+            result["score"] = 0.0
+        elif score < 0.75:
+            result["score"] = 0.5
+        else:
+            result["score"] = 1.0
+
+    return result
+
+
+def judge_answer(
+    client: OpenAI, settings: dict, config: dict, question: str, expected: str, ai_answer: str
+) -> dict | None:
+    """Get judgment from the judge LLM."""
+    prompt = config["judge_prompt"].format(
+        question=question,
+        expected_answer=expected,
+        ai_answer=ai_answer,
+    )
+
+    try:
+        return judge_answer_with_retry(client, settings, prompt)
+    except Exception as e:
+        actual_error = e.__cause__ if e.__cause__ else e
+        print(f"\n  Judge Error: {type(actual_error).__name__}: {actual_error}")
+        return None
+
+
+def create_results_dir(base_dir: str) -> Path:
+    """Create timestamped results directory."""
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    results_path = Path(base_dir) / timestamp
+    results_path.mkdir(parents=True, exist_ok=True)
+    return results_path
+
+
+def save_summary(
+    results_dir: Path,
+    answer_config: dict,
+    judge_config: dict,
+    results: list[dict],
+    duration: float,
+) -> None:
+    """Save summary info to file."""
+    answer_settings = get_llm_settings(answer_config)
+    judge_settings = get_llm_settings(judge_config)
+
+    # Calculate stats
+    scores = [r["score"] for r in results if r["score"] is not None]
+    total_questions = len(results)
+    answered = len(scores)
+    failed = total_questions - answered
+
+    avg_score = sum(scores) / len(scores) if scores else 0
+    full_correct = sum(1 for s in scores if s == 1.0)
+    partial = sum(1 for s in scores if s == 0.5)
+    wrong = sum(1 for s in scores if s == 0.0)
+
+    # Stats by category
+    by_category = defaultdict(list)
+    for r in results:
+        if r["score"] is not None:
+            by_category[r["category"]].append(r["score"])
+
+    summary = {
+        "run_timestamp": datetime.now().isoformat(),
+        "duration_seconds": round(duration, 2),
+        "answer_model": {
+            "provider": answer_config["provider"],
+            "model": answer_settings["model"],
+            "temperature": answer_settings["temperature"],
+        },
+        "judge_model": {
+            "provider": judge_config["provider"],
+            "model": judge_settings["model"],
+            "temperature": judge_settings["temperature"],
+        },
+        "stats": {
+            "total_questions": total_questions,
+            "answered": answered,
+            "failed": failed,
+            "average_score": round(avg_score, 4),
+            "full_correct": full_correct,
+            "partial_correct": partial,
+            "wrong": wrong,
+        },
+        "stats_by_category": {
+            cat: {
+                "count": len(scores_list),
+                "average": round(sum(scores_list) / len(scores_list), 4) if scores_list else 0,
+                "full_correct": sum(1 for s in scores_list if s == 1.0),
+                "partial": sum(1 for s in scores_list if s == 0.5),
+                "wrong": sum(1 for s in scores_list if s == 0.0),
+            }
+            for cat, scores_list in by_category.items()
+        },
+    }
+
+    summary_file = results_dir / "summary.json"
+    with open(summary_file, "w", encoding="utf-8") as f:
+        json.dump(summary, f, indent=2, ensure_ascii=False)
+
+    # Also print summary
+    print("\n" + "=" * 60)
+    print("BENCHMARK RESULTS")
+    print("=" * 60)
+    print(f"Answer Model: {answer_settings['model']} (temp={answer_settings['temperature']})")
+    print(f"Judge Model: {judge_settings['model']}")
+    print(f"Duration: {duration:.2f}s")
+    print("-" * 60)
+    print(f"Total Questions: {total_questions}")
+    print(f"Average Score: {avg_score:.2%}")
+    print(f"Full Correct (1.0): {full_correct}")
+    print(f"Partial (0.5): {partial}")
+    print(f"Wrong (0.0): {wrong}")
+    print(f"Failed: {failed}")
+    print("-" * 60)
+    print("By Category:")
+    print(f"  {'Category':<15} {'Avg':>8} {'Full':>6} {'Part':>6} {'Wrong':>6} {'Count':>6}")
+    print(f"  {'-'*15} {'-'*8} {'-'*6} {'-'*6} {'-'*6} {'-'*6}")
+    for cat, data in summary["stats_by_category"].items():
+        print(f"  {cat:<15} {data['average']:>7.1%} {data['full_correct']:>6} {data['partial']:>6} {data['wrong']:>6} {data['count']:>6}")
+
+
+def save_detailed_results(results_dir: Path, results: list[dict]) -> None:
+    """Save detailed results to JSONL file."""
+    detailed_file = results_dir / "detailed_results.jsonl"
+    with open(detailed_file, "w", encoding="utf-8") as f:
+        for r in results:
+            f.write(json.dumps(r, ensure_ascii=False) + "\n")
+
+
+def main():
+    """Main function to run the benchmark."""
+    print("=" * 60)
+    print("LLM Benchmark")
+    print("=" * 60)
+
+    # Load configuration
+    config = load_config()
+    answer_config = config["answer_llm"]
+    judge_config = config["judge_llm"]
+
+    answer_settings = get_llm_settings(answer_config)
+    judge_settings = get_llm_settings(judge_config)
+
+    print(f"\nAnswer Model: {answer_config['provider']} / {answer_settings['model']}")
+    print(f"Judge Model: {judge_config['provider']} / {judge_settings['model']}")
+
+    # Load Q&A data
+    qna_file = config["data"]["qna_file"]
+    benchmark_file = config["data"]["benchmark_file"]
+
+    # Check if benchmark file already exists
+    if Path(benchmark_file).exists():
+        print(f"\nReusing existing benchmark file: {benchmark_file}")
+        print("To generate a new benchmark, please delete the old file manually.")
+        benchmark_questions = load_qna_data(benchmark_file)
+        print(f"Loaded {len(benchmark_questions)} questions from existing benchmark")
+    else:
+        print(f"\nLoading Q&A from: {qna_file}")
+        qna_data = load_qna_data(qna_file)
+        print(f"Total Q&A pairs: {len(qna_data)}")
+
+        # Sample questions
+        questions_per_cat = config["benchmark"]["questions_per_category"]
+        categories = config["benchmark"]["categories"]
+        print(f"\nSampling {questions_per_cat} questions per category...")
+        benchmark_questions = sample_questions(qna_data, questions_per_cat, categories)
+        print(f"Total benchmark questions: {len(benchmark_questions)}")
+
+        # Save benchmark file
+        save_benchmark_file(benchmark_file, benchmark_questions)
+        print(f"Saved to: {benchmark_file}")
+
+    # Create results directory
+    results_dir = create_results_dir(config["data"]["results_dir"])
+    print(f"\nResults will be saved to: {results_dir}")
+
+    # Create LLM clients
+    print("\nInitializing LLM clients...")
+    answer_client = create_llm_client(answer_config)
+    judge_client = create_llm_client(judge_config)
+
+    # Run benchmark
+    delay = config["processing"]["delay"]
+    results = []
+    start_time = time.time()
+
+    print("\nRunning benchmark...")
+
+    for entry in tqdm(benchmark_questions, desc="Benchmarking"):
+        question = entry["question"]
+        expected_answer = entry["answer"]
+        category = entry.get("category", "Unknown")
+        hash_id = entry.get("hash", "")
+
+        # Get answer from test LLM
+        ai_answer = get_answer(answer_client, answer_settings, config, question)
+
+        if ai_answer is None:
+            results.append({
+                "hash": hash_id,
+                "category": category,
+                "question": question,
+                "expected_answer": expected_answer,
+                "ai_answer": None,
+                "score": None,
+                "reason": "Failed to get answer",
+            })
+            continue
+
+        # Judge the answer
+        judgment = judge_answer(
+            judge_client, judge_settings, config, question, expected_answer, ai_answer
+        )
+
+        if judgment is None:
+            results.append({
+                "hash": hash_id,
+                "category": category,
+                "question": question,
+                "expected_answer": expected_answer,
+                "ai_answer": ai_answer,
+                "score": None,
+                "reason": "Failed to judge",
+            })
+            continue
+
+        results.append({
+            "hash": hash_id,
+            "category": category,
+            "question": question,
+            "expected_answer": expected_answer,
+            "ai_answer": ai_answer,
+            "score": judgment["score"],
+            "reason": judgment.get("reason", ""),
+        })
+
+        if delay > 0:
+            time.sleep(delay)
+
+    duration = time.time() - start_time
+
+    # Save results
+    save_detailed_results(results_dir, results)
+    save_summary(results_dir, answer_config, judge_config, results, duration)
+
+    print(f"\nResults saved to: {results_dir}")
+
+
+if __name__ == "__main__":
+    main()

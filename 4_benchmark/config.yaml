@@ -1,0 +1,77 @@
+# Benchmark Configuration
+
+# Answer LLM Settings (the model being tested)
+answer_llm:
+  # Provider: "openai" or "local" (LM Studio)
+  provider: "openai"
+  
+  # OpenAI API settings
+  openai:
+    api_key: "${OPENAI_API_KEY}"
+    model: "gpt-4.1-nano"
+    temperature: 0.3
+    max_tokens: 500
+  
+  # Local LLM settings (LM Studio)
+  local:
+    base_url: "http://localhost:1234/v1"
+    model: "local-model"
+    temperature: 0.3
+    max_tokens: 500
+
+# Judge LLM Settings (evaluates the answers)
+judge_llm:
+  # Provider: "openai" or "local" (LM Studio)
+  provider: "openai"
+  
+  # OpenAI API settings
+  openai:
+    api_key: "${OPENAI_API_KEY}"
+    model: "gpt-4.1-nano"
+    temperature: 0.0
+    max_tokens: 100
+  
+  # Local LLM settings (LM Studio)
+  local:
+    base_url: "http://localhost:1234/v1"
+    model: "local-model"
+    temperature: 0.0
+    max_tokens: 100
+
+# Benchmark Settings
+benchmark:
+  # Number of questions per category to sample
+  questions_per_category: 10
+  
+  # Categories to include (leave empty for all)
+  # categories: ["UTN", "Deutschland", "Nuernberg", "Studium", "Sonstiges"]
+  categories: []
+
+# Answer Prompt (sent to the answer LLM)
+answer_prompt: |
+  {question}
+
+# Judge Prompt (sent to the judge LLM)
+judge_prompt: |
+  You are evaluating an AI's answer to a question.
+  
+  Question: {question}
+  Expected Answer: {expected_answer}
+  AI's Answer: {ai_answer}
+  
+  Score the AI's answer:
+  - 1.0 = Fully correct and complete answer
+  - 0.5 = Partially correct or incomplete answer
+  - 0.0 = Wrong or no answer
+  
+  Respond with ONLY a JSON object: {{"score": <number>, "reason": "<brief explanation>"}}
+
+# Data paths
+data:
+  qna_file: "data/llm_qna.jsonl"
+  benchmark_file: "4_benchmark/benchmark.jsonl"
+  results_dir: "4_benchmark/results"
+
+# Processing settings
+processing:
+  delay: 0

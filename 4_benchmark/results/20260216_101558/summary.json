@@ -1,0 +1,60 @@
+{
+  "run_timestamp": "2026-02-16T10:18:10.690756",
+  "duration_seconds": 131.45,
+  "answer_model": {
+    "provider": "openai",
+    "model": "gpt-4.1-nano",
+    "temperature": 0.3
+  },
+  "judge_model": {
+    "provider": "openai",
+    "model": "gpt-4.1-nano",
+    "temperature": 0.0
+  },
+  "stats": {
+    "total_questions": 50,
+    "answered": 50,
+    "failed": 0,
+    "average_score": 0.56,
+    "full_correct": 17,
+    "partial_correct": 22,
+    "wrong": 11
+  },
+  "stats_by_category": {
+    "Sonstiges": {
+      "count": 10,
+      "average": 0.5,
+      "full_correct": 4,
+      "partial": 2,
+      "wrong": 4
+    },
+    "UTN": {
+      "count": 10,
+      "average": 0.65,
+      "full_correct": 5,
+      "partial": 3,
+      "wrong": 2
+    },
+    "Studium": {
+      "count": 10,
+      "average": 0.4,
+      "full_correct": 1,
+      "partial": 6,
+      "wrong": 3
+    },
+    "Nuernberg": {
+      "count": 10,
+      "average": 0.65,
+      "full_correct": 3,
+      "partial": 7,
+      "wrong": 0
+    },
+    "Deutschland": {
+      "count": 10,
+      "average": 0.6,
+      "full_correct": 4,
+      "partial": 4,
+      "wrong": 2
+    }
+  }
+}

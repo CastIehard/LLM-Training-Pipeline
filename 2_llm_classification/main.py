@@ -147,7 +147,13 @@ def classify_url(client: OpenAI, config: dict, url: str, content: str) -> str | 
         return classify_url_with_retry(client, settings, prompt, valid_categories)
     except Exception as e:
         actual_error = e.__cause__ if e.__cause__ else e
-        print(f"  Error: {type(actual_error).__name__}: {actual_error}")
+        print(f"\n  API Error: {type(actual_error).__name__}")
+        print(f"  Full response: {actual_error}")
+        # If it's an OpenAI API error, try to print more details
+        if hasattr(actual_error, "response"):
+            print(f"  Response body: {actual_error.response}")
+        if hasattr(actual_error, "body"):
+            print(f"  Error body: {actual_error.body}")
         return None
 
 
@@ -228,7 +234,7 @@ def main():
 
     print("\nStarting classification...")
 
-    for idx in tqdm(to_classify_indices, desc="Classifying URLs"):
+    for idx in tqdm(to_classify_indices, desc="Classifying Contents"):
         entry = index_data[idx]
         url = entry["source_url"]
         filename = entry.get("filename", "")
@@ -251,6 +257,7 @@ def main():
         # Save progress periodically (every 10 entries)
         if (classified_count + failed_count) % 10 == 0:
             save_index(index_path, index_data)
+            tqdm.write(f"  [Progress saved: {classified_count + failed_count} entries processed]")
 
     # Final save
     save_index(index_path, index_data)

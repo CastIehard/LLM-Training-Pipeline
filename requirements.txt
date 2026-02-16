@@ -9,6 +9,11 @@ lxml>=4.9.0
 # Configuration
 pyyaml>=6.0
 
+# LLM API
+openai>=1.0.0
+python-dotenv>=1.0.0
+tenacity>=8.0.0
+
 # Code formatting (dev)
 black>=23.0.0
 tqdm>=4.65.0

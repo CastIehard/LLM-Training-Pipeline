@@ -1,8 +1,63 @@
 # UTN-3-LLM-Final-Project
 
+A multi-stage data pipeline for scraping web content and classifying it using LLM. The project consists of two main modules:
+
+1. **Web Scraping** (`1_webscraping/`) - Scrapes URLs, converts HTML to Markdown, and creates a structured index
+2. **LLM Classification** (`2_llm_classification/`) - Classifies URLs into categories using OpenAI API or local LLM (LM Studio)
+
+## Project Structure
+
+```
+.
+├── .env                        # Environment variables (API keys)
+├── requirements.txt            # Python dependencies
+├── README.md
+├── LICENSE
+│
+├── 1_webscraping/              # Stage 1: Web Scraping
+│   ├── main.py                 # Entry point for scraping
+│   ├── config.yaml             # Scraping configuration
+│   ├── url.txt                 # Input URLs (one per line)
+│   ├── cache/                  # Cached HTML files
+│   └── web_scraper/            # Scrapy spider and pipelines
+│
+├── 2_llm_classification/       # Stage 2: LLM Classification
+│   ├── main.py                 # Entry point for classification
+│   └── config.yaml             # LLM and category configuration
+│
+└── data/                       # Shared data directory
+    ├── index.json              # Metadata index (updated by both stages)
+    └── raw_md/                 # Markdown files from scraping
+```
+
+## Quick Start
+
+1. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+2. Create a `.env` file with your OpenAI API key (if using OpenAI):
+```bash
+OPENAI_API_KEY=sk-your-api-key-here
+```
+
+3. Run the pipeline stages in order:
+```bash
+# Stage 1: Scrape URLs
+python 1_webscraping/main.py
+
+# Stage 2: Classify URLs
+python 2_llm_classification/main.py
+```
+
+---
+
+## Stage 1: Web Scraping
+
 A Scrapy-based web scraping pipeline that scrapes URLs from a file, optionally follows links up to a configurable depth, converts HTML to Markdown, cleans the content, and outputs organized files with metadata.
 
-## Features
+### Features
 
 - **URL-based web scraping**: Scrape URLs from `url.txt` file with configurable depth
 - **Depth-based crawling**: Follow links found on scraped pages up to maximum depth (0 = seed URLs only, 1 = links from seeds, etc.)
@@ -108,32 +163,74 @@ The `index.json` file contains metadata for each scraped page:
     "depth": 0,
     "scraped_at": "2026-02-14T15:23:00",
     "content_length": 5432,
-    "cache_file": "cache/def456....html",
-    "language_detected": "en"
+    "language_detected": "en",
+    "category": "UTN"
   }
 ]
 ```
 
-## Project Structure
+---
 
+## Stage 2: LLM Classification
+
+Classifies each URL in the index into predefined categories using either OpenAI API or a local LLM via LM Studio.
+
+### Features
+
+- **Dual LLM Support**: Use OpenAI API or local LLM (LM Studio)
+- **Configurable Categories**: Define custom categories in config.yaml
+- **Incremental Processing**: Only classifies URLs without valid category
+- **Idempotent**: Running multiple times won't re-classify existing entries
+
+### Configuration
+
+Edit `2_llm_classification/config.yaml`:
+
+```yaml
+llm:
+  provider: "local"  # or "openai"
+  
+  openai:
+    api_key: "${OPENAI_API_KEY}"
+    model: "gpt-4o-mini"
+    
+  local:
+    base_url: "http://localhost:1234/v1"
+    model: "local-model"
+
+categories:
+  - name: "UTN"
+    description: "Content related to UTN"
+  - name: "Deutschland"
+    description: "General Germany information"
+  - name: "Nuernberg"
+    description: "Nuremberg-specific content"
+  - name: "Studium"
+    description: "Study-related content"
+  - name: "Sonstiges"
+    description: "Other content"
 ```
-.
-├── main.py                 # Entry point (runs Scrapy programmatically)
-├── config.yaml             # Configuration file
-├── requirements.txt        # Python dependencies
-├── url.txt                 # Input file with URLs to scrape (one per line)
-├── scrapy.cfg              # Scrapy project configuration
-├── web_scraper/
-│   ├── __init__.py
-│   ├── items.py            # Scrapy item definitions
-│   ├── pipelines.py        # Processing pipelines
-│   ├── middlewares.py      # Custom middlewares
-│   └── spiders/
-│       ├── __init__.py
-│       └── url_spider.py   # Main spider for URL scraping
-├── output/                 # Output markdown files (generated)
-└── cache/                  # Cached HTML files (generated)
+
+### Usage
+
+```bash
+python 2_llm_classification/main.py
 ```
+
+The script will:
+1. Load `data/index.json`
+2. Check each entry for existing valid category
+3. Send uncategorized URLs to LLM for classification
+4. Update `index.json` with category field
+
+### Using Local LLM (LM Studio)
+
+1. Download and install [LM Studio](https://lmstudio.ai/)
+2. Load a model and start the local server (default: `http://localhost:1234/v1`)
+3. Set `provider: "local"` in config.yaml
+4. Run the classification script
+
+---
 
 ## Requirements
 
@@ -143,6 +240,8 @@ The `index.json` file contains metadata for each scraped page:
 - pyyaml
 - html2text
 - lxml
+- openai
+- python-dotenv
 
 ## License
 

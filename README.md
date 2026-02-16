@@ -1,9 +1,10 @@
 # UTN-3-LLM-Final-Project
 
-A multi-stage data pipeline for scraping web content and classifying it using LLM. The project consists of two main modules:
+A multi-stage data pipeline for scraping web content, classifying it, and generating Q&A pairs using LLM. The project consists of three main modules:
 
 1. **Web Scraping** (`1_webscraping/`) - Scrapes URLs, converts HTML to Markdown, and creates a structured index
 2. **LLM Classification** (`2_llm_classification/`) - Classifies URLs into categories using OpenAI API or local LLM (LM Studio)
+3. **LLM Q&A Generation** (`3_llm_questions/`) - Generates question-answer pairs from content
 
 ## Project Structure
 
@@ -25,9 +26,14 @@ A multi-stage data pipeline for scraping web content and classifying it using LL
 │   ├── main.py                 # Entry point for classification
 │   └── config.yaml             # LLM and category configuration
 │
+├── 3_llm_questions/            # Stage 3: Q&A Generation
+│   ├── main.py                 # Entry point for Q&A generation
+│   └── config.yaml             # Generation settings
+│
 └── data/                       # Shared data directory
-    ├── index.json              # Metadata index (updated by both stages)
-    └── raw_md/                 # Markdown files from scraping
+    ├── index.json              # Metadata index (updated by stages 1 & 2)
+    ├── raw_md/                 # Markdown files from scraping
+    └── llm_qna.jsonl           # Generated Q&A pairs (JSONL format)
 ```
 
 ## Quick Start
@@ -49,6 +55,9 @@ python 1_webscraping/main.py
 
 # Stage 2: Classify URLs
 python 2_llm_classification/main.py
+
+# Stage 3: Generate Q&A pairs
+python 3_llm_questions/main.py
 ```
 
 ---
@@ -56,6 +65,12 @@ python 2_llm_classification/main.py
 ## Stage 1: Web Scraping
 
 A Scrapy-based web scraping pipeline that scrapes URLs from a file, optionally follows links up to a configurable depth, converts HTML to Markdown, cleans the content, and outputs organized files with metadata.
+
+### URL List Generation
+
+The `url.txt` file was generated using **ChatGPT Deep Research mode**. The prompt asked for relevant URLs for international students at UTN Nuremberg. ChatGPT performed 427 searches and compiled the resulting links.
+
+See the full prompt and execution: [ChatGPT Deep Research Session](https://chatgpt.com/share/e/69921396-c498-8003-9298-2cfc4ea71616)
 
 ### Features
 
@@ -232,6 +247,62 @@ The script will:
 
 ---
 
+## Stage 3: LLM Q&A Generation
+
+Generates question-answer pairs from the scraped content. The number of questions is calculated based on content length.
+
+### Features
+
+- **Dynamic Question Count**: Number of questions scales with content length
+- **Dual LLM Support**: Use OpenAI API or local LLM (LM Studio)
+- **Incremental Processing**: Skips already processed documents
+- **Skip Trash**: Optionally skip documents classified as "Trash"
+- **JSONL Output**: Each Q&A pair stored as a separate JSON line
+
+### Configuration
+
+Edit `3_llm_questions/config.yaml`:
+
+```yaml
+llm:
+  provider: "openai"  # or "local"
+  openai:
+    model: "gpt-4.1-nano"
+
+generation:
+  # Characters of content per question
+  content_length_per_question: 500
+  # Range for question count (±)
+  question_range: 2
+  min_questions: 1
+  max_questions: 20
+
+processing:
+  skip_trash: true
+```
+
+### Usage
+
+```bash
+python 3_llm_questions/main.py
+```
+
+The script will:
+1. Load `data/index.json` and check which hashes are already in `llm_qna.jsonl`
+2. Calculate question count based on content length
+3. Send content to LLM for Q&A generation
+4. Append Q&A pairs to `data/llm_qna.jsonl`
+
+### Output Format (JSONL)
+
+Each line in `llm_qna.jsonl` is a JSON object:
+```json
+{"hash": "abc123...", "question": "What is...?", "answer": "It is...", "model": "gpt-4.1-nano"}
+{"hash": "abc123...", "question": "How does...?", "answer": "It works by...", "model": "gpt-4.1-nano"}
+```
+
+---
+
 ## Requirements
 
 - Python 3.8+
@@ -242,6 +313,7 @@ The script will:
 - lxml
 - openai
 - python-dotenv
+- tenacity
 
 ## License
 

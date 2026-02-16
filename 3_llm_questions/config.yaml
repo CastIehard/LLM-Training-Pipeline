@@ -1,0 +1,67 @@
+# LLM Question Generation Configuration
+
+# LLM Provider Settings
+llm:
+  # Provider: "openai" or "local" (LM Studio)
+  provider: "openai"
+  
+  # OpenAI API settings (used when provider: "openai")
+  openai:
+    api_key: "${OPENAI_API_KEY}"  # Use environment variable
+    model: "gpt-4.1-nano"
+    temperature: 0.1
+    max_tokens: 5000
+  
+  # Local LLM settings (used when provider: "local")
+  # LM Studio runs a local server compatible with OpenAI API format
+  local:
+    base_url: "http://localhost:1234/v1"
+    model: "local-model"
+    temperature: 0.1
+    max_tokens: 5000
+
+# Question Generation Settings
+generation:
+  # Content length per question (how many characters of content per 1 question)
+  # Example: 500 means for a 1000 char document, generate ~2 questions
+  content_length_per_question: 1000
+  
+  # Range variance for number of questions (±)
+  # Example: 2 means if calculated questions = 5, prompt will ask for 3-7 questions
+  question_range: 2
+  
+  # Minimum questions per document
+  min_questions: 1
+  
+  # Maximum questions per document
+  max_questions: 20
+
+# Q&A Generation Prompt
+# The {num_questions_min}, {num_questions_max}, and {content} placeholders will be replaced
+prompt: |
+  Generate {num_questions_min} to {num_questions_max} question-answer pairs from the following content.
+  
+  Rules:
+  - Questions should be answerable from the content
+  - Answers should be concise but complete
+  - Cover different aspects of the content
+  - Questions should be in the same language as the content
+  
+  Content:
+  {content}
+  
+  Respond with ONLY a valid JSON array. Each element must have "question" and "answer" keys.
+  Example format: [{{"question": "...", "answer": "..."}}, {{"question": "...", "answer": "..."}}]
+
+# Data paths
+data:
+  index_file: "data/index.json"
+  raw_md_dir: "data/raw_md"
+  output_file: "data/llm_qna.jsonl"
+
+# Processing settings
+processing:
+  # Delay between API calls in seconds (0 = no delay, OpenAI handles rate limits)
+  delay: 0
+  # Skip entries with category "Trash"
+  skip_trash: true

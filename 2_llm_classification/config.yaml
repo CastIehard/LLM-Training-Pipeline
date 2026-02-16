@@ -59,6 +59,6 @@ data:
 # Processing settings
 processing:
   # Delay between API calls in seconds
-  delay: 0.5
+  delay: 0.0
   # Retries are handled via tenacity with exponential backoff
   # Set OPENAI_MAX_RETRIES env var to override default (2)

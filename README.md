@@ -1,10 +1,11 @@
 # UTN-3-LLM-Final-Project
 
-A multi-stage data pipeline for scraping web content, classifying it, and generating Q&A pairs using LLM. The project consists of three main modules:
+A multi-stage data pipeline for scraping web content, classifying it, generating Q&A pairs, and benchmarking LLM performance. The project consists of four main modules:
 
 1. **Web Scraping** (`1_webscraping/`) - Scrapes URLs, converts HTML to Markdown, and creates a structured index
 2. **LLM Classification** (`2_llm_classification/`) - Classifies URLs into categories using OpenAI API or local LLM (LM Studio)
 3. **LLM Q&A Generation** (`3_llm_questions/`) - Generates question-answer pairs from content
+4. **Benchmark** (`4_benchmark/`) - Benchmarks LLM performance on Q&A pairs with judge evaluation
 
 ## Project Structure
 
@@ -29,6 +30,14 @@ A multi-stage data pipeline for scraping web content, classifying it, and genera
 ├── 3_llm_questions/            # Stage 3: Q&A Generation
 │   ├── main.py                 # Entry point for Q&A generation
 │   └── config.yaml             # Generation settings
+│
+├── 4_benchmark/                # Stage 4: LLM Benchmark
+│   ├── main.py                 # Entry point for benchmarking
+│   ├── config.yaml             # Benchmark configuration
+│   ├── benchmark.jsonl         # Sampled questions for benchmark
+│   └── results/                # Timestamped result folders
+│
+├── model/                      # Local HuggingFace models (optional)
 │
 └── data/                       # Shared data directory
     ├── index.json              # Metadata index (updated by stages 1 & 2)
@@ -58,6 +67,9 @@ python 2_llm_classification/main.py
 
 # Stage 3: Generate Q&A pairs
 python 3_llm_questions/main.py
+
+# Stage 4: Benchmark LLM performance
+python 4_benchmark/main.py
 ```
 
 ---
@@ -216,13 +228,13 @@ llm:
 categories:
   - name: "UTN"
     description: "Content related to UTN"
-  - name: "Deutschland"
+  - name: "Germany"
     description: "General Germany information"
-  - name: "Nuernberg"
+  - name: "Nuremberg"
     description: "Nuremberg-specific content"
-  - name: "Studium"
+  - name: "Studies"
     description: "Study-related content"
-  - name: "Sonstiges"
+  - name: "Other"
     description: "Other content"
 ```
 
@@ -297,15 +309,107 @@ The script will:
 
 Each line in `llm_qna.jsonl` is a JSON object:
 ```json
-{"hash": "abc123...", "question": "What is...?", "answer": "It is...", "model": "gpt-4.1-nano"}
-{"hash": "abc123...", "question": "How does...?", "answer": "It works by...", "model": "gpt-4.1-nano"}
+{"hash": "abc123...", "question": "What is...?", "answer": "It is...", "model": "gpt-4.1-nano", "category": "UTN"}
+{"hash": "abc123...", "question": "How does...?", "answer": "It works by...", "model": "gpt-4.1-nano", "category": "UTN"}
+```
+
+---
+
+## Stage 4: LLM Benchmark
+
+Benchmarks LLM performance by sampling questions from each category, getting answers from a test LLM, and using a judge LLM to evaluate the responses.
+
+### Features
+
+- **Three LLM Providers**: OpenAI API, local LLM (LM Studio), or HuggingFace models
+- **Category-based Sampling**: Sample equal questions per category
+- **Judge LLM Evaluation**: Automated scoring (0.0, 0.5, 1.0)
+- **Detailed Results**: Timestamped folders with summary and detailed results
+- **HuggingFace Support**: Test local models downloaded from HuggingFace Hub
+
+### Configuration
+
+Edit `4_benchmark/config.yaml`:
+
+```yaml
+answer_llm:
+  # Provider: "openai", "local", or "huggingface"
+  provider: "huggingface"
+  
+  openai:
+    api_key: "${OPENAI_API_KEY}"
+    model: "gpt-4.1-nano"
+    
+  local:
+    base_url: "http://localhost:1234/v1"
+    model: "local-model"
+    
+  huggingface:
+    model: "Qwen/Qwen2.5-0.5B-Instruct"
+    model_dir: "model"  # Local cache directory
+    device: "auto"      # auto, cpu, cuda, mps
+    dtype: "auto"       # auto, float16, float32, bfloat16
+
+judge_llm:
+  provider: "openai"
+  openai:
+    model: "gpt-4.1-nano"
+
+benchmark:
+  questions_per_category: 10
+  categories: []  # Empty = all categories
+```
+
+### Usage
+
+```bash
+python 4_benchmark/main.py
+```
+
+The script will:
+1. Sample questions from each category (or reuse existing `benchmark.jsonl`)
+2. Get answers from the test LLM (answer_llm)
+3. Have the judge LLM score each answer
+4. Save results to timestamped folder in `4_benchmark/results/`
+
+### Using HuggingFace Models
+
+1. Set `provider: "huggingface"` in answer_llm config
+2. Specify the model name (e.g., `Qwen/Qwen2.5-0.5B-Instruct`)
+3. Run the benchmark - model will be downloaded automatically to `model/` directory
+4. Subsequent runs will use the cached model
+
+### Output Structure
+
+```
+4_benchmark/results/
+└── 20260216_120000/
+    ├── summary.json          # Overall stats and per-category breakdown
+    └── detailed_results.jsonl # Individual question results
+```
+
+### Summary Format
+
+```json
+{
+  "answer_model": {"provider": "huggingface", "model": "Qwen/Qwen2.5-0.5B-Instruct"},
+  "judge_model": {"provider": "openai", "model": "gpt-4.1-nano"},
+  "stats": {
+    "total_questions": 50,
+    "average_score": 0.72,
+    "full_correct": 30,
+    "partial_correct": 12,
+    "wrong": 8
+  },
+  "stats_by_category": {...}
+}
 ```
 
 ---
 
 ## Requirements
 
-- Python 3.8+
+- Python 3.10+
 - scrapy
 - beautifulsoup4
 - pyyaml
@@ -314,6 +418,10 @@ Each line in `llm_qna.jsonl` is a JSON object:
 - openai
 - python-dotenv
 - tenacity
+- tqdm
+- transformers (optional, for HuggingFace models)
+- torch (optional, for HuggingFace models)
+- accelerate (optional, for HuggingFace models)
 
 ## License
 

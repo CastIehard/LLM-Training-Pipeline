@@ -44,7 +44,7 @@ benchmark:
   questions_per_category: 10
   
   # Categories to include (leave empty for all)
-  # categories: ["UTN", "Deutschland", "Nuernberg", "Studium", "Sonstiges"]
+  # categories: ["UTN", "Germany", "Nuremberg", "Studies", "Other"]
   categories: []
 
 # Answer Prompt (sent to the answer LLM)

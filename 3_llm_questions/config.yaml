@@ -45,7 +45,7 @@ prompt: |
   - Questions should be answerable from the content
   - Answers should be concise but complete
   - Cover different aspects of the content
-  - Questions should be in the same language as the content
+  - IMPORTANT: All questions and answers MUST be in English, even if the source content is in German
   
   Content:
   {content}

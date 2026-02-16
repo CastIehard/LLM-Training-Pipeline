@@ -25,21 +25,22 @@ llm:
 categories:
   - name: "UTN"
     description: "Content directly related to UTN (University of Technology Nuremberg)"
-  - name: "Deutschland"
+  - name: "Germany"
     description: "General information about Germany (laws, government, nationwide services)"
-  - name: "Nuernberg"
+  - name: "Nuremberg"
     description: "Information specific to Nuremberg city (local services, events, places)"
-  - name: "Studium"
+  - name: "Studies"
     description: "General study-related content (university life, student services, education)"
   - name: "Trash"
     description: "Unreadable, corrupted, empty, or nonsensical content (gibberish, broken encoding, no useful text)"
-  - name: "Sonstiges"
+  - name: "Other"
     description: "Content that doesn't fit into the other categories"
 
 # Classification Prompt
 # The {categories}, {url}, and {content} placeholders will be replaced at runtime
 prompt: |
   Classify the following webpage into exactly ONE category based on the URL and content.
+  Respond in English only.
   
   Categories:
   {categories}

@@ -51,17 +51,86 @@ def normalize_text(text: str, config: dict) -> str:
     if section.get("fix_punctuation_spacing", False):
         text = re.sub(r"\s+([,\.;:!?])", r"\1", text)
 
-    # Apply custom regex replacements
+    # Apply custom regex replacements (MULTILINE so ^ and $ match each line)
     for rule in section.get("custom_regex_replacements", []):
         pattern = rule.get("pattern", "")
         replacement = rule.get("replacement", "")
         if pattern:
-            text = re.sub(pattern, replacement, text)
+            text = re.sub(pattern, replacement, text, flags=re.MULTILINE)
 
     # Collapse runs of blank lines left after boilerplate removal
     text = re.sub(r"\n{3,}", "\n\n", text)
 
     return text.strip()
+
+
+# ---------------------------------------------------------------------------
+# Markdown Cleaning (moved from 1_webscraping pipeline)
+# ---------------------------------------------------------------------------
+
+
+def clean_markdown(text: str, config: dict) -> str:
+    """Clean raw markdown: remove URLs, emails, junk patterns, nav menus, normalise whitespace."""
+    section = config.get("markdown_cleaning", {})
+    if not section.get("enabled", False):
+        return text
+
+    # Remove URLs: markdown links → keep link text, then strip standalone URLs
+    if section.get("remove_urls", False):
+        text = re.sub(r"\[([^\]]+)\]\([^\)]+\)", r"\1", text)
+        text = re.sub(r"https?://[^\s\)]+", "", text)
+        text = re.sub(r"www\.[^\s]+", "", text)
+
+    # Remove emails
+    if section.get("remove_emails", False):
+        text = re.sub(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b", "", text)
+
+    # Remove junk patterns
+    if section.get("remove_junk_patterns", False):
+        for pattern in section.get("junk_patterns", []):
+            text = re.sub(pattern, "", text)
+
+    # Remove navigation-menu bullet lines (lines that are just '* text')
+    if section.get("remove_navigation_menus", False):
+        lines = text.split("\n")
+        nav_pattern = re.compile(r"^\* .+$")
+        lines = [line for line in lines if not nav_pattern.match(line.strip())]
+        text = "\n".join(lines)
+
+    # Normalise whitespace first so separated image lines collapse
+    # (e.g. "Finden\n\n\n![](...)" becomes "Finden\n\n![](...)")
+    if section.get("normalize_whitespace", False):
+        # Multiple spaces → single space
+        text = re.sub(r" +", " ", text)
+        # Multiple blank lines → max two newlines
+        text = re.sub(r"\n\s*\n\s*\n+", "\n\n", text)
+        # Trailing whitespace per line
+        text = re.sub(r"[ \t]+$", "", text, flags=re.MULTILINE)
+
+        # Strip leading whitespace but preserve code blocks
+        lines = text.split("\n")
+        cleaned_lines = []
+        in_code_block = False
+        for line in lines:
+            if line.strip().startswith("```"):
+                in_code_block = not in_code_block
+                cleaned_lines.append(line)
+            elif in_code_block:
+                cleaned_lines.append(line)
+            else:
+                cleaned_lines.append(line.lstrip())
+        text = "\n".join(cleaned_lines)
+        text = text.strip()
+
+    # Remove ALL markdown images (after whitespace normalisation so
+    # lines like "Finden\n\n![](/ \"title\")" are already collapsed)
+    if section.get("remove_images", False):
+        text = re.sub(r"!\[[^\]]*\]\([^)]*\)", "", text)
+
+    # Final cleanup: collapse any blank lines left by image removal
+    text = re.sub(r"\n{3,}", "\n\n", text).strip()
+
+    return text
 
 
 # ---------------------------------------------------------------------------
@@ -539,6 +608,9 @@ def main():
         # Text normalization (punctuation, boilerplate, custom regex)
         original_len = len(content)
         content = normalize_text(content, config)
+
+        # Markdown cleaning (URLs, emails, junk, nav menus, whitespace)
+        content = clean_markdown(content, config)
         if len(content) != original_len:
             norm_count += 1
 

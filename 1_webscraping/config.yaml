@@ -280,14 +280,3 @@ output:
   
   # Name of the JSON index file
   index_file: "data/index.json"
-
-# Cleaning settings
-cleaning:
-  # Remove URLs from markdown content
-  remove_urls: true
-  
-  # Remove email addresses
-  remove_emails: true
-  
-  # Remove extra whitespace
-  normalize_whitespace: true

@@ -16,9 +16,8 @@ class WebPageItem(scrapy.Item):
     2. LanguageFilterPipeline: language_detected
     3. HtmlCachePipeline: cache_file
     4. MarkdownConversionPipeline: markdown_content
-    5. MarkdownCleaningPipeline: cleaned_markdown
-    6. HashGenerationPipeline: content_hash
-    7. OutputPipeline: output_file, timestamp
+    5. HashGenerationPipeline: content_hash
+    6. OutputPipeline: output_file, timestamp
     """
 
     # Core fields from spider
@@ -35,7 +34,6 @@ class WebPageItem(scrapy.Item):
 
     # Processing fields
     markdown_content = scrapy.Field()
-    cleaned_markdown = scrapy.Field()
 
     # Output fields
     content_hash = scrapy.Field()

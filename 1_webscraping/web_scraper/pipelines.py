@@ -8,9 +8,11 @@ Pipeline Order (configured in settings.py):
 1. LanguageFilterPipeline (100) - Filter non-English pages
 2. HtmlCachePipeline (200) - Cache HTML to disk
 3. MarkdownConversionPipeline (300) - Convert HTML to Markdown
-4. MarkdownCleaningPipeline (400) - Clean markdown content
-5. HashGenerationPipeline (500) - Generate content hash
-6. OutputPipeline (600) - Save markdown files and create index
+4. HashGenerationPipeline (400) - Generate content hash
+5. OutputPipeline (500) - Save markdown files and create index
+
+Note: Content cleaning (URL removal, junk patterns, whitespace normalisation)
+has been moved to the dedicated 2_data_cleaning stage.
 """
 
 import hashlib
@@ -180,129 +182,6 @@ class MarkdownConversionPipeline:
         return item
 
 
-class MarkdownCleaningPipeline:
-    """
-    Clean markdown content.
-
-    Removes URLs, emails, common junk patterns, and normalizes whitespace.
-    """
-
-    def __init__(self, remove_urls=True, remove_emails=True, normalize_whitespace=True):
-        """
-        Initialize the Markdown cleaner.
-
-        Args:
-            remove_urls: If True, remove URLs from content
-            remove_emails: If True, remove email addresses
-            normalize_whitespace: If True, normalize whitespace
-        """
-        self.remove_urls = remove_urls
-        self.remove_emails = remove_emails
-        self.normalize_whitespace = normalize_whitespace
-
-        # Common junk patterns to remove
-        self.junk_patterns = [
-            r"(?i)(skip to (main )?content|jump to navigation)",
-            r"(?i)(cookie policy|privacy policy|terms of service|terms and conditions)",
-            r"(?i)(subscribe to (our )?newsletter)",
-            r"(?i)(follow us on|share on social media)",
-            r"(?i)(copyright|©)\s*\d{4}",
-            r"(?i)(all rights reserved)",
-        ]
-
-    @classmethod
-    def from_crawler(cls, crawler):
-        """Create pipeline instance from crawler settings."""
-        return cls(
-            remove_urls=crawler.settings.getbool("CLEANING_REMOVE_URLS", True),
-            remove_emails=crawler.settings.getbool("CLEANING_REMOVE_EMAILS", True),
-            normalize_whitespace=crawler.settings.getbool(
-                "CLEANING_NORMALIZE_WHITESPACE", True
-            ),
-        )
-
-    def _remove_urls(self, text):
-        """Remove URLs from text."""
-        # Remove markdown links but keep the link text
-        text = re.sub(r"\[([^\]]+)\]\([^\)]+\)", r"\1", text)
-        # Remove standalone URLs
-        text = re.sub(r"https?://[^\s\)]+", "", text)
-        text = re.sub(r"www\.[^\s]+", "", text)
-        return text
-
-    def _remove_emails(self, text):
-        """Remove email addresses from text."""
-        text = re.sub(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b", "", text)
-        return text
-
-    def _normalize_whitespace(self, text):
-        """Normalize whitespace in text."""
-        # Replace multiple spaces with single space
-        text = re.sub(r" +", " ", text)
-        # Replace multiple newlines with maximum 2 newlines
-        text = re.sub(r"\n\s*\n\s*\n+", "\n\n", text)
-        # Remove trailing whitespace from lines
-        text = re.sub(r"[ \t]+$", "", text, flags=re.MULTILINE)
-
-        # Handle leading whitespace (preserve code blocks)
-        lines = text.split("\n")
-        cleaned_lines = []
-        in_code_block = False
-
-        for line in lines:
-            if line.strip().startswith("```"):
-                in_code_block = not in_code_block
-                cleaned_lines.append(line)
-            elif in_code_block:
-                cleaned_lines.append(line)
-            else:
-                cleaned_lines.append(line.lstrip())
-
-        text = "\n".join(cleaned_lines)
-        return text.strip()
-
-    def _remove_junk(self, text):
-        """Remove common junk patterns from text."""
-        for pattern in self.junk_patterns:
-            text = re.sub(pattern, "", text)
-        return text
-
-    def _remove_navigation_menus(self, text):
-        """Remove navigation menu bullet lines (lines that are just '* text')."""
-        lines = text.split("\n")
-        pattern = re.compile(r"^\* .+$")
-        cleaned_lines = [line for line in lines if not pattern.match(line.strip())]
-        return "\n".join(cleaned_lines)
-
-    def _remove_empty_images(self, text):
-        """Remove markdown image syntax with empty URLs like ![alt text]()."""
-        text = re.sub(r"!\[[^\]]*\]\(\)", "", text)
-        return text
-
-    def process_item(self, item):
-        """Clean markdown content."""
-        markdown = item.get("markdown_content", "")
-
-        if self.remove_urls:
-            markdown = self._remove_urls(markdown)
-
-        if self.remove_emails:
-            markdown = self._remove_emails(markdown)
-
-        # Always remove empty images, junk, and navigation menus
-        markdown = self._remove_empty_images(markdown)
-        markdown = self._remove_junk(markdown)
-        markdown = self._remove_navigation_menus(markdown)
-
-        if self.normalize_whitespace:
-            markdown = self._normalize_whitespace(markdown)
-
-        item["cleaned_markdown"] = markdown
-        logger.debug(f"Cleaned markdown for: {item.get('url', '')}")
-
-        return item
-
-
 class HashGenerationPipeline:
     """
     Generate SHA256 hash for content.
@@ -312,7 +191,7 @@ class HashGenerationPipeline:
 
     def process_item(self, item):
         """Generate content hash."""
-        cleaned_markdown = item.get("cleaned_markdown", "")
+        cleaned_markdown = item.get("markdown_content", "")
         content_hash = hashlib.sha256(cleaned_markdown.encode("utf-8")).hexdigest()
         item["content_hash"] = content_hash
         item["timestamp"] = datetime.now().isoformat()
@@ -380,7 +259,7 @@ class OutputPipeline:
     def process_item(self, item):
         """Save markdown file and add to index."""
         content_hash = item.get("content_hash", "")
-        cleaned_markdown = item.get("cleaned_markdown", "")
+        cleaned_markdown = item.get("markdown_content", "")
         url = item.get("url", "")
 
         filename = f"{content_hash}.md"

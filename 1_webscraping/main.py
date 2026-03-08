@@ -193,10 +193,6 @@ def main():
     if os.path.exists(cache_dir):
         shutil.rmtree(cache_dir)
 
-    remove_urls = config["cleaning"].get("remove_urls", True)
-    remove_emails = config["cleaning"].get("remove_emails", True)
-    normalize_whitespace = config["cleaning"].get("normalize_whitespace", True)
-
     # Load URLs from file
     urls = load_urls(url_file)
 
@@ -247,9 +243,8 @@ def main():
                 "web_scraper.pipelines.LanguageFilterPipeline": 100,
                 "web_scraper.pipelines.HtmlCachePipeline": 200,
                 "web_scraper.pipelines.MarkdownConversionPipeline": 300,
-                "web_scraper.pipelines.MarkdownCleaningPipeline": 400,
-                "web_scraper.pipelines.HashGenerationPipeline": 500,
-                "web_scraper.pipelines.OutputPipeline": 600,
+                "web_scraper.pipelines.HashGenerationPipeline": 400,
+                "web_scraper.pipelines.OutputPipeline": 500,
             },
             # Settings from config.yaml
             "USER_AGENT": user_agent,
@@ -262,9 +257,6 @@ def main():
             "CACHE_DIR": cache_dir,
             "OUTPUT_DIR": output_dir,
             "INDEX_FILE": index_file,
-            "CLEANING_REMOVE_URLS": remove_urls,
-            "CLEANING_REMOVE_EMAILS": remove_emails,
-            "CLEANING_NORMALIZE_WHITESPACE": normalize_whitespace,
         }
     )
 

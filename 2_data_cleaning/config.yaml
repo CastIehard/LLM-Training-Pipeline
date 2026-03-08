@@ -20,6 +20,36 @@ text_normalization:
     # Fix spaces before commas
     - pattern: "\\s+,"
       replacement: ","
+    # Remove markdown abbreviation definitions (*[ABBR]: Full text)
+    - pattern: "^\\*\\[.+?\\]:.*$"
+      replacement: ""
+    # Remove "Back to top" navigation lines
+    - pattern: "(?i)^\\s*back to top\\s*$"
+      replacement: ""
+
+# --- Markdown Cleaning (moved from 1_webscraping pipeline) ---
+# Cleans raw markdown output: removes URLs, emails, junk, navigation, normalises whitespace
+markdown_cleaning:
+  enabled: true
+  # Replace markdown links [text](url) with just text, then remove standalone URLs
+  remove_urls: true
+  # Remove email addresses from text
+  remove_emails: true
+  # Remove all markdown images like ![alt](url) and ![](path "title")
+  remove_images: true
+  # Remove common boilerplate / junk lines
+  remove_junk_patterns: true
+  junk_patterns:
+    - "(?i)(skip to (main )?content|jump to navigation)"
+    - "(?i)(cookie policy|privacy policy|terms of service|terms and conditions)"
+    - "(?i)(subscribe to (our )?newsletter)"
+    - "(?i)(follow us on|share on social media)"
+    - "(?i)(copyright|©)\\s*\\d{4}"
+    - "(?i)(all rights reserved)"
+  # Remove navigation-menu bullet lines (lines matching '* text')
+  remove_navigation_menus: true
+  # Normalise whitespace: collapse spaces, limit blank lines, strip trailing/leading whitespace
+  normalize_whitespace: true
 
 # --- Harmful Content Detection ---
 harmful_content:
@@ -59,13 +89,13 @@ pii_removal:
   enabled: true
   patterns:
     email: true
-    phone: true
+    phone: false           # Keep phone numbers — LLM needs contact info
     ip_address: true
     iban: true
     credit_card: true
     social_security_number: true
-    passport_number: true
-    physical_address: true
+    passport_number: false   # Keep — could be reference codes, too many false positives
+    physical_address: false  # Keep addresses — LLM needs location info
 
 # --- Length Filtering ---
 # Documents outside this character range are removed to prevent weight imbalance.

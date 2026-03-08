@@ -1,0 +1,99 @@
+# Data Cleaning Configuration for LLM Preprocessing
+
+# Input/Output Paths
+index_file: "data/index.json"
+raw_md_dir: "data/raw_md"
+cleaned_md_dir: "data/cleaned_md"
+
+# --- Text Normalization & Regex (Added based on transcript) ---
+# Prevents the model from learning common typos, bad spacing, and boilerplate
+text_normalization:
+  enabled: true
+  fix_punctuation_spacing: true  # Fixes "word , word" -> "word, word" (mentioned in transcript)
+  remove_boilerplate: true
+  custom_regex_replacements:
+    # Removes standard copyright sentences that over-occur in web data (LLaMA 3 example)
+    - pattern: "(?i)copyright © \\d{4}.*all rights reserved\\.?"
+      replacement: ""
+    - pattern: "(?i)terms of service and privacy policy"
+      replacement: ""
+    # Fix spaces before commas
+    - pattern: "\\s+,"
+      replacement: ","
+
+# --- Harmful Content Detection ---
+harmful_content:
+  enabled: true
+  # Documents containing these keywords (case-insensitive) will be flagged and removed.
+  keywords:
+    - "how to make a bomb"
+    - "how to manufacture drugs"
+    - "self-harm instructions"
+    - "suicide methods"
+    - "how to hack into"
+    - "exploit vulnerability"
+    - "build a weapon"
+    - "incite violence"
+    - "terrorist propaganda"
+    - "buy illegal drugs"
+
+# --- Offensive Language & Slang Detection ---
+# The transcript notes that models mimic data: "if you feed it slangs, it will learn to generate slangs."
+offensive_language:
+  enabled: true
+  keywords:
+    - "nigger"
+    - "nigga"
+  filter_slangs: true
+  slang_keywords:
+    - "finna"
+    - "gonna"
+    - "lemme"
+    - "wanna"
+    - "ain't"
+
+# --- PII (Personally Identifiable Information) Removal ---
+# Matches are replaced with redaction placeholders like [EMAIL], [PHONE], etc.
+# Expanded to address the lecture's warning about leaking info of "actual individuals".
+pii_removal:
+  enabled: true
+  patterns:
+    email: true
+    phone: true
+    ip_address: true
+    iban: true
+    credit_card: true
+    social_security_number: true
+    passport_number: true
+    physical_address: true
+
+# --- Length Filtering ---
+# Documents outside this character range are removed to prevent weight imbalance.
+length_filter:
+  enabled: true
+  min_length: 200       # Skips useless 1-sentence metadata shards
+  max_length: 100000    # Ensure highly dense, balanced documents
+
+# --- Model-Based Quality Filtering (Added based on transcript) ---
+# Uses machine learning to classify and keep only high-quality text.
+quality_filtering:
+  enabled: true
+  method: "fasttext"    # Options: "fasttext", "askllm", "roberta"
+  fasttext_model_path: "models/fasttext_quality_classifier.bin"
+  min_quality_score: 0.65  # Confidence threshold to retain the document
+
+# --- Deduplication ---
+# Removes documents that are too similar, reducing overfitting.
+deduplication:
+  enabled: true
+  method: "minhash"     # Options: "minhash" or "bloom"
+
+  minhash:
+    num_perm: 128       # Number of permutation functions (higher = more accurate, slower)
+    threshold: 0.85     # Increased to 0.85 to avoid accidentally deleting slightly similar but distinct texts
+    shingle_size: 5     # Number of words per shingle (5-gram is standard for NLP)
+
+  bloom:
+    expected_items: 1000000 # Increased to handle large-scale web crawled data
+    false_positive_rate: 0.01
+    shingle_size: 5

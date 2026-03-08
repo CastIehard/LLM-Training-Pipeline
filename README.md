@@ -1,9 +1,9 @@
 # UTN-3-LLM-Final-Project
 
-A multi-stage data pipeline for scraping web content, classifying it, generating Q&A pairs, and benchmarking LLM performance. The project consists of four main modules:
+A multi-stage data pipeline for scraping web content, cleaning it, generating Q&A pairs, and benchmarking LLM performance. The project consists of four main modules:
 
 1. **Web Scraping** (`1_webscraping/`) - Scrapes URLs, converts HTML to Markdown, and creates a structured index
-2. **LLM Classification** (`2_llm_classification/`) - Classifies URLs into categories using OpenAI API or local LLM (LM Studio)
+2. **Data Cleaning** (`2_data_cleaning/`) - Removes harmful/offensive content, redacts PII, filters by length, and deduplicates documents
 3. **LLM Q&A Generation** (`3_llm_questions/`) - Generates question-answer pairs from content
 4. **Benchmark** (`4_benchmark/`) - Benchmarks LLM performance on Q&A pairs with judge evaluation
 
@@ -23,9 +23,9 @@ A multi-stage data pipeline for scraping web content, classifying it, generating
 │   ├── cache/                  # Cached HTML files
 │   └── web_scraper/            # Scrapy spider and pipelines
 │
-├── 2_llm_classification/       # Stage 2: LLM Classification
-│   ├── main.py                 # Entry point for classification
-│   └── config.yaml             # LLM and category configuration
+├── 2_data_cleaning/            # Stage 2: Data Cleaning
+│   ├── main.py                 # Entry point for cleaning pipeline
+│   └── config.yaml             # Cleaning & deduplication settings
 │
 ├── 3_llm_questions/            # Stage 3: Q&A Generation
 │   ├── main.py                 # Entry point for Q&A generation
@@ -42,6 +42,7 @@ A multi-stage data pipeline for scraping web content, classifying it, generating
 └── data/                       # Shared data directory
     ├── index.json              # Metadata index (updated by stages 1 & 2)
     ├── raw_md/                 # Markdown files from scraping
+    ├── cleaned_md/             # Cleaned markdown files (output of stage 2)
     └── llm_qna.jsonl           # Generated Q&A pairs (JSONL format)
 ```
 
@@ -62,8 +63,8 @@ OPENAI_API_KEY=sk-your-api-key-here
 # Stage 1: Scrape URLs
 python 1_webscraping/main.py
 
-# Stage 2: Classify URLs
-python 2_llm_classification/main.py
+# Stage 2: Clean data
+python 2_data_cleaning/main.py
 
 # Stage 3: Generate Q&A pairs
 python 3_llm_questions/main.py
@@ -198,64 +199,68 @@ The `index.json` file contains metadata for each scraped page:
 
 ---
 
-## Stage 2: LLM Classification
+## Stage 2: Data Cleaning
 
-Classifies each URL in the index into predefined categories using either OpenAI API or a local LLM via LM Studio.
+Cleans the scraped markdown documents through multiple filtering and transformation steps. Reads from `data/raw_md/`, writes cleaned files to `data/cleaned_md/`, and updates `data/index.json` with cleaning metadata.
 
 ### Features
 
-- **Dual LLM Support**: Use OpenAI API or local LLM (LM Studio)
-- **Configurable Categories**: Define custom categories in config.yaml
-- **Incremental Processing**: Only classifies URLs without valid category
-- **Idempotent**: Running multiple times won't re-classify existing entries
+- **Harmful Content Removal**: Keyword-based filtering of dangerous or inappropriate content
+- **Offensive Language Removal**: Filters out slang, politically incorrect, or offensive text
+- **PII Redaction**: Regex-based removal of emails, phone numbers, IBANs, credit card numbers, and IP addresses
+- **Length Filtering**: Removes extremely short and very large documents to prevent data imbalance
+- **Near-Duplicate Detection**: MinHash or Bloom filter based deduplication
+- **Index Metadata**: Each document gets a `cleaning_status` (kept/removed) and `cleaning_reason`
 
 ### Configuration
 
-Edit `2_llm_classification/config.yaml`:
+Edit `2_data_cleaning/config.yaml`:
 
 ```yaml
-llm:
-  provider: "local"  # or "openai"
-  
-  openai:
-    api_key: "${OPENAI_API_KEY}"
-    model: "gpt-4o-mini"
-    
-  local:
-    base_url: "http://localhost:1234/v1"
-    model: "local-model"
+harmful_content:
+  enabled: true
+  keywords: ["how to make a bomb", ...]
 
-categories:
-  - name: "UTN"
-    description: "Content related to UTN"
-  - name: "Germany"
-    description: "General Germany information"
-  - name: "Nuremberg"
-    description: "Nuremberg-specific content"
-  - name: "Studies"
-    description: "Study-related content"
-  - name: "Other"
-    description: "Other content"
+offensive_language:
+  enabled: true
+  keywords: ["racial slur placeholder"]
+
+pii_removal:
+  enabled: true
+  patterns:
+    email: true
+    phone: true
+    ip_address: true
+    iban: true
+    credit_card: true
+
+length_filter:
+  enabled: true
+  min_length: 100
+  max_length: 500000
+
+deduplication:
+  enabled: true
+  method: "minhash"    # or "bloom"
+  minhash:
+    num_perm: 128
+    threshold: 0.8
+    shingle_size: 5
 ```
 
 ### Usage
 
 ```bash
-python 2_llm_classification/main.py
+python 2_data_cleaning/main.py
 ```
 
 The script will:
-1. Load `data/index.json`
-2. Check each entry for existing valid category
-3. Send uncategorized URLs to LLM for classification
-4. Update `index.json` with category field
-
-### Using Local LLM (LM Studio)
-
-1. Download and install [LM Studio](https://lmstudio.ai/)
-2. Load a model and start the local server (default: `http://localhost:1234/v1`)
-3. Set `provider: "local"` in config.yaml
-4. Run the classification script
+1. Load `data/index.json` and read each markdown file from `data/raw_md/`
+2. Filter out documents with harmful or offensive content
+3. Redact PII (emails, phone numbers, etc.) from kept documents
+4. Remove documents that are too short or too long
+5. Run MinHash (or Bloom filter) deduplication across remaining documents
+6. Write cleaned files to `data/cleaned_md/` and update `data/index.json`
 
 ---
 

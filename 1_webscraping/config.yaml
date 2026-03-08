@@ -15,16 +15,16 @@ scraping:
   timeout: 3
   
   # Delay between requests in seconds (to be polite)
-  delay: 0.1
+  delay: 0.01
   
   # Maximum concurrent requests
-  concurrent_requests: 8
+  concurrent_requests: 3
   
   # Maximum concurrent requests per domain
-  concurrent_requests_per_domain: 2
+  concurrent_requests_per_domain: 5
   
   # Number of retry attempts for failed requests
-  retry_times: 2
+  retry_times: 3
   
   # User agent string (identifies as educational research bot)
   user_agent: "Mozilla/5.0 (compatible; UTN-ResearchBot/1.0; +https://utn.de; University Project)"

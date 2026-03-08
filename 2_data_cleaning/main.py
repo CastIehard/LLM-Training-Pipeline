@@ -7,8 +7,7 @@ This script cleans scraped markdown documents by applying the following steps:
 3. Remove offensive language & slangs (keyword-based filtering)
 4. Remove PII (regex-based redaction of emails, phones, SSNs, etc.)
 5. Filter by length (remove too short or too long documents)
-6. Quality filtering (fasttext / askllm / roberta model-based scoring)
-7. Deduplicate (MinHash or Bloom filter based near-duplicate detection)
+6. Deduplicate (MinHash or Bloom filter based near-duplicate detection)
 
 Reads from data/raw_md/, writes cleaned files to data/cleaned_md/,
 and updates data/index.json with cleaning metadata.
@@ -271,79 +270,6 @@ def check_length(text: str, config: dict) -> str | None:
 
 
 # ---------------------------------------------------------------------------
-# Quality Filtering
-# ---------------------------------------------------------------------------
-
-
-def _load_quality_model(config: dict):
-    """Load the quality filtering model. Returns (model, method) or (None, method)."""
-    qf = config.get("quality_filtering", {})
-    method = qf.get("method", "fasttext")
-
-    if method == "fasttext":
-        model_path = qf.get("fasttext_model_path", "")
-        try:
-            import fasttext
-
-            model = fasttext.load_model(model_path)
-            return model, method
-        except Exception as exc:
-            print(
-                f"  WARNING: Could not load fasttext model ({exc}). "
-                "Skipping quality filter."
-            )
-            return None, method
-
-    if method == "roberta":
-        try:
-            from transformers import pipeline as hf_pipeline
-
-            model = hf_pipeline("text-classification", model="roberta-base")
-            return model, method
-        except Exception as exc:
-            print(
-                f"  WARNING: Could not load roberta model ({exc}). "
-                "Skipping quality filter."
-            )
-            return None, method
-
-    # askllm or unknown – not implemented in offline mode
-    print(f"  WARNING: Quality filter method '{method}' is not available. Skipping.")
-    return None, method
-
-
-def check_quality(text: str, model, method: str, min_score: float) -> str | None:
-    """
-    Score document quality.
-
-    Returns a reason string if the document is below the quality threshold, else None.
-    """
-    if model is None:
-        return None
-
-    try:
-        if method == "fasttext":
-            labels, probs = model.predict(text.replace("\n", " ")[:5000], k=1)
-            score = float(probs[0])
-            label = labels[0]
-            if "hq" in label or "good" in label or "wiki" in label:
-                if score < min_score:
-                    return f"low_quality (fasttext score={score:.2f} < {min_score})"
-            else:
-                return f"low_quality (fasttext label={label}, score={score:.2f})"
-
-        elif method == "roberta":
-            result = model(text[:512])[0]
-            score = result["score"]
-            if score < min_score:
-                return f"low_quality (roberta score={score:.2f} < {min_score})"
-    except Exception as exc:
-        print(f"  WARNING: Quality scoring failed ({exc}), keeping document.")
-
-    return None
-
-
-# ---------------------------------------------------------------------------
 # Deduplication – MinHash
 # ---------------------------------------------------------------------------
 
@@ -572,22 +498,12 @@ def main():
     # --- Phase 1: Per-document cleaning ---
     print("\n--- Phase 1: Per-document filtering, normalization & PII removal ---")
 
-    # Load quality model once (if enabled)
-    qf_config = config.get("quality_filtering", {})
-    qf_enabled = qf_config.get("enabled", False)
-    qf_model, qf_method, qf_min_score = None, "fasttext", 0.65
-    if qf_enabled:
-        print("  Loading quality filter model ...")
-        qf_model, qf_method = _load_quality_model(config)
-        qf_min_score = qf_config.get("min_quality_score", 0.65)
-
     kept_documents: dict[str, str] = {}  # hash -> cleaned content
     removal_stats = {
         "harmful": 0,
         "offensive": 0,
         "too_short": 0,
         "too_long": 0,
-        "low_quality": 0,
         "file_missing": 0,
     }
     pii_total = 0
@@ -644,15 +560,6 @@ def main():
             else:
                 removal_stats["too_long"] += 1
             continue
-
-        # Quality filtering
-        if qf_enabled and qf_model is not None:
-            quality_reason = check_quality(content, qf_model, qf_method, qf_min_score)
-            if quality_reason:
-                entry["cleaning_status"] = "removed"
-                entry["cleaning_reason"] = quality_reason
-                removal_stats["low_quality"] += 1
-                continue
 
         # Document passes all checks
         kept_documents[doc_hash] = content
@@ -724,7 +631,6 @@ def main():
     print(f"    - Offensive:     {removal_stats['offensive']}")
     print(f"    - Too short:     {removal_stats['too_short']}")
     print(f"    - Too long:      {removal_stats['too_long']}")
-    print(f"    - Low quality:   {removal_stats['low_quality']}")
     print(f"    - Missing file:  {removal_stats['file_missing']}")
     print(f"    - Duplicates:    {len(duplicates)}")
     print(f"  Text normalized:   {norm_count} documents")

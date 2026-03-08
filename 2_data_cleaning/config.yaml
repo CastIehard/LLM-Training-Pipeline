@@ -34,7 +34,7 @@ markdown_cleaning:
   # Replace markdown links [text](url) with just text, then remove standalone URLs
   remove_urls: true
   # Remove email addresses from text
-  remove_emails: true
+  remove_emails: false
   # Remove all markdown images like ![alt](url) and ![](path "title")
   remove_images: true
   # Remove common boilerplate / junk lines
@@ -103,14 +103,6 @@ length_filter:
   enabled: true
   min_length: 200       # Skips useless 1-sentence metadata shards
   max_length: 100000    # Ensure highly dense, balanced documents
-
-# --- Model-Based Quality Filtering (Added based on transcript) ---
-# Uses machine learning to classify and keep only high-quality text.
-quality_filtering:
-  enabled: true
-  method: "fasttext"    # Options: "fasttext", "askllm", "roberta"
-  fasttext_model_path: "models/fasttext_quality_classifier.bin"
-  min_quality_score: 0.65  # Confidence threshold to retain the document
 
 # --- Deduplication ---
 # Removes documents that are too similar, reducing overfitting.

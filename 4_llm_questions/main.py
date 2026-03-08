@@ -21,7 +21,7 @@ from tqdm.auto import tqdm
 load_dotenv()
 
 
-def load_config(config_path: str = "3_llm_questions/config.yaml") -> dict:
+def load_config(config_path: str = "4_llm_questions/config.yaml") -> dict:
     """Load configuration from YAML file."""
     with open(config_path, "r", encoding="utf-8") as f:
         config = yaml.safe_load(f)
@@ -76,9 +76,7 @@ def load_md_content(raw_md_dir: str, filename: str) -> str:
         return ""
 
 
-def calculate_question_count(
-    content_length: int, config: dict
-) -> tuple[int, int]:
+def calculate_question_count(content_length: int, config: dict) -> tuple[int, int]:
     """
     Calculate min and max number of questions based on content length.
 
@@ -114,9 +112,7 @@ def build_prompt(config: dict, content: str, num_min: int, num_max: int) -> str:
 
 
 @retry(wait=wait_exponential(multiplier=1, min=2, max=10), stop=stop_after_attempt(5))
-def generate_qa_with_retry(
-    client: OpenAI, settings: dict, prompt: str
-) -> list[dict]:
+def generate_qa_with_retry(client: OpenAI, settings: dict, prompt: str) -> list[dict]:
     """
     Send content to LLM and get Q&A pairs with automatic retry.
 
@@ -244,7 +240,9 @@ def main():
 
     print(f"\nProvider: {provider}")
     print(f"Model: {model_name}")
-    print(f"Content length per question: {config['generation']['content_length_per_question']}")
+    print(
+        f"Content length per question: {config['generation']['content_length_per_question']}"
+    )
 
     # Load index data
     index_path = config["data"]["index_file"]
@@ -268,6 +266,10 @@ def main():
 
         # Skip already processed
         if hash_id in processed_hashes:
+            continue
+
+        # Only process documents that passed data cleaning
+        if entry.get("cleaning_status") != "kept":
             continue
 
         # Skip trash if configured
@@ -314,7 +316,9 @@ def main():
         qa_pairs = generate_qa(client, config, content, num_min, num_max)
 
         if qa_pairs:
-            written = append_qa_to_file(output_file, hash_id, qa_pairs, model_name, category)
+            written = append_qa_to_file(
+                output_file, hash_id, qa_pairs, model_name, category
+            )
             total_questions += written
         else:
             failed_count += 1

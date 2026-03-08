@@ -35,7 +35,7 @@ _hf_tokenizer = None
 load_dotenv()
 
 
-def load_config(config_path: str = "4_benchmark/config.yaml") -> dict:
+def load_config(config_path: str = "5_benchmark/config.yaml") -> dict:
     """Load configuration from YAML file."""
     with open(config_path, "r", encoding="utf-8") as f:
         config = yaml.safe_load(f)

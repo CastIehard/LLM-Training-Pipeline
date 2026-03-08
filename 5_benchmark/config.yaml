@@ -84,8 +84,8 @@ judge_prompt: |
 data:
   qna_file: "data/llm_qna.jsonl"
   # Benchmark file will be named benchmark_{n}.jsonl based on questions_per_category
-  benchmark_file: "4_benchmark/benchmark.jsonl"
-  results_dir: "4_benchmark/results"
+  benchmark_file: "5_benchmark/benchmark.jsonl"
+  results_dir: "5_benchmark/results"
 
 # Processing settings
 processing:

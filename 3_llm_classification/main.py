@@ -21,7 +21,7 @@ from tqdm.auto import tqdm
 load_dotenv()
 
 
-def load_config(config_path: str = "2_llm_classification/config.yaml") -> dict:
+def load_config(config_path: str = "3_llm_classification/config.yaml") -> dict:
     """Load configuration from YAML file."""
     with open(config_path, "r", encoding="utf-8") as f:
         config = yaml.safe_load(f)
@@ -44,7 +44,7 @@ def load_md_content(raw_md_dir: str, filename: str, max_lines: int = 50) -> str:
     filepath = Path(raw_md_dir) / filename
     if not filepath.exists():
         return "[File not found]"
-    
+
     try:
         with open(filepath, "r", encoding="utf-8") as f:
             lines = []
@@ -62,7 +62,9 @@ def build_prompt(config: dict, url: str, content: str) -> str:
     categories_text = "\n".join(
         f"- {cat['name']}: {cat['description']}" for cat in config["categories"]
     )
-    prompt = config["prompt"].format(categories=categories_text, url=url, content=content)
+    prompt = config["prompt"].format(
+        categories=categories_text, url=url, content=content
+    )
     return prompt
 
 
@@ -209,11 +211,15 @@ def main():
     index_data = load_index(index_path)
     print(f"Total entries: {len(index_data)}")
 
-    # Count entries that need classification
+    # Count entries that need classification (only cleaned/kept documents)
     to_classify_indices = [
-        i for i, e in enumerate(index_data) if needs_classification(e, valid_categories)
+        i
+        for i, e in enumerate(index_data)
+        if e.get("cleaning_status") == "kept"
+        and needs_classification(e, valid_categories)
     ]
-    already_classified = len(index_data) - len(to_classify_indices)
+    cleaned_count = sum(1 for e in index_data if e.get("cleaning_status") == "kept")
+    already_classified = cleaned_count - len(to_classify_indices)
 
     print(f"Already classified: {already_classified}")
     print(f"Pending classification: {len(to_classify_indices)}")
@@ -238,7 +244,7 @@ def main():
         entry = index_data[idx]
         url = entry["source_url"]
         filename = entry.get("filename", "")
-        
+
         # Load content from MD file
         content = load_md_content(raw_md_dir, filename, max_lines=50)
 
@@ -257,7 +263,9 @@ def main():
         # Save progress periodically (every 10 entries)
         if (classified_count + failed_count) % 10 == 0:
             save_index(index_path, index_data)
-            tqdm.write(f"  [Progress saved: {classified_count + failed_count} entries processed]")
+            tqdm.write(
+                f"  [Progress saved: {classified_count + failed_count} entries processed]"
+            )
 
     # Final save
     save_index(index_path, index_data)

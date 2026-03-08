@@ -56,7 +56,7 @@ prompt: |
 # Data paths
 data:
   index_file: "data/index.json"
-  raw_md_dir: "data/raw_md"
+  raw_md_dir: "data/cleaned_md"
   output_file: "data/llm_qna.jsonl"
 
 # Processing settings

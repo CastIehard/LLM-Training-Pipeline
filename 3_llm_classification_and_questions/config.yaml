@@ -5,7 +5,7 @@
 # LLM Provider Settings
 llm:
   # Provider: "openai" or "local" (LM Studio)
-  provider: "local"
+  provider: "openai"
 
   # OpenAI API settings (used when provider: "openai")
   openai:

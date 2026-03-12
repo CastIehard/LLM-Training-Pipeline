@@ -328,13 +328,12 @@ def main():
             total_questions += written
 
         entries_processed += 1
+
+        # Save index.json immediately after every LLM call so that a crash or
+        # interruption at any point never loses more than one document's result.
+        save_index(index_path, index_data)
+
         time.sleep(delay)
-
-        if entries_processed % 10 == 0:
-            save_index(index_path, index_data)
-            tqdm.write(f"  [Progress saved: {entries_processed} entries processed]")
-
-    save_index(index_path, index_data)
 
     duration = time.time() - start_time
     print(f"\nCompleted in {duration:.2f} seconds!")

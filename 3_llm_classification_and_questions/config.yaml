@@ -76,6 +76,7 @@ prompt: |
   2. Both "question" and "answer" MUST be written in English.
   3. The "question" MUST be a realistic user query that can be directly answered using the document.
   4. The "answer" MUST successfully answer that question using ONLY the provided document.
+  5. Each question MUST be standalone and understandable by itself without prior context. Do not use ambiguous pronouns (e.g., instead of "When is it open?", use "When is the XYZ museum open?").
   Example: If the document is about applying for BAföG, a good question could be "Who is responsible for BAföG in Nuremberg?" and the answer would be "It is the Studierendenwerk Erlangen-Nürnberg."
   </instructions>
 

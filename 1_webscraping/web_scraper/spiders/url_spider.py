@@ -168,17 +168,33 @@ class UrlSpider(scrapy.Spider):
         # Mark as scraped
         self.scraped_urls.add(normalized_url)
 
+        # Detect PDF by URL extension or Content-Type header
+        content_type = (
+            response.headers.get("Content-Type", b"")
+            .decode("utf-8", errors="ignore")
+            .lower()
+        )
+        is_pdf = (
+            response.url.lower().endswith(".pdf") or "application/pdf" in content_type
+        )
+
         # Create and yield item
         item = WebPageItem()
         item["url"] = response.url
         item["keyword"] = ""
-        item["html_content"] = response.text
         item["depth"] = current_depth
+        item["is_pdf"] = is_pdf
+
+        if is_pdf:
+            item["html_content"] = ""
+            item["pdf_content"] = response.body
+        else:
+            item["html_content"] = response.text
 
         yield item
 
-        # Extract and follow links if within max_depth
-        if current_depth < self.max_depth:
+        # Extract and follow links if within max_depth (not applicable for PDFs)
+        if current_depth < self.max_depth and not is_pdf:
             yield from self._extract_and_follow_links(response, current_depth)
 
     def _extract_and_follow_links(self, response, current_depth):

@@ -34,7 +34,6 @@ scraping:
   url_blacklist:
     # Legal / Privacy (Expanded)
     - "compliance"
-    - "transparency"
     - "transparenz"
     - "copyright"
     - "urheberrecht"
@@ -65,7 +64,6 @@ scraping:
     - "consent"
 
     # File Extensions (Binary & Media - Save Bandwidth)
-    - ".pdf"
     - ".doc"
     - ".docx"
     - ".xls"

@@ -25,6 +25,8 @@ class WebPageItem(scrapy.Item):
     keyword = scrapy.Field()
     html_content = scrapy.Field()
     depth = scrapy.Field()  # 0 = from url.txt, 1+ = discovered from links
+    is_pdf = scrapy.Field()  # True if source is a PDF file
+    pdf_content = scrapy.Field()  # Raw PDF bytes (only set when is_pdf=True)
 
     # Language detection
     language_detected = scrapy.Field()

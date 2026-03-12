@@ -24,6 +24,7 @@ from datetime import datetime
 
 import html2text
 from bs4 import BeautifulSoup
+from markitdown import MarkItDown
 from scrapy.exceptions import DropItem
 
 logger = logging.getLogger(__name__)
@@ -55,6 +56,10 @@ class LanguageFilterPipeline:
 
     def process_item(self, item):
         """Check if page is in English and filter accordingly."""
+        if item.get("is_pdf", False):
+            item["language_detected"] = "unknown"
+            return item
+
         if not self.english_only:
             item["language_detected"] = "unknown"
             return item
@@ -125,22 +130,31 @@ class HtmlCachePipeline:
         )
 
     def process_item(self, item):
-        """Cache HTML content to disk."""
+        """Cache HTML or PDF content to disk."""
         url = item.get("url", "")
-        html_content = item.get("html_content", "")
-
-        # Generate cache filename from URL hash
         url_hash = hashlib.md5(url.encode()).hexdigest()
-        cache_file = os.path.join(self.cache_dir, f"{url_hash}.html")
 
-        try:
-            with open(cache_file, "w", encoding="utf-8") as f:
-                f.write(html_content)
-            logger.debug(f"Cached HTML: {cache_file}")
-            item["cache_file"] = cache_file
-        except Exception as e:
-            logger.error(f"Error caching HTML for {url}: {e}")
-            item["cache_file"] = None
+        if item.get("is_pdf", False):
+            cache_file = os.path.join(self.cache_dir, f"{url_hash}.pdf")
+            try:
+                with open(cache_file, "wb") as f:
+                    f.write(item.get("pdf_content", b""))
+                logger.debug(f"Cached PDF: {cache_file}")
+                item["cache_file"] = cache_file
+            except Exception as e:
+                logger.error(f"Error caching PDF for {url}: {e}")
+                item["cache_file"] = None
+        else:
+            html_content = item.get("html_content", "")
+            cache_file = os.path.join(self.cache_dir, f"{url_hash}.html")
+            try:
+                with open(cache_file, "w", encoding="utf-8") as f:
+                    f.write(html_content)
+                logger.debug(f"Cached HTML: {cache_file}")
+                item["cache_file"] = cache_file
+            except Exception as e:
+                logger.error(f"Error caching HTML for {url}: {e}")
+                item["cache_file"] = None
 
         return item
 
@@ -153,31 +167,50 @@ class MarkdownConversionPipeline:
     """
 
     def __init__(self):
-        """Initialize the Markdown converter."""
-        self.converter = html2text.HTML2Text()
-        self.converter.ignore_links = False
-        self.converter.ignore_images = False
-        self.converter.ignore_emphasis = False
-        self.converter.body_width = 0  # Don't wrap lines
-        self.converter.single_line_break = False
+        """Initialize the Markdown converters."""
+        self.html_converter = html2text.HTML2Text()
+        self.html_converter.ignore_links = False
+        self.html_converter.ignore_images = False
+        self.html_converter.ignore_emphasis = False
+        self.html_converter.body_width = 0  # Don't wrap lines
+        self.html_converter.single_line_break = False
+        self.pdf_converter = MarkItDown()
 
     def process_item(self, item):
-        """Convert HTML to Markdown."""
-        html_content = item.get("html_content", "")
+        """Convert HTML or PDF to Markdown."""
         url = item.get("url", "")
 
-        try:
-            markdown = self.converter.handle(html_content)
-            if not markdown or not markdown.strip():
-                logger.warning(f"Empty markdown result for {url}")
-                raise DropItem(f"Empty markdown content for {url}")
-            item["markdown_content"] = markdown
-            logger.debug(f"Converted to markdown: {url}")
-        except DropItem:
-            raise
-        except Exception as e:
-            logger.error(f"Error converting HTML to markdown for {url}: {e}")
-            raise DropItem(f"Markdown conversion failed: {e}")
+        if item.get("is_pdf", False):
+            cache_file = item.get("cache_file")
+            if not cache_file:
+                raise DropItem(f"No cached PDF file for {url}")
+            try:
+                result = self.pdf_converter.convert(cache_file)
+                markdown = result.markdown
+                if not markdown or not markdown.strip():
+                    logger.warning(f"Empty markdown result from PDF for {url}")
+                    raise DropItem(f"Empty markdown content from PDF for {url}")
+                item["markdown_content"] = markdown
+                logger.debug(f"Converted PDF to markdown: {url}")
+            except DropItem:
+                raise
+            except Exception as e:
+                logger.error(f"Error converting PDF to markdown for {url}: {e}")
+                raise DropItem(f"PDF markdown conversion failed: {e}")
+        else:
+            html_content = item.get("html_content", "")
+            try:
+                markdown = self.html_converter.handle(html_content)
+                if not markdown or not markdown.strip():
+                    logger.warning(f"Empty markdown result for {url}")
+                    raise DropItem(f"Empty markdown content for {url}")
+                item["markdown_content"] = markdown
+                logger.debug(f"Converted to markdown: {url}")
+            except DropItem:
+                raise
+            except Exception as e:
+                logger.error(f"Error converting HTML to markdown for {url}: {e}")
+                raise DropItem(f"Markdown conversion failed: {e}")
 
         return item
 

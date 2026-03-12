@@ -6,6 +6,9 @@ beautifulsoup4>=4.12.0
 html2text>=2020.1.16
 lxml>=4.9.0
 
+# PDF to Markdown conversion
+markitdown[pdf]>=0.1.0
+
 # Configuration
 pyyaml>=6.0
 

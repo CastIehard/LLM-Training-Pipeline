@@ -8,9 +8,11 @@
     "content_length": 1597,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "a23675d6b5c1b858066dedb5039c5bbce939b24a8ccc42c0d446ff96faa49499",
@@ -62,9 +64,11 @@
     "content_length": 2207,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "3c4eb818774d10ff0eb65407269529ea760a752af7531b4fb38b02942e5616aa",
@@ -129,9 +133,11 @@
     "content_length": 5528,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "8dde31a9ae8fa3ec74ca3942b602094353fbf02bade4a7315ca1fb040ce30752",
@@ -156,9 +162,11 @@
     "content_length": 3083,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "a7caf81c75a4d416d54da4ba96dca254849f17e1deafa75f653e0c3226a59590",
@@ -169,9 +177,11 @@
     "content_length": 3495,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "f876244033e0440754d93370308ec84421dbda9207f1e7a9922ee3709219e855",
@@ -182,9 +192,11 @@
     "content_length": 3983,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "dc74db0309287775657cbf6c97c8aae1d55dca20470f9e918f265c8b0d51b3e3",

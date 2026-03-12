@@ -297,10 +297,18 @@ def main():
 
     print("\nStarting classification and Q&A generation...")
 
-    for entry in tqdm(to_process, desc="Processing Documents"):
+    bar = tqdm(to_process, desc="Processing Documents", unit="doc", dynamic_ncols=True)
+    for entry in bar:
         hash_id = entry["hash"]
         filename = entry.get("filename", "")
         content_length = entry.get("content_length", 0)
+
+        bar.set_postfix(
+            hash=hash_id[:8],
+            questions=total_questions,
+            irrelevant=irrelevant_count,
+            failed=failed_count,
+        )
 
         content = load_md_content(raw_md_dir, filename)
         if not content:
@@ -313,11 +321,13 @@ def main():
         result = process_document(client, config, content, num_min, num_max)
 
         if result is None:
+            tqdm.write(f"  FAILED {hash_id[:8]}: LLM call unsuccessful")
             failed_count += 1
         elif result == "irrelevant":
             entry["category"] = IRRELEVANT_CATEGORY
             entry["llm_processed"] = True
             irrelevant_count += 1
+            tqdm.write(f"  [{hash_id[:8]}] irrelevant")
         else:
             entry["category"] = result["category"]
             written = append_qa_to_file(
@@ -326,6 +336,9 @@ def main():
             entry["llm_processed"] = True
             entry["questions_generated"] = True
             total_questions += written
+            tqdm.write(
+                f"  [{hash_id[:8]}] {result['category']} — {written} questions"
+            )
 
         entries_processed += 1
 

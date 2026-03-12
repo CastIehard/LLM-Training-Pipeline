@@ -5,7 +5,7 @@
 # LLM Provider Settings
 llm:
   # Provider: "openai" or "local" (LM Studio)
-  provider: "openai"
+  provider: "local"
 
   # OpenAI API settings (used when provider: "openai")
   openai:
@@ -18,7 +18,7 @@ llm:
   # LM Studio runs a local server compatible with the OpenAI API format
   local:
     base_url: "http://localhost:1234/v1"
-    model: "Qwen/Qwen3-30B-A3B"
+    model: "qwen/qwen3-30b-a3b-2507"
     temperature: 0.1
     max_tokens: 5000
 
@@ -37,45 +37,51 @@ generation:
 # Combined Classification and Q&A Prompt
 # Placeholders replaced at runtime: {num_questions_min}, {num_questions_max}, {content}
 prompt: |
-  You are a document analyzer for a Q&A system. Your task is to read a document and determine if it is relevant to students at the University of Technology Nuremberg (UTN) or studying in Germany. If it is relevant, you will generate question-answer pairs based on the content.
-  Read the document below and follow these two steps.
+ You are an expert document analyzer for a University Q&A system. Your task is to evaluate the provided document's relevance and extract question-answer pairs if it meets the criteria.
 
-  ---
-  STEP 1 — Decide if the document is RELEVANT or IRRELEVANT.
+  ### STEP 1: RELEVANCE CHECK
+  Analyze the document to determine if it is RELEVANT or IRRELEVANT.
 
-  A document is RELEVANT if it is about any of these topics:
-  - UTN (University of Technology Nuremberg) specifically
-  - Nuremberg city (local services, transport, housing, events, places)
-  - Germany in general (laws, healthcare, banking, official services for students)
-  - Studying in Germany or at UTN (enrollment, courses, student life, visas, accommodation)
+  A document is RELEVANT if its primary focus is:
+  - UTN (University of Technology Nuremberg) specifically.
+  - Nuremberg city (local services, public transport, housing, events, places).
+  - Germany in general (laws, healthcare, banking, official student services).
+  - Studying in Germany or at UTN (enrollment, courses, student life, visas, accommodation).
 
-  A document is IRRELEVANT if it is about:
-  - Other universities such as TU Munich, FAU, LMU, TU Berlin, or any university that is NOT UTN — exclude these even if they are in Germany
-  - Topics with no connection to UTN, Nuremberg, Germany, or studying
-  - Corrupted, empty, or meaningless content
+  A document is IRRELEVANT if it focuses on:
+  - Other universities (e.g., TU Munich, FAU, LMU, TU Berlin) — EXCLUDE these even if they are located in Germany.
+  - Topics with no clear connection to UTN, Nuremberg, Germany, or university studies.
+  - Corrupted, empty, or meaningless text.
 
-  ---
-  STEP 2 — Respond based on your decision:
+  ### STEP 2: OUTPUT GENERATION
+  Based on your relevance check, strictly follow one of the two output formats below. Do not include explanations, reasoning, or conversational filler.
 
-  If IRRELEVANT → respond with this single word only (no punctuation, no explanation):
+  IF IRRELEVANT:
+  Output exactly this single word and absolutely nothing else:
   irrelevant
 
-  If RELEVANT → respond with a valid JSON object only (no markdown, no extra text):
-  {{"category": "<category>", "qa_pairs": [{{"question": "...", "answer": "..."}}, ...]}}
+  IF RELEVANT:
+  Output ONLY a valid JSON object. Do NOT wrap the JSON in markdown code blocks (e.g., no ```json). The JSON must follow this exact schema:
+  {{
+    "category": "<category>",
+    "qa_pairs":[
+      {{
+        "question": "<English question based on the text>",
+        "answer": "<English answer based on the text>"
+      }}
+    ]
+  }}
 
-  The category must be exactly one of:
-  - UTN      → the document is specifically about UTN university
-  - Germany  → general German information (laws, government, nationwide services)
-  - Nuremberg → Nuremberg city information (not UTN-specific)
-  - Studies  → general study-related content (student life, courses, education)
+  ### JSON CONSTRAINTS (IF RELEVANT):
+  1. "category" MUST be exactly one of: UTN, Germany, Nuremberg, Studies.
+  2. Generate between {num_questions_min} and {num_questions_max} distinct question-answer pairs.
+  3. Both "question" and "answer" MUST be written in English, even if the source document is in German.
 
-  Generate between {num_questions_min} and {num_questions_max} question-answer pairs that cover
-  different aspects of the document. All questions and answers must be in English, even if the
-  source content is in German.
-
-  ---
-  Document:
+  <document>
   {content}
+  </document>
+
+  Your response (irrelevant or raw JSON only):
 
 # Data paths
 data:

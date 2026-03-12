@@ -223,9 +223,9 @@ class HashGenerationPipeline:
     """
 
     def process_item(self, item):
-        """Generate content hash."""
-        cleaned_markdown = item.get("markdown_content", "")
-        content_hash = hashlib.sha256(cleaned_markdown.encode("utf-8")).hexdigest()
+        """Generate URL-based hash for consistent identification across re-scrapes."""
+        url = item.get("url", "")
+        content_hash = hashlib.sha256(url.encode("utf-8")).hexdigest()
         item["content_hash"] = content_hash
         item["timestamp"] = datetime.now().isoformat()
         logger.debug(f"Generated hash: {content_hash[:16]}...")

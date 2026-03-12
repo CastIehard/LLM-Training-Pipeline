@@ -6,6 +6,7 @@ Spider that scrapes URLs from a file and optionally follows links to a configura
 
 import json
 import os
+import re
 from urllib.parse import urljoin, urlparse
 
 import scrapy
@@ -33,6 +34,7 @@ class UrlSpider(scrapy.Spider):
         max_depth=1,
         index_file=None,
         url_blacklist=None,
+        output_dir=None,
         *args,
         **kwargs,
     ):
@@ -44,6 +46,7 @@ class UrlSpider(scrapy.Spider):
             max_depth: Maximum crawl depth (0 = only seed URLs, 1 = +links from seeds, etc.)
             index_file: Path to index.json for checking already scraped URLs
             url_blacklist: List of strings - URLs containing these will be skipped
+            output_dir: Path to raw_md directory (for reading stored markdown during re-visits)
         """
         super().__init__(*args, **kwargs)
 
@@ -58,19 +61,24 @@ class UrlSpider(scrapy.Spider):
         self.max_depth = max_depth
         self.index_file = index_file
         self.url_blacklist = url_blacklist or []
+        self.output_dir = output_dir or "data/raw_md"
 
         # Track URLs to avoid duplicates
         self.scraped_urls = set()
+        self.scraped_entries = {}  # normalized_url -> index entry dict
         self.queued_urls = set()
 
         # Track blacklist skips
         self.blacklist_skipped = 0
 
+        # Track entries whose max_depth needs updating
+        self.max_depth_updates = {}  # normalized_url -> new max_depth
+
         # Load already scraped URLs from index
         self._load_scraped_urls()
 
     def _load_scraped_urls(self):
-        """Load already scraped URLs from index.json."""
+        """Load already scraped URLs and their metadata from index.json."""
         if not self.index_file or not os.path.exists(self.index_file):
             self.logger.info("No existing index found, starting fresh")
             return
@@ -82,9 +90,9 @@ class UrlSpider(scrapy.Spider):
             for entry in index_data:
                 url = entry.get("source_url", "")
                 if url:
-                    # Normalize URL for consistent comparison
                     normalized = self._normalize_url(url)
                     self.scraped_urls.add(normalized)
+                    self.scraped_entries[normalized] = entry
 
             self.logger.info(
                 f"Loaded {len(self.scraped_urls)} already scraped URLs from index"
@@ -131,13 +139,65 @@ class UrlSpider(scrapy.Spider):
 
         return True
 
+    def _extract_links_from_markdown(self, md_content, source_url):
+        """Extract valid URLs from stored markdown content."""
+        # Match markdown links: [text](url) or [text](url "title")
+        raw_urls = re.findall(r'\[.*?\]\((https?://[^\s\)"]+)', md_content)
+
+        valid_links = []
+        for link_url in raw_urls:
+            normalized = self._normalize_url(link_url)
+            if not self._is_valid_url(link_url, source_url):
+                continue
+            if normalized in self.scraped_urls or normalized in self.queued_urls:
+                continue
+            valid_links.append((link_url, normalized))
+
+        return valid_links
+
     async def start(self):
-        """Generate requests for seed URLs."""
+        """Generate requests for seed URLs, re-visiting pages when max_depth increased."""
         for url in self.urls:
             normalized = self._normalize_url(url)
 
             if normalized in self.scraped_urls:
-                self.logger.info(f"Skipping already scraped URL: {url}")
+                entry = self.scraped_entries.get(normalized)
+                entry_max_depth = entry.get("max_depth", 0) if entry else self.max_depth
+
+                if entry_max_depth < self.max_depth and entry:
+                    # max_depth increased: extract links from stored markdown
+                    filename = entry.get("filename", "")
+                    md_path = os.path.join(self.output_dir, filename)
+
+                    if os.path.exists(md_path):
+                        with open(md_path, "r", encoding="utf-8") as f:
+                            md_content = f.read()
+
+                        valid_links = self._extract_links_from_markdown(md_content, url)
+                        self.logger.info(
+                            f"Re-visiting {url}: found {len(valid_links)} new links from stored markdown"
+                        )
+
+                        # Track depth totals for progress bar
+                        if not hasattr(self, "depth_totals"):
+                            self.depth_totals = {}
+                        self.depth_totals[1] = self.depth_totals.get(1, 0) + len(
+                            valid_links
+                        )
+
+                        for link_url, link_normalized in valid_links:
+                            self.queued_urls.add(link_normalized)
+                            yield scrapy.Request(
+                                url=link_url,
+                                callback=self.parse_page,
+                                errback=self.handle_error,
+                                meta={"depth": entry.get("depth", 0) + 1},
+                            )
+
+                    # Mark this entry's max_depth for update
+                    self.max_depth_updates[normalized] = self.max_depth
+                else:
+                    self.logger.info(f"Skipping already scraped URL: {url}")
                 continue
 
             if normalized in self.queued_urls:

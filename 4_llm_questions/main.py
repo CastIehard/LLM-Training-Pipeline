@@ -184,6 +184,12 @@ def load_index(index_path: str) -> list[dict]:
         return json.load(f)
 
 
+def save_index(index_path: str, data: list[dict]) -> None:
+    """Save the index.json file."""
+    with open(index_path, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+
+
 def load_processed_hashes(output_file: str) -> set[str]:
     """Load hashes that have already been processed from JSONL file."""
     processed = set()
@@ -264,7 +270,11 @@ def main():
         hash_id = entry.get("hash", "")
         category = entry.get("category", "")
 
-        # Skip already processed
+        # Skip entries already marked as questions generated
+        if entry.get("questions_generated") is True:
+            continue
+
+        # Skip already processed (fallback check via JSONL file)
         if hash_id in processed_hashes:
             continue
 
@@ -320,11 +330,19 @@ def main():
                 output_file, hash_id, qa_pairs, model_name, category
             )
             total_questions += written
+            entry["questions_generated"] = True
         else:
             failed_count += 1
 
         # Delay between requests
         time.sleep(delay)
+
+        # Save progress periodically (every 10 entries)
+        if (total_questions + failed_count) % 10 == 0:
+            save_index(index_path, index_data)
+
+    # Final save
+    save_index(index_path, index_data)
 
     # Summary
     duration = time.time() - start_time

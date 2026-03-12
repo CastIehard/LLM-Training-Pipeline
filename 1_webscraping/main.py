@@ -257,6 +257,7 @@ def main():
             "CACHE_DIR": cache_dir,
             "OUTPUT_DIR": output_dir,
             "INDEX_FILE": index_file,
+            "MAX_DEPTH": max_depth,
         }
     )
 
@@ -283,6 +284,7 @@ def main():
         max_depth=max_depth,
         index_file=index_file_path,
         url_blacklist=url_blacklist,
+        output_dir=output_dir,
     )
 
     # Run the crawler (blocks until done)

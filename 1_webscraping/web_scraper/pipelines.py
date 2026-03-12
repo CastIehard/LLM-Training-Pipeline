@@ -241,17 +241,19 @@ class OutputPipeline:
     maintains a JSON index of all scraped content.
     """
 
-    def __init__(self, output_dir, index_file, save_interval=10):
+    def __init__(self, output_dir, index_file, max_depth=0, save_interval=10):
         """
         Initialize the output pipeline.
 
         Args:
             output_dir: Directory to save markdown files
             index_file: Path to the JSON index file (in main directory)
+            max_depth: Current max_depth setting from config
             save_interval: Save index every N items (for crash recovery)
         """
         self.output_dir = output_dir
         self.index_file = index_file
+        self.max_depth = max_depth
         self.save_interval = save_interval
         self.items_since_save = 0
         os.makedirs(output_dir, exist_ok=True)
@@ -286,6 +288,7 @@ class OutputPipeline:
         return cls(
             output_dir=crawler.settings.get("OUTPUT_DIR", "output"),
             index_file=crawler.settings.get("INDEX_FILE", "index.json"),
+            max_depth=crawler.settings.getint("MAX_DEPTH", 0),
             save_interval=crawler.settings.getint("INDEX_SAVE_INTERVAL", 10),
         )
 
@@ -314,6 +317,8 @@ class OutputPipeline:
                 "scraped_at": item.get("timestamp", ""),
                 "content_length": len(cleaned_markdown),
                 "language_detected": item.get("language_detected", ""),
+                "max_depth": self.max_depth,
+                "questions_generated": False,
             }
             self.index_data.append(index_entry)
 
@@ -330,7 +335,20 @@ class OutputPipeline:
         return item
 
     def close_spider(self, spider):
-        """Save final index file when spider closes."""
+        """Save final index file and update max_depth for re-visited entries."""
+        # Update max_depth for entries that were re-visited
+        max_depth_updates = getattr(spider, "max_depth_updates", {})
+        if max_depth_updates:
+            for entry in self.index_data:
+                url = entry.get("source_url", "")
+                if url:
+                    normalized = spider._normalize_url(url)
+                    if normalized in max_depth_updates:
+                        entry["max_depth"] = max_depth_updates[normalized]
+            logger.info(
+                f"Updated max_depth for {len(max_depth_updates)} re-visited entries"
+            )
+
         self._save_index()
         logger.info(f"Final index saved: {self.index_file}")
         logger.info(f"Total entries: {len(self.index_data)}")

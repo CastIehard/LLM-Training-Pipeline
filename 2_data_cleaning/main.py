@@ -508,10 +508,24 @@ def main():
     }
     pii_total = 0
     norm_count = 0
+    already_cleaned = 0
 
     for entry in tqdm(index, desc="Cleaning"):
         doc_hash = entry["hash"]
         filename = entry["filename"]
+
+        # Delta cleaning: skip documents that already have a cleaned file
+        cleaned_path = Path(cleaned_md_dir) / filename
+        if cleaned_path.exists() and entry.get("cleaning_status") in (
+            "kept",
+            "removed",
+        ):
+            if entry.get("cleaning_status") == "kept":
+                # Load existing cleaned content for deduplication checks
+                with open(cleaned_path, "r", encoding="utf-8") as f:
+                    kept_documents[doc_hash] = f.read()
+            already_cleaned += 1
+            continue
 
         # Load content
         content = load_document(raw_md_dir, filename)
@@ -568,6 +582,8 @@ def main():
     print(
         f"\n  Documents after per-doc filtering: {len(kept_documents)} / {len(index)}"
     )
+    if already_cleaned:
+        print(f"  Already cleaned (skipped): {already_cleaned}")
     print(f"  Text normalized: {norm_count} documents")
     print(f"  PII redactions applied: {pii_total}")
     for reason, count in removal_stats.items():

@@ -1,17 +1,5 @@
 [
   {
-    "hash": "d2c0e6d955a4520357f9c6ab2ab1d1ce50fddbecb37632ea311abcec5d1b36aa",
-    "filename": "d2c0e6d955a4520357f9c6ab2ab1d1ce50fddbecb37632ea311abcec5d1b36aa.md",
-    "source_url": "https://bamf-navi.bamf.de/de/Themen/Integrationskurse/",
-    "depth": 0,
-    "scraped_at": "2026-02-16T08:58:01.753392",
-    "content_length": 977,
-    "language_detected": "unknown",
-    "category": "Germany",
-    "pii_redactions": 0,
-    "cleaning_status": "kept"
-  },
-  {
     "hash": "708f08db4e932b96c5f7082bbbc0936818f08aca7d5fd53cdd26924736f2bb1d",
     "filename": "708f08db4e932b96c5f7082bbbc0936818f08aca7d5fd53cdd26924736f2bb1d.md",
     "source_url": "https://www.utn.de/en/",
@@ -21,7 +9,9 @@
     "language_detected": "unknown",
     "category": "UTN",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "888def83b364a81fa5d0c67e4eeade8d2fd9284ad864d84f4d728b64e8f79275",
@@ -33,7 +23,9 @@
     "language_detected": "unknown",
     "category": "UTN",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "a5fd823b2707bcfb2548da8d692ce4ae2ff4452c041b8c68bb544ba5db7bd547",
@@ -45,7 +37,9 @@
     "language_detected": "unknown",
     "category": "Nuremberg",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "226c76ed525aacb6927353beb3deea9d9d2775b678980437e3f97a86972cfff3",
@@ -57,7 +51,9 @@
     "language_detected": "unknown",
     "category": "Germany",
     "pii_redactions": 11,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "101f150e7a8ad9575a9e76ad3c4ac4bbb4f50c2e13b9018852da855497c3de53",
@@ -69,7 +65,9 @@
     "language_detected": "unknown",
     "category": "Nuremberg",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "066700ca52e2f5d4943e8c34cc808b95a7c41e17d2756767666b34ba5694766b",
@@ -81,7 +79,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "c45b535842622cca9186ceadcd354ca5cb083ba578b06d6d4612cade4310372d",
@@ -93,7 +93,9 @@
     "language_detected": "unknown",
     "category": "Germany",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "cf3bbd7628cb7a19144f508eabf2bd74c03e246f3128b8bab05656906df2b493",
@@ -105,7 +107,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "ee1c5cec54264c9f4a40bb2ebaed7a0f1ff94b7ff55360d814036dbd1af9c521",
@@ -117,7 +121,9 @@
     "language_detected": "unknown",
     "category": "Germany",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "0854214d795c23316d22488c484e7605eb2e990a108fa5bac9f90e0610892e8f",
@@ -129,7 +135,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "b479624b20e7f98692aac6f569175ae4d6a4b77c2ddc8a9444c08cd6b022b3f0",
@@ -141,7 +149,9 @@
     "language_detected": "unknown",
     "category": "Germany",
     "pii_redactions": 3,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "7a335699fd81a3e775d11efb4b2eba58cefb2bc71dbdbbc787058a6f134e6ad2",
@@ -153,7 +163,9 @@
     "language_detected": "unknown",
     "category": "Germany",
     "pii_redactions": 3,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "eeb8d12acc35e98e86fe85eb799aa6c51ceb96d0bb64818d7e8b8e1e13eb8064",
@@ -165,7 +177,9 @@
     "language_detected": "unknown",
     "category": "Nuremberg",
     "pii_redactions": 10,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "1dc4f1a2e25f25978a6ca0b15db50f1ba7aac257b68ae284ba3476212502c634",
@@ -177,7 +191,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "219a7675a536bae9976a183e7d20cf7efc735be6711f00f9189e4440817b0b68",
@@ -189,7 +205,9 @@
     "language_detected": "unknown",
     "category": "Germany",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "e4951fba85dc9db58a540d0f6dc76fa85bdc51e832b970dec5278c33b6a55180",
@@ -201,7 +219,9 @@
     "language_detected": "unknown",
     "category": "UTN",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "8795a9953ffd52bbc24d27579c94f312be5c1157791e7f015c4b5fdb004fbb3b",
@@ -213,7 +233,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 2,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "6799f2efaa9749795444e14efd1614fa646a5f634113b8b1f4d800e87042a197",
@@ -225,7 +247,9 @@
     "language_detected": "unknown",
     "category": "Germany",
     "pii_redactions": 1,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "8e5a95c6e7c6e672b945a9d51e32b865b0a50d7945dbf8b4a175c78ebcdf26c8",
@@ -237,7 +261,9 @@
     "language_detected": "unknown",
     "category": "Germany",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "005a1044fda3cd00941638f08a1f516dd8248f1202b75efa9acc8486018ce1d2",
@@ -249,7 +275,9 @@
     "language_detected": "unknown",
     "category": "Nuremberg",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "f4c27cd3cee0a2dfb5b0a2d8b89f11d4fb55f479cca1f58e08330d2b66b685d7",
@@ -261,7 +289,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 6,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "24c80dd7d6e572cee386f6a6178b896289b083affcd6972105241146f9b3416a",
@@ -273,7 +303,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "89d2a4c210b61a12796ca0542e3df0f6635d18424a8d5881e0f6d809ec85da6e",
@@ -285,7 +317,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "9f5f80630bdd43f2c2da89c1ef168069a5a7123860b9f1a1bade0179af60b0b3",
@@ -297,7 +331,9 @@
     "language_detected": "unknown",
     "category": "Germany",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "b68c1b195614f4760437e811a0772472211d602487d61831aaaf497e6e6f61df",
@@ -309,7 +345,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 4,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "52171f8f6f0e08573b856c9fed2b766eacbb34d0c63106893812b3832513c5a1",
@@ -321,7 +359,9 @@
     "language_detected": "unknown",
     "category": "Nuremberg",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "74f31b0ef41e4d34441fccbfe798cdee19a6a73212869ae2a570462d97373def",
@@ -333,7 +373,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 5,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "adb3254a10c23a2d95fced36f39de84c711f9807201a7300437cf44287340fe7",
@@ -345,7 +387,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "98cf2c9edba1bc7ef6950e1dce57889d08837d47668bac1bf2b6b2dd944f85be",
@@ -357,7 +401,9 @@
     "language_detected": "unknown",
     "category": "Nuremberg",
     "pii_redactions": 1,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "619b2a48ef3a87e33b95fcf572ede5d2ade00c45d7f0b355ba65873277e065a0",
@@ -369,7 +415,9 @@
     "language_detected": "unknown",
     "category": "Other",
     "pii_redactions": 73,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "7d2f2af013ecc67a0414e2a35f70304878d49a678e56fdbc26f3c0f215c7eec2",
@@ -381,7 +429,9 @@
     "language_detected": "unknown",
     "category": "Germany",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "e08634749464762d290401591845d8faf6aa393761ebe956c9ac2e00b578228a",
@@ -393,7 +443,9 @@
     "language_detected": "unknown",
     "category": "Nuremberg",
     "pii_redactions": 6,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "645ce749596f8581ddc92ec1d56b1fa4eb762ca0a63e6d28551c48925d0c39b6",
@@ -405,7 +457,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "b35d0528cbf4b881bb55d4b9422a33387b2e229ce248f21f7d60382f5d2f5a3a",
@@ -417,7 +471,9 @@
     "language_detected": "unknown",
     "category": "Germany",
     "pii_redactions": 1,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "2bf6cf064f4fd8242cbce27f32b0a4e1b91a37438ede33fcba97d4396d34bdcf",
@@ -429,7 +485,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "59d76f1ce7762e07afab44d842b0b2fe34050df872e47cd255495057feb2a78c",
@@ -441,7 +499,9 @@
     "language_detected": "unknown",
     "category": "Germany",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "c8f0238846d0e77db32f9915dc884564b9f304fe234d4238ce163536e3d112d3",
@@ -453,7 +513,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "fae5a014f5a63a52474188b7619080d86893c18f53a6fe5f27b320f75dee96ee",
@@ -465,7 +527,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "24987f9df43e8566d9b7d377af509cdc883e4336e3fffd4072c71908617bf1fd",
@@ -477,7 +541,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 1,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "3efd2384c3f6c8358dc6193e3043dc116a8cc3851076f66020b2adf920b8a90d",
@@ -489,7 +555,9 @@
     "language_detected": "unknown",
     "category": "Nuremberg",
     "pii_redactions": 9,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "c0883dc846b406208acad169aef6fc7372e764855766a9bbd74955ca3186ccca",
@@ -501,7 +569,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "ae8be0424e224a5cf8ed033407e69284429d20ff72b7c3e5910c91b72a64ef94",
@@ -513,7 +583,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 2,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "c168e80f421b1623bd5ab07f1f196e22df5c8bc4280a3af3f654156b540cda3e",
@@ -525,7 +597,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "b1f56e3d905f2947f2d85be87e9d52adbcb921c6267fee59be0c3dcce1e85410",
@@ -537,7 +611,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 1,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "a858e88a0fa30acf70574026b0719c514edeb6c84026b941aa8614e501466dee",
@@ -549,7 +625,9 @@
     "language_detected": "unknown",
     "category": "Nuremberg",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "6abb370f2b1a034016f4504dacd7cbf0183b82f8570f60afe8c0238d698acc78",
@@ -561,7 +639,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "cleaning_status": "removed",
-    "cleaning_reason": "too_long (150341 > 100000)"
+    "cleaning_reason": "too_long (150341 > 100000)",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "1647a10c72a4832df688f3ca59f058c8eb1d2648b1452399f473fb0ca606601a",
@@ -573,7 +653,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "371fce4aeec5badcd1e464245b98125f463c4b0cf50ce2e6b5c8afb80d5b327b",
@@ -585,7 +667,9 @@
     "language_detected": "unknown",
     "category": "UTN",
     "pii_redactions": 8,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "729645765d06de10fc55524d74224b588544025a0f67d599cfc0dbfbe41f49ed",
@@ -597,7 +681,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "1d3b79f5e3e4a51d122623935f064f67b1af6ebb243d90508598cab0cee94250",
@@ -609,7 +695,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 1,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "112baa321a8aa7d25ac69c28c87ff1d7a66aa30318fd95a8a8aadbf8a2f55f26",
@@ -621,7 +709,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "6e0b91903f6f04986149eb96b397b65ab064545f2dae8ffe57927fe324e27c37",
@@ -633,7 +723,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 3,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "1fe86de3505395687d4d198a34099e23a2deec27ae1a10446900e88d8614c247",
@@ -645,7 +737,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 1,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "2e13fad6d5cb8fad198d7f05b7fdec8178c589f180b8bf69c44bea4fd89295a7",
@@ -657,7 +751,9 @@
     "language_detected": "unknown",
     "category": "UTN",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "162368fad6db9f2726d511b0ad0dadbf41b072d2a98c2984ceece0cd1d5474a4",
@@ -669,7 +765,9 @@
     "language_detected": "unknown",
     "category": "Nuremberg",
     "pii_redactions": 2,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "80cc5ec97b666d932f163e3f02331627f160e54edadf83d373199ebd7494badf",
@@ -681,7 +779,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "14cb9dc32ba8b80f7b04ef193d4ad2ed749fbf1d3f3d27cdc9fd798c74494aa5",
@@ -693,7 +793,9 @@
     "language_detected": "unknown",
     "category": "UTN",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "1eca512929b7cd8fda6510a685c2a4447e2010b63ae781f39dd93a8e46558340",
@@ -705,7 +807,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "b48dcf92523d2aff417066ce7a19c17322a1dd813594fed362ff5d80e3e729ca",
@@ -717,7 +821,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "35747b14c8f62b8b2c54cdadd1fbfa0422a70602b6c4b82d8a8047a10df3f2ff",
@@ -729,7 +835,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "cf99e5f5dbc7eecc9ea591a64af9cc39d7ba4795ad0ba0ebd9d03c1ab9195d39",
@@ -741,7 +849,9 @@
     "language_detected": "unknown",
     "category": "Germany",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "8fe0a9981d3942ba8f6d36f3187e1a01c656216bc348b363232aaf9cf1ab50a1",
@@ -753,7 +863,9 @@
     "language_detected": "unknown",
     "category": "Germany",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "6dc436df888a39de2e23e6e8e01988d6adf8373dd51cd467a7075a971e1628c7",
@@ -765,7 +877,9 @@
     "language_detected": "unknown",
     "category": "Germany",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "0fd9be054b93fc2a185011ef5c7356380b4284d711c8586dc071cbc4e9059016",
@@ -777,7 +891,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "447407bdede111a22eafacf19a3dc90b9d86d2b441fd76c0c2ffcacaef0957a9",
@@ -789,7 +905,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 1,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "43917122e5ac79e6c8340ccc0db909cf64167fdb34e9eb3172c847b251b5a6f2",
@@ -801,7 +919,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "70db4c20843c3792ee12a8c28c493a6cd9083fa3260936398a3b85e94940e477",
@@ -813,7 +933,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 1,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "562fb4348c30544d69b0fb47adb2673e11068fd37718e7bdfc78506b702aef8f",
@@ -825,7 +947,9 @@
     "language_detected": "unknown",
     "category": "Other",
     "pii_redactions": 6,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "866329965f9b3ba39d83c64cbcc2ed5721ca4fa30c0428a3bb5d32326df12557",
@@ -837,7 +961,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 13,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "e5d578b085a9c89191cce0dddba2182a4a41d309d513f7a5503dcf99deca339a",
@@ -849,7 +975,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "80b52483aefde946af1c1813fc7d8ff8cad8cec9a02f65eb4d88ab8508cb29a4",
@@ -861,7 +989,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "6819d2d41aad0e13d974c953dc69dd496cdc037926385ba7f538e777a975a9f2",
@@ -873,7 +1003,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "d754e41fd943a66ba810e75add52a4dd4406e3211d0ad9c170a1ad9569b16e57",
@@ -885,7 +1017,9 @@
     "language_detected": "unknown",
     "category": "UTN",
     "pii_redactions": 1,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "7a69832e05f2130a9e937997bf92458592a1898e3859b21afc5c377dcccafe41",
@@ -897,7 +1031,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "50a609c721951b4a1599036d5f2cf089aff68f301d706da47c6516b4170fbbd0",
@@ -909,7 +1045,9 @@
     "language_detected": "unknown",
     "category": "Nuremberg",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "7eec9635111c612dea94015c70a06f0b80af4b8d8022887d067d0716e92ddbf7",
@@ -921,7 +1059,9 @@
     "language_detected": "unknown",
     "category": "Nuremberg",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "322277a47b9d13cc4cd2dba4322e8299bcf761a369303398bbaf68a8bcf03c29",
@@ -933,7 +1073,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "d840c2ac07779945014798a37b164af116bd8876b920896e748777988aa4eb8e",
@@ -945,7 +1087,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "185bb187d66a839301de6980278bd94d9284ed8e11bf787134a612231fbad719",
@@ -957,7 +1101,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "95b81e232b466718113ae68a702789e49d65191b3df89a501e0caa7858a7defe",
@@ -969,7 +1115,9 @@
     "language_detected": "unknown",
     "category": "UTN",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "37f1d0921549439da26d041b1b2e0c27564a8fbf45dea7c6496ceec34bc7b113",
@@ -981,7 +1129,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "a7f5f88954b7a47dbebe474a4c15987b7a0eda03dd22d77a0d50ed257a2d1055",
@@ -993,7 +1143,9 @@
     "language_detected": "unknown",
     "category": "UTN",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "331d2ba5d62faf9b96f4399cf162771133126526004abaaafd752591c4ff7abf",
@@ -1005,7 +1157,9 @@
     "language_detected": "unknown",
     "category": "Nuremberg",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "5e065581f4c18b830a9fe59681c8fade35259c08e94b38c0878349246d1dbc45",
@@ -1017,7 +1171,9 @@
     "language_detected": "unknown",
     "category": "UTN",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "5cf04a20f8fff6f32ddc42757c2c951bb726dc7135e7befd730e404ff0edd933",
@@ -1029,7 +1185,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "62b516e6d958edebf7873a98f0f5ea9ca804d838d0664893c273cf6371bd359a",
@@ -1041,7 +1199,9 @@
     "language_detected": "unknown",
     "category": "UTN",
     "pii_redactions": 1,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "6203dd460a100e6fc2d9afb14e75d3c991432dd604a90a68591cba94b91b7454",
@@ -1053,7 +1213,9 @@
     "language_detected": "unknown",
     "category": "UTN",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "0afacefcc1a31599aa1e735908f6711d340042350e0b22af3a6164c177c74b83",
@@ -1065,7 +1227,9 @@
     "language_detected": "unknown",
     "category": "UTN",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "f9eae9b05900c26759e7e3abdb8901636b21bec58d810e90090c121c7f32dcdc",
@@ -1077,7 +1241,9 @@
     "language_detected": "unknown",
     "category": "UTN",
     "pii_redactions": 1,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "db04bdb6eb52f8bb4295f01f0e841115ebefeaf77ff9ae0636f9d0eab3fe5d9a",
@@ -1089,7 +1255,9 @@
     "language_detected": "unknown",
     "category": "UTN",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "8c9ade0d73113cf2714cf3c4931d8f060ccf324cab198a5c8c6d723600e74381",
@@ -1101,7 +1269,9 @@
     "language_detected": "unknown",
     "category": "UTN",
     "pii_redactions": 1,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "c9db530f0ddf3cafe76fd7e1d53b258b9f0fae840acd3a1a36cb99576817d39f",
@@ -1113,7 +1283,9 @@
     "language_detected": "unknown",
     "category": "UTN",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "32ecd2c9122a42f4c7819ec5d219e9d94e94cda39c69aa4bc71494a60058ccc3",
@@ -1125,7 +1297,9 @@
     "language_detected": "unknown",
     "category": "UTN",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "05a316215a38d36a4ebb4bc144a0adfb6a5139afff11bab9920fd24324a69fcf",
@@ -1137,7 +1311,9 @@
     "language_detected": "unknown",
     "category": "UTN",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "641d314167eeda18a2d0bc8bfd42d209c8ad4ddf6e87df416a8a07ba60b23d83",
@@ -1149,7 +1325,9 @@
     "language_detected": "unknown",
     "category": "UTN",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "c981cc43259395605743d923c30e7131a079a241a8c31c8ce9bdd4645177ec7c",
@@ -1161,7 +1339,9 @@
     "language_detected": "unknown",
     "category": "UTN",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "1f4c8569e53b6364db58446d4987ad597cc6105cc3565e97e4737e89dadcb080",
@@ -1173,7 +1353,9 @@
     "language_detected": "unknown",
     "category": "UTN",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "763c07a87de0077048c6a56fe722cbe8fca9fd256c1cfbfd691a0b1ac9960733",
@@ -1185,7 +1367,9 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "639a1b2816ab143a5d1cebb66d46363bb02960514005217dfbb09c4ff23f4c32",
@@ -1197,7 +1381,9 @@
     "language_detected": "unknown",
     "category": "UTN",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
   },
   {
     "hash": "097a2ffa42075ee2991412516195bd773aa2958029780d7da0eec3adbc86c3b0",
@@ -1209,6 +1395,349 @@
     "language_detected": "unknown",
     "category": "Studies",
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "f767b643389b367299b9dc28be0de9bfd2e42d9fd4f18f5ab8119179d4ebf162",
+    "filename": "f767b643389b367299b9dc28be0de9bfd2e42d9fd4f18f5ab8119179d4ebf162.md",
+    "source_url": "https://bamf-navi.bamf.de/de/Themen/Integrationskurse/",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:15:59.370958",
+    "content_length": 1597,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "6b9c517da94f6db9a41fbbe8c7aecd330c3f5cdbe10165d29cc80757103624d2",
+    "filename": "6b9c517da94f6db9a41fbbe8c7aecd330c3f5cdbe10165d29cc80757103624d2.md",
+    "source_url": "https://www.auswaertiges-amt.de/resource/blob/2666740/2fddb25ac21779d9659ab9008192167/240711-handreichung-studierendenvisa-data.pdf",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:00.153674",
+    "content_length": 9068,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "2e788d0142a70002a70d4f620c120e9282ed1da1742053c5691b0c32fac09e7b",
+    "filename": "2e788d0142a70002a70d4f620c120e9282ed1da1742053c5691b0c32fac09e7b.md",
+    "source_url": "https://www.elster.de/eportal/start",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:00.533641",
+    "content_length": 8384,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "d66c5a77af1e6d33248e8b65cc45a9065b3ec9b55439205ddf2c7d7fdbf26be8",
+    "filename": "d66c5a77af1e6d33248e8b65cc45a9065b3ec9b55439205ddf2c7d7fdbf26be8.md",
+    "source_url": "https://anabin.kmk.org/cms/public/startseite",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:00.573189",
+    "content_length": 3373,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "157acd2d37319f00b61a56354cd09a1a54c17a09c9e151a81707c8f1eb894582",
+    "filename": "157acd2d37319f00b61a56354cd09a1a54c17a09c9e151a81707c8f1eb894582.md",
+    "source_url": "https://bafoeg-digital.de:443",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:00.640049",
+    "content_length": 69,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "d1c4e29562df90740c7738375e614368320f6e0edc1922bc260e445940928272",
+    "filename": "d1c4e29562df90740c7738375e614368320f6e0edc1922bc260e445940928272.md",
+    "source_url": "https://www.nuernberg.de/imperia/md/wohnen/dokumente/mietenspiegel2024_leseversion.pdf",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:02.118470",
+    "content_length": 18736,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "ede4d002fe780dbfc57182960c561ca11d4db3748ab792e2b282a6dab573f65b",
+    "filename": "ede4d002fe780dbfc57182960c561ca11d4db3748ab792e2b282a6dab573f65b.md",
+    "source_url": "https://www.utn.de/studium/human-and-artificial-intelligence/",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:02.251867",
+    "content_length": 40255,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "3b2ebdde56a61651255fc0f6c70c02493de582b02274ef2102620a033fdcd7a1",
+    "filename": "3b2ebdde56a61651255fc0f6c70c02493de582b02274ef2102620a033fdcd7a1.md",
+    "source_url": "https://www.reddit.com/r/germany/comments/1ez5pwv/confusion_about_health_insurance/",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:02.303190",
+    "content_length": 4110,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "bc53b5b5a8dcfc0d18480b4ce1776a28c840c967ab85b6983a70287d0ee6c6fb",
+    "filename": "bc53b5b5a8dcfc0d18480b4ce1776a28c840c967ab85b6983a70287d0ee6c6fb.md",
+    "source_url": "https://www.reddit.com/r/germany/comments/1eg1hp3/blocked_account_proof_with_scholarship/",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:02.547142",
+    "content_length": 1765,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "cb1f972ad8f17a42c1c9168224a70e435d55e5a2689cab14622c5754f4b986ff",
+    "filename": "cb1f972ad8f17a42c1c9168224a70e435d55e5a2689cab14622c5754f4b986ff.md",
+    "source_url": "https://www.reddit.com/r/studyinGermany/comments/1iivtoh/what_to_do_if_blocked_account_confirmation_is_not/",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:02.914277",
+    "content_length": 2148,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "565161fca3bca006020493390bdc473fb53fefce7dc64f63ba93c3fb8ee470a8",
+    "filename": "565161fca3bca006020493390bdc473fb53fefce7dc64f63ba93c3fb8ee470a8.md",
+    "source_url": "https://www.utn.de/studium/ai-robotics/",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:03.295705",
+    "content_length": 37504,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "6b2a7448e57f9d3bcdaf7d3391e21d298d5487191a21a14587e271bfb8fe832d",
+    "filename": "6b2a7448e57f9d3bcdaf7d3391e21d298d5487191a21a14587e271bfb8fe832d.md",
+    "source_url": "https://www.reddit.com/r/SchengenVisa/comments/1jy0r2b/blocked_account_increased_for_german_study_visa/",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:03.325799",
+    "content_length": 2332,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "beba70ef7aed78cc42e79a866795734375d7b506367d68a516b72dfc95e680c8",
+    "filename": "beba70ef7aed78cc42e79a866795734375d7b506367d68a516b72dfc95e680c8.md",
+    "source_url": "https://www.reddit.com/r/SchengenVisa/comments/1etoo8w/struggling_to_get_a_german_student_visa_slotneed/",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:03.457501",
+    "content_length": 3203,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "1a4cf8ecaaa4b2c364bb846b297a9a612a8627c2bf4fe620217bf178a679b893",
+    "filename": "1a4cf8ecaaa4b2c364bb846b297a9a612a8627c2bf4fe620217bf178a679b893.md",
+    "source_url": "https://www.utn.de/studium/",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:04.569539",
+    "content_length": 32685,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "ef01729565ed0186376bdee5246500dbd27a42c82e603e473224c4ab37b5041f",
+    "filename": "ef01729565ed0186376bdee5246500dbd27a42c82e603e473224c4ab37b5041f.md",
+    "source_url": "https://www.utn.de/studium/immatrikulation/",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:05.360757",
+    "content_length": 37896,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "627f09b604b89b031273cdf242c430c90d22dd0a33913247412129b20bf3e8bf",
+    "filename": "627f09b604b89b031273cdf242c430c90d22dd0a33913247412129b20bf3e8bf.md",
+    "source_url": "https://www.utn.de/studium/bewerbung-zum-studium/",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:06.306413",
+    "content_length": 41764,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "575f08c0db169a2fd2f2daf5f18f039670cd771406ccd077586229aaa805fe83",
+    "filename": "575f08c0db169a2fd2f2daf5f18f039670cd771406ccd077586229aaa805fe83.md",
+    "source_url": "https://www.utn.de/studium/faq/",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:06.377903",
+    "content_length": 42147,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "350a3684653cf1c968deba713b98061420983d2be0f2d7999c5d172a56da0e47",
+    "filename": "350a3684653cf1c968deba713b98061420983d2be0f2d7999c5d172a56da0e47.md",
+    "source_url": "https://www.utn.de/studium/lehr-und-lernkonzept/",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:07.268119",
+    "content_length": 39240,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "daac27a4ad2b0fb9c0700351b211ef590fe31ff49436eb3c187e5d935dab5613",
+    "filename": "daac27a4ad2b0fb9c0700351b211ef590fe31ff49436eb3c187e5d935dab5613.md",
+    "source_url": "https://www.utn.de/studium/zentrale-studienberatung/",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:08.172503",
+    "content_length": 32075,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "f74d3d0048018fc356dffd41517dadb43a8358417afd25f182bdc98af98e2869",
+    "filename": "f74d3d0048018fc356dffd41517dadb43a8358417afd25f182bdc98af98e2869.md",
+    "source_url": "https://www.utn.de/studium/kontakt-stars/",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:08.506904",
+    "content_length": 36394,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "5037e4597ce158859d4d91a5ed51e404d8abee148cf3968ac3d509d8fda92d64",
+    "filename": "5037e4597ce158859d4d91a5ed51e404d8abee148cf3968ac3d509d8fda92d64.md",
+    "source_url": "https://www.utn.de/studium/dein-start-an-der-utn/",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:09.374633",
+    "content_length": 34172,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "1a9da738c2621a8a1642f24f93248c6b5e3135cc8914bee2f04dde9b53d72132",
+    "filename": "1a9da738c2621a8a1642f24f93248c6b5e3135cc8914bee2f04dde9b53d72132.md",
+    "source_url": "https://www.utn.de/studium/wohnungssuche/",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:10.310293",
+    "content_length": 39491,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "ffdf476e5bdba09b128d5066ebbce5750d385c0ef3e754117127b9d8353acfa7",
+    "filename": "ffdf476e5bdba09b128d5066ebbce5750d385c0ef3e754117127b9d8353acfa7.md",
+    "source_url": "https://www.utn.de/studium/deutsche-mietvertraege/",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:10.790737",
+    "content_length": 38600,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "833e67ee07079adf61b49857c55fe139fc05ca7076e52750f14da0e7505cce81",
+    "filename": "833e67ee07079adf61b49857c55fe139fc05ca7076e52750f14da0e7505cce81.md",
+    "source_url": "https://www.utn.de/kontakt/",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:24.758170",
+    "content_length": 30137,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "6ea09dbd763f62442e72b1427cc661ad9d1c9ab144e0d4a8d4eac30de120fdce",
+    "filename": "6ea09dbd763f62442e72b1427cc661ad9d1c9ab144e0d4a8d4eac30de120fdce.md",
+    "source_url": "https://www.utn.de/ueber/rechtsdokumente/",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:25.126006",
+    "content_length": 33415,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "8ead859d328770d91d96e28cc00a0177a195379a37d77261c32decafa4206d53",
+    "filename": "8ead859d328770d91d96e28cc00a0177a195379a37d77261c32decafa4206d53.md",
+    "source_url": "https://www.utn.de/ueber/anreise/",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:25.266826",
+    "content_length": 29071,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "56a148d983b41cbeec697948144e8313afd3913a87d858cca577f2589f1c4c28",
+    "filename": "56a148d983b41cbeec697948144e8313afd3913a87d858cca577f2589f1c4c28.md",
+    "source_url": "https://www.utn.de/ueber/standorte/",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:27.617574",
+    "content_length": 29036,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "7659df782340b5765d21b3bea9eec21222783fd03c69c3f13bf893eb09207ace",
+    "filename": "7659df782340b5765d21b3bea9eec21222783fd03c69c3f13bf893eb09207ace.md",
+    "source_url": "https://www.utn.de/studium/einwohnermeldeamt/",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:33.691399",
+    "content_length": 31794,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "1e064cb26cabd65d6a08b9216f9ad4502ec69c4fcfb4910ddef0e1de1d580c63",
+    "filename": "1e064cb26cabd65d6a08b9216f9ad4502ec69c4fcfb4910ddef0e1de1d580c63.md",
+    "source_url": "https://www.utn.de/studium/infos-fuer-internationals/",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:34.955869",
+    "content_length": 34169,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "7c3918355a050117b8a75d4c157cc7edf11b9645f4dfa13d99f9c63827daf82d",
+    "filename": "7c3918355a050117b8a75d4c157cc7edf11b9645f4dfa13d99f9c63827daf82d.md",
+    "source_url": "https://www.utn.de/studium/visum-und-aufenthaltstitel/",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:36.573240",
+    "content_length": 36182,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
+  },
+  {
+    "hash": "880a542e7ad0a19f29ec5a69d877e1d0c0f4758112a8e6881529c7a6aec2e548",
+    "filename": "880a542e7ad0a19f29ec5a69d877e1d0c0f4758112a8e6881529c7a6aec2e548.md",
+    "source_url": "https://www.utn.de/studium/versicherungssystem/",
+    "depth": 0,
+    "scraped_at": "2026-03-12T18:16:37.217013",
+    "content_length": 35630,
+    "language_detected": "unknown",
+    "max_depth": 0,
+    "questions_generated": true
   }
 ]

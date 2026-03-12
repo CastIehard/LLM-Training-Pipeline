@@ -1,0 +1,75 @@
+# Einwilligung zur Nutzung von Cookies
+
+Zur Verbesserung der Website werden durch den DAAD und Dritte Cookies gesetzt und Nutzungsdaten verarbeitet. Hierbei werden durch den DAAD und Dritte Nutzungsdaten in Drittländer übermittelt, in denen kein mit dem EU-Recht vergleichbares Datenschutzniveau besteht. Durch das Klicken des Buttons „Alle akzeptieren“ stimmen Sie dieser Verarbeitung zu. Auswahlmöglichkeiten und Erläuterungen zu diesen Cookies und Verarbeitungen finden Sie auch am Ende dieser Seite unter „Cookies“. Dort können Sie Einwilligungen jederzeit mit Wirkung für die Zukunft widerrufen.
+
+EinstellungenAblehnen
+
+Akzeptieren
+
+Direkt zum Inhalt
+
+Kontakt
+
+Farbumschalter
+
+SucheSuchmaske ausklappen und Suchfeld bearbeiten
+
+Suchbegriff*
+
+Suchen
+
+Farbumschalter
+
+SucheSuchmaske ausklappen und Suchfeld bearbeiten
+
+Suchbegriff*
+
+Suchen
+
+Menü aufklappen
+
+studieren & forschen
+
+studieren, forschen & lehren
+
+fur Hochschulen
+
+Kontakt
+
+1. Startseite
+2. Gebärdensprache
+
+# Deutsche Gebärdensprache (DGS)
+
+## Über den DAAD!Text "Über den DAAD" ©
+
+### Weitere Informationen
+
+Textversion des Gebärdensprach-Videos: Über den DAAD
+
+Textversion des Gebärdensprach-Videos: Die Navigation auf dieser Internetseite
+
+## Anschrift
+
+Deutscher Akademischer Austauschdienst e.V.
+Kennedyallee 50
+
+D-53175 Bonn
+
+Alle Adressen im DAAD-Netzwerk
+
+## DAAD Newsletter
+
+E-Mail-Adresse
+
+placeholder text
+
+Ich möchte vom DAAD regelmäßig über aktuelle Neuigkeiten informiert werden. Meine Einwilligung kann ich über die Abmeldefunktion im Newsletter jederzeit widerrufen.
+
+Anmelden
+
+## Nützliche Links
+
+Zum Anfang der Seite springen!DAAD - Deutscher Akademischer Austauschdienst - German Academic Exchange Service
+
+Öffnet Chatbot

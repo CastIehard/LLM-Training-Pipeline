@@ -1,0 +1,533 @@
+1 b € € €
+
+Für Hochschulen
+
+♡ Favoriten 0
+
+Studienfächer
+
+Hochschulen
+
+Studium
+
+Geld & BAföG
+
+Karriere
+
+Forum
+
+1. Wirtschaft, Recht, Verwaltung
+2. Lehrämter
+3. Ingenieurwesen, Mathe, Informatik
+4. Naturwissenschaft
+5. Gesellschaft-, Sozialwissenschaft
+6. Medizin, Gesundheit, Sport
+7. Musik, Kunst, Gestaltung
+8. Sprache, Kultur
+9. Argrar, Forst
+2. Abschlüsse
+1. Für den Studienstart
+2. Bachelor
+3. Master
+4. Lehramt
+5. Diplom
+6. Staatsexamen
+3. Studientypen
+1. Präsenz-Vollzeitstudium
+2. Duales Studium
+3. Fernstudium
+4. Berufsbegleitendes Studium
+5. Teilzeitstudium
+6. Gebührenfreies Studium
+7. NC-freie Studiengänge
+4. Erfahrungsberichte
+1. Lesen
+2. Selbst schreiben
+1. Universität
+2. Fachhochschule
+3. Berufsakademie/Duale HS
+4. Pädagogische Hochschule
+5. Musisch-künstlerische Hochschule
+6. Theologische Hochschule
+7. Verwaltungshochschule
+8. Andere Einrichtungen
+2. Hochschulträger
+1. Staatliche Hochschulen
+2. Kirchliche Hochschulen
+3. Private Hochschulen
+3. Hochschulstädte
+1. _Studierendenstatistik_
+2. Aachen
+3. Berlin
+4. Frankfurt
+5. Hamburg
+6. Köln
+7. München
+8. Münster
+4. Wahl Studienort+Hochschule
+1. Test zum Hochschultyp
+2. Hochschulstädte
+3. Informationstage
+4. Uniranking – sinnvoll?
+5. Akkreditierung
+1. 🌍 For international students: How to study in Germany
+2. Soll/kann ich studieren?
+3. Studienwahl
+4. Studienfächer vorgestellt
+5. 📅 Termine Infotage
+6. Bewerbung und Einschreibung
+7. Studienplatzklage
+2. Im Studium
+1. Hochschulpolitik
+2. Richtig Lernen
+3. Prüfungen meistern
+4. Studienfinanzierung
+5. Studentenjobs
+6. Studienplatztausch
+3. Auslandsstudium
+1. Auslands-BAföG
+2. Auslandspraktikum
+3. ERASMUS-Förderung
+4. Finanzierung
+5. Länderübersicht
+4. Studi-Leben
+1. Apps für Studierende
+2. Geschenkideen
+3. Rund ums Wohnen
+4. WG-Suche
+5. Spartipps
+6. Unterhaltung und studentische Kultur
+5. Studium von A bis Z
+1. **BAföG-Rechner**
+2. Bekomme ich BAföG?
+3. Antrag
+4. BAföG-Gesetz und Verwaltungsvorschriften
+5. Zuständiges BAföG-Amt
+6. Fragen & Antworten
+7. Von A bis Z
+2. Studienfinanzierung
+1. Altersgrenzen
+2. Studienbedarfsrechner
+3. **Studienfinanzierungs-Check**
+4. Kindergeld für Studenten
+5. Jobben, Minijob
+6. Stipendien
+7. Studienkredite und Bildungsfonds
+3. Studienkosten
+1. Kosten sparen
+2. **Kostenübersicht**
+3. Krankenversicherung
+4. Rundfunkbeitrag für Studenten
+5. Studiengebühren
+4. Versicherungen für Studis
+1. Studentische Krankenversicherung (gesetzlich)
+2. KV-Vergleich
+3. PKV für Studenten
+5. BAföG von A bis Z
+1. Assessment-Center
+2. Bewerbungsgespräch
+3. Bewerbungstipps
+4. Gehaltsvergleich
+5. Lebenslauf schreiben
+6. Online-Bewerbung
+7. Studienabbruch
+2. Jobsuche
+1. Jobbörse
+2. Praktikabörse
+3. 📅 Kontaktmessen
+4. Praktikum
+5. Gehaltsrechner
+6. Sinnkrise vor Berufseinstieg
+3. Berufe
+1. **Alle Berufsprofile**
+2. Soziale Berufe
+3. Kreative Berufe
+4. Mit Kindern und Jugendlichen
+5. Mit Sprachen
+6. Im Gesundheitswesen
+7. Technische Berufe
+8. Berufe in der IT
+9. _Und mehr_
+1. Neueste Beiträge
+2. Suche im Forum
+3. Infos+Nutzungsbedingungen
+4. **Forenüberblick**
+2. Foren Fachbereiche
+1. BWL / VWL / Wirtschaft
+2. Biologie / Chemie
+3. Gesellschafts- und Sozialwissenschaft
+4. Jura / Rechtswissenschaft
+5. Lehramt
+6. Mathematik / Informatik
+7. Medizin / Pharmazie u.ä.
+8. _Weitere Fachbereiche_
+3. Foren Städte
+1. Berlin
+2. Bremen
+3. Frankfurt/Main
+4. Hamburg
+5. Köln
+6. München
+7. Stuttgart
+8. _Viele weitere Städte_
+4. Foren Allgemein
+1. Allgemeines zum Studium
+2. Auslandsstudium
+3. BAföG
+4. Beruf und Karriere
+5. Reste-Forum
+6. Rund ums Geld
+7. Schüler:innen+Auszubildende
+8. Studienwahl
+9. _Weitere Foren_
+2. Jobs / Artikel schreiben
+3. Mediadaten / Werbung
+4. Presse
+5. Studienprofil/ Hochschulprofil
+
+Studium bewerten
+
+Folgen
+
+Newsletter
+
+Für Hochschulen
+
+For international universities
+
+Impressum!Flagge von Großbritannien
+
+For international students
+
+[]() > Studiengänge > Betriebswirtschaftslehre > Management > Handelsmanagement > **IU Duales Studium**
+
+Anzeige
+
+# Duales Studium BWL - Spezialisierung Handelsmanagement
+
+IU Duales Studium
+
+Bachelor of Arts!Mann mit Tablet im grossem Arbeitsraum
+
+Studieninfo
+
+Studis berichten
+
+♡ ♥
+
+Bachelor of Arts
+
+Aachen, Augsburg, Berlin, Bielefeld, Bonn, Braunschweig, Bremen, Dortmund, Dresden, Duisburg, Düsseldorf, Erfurt, Frankfurt / Main, Hamburg, Hannover, Karlsruhe, Köln, Leipzig, Mainz, Mannheim, München, Münster, Nürnberg, Stuttgart oder Virtueller Campus
+
+Start jeweils zum 1. Januar, 1. April, 1. Oktober möglich. Studienstart kann je nach Standort variieren.
+
+7 Semester
+
+210 ECTS
+
+Duales Studium.
+Die Studiengebühren werden in der Regel vom Arbeitgeber übernommen.
+
+Betriebswirtschaftslehre
+
+Management
+
+Infos anfordernZur Hochschule
+
+Studienprofil
+
+Warum ist es Werbung?
+
+_Studis Online_ bietet mit dem Studienprofil Hochschulen und Unis im Hochschul- und Studienfachverzeichnis die Möglichkeit, ihre Studienfächer gegen eine Bezahlung ausführlicher vorzustellen als mit den von uns recherchierten Basisinformationen. Die Richtigkeit der Informationen zum Studiengang verantwortet auf _Studis Online_ -Seiten mit Studienprofil die Hochschule. Mehr Informationen zu Studienprofilen bei _Studis Online_ gibt es hier.
+
+Start
+
+Studieninhalte
+
+Virtueller Campus
+
+## Duales Studium BWL - Spezialisierung Handelsmanagement (B.A.)
+
+Von der Planung von Lieferterminen bis zur Erstellung von Marktanalysen und Verkaufsstrategien: Im Dualen Studium BWL mit der Spezialisierung Handelsmanagement lernst Du, wie Du Handelsunternehmen erfolgreich voranbringst. Du befasst Dich mit:
+
+Betriebswirtschaftlichen und**branchenspezifischen Grundlagen**
+
+**(Online-)Marketing** und dem zielgerichteten Einsatz von Marketingkonzepten
+
+**Optimierung der Wertschöpfungskette** von Handelsunternehmen
+
+### Was Dich außerdem erwartet?
+
+Du lernst in**kleinen Gruppen**, kannst mitarbeiten und Fragen stellen.
+
+Du wendest das**Erlernte in Projekten** und **bei der Arbeit** bei Deinem Praxispartner an.
+
+**Persönliche Study Guides** betreuen Dich im gesamten Studium.
+
+Je nach Standort wird Dein Studium entweder im **Dualen Studium** oder im **Dualen myStudium** stattfinden. Beide Modelle bieten Dir interaktive Lernmaterialien und viele weiter Vorteile. Im Dualen Studium besuchst Du Lehrveranstaltungen an zwei Tagen pro Woche am Campus oder virtuell. Im Dualen myStudium der IU kannst Du zusätzlich unsere Lern-KI nutzen und vertiefst Dein Wissen in regelmäßigen Begleitveranstaltungen.
+
+**Deine Vorteile an der IU**
+
+*!Kein Numerus Clausus
+
+*!Privates Studium für 0 Euro
+
+*!Hohe Übernahmechance
+
+*!Qualität auf Top-Niveau
+
+*!Gemeinsame Praxispartnersuche
+
+## Studieninhalte
+
+Digitalisierung, internationale Konkurrenz oder der Aufbau von Lieferketten: Der **Handel** steht aktuell vor großen Herausforderungen. Im Studiengang BWL - Spezialisierung Handelsmanagement lernst Du, wie Du diesen Herausforderungen erfolgreich begegnest und Handelsunternehmen **zukunfts- und wettbewerbsfähig** machst.
+
+Du befasst Dich mit**betriebswirtschaftlichen Themen** wie Marktforschung & Analyse, Wirtschaftspolitik sowie Personalmarketing- und Entwicklung.
+
+Du eignest Dir Kenntnisse in (Online-)Marketing an und beschäftigst Dich mit**Märkten und Konsumentenverhalten**.
+
+Du lernst die**Grundlagen des Handelsmanagements** kennen und erwirbst Know-how in internationalem Handels-, Gesellschafts- und Steuerrecht.
+
+Du beschäftigst Dich mit der**Wertschöpfungskette** von Handelsunternehmen und deren Optimierung.
+
+Deine**Spezialisierungsmodule** belegst Du **ab dem 6. Semester**.
+
+Module
+
+_Dies ist ein exemplarisches Curriculum. Die Reihenfolge der Module kann je nach Studienstart variieren. Darüber hinaus ist Dein Semester zweigeteilt. Das bedeutet, Du studierst immer zwei Module gleichzeitig._
+
+_Je nach Studienmodell unterscheiden sich die Inhalte im 7. Semester. Wähle z. B. im letzten Semester im Dualen myStudium Deine Module frei aus unserem Fernstudium._
+
+1\. Semester
+---
+Modul| ECTS
+Betriebswirtschaftslehre| 5
+Projekt: Agiles Projektmanagement| 5
+Einführung in das wissenschaftliche Arbeiten für Wirtschaft, Management und Kommunikation| 5
+Managerial Economics| 5
+Praxisprojekt 1| 5
+
+2\. Semester
+---
+Modul| ECTS
+Wirtschaftsmathematik| 5
+Marketing| 5
+Buchführung und Bilanzierung| 5
+Steuerlehre| 5
+Praxisprojekt 2| 5
+
+3\. Semester
+---
+Modul| ECTS
+Statistik| 5
+Projekt: Corporate Social Responsibility| 5
+Kosten- und Leistungsrechnung| 5
+Projekt: Wirtschaftspolitik| 5
+Praxisprojekt 3| 5
+
+4\. Semester
+---
+Modul| ECTS
+Recht| 5
+Leadership 4.0| 5
+Grundlagen im Management| 5
+Investition und Finanzierung| 5
+Praxisprojekt 4| 5
+
+5\. Semester
+---
+Modul| ECTS
+Projekt: Unternehmensgründung| 5
+Unternehmensplanung und -kontrolle| 5
+Seminar: Aktuelle Themen der Betriebswirtschaftslehre| 5
+Projekt: Digitale Business-Modelle| 5
+Praxisprojekt 5| 5
+
+6\. Semester
+---
+Modul| ECTS
+Projekt: Megatrends im Unternehmskontext| 5
+Personal und Unternehmensführung| 5
+Vertiefungsmodul| 5
+Vertiefungsmodul| 5
+Praxisprojekt 6| 5
+
+7\. Semester
+---
+Modul| ECTS
+Vertiefungsmodul| 5
+Vertiefungsmodul| 5
+Wahlpflichtmodul Fernstudium| 5
+Wahlpflichtmodul Fernstudium| 5
+Bachelorarbeit| 10
+
+**Empfohlener Inhalt (YouTube-Video)**
+
+**Mit Klick auf den Button stimmst du folgendem zu:** Dieses eingebettete Video wird von YouTube, LLC, 901 Cherry Ave., San Bruno, CA 94066, USA bereitgestellt.
+Beim Abspielen wird eine Verbindung zu den Servern von YouTube hergestellt. Dabei wird YouTube mitgeteilt, welche Seiten du besuchst. Wenn du in deinem YouTube-Account eingeloggt bist, kann YouTube dein Surfverhalten dir persönlich zuzuordnen. Dies verhinderst du, indem du dich vorher aus deinem YouTube-Account ausloggst.
+
+Wird ein YouTube-Video gestartet, setzt der Anbieter Cookies ein, die Hinweise über das Nutzerverhalten sammeln.
+
+Wer das Speichern von Cookies für das Google-Ads-Programm deaktiviert hat, wird auch beim Anschauen von YouTube-Videos mit keinen solchen Cookies rechnen müssen. YouTube legt aber auch in anderen Cookies nicht-personenbezogene Nutzungsinformationen ab. Möchtest du dies verhindern, so musst du das Speichern von Cookies im Browser blockieren.
+
+Weitere Informationen zum Datenschutz bei „YouTube“ findest du in der Datenschutzerklärung des Anbieters unter: <
+
+In neuem Fenster auf YouTube ansehen:
+aktivieren
+
+**Empfohlener Inhalt (YouTube-Video)**
+
+**Mit Klick auf den Button stimmst du folgendem zu:** Dieses eingebettete Video wird von YouTube, LLC, 901 Cherry Ave., San Bruno, CA 94066, USA bereitgestellt.
+Beim Abspielen wird eine Verbindung zu den Servern von YouTube hergestellt. Dabei wird YouTube mitgeteilt, welche Seiten du besuchst. Wenn du in deinem YouTube-Account eingeloggt bist, kann YouTube dein Surfverhalten dir persönlich zuzuordnen. Dies verhinderst du, indem du dich vorher aus deinem YouTube-Account ausloggst.
+
+Wird ein YouTube-Video gestartet, setzt der Anbieter Cookies ein, die Hinweise über das Nutzerverhalten sammeln.
+
+Wer das Speichern von Cookies für das Google-Ads-Programm deaktiviert hat, wird auch beim Anschauen von YouTube-Videos mit keinen solchen Cookies rechnen müssen. YouTube legt aber auch in anderen Cookies nicht-personenbezogene Nutzungsinformationen ab. Möchtest du dies verhindern, so musst du das Speichern von Cookies im Browser blockieren.
+
+Weitere Informationen zum Datenschutz bei „YouTube“ findest du in der Datenschutzerklärung des Anbieters unter: <
+
+In neuem Fenster auf YouTube ansehen:
+aktivieren
+
+## Lerne ortsunabhängig an unserem virtuellen Campus!
+
+Der **virtuelle Campus der IU Duales Studium** bietet Dir maximale Flexibilität: Alle Lehrveranstaltungen und auch Prüfungen finden virtuell statt – und das mit einer strukturierten Woche. Gemeinsam wirst Du mit Kommilitonen lernen und musst nicht auf ein Campusfeeling verzichten. Den Praxisteil Deines Dualen Studiums absolvierst Du komplett ortsunabhängig – bei einem Unternehmen in Deiner Wunsch-Region.
+
+### Deine Vorteile:
+
+Lerne, von wo Du willst
+
+Mit dem virtuellen Campus bist Du völlig frei in der Wahl Deines Studienortes.
+
+Tausche Dich mit Kommilitonen aus
+
+Du lernst in kleinen Lerngruppen. Ihr seid digital vernetzt und tauscht Euch untereinander und mit Dozenten aus.
+
+Spare Dir Zeit und Geld
+
+Die nächste Lehrveranstaltung ist nur einen Mausklick entfernt – Pendeln und lange Anfahrten zum Campus entfallen komplett.
+
+**Mehr zum virtuellen Campus**
+
+## Zulassung
+
+Bewerbungszeiträume
+
+### Bewerbungszeiträume
+
+Bewerbungsfrist für den Studienstart zum 1.1. ist der 30. November, für den Studienstart zum 1.4. der 28./29. Februar, für den Studienstart zum 1.7. der 30. April und für den Studienstart zum 1.10. der 31. August.
+
+Bewerbergespräch
+
+Sobald die IU Deine Bewerbung geprüft hat, führst Du mit Deinem Studienberater ein individuelles Bewerbergespräch. Dabei sprecht ihr über Deine Wünsche und beruflichen Ziele und ihr findet gemeinsam heraus, in welchen Bereichen Deine Stärken liegen.
+
+### Voraussetzungen für ein Studium
+
+Abitur
+
+Als Bewerber:in mit einer allgemeinen Hochschulreife (Abitur) oder fachgebundenen Hochschulreife (fachgebundenes Abitur) kannst Du direkt zum dualen Bachelorstudium an der IU zugelassen werden. Dabei gibt es bei keinem unserer Studiengänge einen Numerus Clausus. Stattdessen führst Du mit Deiner Studienberatung ein IU Bewerbungsgespräch, bei dem wir Deine Stärken und Interessen kennenlernen möchten.
+
+Absolvierende von Waldorfschulen müssen ihr Zeugnis unter Umständen von ihrer Schule anerkennen lassen sowie zusätzliche Leistungen nachweisen, um in einem anderen Bundesland studieren zu können. Für eine Anerkennung wende Dich bitte an Deine Schule.
+
+Fachabitur
+
+Auch ein Fachabitur (Fachhochschulreife) berechtigt zum Studienstart.
+
+Absolvierende des Berufskollegs Baden-Württemberg müssen ihr Zeugnis unter Umständen von ihrer Schule anerkennen lassen sowie zusätzliche Leistungen nachweisen, um in einem anderen Bundesland studieren zu können. Für eine Anerkennung wende Dich bitte an Deine Schule.
+
+Meister:innenbrief
+
+Wenn Du erfolgreich eine Meister:innenprüfung abgeschlossen hast, kannst Du ins Duale Studium starten.
+
+Berufsausbildung und Berufserfahrung
+
+Ohne (Fach-)Abitur/Matura ist ein Einstieg möglich, wenn Du folgende Erfahrung mitbringst:
+
+Staatlich geprüfte:r Techniker:in / Betriebswirt:in
+
+Mit einem abgeschlossenen Bildungsgang als staatlich geprüfte:n Techniker:in oder staatlich geprüfte:n Betriebswirt:in, ist der Studienstart möglich.
+
+**Mehr zu den Zulassungsvoraussetzungen**
+
+## Karriere
+
+Das Duale Studium BWL - Spezialisierung Handelsmanagement bietet Dir viele Perspektiven: Du kannst als Fachkraft im mittleren Management von Groß- und Einzelhandelsunternehmen sowie Handelskonzernen durchstarten – und das in ganz unterschiedlichen Branchen. Ob Lebensmittel-, Textil- oder Automobilindustrie, ob Online-Handel oder die Filiale vor Ort: Du hast die Wahl.
+
+**Nach Deinem Abschluss arbeitest Du zum Beispiel als...**
+
+(Junior) Filialleiter:in
+
+Als Filialleiter:in bist Du nicht nur für den Erfolg und die Weiterentwicklung Deiner Filiale verantwortlich, sondern auch für Deine Mitarbeiter:innen. Du kümmerst Dich um die **Personalplanung** und führst Deine Mitarbeiter:innen fachlich und disziplinarisch. Darüber hinaus stellst Du die Wirtschaftlichkeit Deiner Verkaufsstelle sicher, indem Du einen Überblick über die Kennzahlen hast, Prozesse optimierst und den **Wareneinkauf** optimal steuerst.
+
+Custom Relationship Manager:in
+
+Als Customer Relationship Manager:in bist Du für das **Kundenbeziehungsmanagement** Deines Unternehmens verantwortlich. Du sorgst dafür, dass das Unternehmen von Kund:innen positiv wahrgenommen wird und **entwickelst Maßnahmen** zur Kund:innenbindung und –gewinnung. Um Rückschlüsse auf das Kaufverhalten, die Kundenzufriedenheit und Deine Zielgruppe zu ziehen, wertest Du Daten aus. Hierfür nutzt Du spezielle Software, die Dich bei Deiner Arbeit unterstützt.
+
+E-Commerce Manager:in
+
+Als E-Commerce Manager:in bist Du für den Online-Auftritt Deines Unternehmens zuständig. Dein Aufgabenbereich kann dabei sehr vielfältig sein und von der **Sortimentsauswahl** bis zum Management von Retouren reichen. Um den Erfolg des Webshops zu sichern, optimierst Du Preise, überwachst Verkaufsprozesse und entwickelst **Marketingmaßnahmen**. Hierfür arbeitest Du eng mit anderen Fachabteilungen zusammen, beispielsweise aus den Bereichen Vertrieb und Marketing.
+
+**Empfehlungen für ein Studium an der IU**
+
+*!Studierender in der Hochschule
+
+*!Studierende in der Hochschule
+
+*!Studierende in der Hochschule
+
+## Studiengebühren
+
+Die IU bietet Dir duale Studienprogramme an einer privaten Hochschule mit intensiver Betreuung, privater Atmosphäre, kleinen Lerngruppen und moderner Ausstattung.
+
+An der IU zahlst Du 0 € - denn Dein Praxispartner übernimmt Deine Studiengebühren.
+
+Neben der Finanzierung der Studiengebühren durch den Praxisbetrieb erhältst Du von vielen Unternehmen zusätzlich eine Vergütung. Die Höhe der Vergütung ist je nach Studiengang und Praxispartner unterschiedlich. Die Studienberater der IU stehen Dir bei Deinen Fragen zur Studienfinanzierung gern in einem persönlichen Beratungsgespräch zur Verfügung.
+
+**Erfahre mehr über die Studiengebühren**Studienort auswählen *
+
+**Zustimmung zur Datenweiterleitung und Kontaktaufnahme**
+
+Ich willige ein, dass die IU Internationale Hochschule GmbH meine E-Mail-Adresse und Telefonnummer gemäß der Datenschutzerklärung verarbeitet, um mir per E-Mail Informationen zum Studium, Veranstaltungen und Rabattaktionen zuzusenden sowie mich telefonisch zu kontaktieren. Ich kann diese Einwilligung jederzeit per Mail an datenschutz@iu.org widerrufen.
+
+Infos anfordern
+✍**Infomaterial anfordern** »
+
+### Kontakt
+
+Noch Fragen? Die Studienberatung der IU hilft Dir gern!
+
++49 (0) 800 6001616 7 _Erreichbar_: Mo bis Fr von 8 - 20 Uhr, Sa von 9 - 17 Uhr
+
+E-Mail schreiben)
+
+Webseite der Hochschule
+
+[]() []() []() []()
+
+Zur Hochschule
+
+Ende des Studienprofils
+
+**Werbehinweis:** Mit dem vorangehenden Studienprofil bietet _Studis Online_ Hochschulen und Unis die Möglichkeit, ihre Studienfächer **gegen eine Bezahlung** ausführlicher vorzustellen als mit den von uns recherchierten Basisinformationen. Die Richtigkeit der Informationen zum Studiengang auf _Studis Online_ -Seiten mit Studienprofil verantwortet die Hochschule. Mehr Informationen zu Studienprofilen bei _Studis Online_ gibt es hier.
+
+Berichte über deine Erfahrungen zu diesem Studium
+
+_Studis Online_ / Oliver+Katrin Iost GbR, Hamburg
+URL dieser Seite:
+
+Nach oben
+
+Made with ❤️+🕊️ in Hamburg / 🇩🇪 / 🇪🇺
+Studis Online / Oliver+Katrin Iost GbR
+
+Impressum ▪ Hochschulmarketing ▪ Besucherstatistik
+Datenschutz ▪ Einwilligungs-Info;) | Einwilligung widerrufen;)contentpass FAQ ▪ Haftungsausschluss
+In Englisch 🇬🇧🇺🇸 (for international students)
+
+Folge uns auf …
+
+[]() []()
+
+Light Mode Dark Mode
+
+Wieder Systemeinstellung verwenden!Zählpixel

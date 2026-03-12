@@ -516,9 +516,10 @@ def main():
 
         # Delta cleaning: skip documents that already have a cleaned file
         cleaned_path = Path(cleaned_md_dir) / filename
-        if cleaned_path.exists() and entry.get("cleaning_status") in (
-            "kept",
-            "removed",
+        if (
+            not config.get("force_rerun", False)
+            and cleaned_path.exists()
+            and entry.get("cleaning_status") in ("kept", "removed")
         ):
             if entry.get("cleaning_status") == "kept":
                 # Load existing cleaned content for deduplication checks

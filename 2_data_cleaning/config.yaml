@@ -5,6 +5,9 @@ index_file: "data/index.json"
 raw_md_dir: "data/raw_md"
 cleaned_md_dir: "data/cleaned_md"
 
+# Force re-clean all documents (ignore delta cleaning cache)
+force_rerun: true
+
 # --- Text Normalization & Regex (Added based on transcript) ---
 # Prevents the model from learning common typos, bad spacing, and boilerplate
 text_normalization:
@@ -21,7 +24,10 @@ text_normalization:
     - pattern: "\\s+,"
       replacement: ","
     # Remove markdown abbreviation definitions (*[ABBR]: Full text)
-    - pattern: "^\\*\\[.+?\\]:.*$"
+    - pattern: "^\\s*\\*\\[.+?\\]:.*$"
+      replacement: ""
+    # Remove nav-menu blocks: 5+ consecutive single-word lines separated by blank lines
+    - pattern: "(?:^\\S+$\\n\\n){4,}^\\S+$"
       replacement: ""
     # Remove "Back to top" navigation lines
     - pattern: "(?i)^\\s*back to top\\s*$"
@@ -88,14 +94,14 @@ offensive_language:
 pii_removal:
   enabled: true
   patterns:
-    email: true
-    phone: false           # Keep phone numbers — LLM needs contact info
+    email: false
+    phone: false
     ip_address: true
-    iban: true
-    credit_card: true
+    iban: false
+    credit_card: false
     social_security_number: true
-    passport_number: false   # Keep — could be reference codes, too many false positives
-    physical_address: false  # Keep addresses — LLM needs location info
+    passport_number: false
+    physical_address: false
 
 # --- Length Filtering ---
 # Documents outside this character range are removed to prevent weight imbalance.

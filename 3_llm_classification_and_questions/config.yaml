@@ -10,7 +10,7 @@ llm:
   # OpenAI API settings (used when provider: "openai")
   openai:
     api_key: "${OPENAI_API_KEY}"  # Use environment variable
-    model: "gpt-4.1"
+    model: "gpt-4.1-nano"
     temperature: 0.1
     max_tokens: 5000
 
@@ -18,7 +18,7 @@ llm:
   # LM Studio runs a local server compatible with the OpenAI API format
   local:
     base_url: "http://localhost:1234/v1"
-    model: "qwen/qwen3-30b-a3b-2507"
+    model: "openai/gpt-oss-20b"
     temperature: 0.1
     max_tokens: 5000
 
@@ -37,51 +37,53 @@ generation:
 # Combined Classification and Q&A Prompt
 # Placeholders replaced at runtime: {num_questions_min}, {num_questions_max}, {content}
 prompt: |
- You are an expert document analyzer for a University Q&A system. Your task is to evaluate the provided document's relevance and extract question-answer pairs if it meets the criteria.
+  <system>
+  You are an expert document analyzer for a University Q&A system. Your task is to evaluate the provided document's relevance and extract question-answer pairs if it meets the criteria.
+  </system>
 
+  <instructions>
   ### STEP 1: RELEVANCE CHECK
-  Analyze the document to determine if it is RELEVANT or IRRELEVANT.
+  Determine if the document is RELEVANT or IRRELEVANT.
 
-  A document is RELEVANT if its primary focus is:
+  RELEVANT topics:
   - UTN (University of Technology Nuremberg) specifically.
   - Nuremberg city (local services, public transport, housing, events, places).
   - Germany in general (laws, healthcare, banking, official student services).
   - Studying in Germany or at UTN (enrollment, courses, student life, visas, accommodation).
 
-  A document is IRRELEVANT if it focuses on:
-  - Other universities (e.g., TU Munich, FAU, LMU, TU Berlin) — EXCLUDE these even if they are located in Germany.
-  - Topics with no clear connection to UTN, Nuremberg, Germany, or university studies.
+  IRRELEVANT topics:
+  - Other universities (e.g., TU Munich, FAU, LMU, TU Berlin). EXCLUDE these.
+  - Topics with no clear connection to the RELEVANT topics above.
   - Corrupted, empty, or meaningless text.
 
   ### STEP 2: OUTPUT GENERATION
-  Based on your relevance check, strictly follow one of the two output formats below. Do not include explanations, reasoning, or conversational filler.
+  If the document is IRRELEVANT, output exactly the word "irrelevant" and absolutely nothing else.
 
-  IF IRRELEVANT:
-  Output exactly this single word and absolutely nothing else:
-  irrelevant
-
-  IF RELEVANT:
-  Output ONLY a valid JSON object. Do NOT wrap the JSON in markdown code blocks (e.g., no ```json). The JSON must follow this exact schema:
+  If the document is RELEVANT, output ONLY a valid JSON object. Do NOT wrap the JSON in markdown code blocks.
+  Schema:
   {{
-    "category": "<category>",
-    "qa_pairs":[
+    "category": "UTN" | "Germany" | "Nuremberg" | "Studies",
+    "qa_pairs": [
       {{
-        "question": "<English question based on the text>",
-        "answer": "<English answer based on the text>"
+        "question": "<English question>",
+        "answer": "<English answer>"
       }}
     ]
   }}
 
-  ### JSON CONSTRAINTS (IF RELEVANT):
-  1. "category" MUST be exactly one of: UTN, Germany, Nuremberg, Studies.
-  2. Generate between {num_questions_min} and {num_questions_max} distinct question-answer pairs.
-  3. Both "question" and "answer" MUST be written in English, even if the source document is in German.
+  JSON CONSTRAINTS:
+  1. Generate between {num_questions_min} and {num_questions_max} distinct question-answer pairs.
+  2. Both "question" and "answer" MUST be written in English.
+  3. The "question" MUST be a realistic user query that can be directly answered using the document.
+  4. The "answer" MUST successfully answer that question using ONLY the provided document.
+  Example: If the document is about applying for BAföG, a good question could be "Who is responsible for BAföG in Nuremberg?" and the answer would be "It is the Studierendenwerk Erlangen-Nürnberg."
+  </instructions>
 
   <document>
   {content}
   </document>
 
-  Your response (irrelevant or raw JSON only):
+  Output (irrelevant or valid JSON only):
 
 # Data paths
 data:

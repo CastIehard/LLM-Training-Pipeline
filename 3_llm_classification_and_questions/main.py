@@ -239,6 +239,32 @@ def append_qa_to_file(
     return len(qa_pairs)
 
 
+def chunk_content(content: str, max_chunk_size: int = 10000) -> list[str]:
+    """Split content into chunks of max_chunk_size characters."""
+    if len(content) <= max_chunk_size:
+        return [content]
+    
+    chunks = []
+    lines = content.split('\n')
+    current_chunk = []
+    current_length = 0
+    
+    for line in lines:
+        line_len = len(line) + 1 # +1 for newline
+        if current_length + line_len > max_chunk_size and current_chunk:
+            chunks.append('\n'.join(current_chunk))
+            current_chunk = [line]
+            current_length = line_len
+        else:
+            current_chunk.append(line)
+            current_length += line_len
+            
+    if current_chunk:
+        chunks.append('\n'.join(current_chunk))
+        
+    return chunks
+
+
 def needs_processing(entry: dict, processed_hashes: set[str]) -> bool:
     """Return True if the entry still needs LLM processing."""
     if entry.get("llm_processed") is True:
@@ -317,27 +343,45 @@ def main():
             entries_processed += 1
             continue
 
-        num_min, num_max = calculate_question_count(content_length, config)
-        result = process_document(client, config, content, num_min, num_max)
+        chunks = chunk_content(content, max_chunk_size=10000)
+        
+        all_qa_pairs = []
+        final_category = None
+        is_failed = False
+        is_irrelevant = True
 
-        if result is None:
-            tqdm.write(f"  FAILED {hash_id[:8]}: LLM call unsuccessful")
+        for chunk_idx, chunk in enumerate(chunks):
+            chunk_length = len(chunk)
+            num_min, num_max = calculate_question_count(chunk_length, config)
+            result = process_document(client, config, chunk, num_min, num_max)
+
+            if result is None:
+                tqdm.write(f"  FAILED {hash_id[:8]} (chunk {chunk_idx+1}/{len(chunks)}): LLM call unsuccessful")
+                is_failed = True
+                break
+            elif result != "irrelevant":
+                is_irrelevant = False
+                all_qa_pairs.extend(result["qa_pairs"])
+                # Keeping the latest valid category
+                final_category = result["category"]
+
+        if is_failed:
             failed_count += 1
-        elif result == "irrelevant":
+        elif is_irrelevant:
             entry["category"] = IRRELEVANT_CATEGORY
             entry["llm_processed"] = True
             irrelevant_count += 1
             tqdm.write(f"  [{hash_id[:8]}] irrelevant")
         else:
-            entry["category"] = result["category"]
+            entry["category"] = final_category
             written = append_qa_to_file(
-                output_file, hash_id, result["qa_pairs"], model_name, result["category"]
+                output_file, hash_id, all_qa_pairs, model_name, final_category
             )
             entry["llm_processed"] = True
             entry["questions_generated"] = True
             total_questions += written
             tqdm.write(
-                f"  [{hash_id[:8]}] {result['category']} — {written} questions"
+                f"  [{hash_id[:8]}] {final_category} — {written} questions (from {len(chunks)} chunks)"
             )
 
         entries_processed += 1

@@ -1,0 +1,89 @@
+# LLM Classification and Q&A Generation Configuration
+# This step combines classification and Q&A generation into a single LLM call.
+# The LLM decides if a document is relevant, then generates Q&A pairs if so.
+
+# LLM Provider Settings
+llm:
+  # Provider: "openai" or "local" (LM Studio)
+  provider: "local"
+
+  # OpenAI API settings (used when provider: "openai")
+  openai:
+    api_key: "${OPENAI_API_KEY}"  # Use environment variable
+    model: "gpt-4.1-nano-2025-04-14"
+    temperature: 0.1
+    max_tokens: 5000
+
+  # Local LLM settings (used when provider: "local")
+  # LM Studio runs a local server compatible with the OpenAI API format
+  local:
+    base_url: "http://localhost:1234/v1"
+    model: "Qwen/Qwen3-30B-A3B"
+    temperature: 0.1
+    max_tokens: 5000
+
+# Question Generation Settings
+generation:
+  # Number of content characters per question (e.g. 1000 → 1 question per 1000 chars)
+  content_length_per_question: 1000
+
+  # Variance applied around the calculated question count (±)
+  question_range: 3
+
+  # Hard limits on questions per document
+  min_questions: 1
+  max_questions: 20
+
+# Combined Classification and Q&A Prompt
+# Placeholders replaced at runtime: {num_questions_min}, {num_questions_max}, {content}
+prompt: |
+  You are a document analyzer for a Q&A system. Your task is to read a document and determine if it is relevant to students at the University of Technology Nuremberg (UTN) or studying in Germany. If it is relevant, you will generate question-answer pairs based on the content.
+  Read the document below and follow these two steps.
+
+  ---
+  STEP 1 — Decide if the document is RELEVANT or IRRELEVANT.
+
+  A document is RELEVANT if it is about any of these topics:
+  - UTN (University of Technology Nuremberg) specifically
+  - Nuremberg city (local services, transport, housing, events, places)
+  - Germany in general (laws, healthcare, banking, official services for students)
+  - Studying in Germany or at UTN (enrollment, courses, student life, visas, accommodation)
+
+  A document is IRRELEVANT if it is about:
+  - Other universities such as TU Munich, FAU, LMU, TU Berlin, or any university that is NOT UTN — exclude these even if they are in Germany
+  - Topics with no connection to UTN, Nuremberg, Germany, or studying
+  - Corrupted, empty, or meaningless content
+
+  ---
+  STEP 2 — Respond based on your decision:
+
+  If IRRELEVANT → respond with this single word only (no punctuation, no explanation):
+  irrelevant
+
+  If RELEVANT → respond with a valid JSON object only (no markdown, no extra text):
+  {{"category": "<category>", "qa_pairs": [{{"question": "...", "answer": "..."}}, ...]}}
+
+  The category must be exactly one of:
+  - UTN      → the document is specifically about UTN university
+  - Germany  → general German information (laws, government, nationwide services)
+  - Nuremberg → Nuremberg city information (not UTN-specific)
+  - Studies  → general study-related content (student life, courses, education)
+
+  Generate between {num_questions_min} and {num_questions_max} question-answer pairs that cover
+  different aspects of the document. All questions and answers must be in English, even if the
+  source content is in German.
+
+  ---
+  Document:
+  {content}
+
+# Data paths
+data:
+  index_file: "data/index.json"
+  raw_md_dir: "data/cleaned_md"
+  output_file: "data/llm_qna.jsonl"
+
+# Processing settings
+processing:
+  # Delay between API calls in seconds (0 = no delay; OpenAI handles rate limits internally)
+  delay: 0

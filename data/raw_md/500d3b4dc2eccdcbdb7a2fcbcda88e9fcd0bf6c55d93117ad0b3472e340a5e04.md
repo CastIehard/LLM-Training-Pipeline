@@ -1,0 +1,281 @@
+Zur Hauptnavigation springen. Zum Seiteninhalt springen.
+
+[ ![BIBB Logo](https://www.anerkennung-in-deutschland.de/system/layout/BIBB-Logo_DE_SW.svg) ](https://www.bibb.de "Link öffnet Startseite Bundesinstitut für Berufsbildung")
+
+Ein Angebot des Bundesinstituts fur Berufsbildung
+
+  * [Leichte Sprache](https://www.anerkennung-in-deutschland.de/html/de/leichte-sprache.php)
+  * [Gebardensprache](https://www.anerkennung-in-deutschland.de/html/de/gebaerdensprache.php)
+
+
+
+[ ![Logo: Anerkennung in Deutschland](https://www.anerkennung-in-deutschland.de/system/layout/AID-Logo.svg) Das Informationsportal der Bundesregierung  
+zur Anerkennung auslandischer Berufsqualifikationen ](https://www.anerkennung-in-deutschland.de/html/de/index.php "Zur Startseite")
+
+[ ![Logo: Bundesministerium für Bildung, Familie, Senioren, Frauen und Jugend](https://www.anerkennung-in-deutschland.de/system/layout/bmbfsfj_de.svg) ](https://www.bmbfsfj.bund.de "Bundesministerium für Bildung, Familie, Senioren, Frauen und Jugend - BMBFSFJ")
+
+  * Für Fachkräfte
+
+    * [Start](https://www.anerkennung-in-deutschland.de/html/de/fachkraefte.php)
+    * [Anerkennungs-Finder](https://www.anerkennung-in-deutschland.de/html/de/anerkennungs-finder.php)
+    * [Ihr Weg zur Anerkennung](https://www.anerkennung-in-deutschland.de/html/de/weg-zur-anerkennung.php)
+
+      * [Was ist berufliche Anerkennung](https://www.anerkennung-in-deutschland.de/html/de/was-ist-anerkennung.php)
+      * [Vorteile der Anerkennung](https://www.anerkennung-in-deutschland.de/html/de/vorteile-anerkennung.php)
+      * [Wie bekomme ich die Anerkennung](https://www.anerkennung-in-deutschland.de/html/de/anerkennung-bekommen.php)
+      * [Finanzielle Förderung](https://www.anerkennung-in-deutschland.de/html/de/finanzielle-foerderung.php)
+      * [Dokumente für die Antragstellung](https://www.anerkennung-in-deutschland.de/html/de/dokumente-antragstellung.php)
+      * [Wie geht es nach dem Bescheid weiter](https://www.anerkennung-in-deutschland.de/html/de/nach-dem-bescheid.php)
+      * [Hochschulabschlüsse](https://www.anerkennung-in-deutschland.de/html/de/hochschule.php)
+      * [Rechtliche Grundlagen](https://www.anerkennung-in-deutschland.de/html/de/recht.php)
+
+    * [In Deutschland ankommen](https://www.anerkennung-in-deutschland.de/html/de/in-deutschland-ankommen.php)
+
+      * [Einwanderung](https://www.anerkennung-in-deutschland.de/html/de/einwanderung.php)
+      * [Berufsanerkennung für Geflüchtete](https://www.anerkennung-in-deutschland.de/html/de/berufsanerkennung-gefluechtete.php)
+      * [Deutsch lernen](https://www.anerkennung-in-deutschland.de/html/de/deutsch-lernen.php)
+
+    * [Beratung](https://www.anerkennung-in-deutschland.de/html/de/beratung.php)
+
+      * [Beratungssuche](https://www.anerkennung-in-deutschland.de/html/de/beratungssuche.php)
+      * [Hinweise zur Beratung](https://www.anerkennung-in-deutschland.de/html/de/hinweise-zur-beratung.php)
+      * [Qualifizierung nach dem Bescheid](https://www.anerkennung-in-deutschland.de/html/de/qualifizierungsberatung.php)
+      * [Hotline](https://www.anerkennung-in-deutschland.de/html/de/hotline.php)
+      * [Zentrale Servicestelle Berufsanerkennung](https://www.anerkennung-in-deutschland.de/html/de/zentrale-servicestelle-berufsanerkennung.php)
+      * [EU-Beratungszentrum](https://www.anerkennung-in-deutschland.de/html/de/eu-beratungszentrum.php)
+
+    * [Erfahrungsberichte](https://www.anerkennung-in-deutschland.de/html/de/erfahrungsberichte.php)
+
+      * [Gesundheit](https://www.anerkennung-in-deutschland.de/html/de/erfahrungsberichte-gesundheit.php)
+      * [Handwerk und Technik](https://www.anerkennung-in-deutschland.de/html/de/erfahrungsberichte-handwerk-technik.php)
+      * [Ingenieurwesen](https://www.anerkennung-in-deutschland.de/html/de/erfahrungsberichte-ingenieurwesen.php)
+      * [Wirtschaft und Management](https://www.anerkennung-in-deutschland.de/html/de/erfahrungsberichte-wirtschaft-management.php)
+      * [Lehramt, Erziehung und Soziales](https://www.anerkennung-in-deutschland.de/html/de/erfahrungsberichte-lehramt-erziehung-soziales.php)
+
+    * [Aktuelles](https://www.anerkennung-in-deutschland.de/html/de/aktuelles.php)
+
+      * [News](https://www.anerkennung-in-deutschland.de/html/de/news.php)
+      * [Veranstaltungen](https://www.anerkennung-in-deutschland.de/html/de/redirect_7109.php)
+
+    * [Chatbot Aidy](https://www.anerkennung-in-deutschland.de/html/de/redirect_10805.php)
+
+  * Für Beratende
+
+    * [Start](https://www.anerkennung-in-deutschland.de/html/de/profis.php)
+    * [Profi-Filter](https://www.anerkennung-in-deutschland.de/html/de/pro/redirect_4233.php)
+    * [Anerkennung](https://www.anerkennung-in-deutschland.de/html/de/pro/anerkennung.php)
+
+      * [Berufliche Anerkennung](https://www.anerkennung-in-deutschland.de/html/de/pro/berufliche-anerkennung.php)
+      * [Vorteile der Anerkennung](https://www.anerkennung-in-deutschland.de/html/de/pro/vorteile-anerkennung.php)
+      * [Finanzielle Förderung](https://www.anerkennung-in-deutschland.de/html/de/pro/finanzielle-foerderung.php)
+      * [Dokumente für die Antragstellung](https://www.anerkennung-in-deutschland.de/html/de/pro/dokumente-antragstellung.php)
+      * [Digitale Antragstellung](https://www.anerkennung-in-deutschland.de/html/de/pro/digitalisierung.php)
+      * [Verfahrensarten](https://www.anerkennung-in-deutschland.de/html/de/pro/verfahrensarten.php)
+      * [Rechtliche Grundlagen](https://www.anerkennung-in-deutschland.de/html/de/pro/rechtliche-grundlagen.php)
+      * [Akteure der Anerkennung](https://www.anerkennung-in-deutschland.de/html/de/pro/akteure.php)
+
+    * [Beratung](https://www.anerkennung-in-deutschland.de/html/de/pro/beratung.php)
+
+      * [Beratungssuche](https://www.anerkennung-in-deutschland.de/html/de/pro/beratungssuche-pro.php)
+      * [Hotline](https://www.anerkennung-in-deutschland.de/html/de/pro/hotline-pro.php)
+      * [Zentrale Servicestelle Berufsanerkennung ](https://www.anerkennung-in-deutschland.de/html/de/pro/zsba.php)
+      * [ProRecognition](https://www.anerkennung-in-deutschland.de/html/de/pro/prorecognition.php)
+      * [Einheitlicher Ansprechpartner](https://www.anerkennung-in-deutschland.de/html/de/pro/einheitlicher-ansprechpartner.php)
+
+    * [Austausch und Schulungen](https://www.anerkennung-in-deutschland.de/html/de/pro/austausch-schulungen.php)
+
+      * [Für zuständige Stellen ](https://www.anerkennung-in-deutschland.de/html/de/pro/zustaendige-stellen.php)
+      * [Für Beratende](https://www.anerkennung-in-deutschland.de/html/de/pro/online-schulungen.php)
+
+    * [Qualifizierung](https://www.anerkennung-in-deutschland.de/html/de/pro/qualifizierung.php)
+
+      * [Möglichkeiten zur Qualifizierung](https://www.anerkennung-in-deutschland.de/html/de/pro/moeglichkeiten-qualifizierung.php)
+      * [Deutschkenntnisse und Sprachkurse](https://www.anerkennung-in-deutschland.de/html/de/pro/deutschkenntnisse.php)
+
+    * [Analysen und Berichte](https://www.anerkennung-in-deutschland.de/html/de/pro/analysen-berichte.php)
+
+      * [Anerkennungsberichte und Evaluationsberichte](https://www.anerkennung-in-deutschland.de/html/de/pro/anerkennungsbericht-evaluation.php)
+      * [Statistische Daten von Bund und Ländern](https://www.anerkennung-in-deutschland.de/html/de/pro/statistik-bund-laender.php)
+      * [Daten zum Portal](https://www.anerkennung-in-deutschland.de/html/de/pro/daten-zum-portal.php)
+      * [Rückblick auf Veranstaltungen ](https://www.anerkennung-in-deutschland.de/html/de/pro/rueckblick-veranstaltungen.php)
+
+    * [Aktuelles](https://www.anerkennung-in-deutschland.de/html/de/pro/aktuelles.php)
+
+      * [News](https://www.anerkennung-in-deutschland.de/html/de/pro/news-profis.php)
+      * [Veranstaltungen](https://www.anerkennung-in-deutschland.de/html/de/pro/redirect_7110.php)
+      * [Anerkennung optimiert](https://www.anerkennung-in-deutschland.de/html/de/pro/anerkennung-optimiert.php)
+      * [Aus der Praxis](https://www.anerkennung-in-deutschland.de/html/de/pro/aus-der-praxis.php)
+      * [Newsletter](https://www.anerkennung-in-deutschland.de/html/de/pro/redirect_5392.php)
+
+  * Für Arbeitgeber
+
+    * [Start](https://www.anerkennung-in-deutschland.de/html/de/arbeitgeber.php)
+    * [Anerkennungs-Finder](https://www.anerkennung-in-deutschland.de/html/de/ag/redirect_4231.php)
+    * [Anerkennung](https://www.anerkennung-in-deutschland.de/html/de/ag/grundlagen-anerkennung.php)
+
+      * [Berufliche Anerkennung](https://www.anerkennung-in-deutschland.de/html/de/ag/berufliche-anerkennung.php)
+      * [Vorteile der Anerkennung](https://www.anerkennung-in-deutschland.de/html/de/ag/vorteile-anerkennung.php)
+      * [Finanzielle Förderung](https://www.anerkennung-in-deutschland.de/html/de/ag/finanzielle-foerderung.php)
+      * [Rechtliche Grundlagen](https://www.anerkennung-in-deutschland.de/html/de/ag/rechtliche-grundlagen.php)
+      * [Anerkennung und Beschäftigung](https://www.anerkennung-in-deutschland.de/html/de/ag/beschaeftigung.php)
+      * [Anerkennung und Einwanderung](https://www.anerkennung-in-deutschland.de/html/de/ag/anerkennung-einwanderung.php)
+
+    * [Qualifizierung](https://www.anerkennung-in-deutschland.de/html/de/ag/qualifizierung.php)
+
+      * [Möglichkeiten zur Qualifizierung](https://www.anerkennung-in-deutschland.de/html/de/ag/moeglichkeiten-qualifizierung.php)
+      * [Deutsch lernen](https://www.anerkennung-in-deutschland.de/html/de/ag/deutsch-lernen.php)
+
+    * [Beratung](https://www.anerkennung-in-deutschland.de/html/de/ag/anerkennung-beratung.php)
+    * [Aktuelles](https://www.anerkennung-in-deutschland.de/html/de/ag/9037.php)
+
+      * [News](https://www.anerkennung-in-deutschland.de/html/de/ag/news.php)
+      * [Veranstaltungen](https://www.anerkennung-in-deutschland.de/html/de/ag/redirect_7111.php)
+
+  * Service
+
+    * [Start](https://www.anerkennung-in-deutschland.de/html/de/service.php)
+    * [FAQ - Häufige Fragen](https://www.anerkennung-in-deutschland.de/html/de/service/faq.php)
+    * [Glossar](https://www.anerkennung-in-deutschland.de/html/de/service/glossar.php)
+    * [Mediathek](https://www.anerkennung-in-deutschland.de/html/de/service/mediathek.php)
+    * [Veranstaltungen](https://www.anerkennung-in-deutschland.de/html/de/service/redirect_9589.php)
+    * [Kontakt](https://www.anerkennung-in-deutschland.de/html/de/service/kontakt.php)
+
+      * [Beratungssuche](https://www.anerkennung-in-deutschland.de/html/de/service/redirect_9595.php)
+      * [Hotline](https://www.anerkennung-in-deutschland.de/html/de/service/redirect_9596.php)
+      * [Fragen zur Anerkennung](https://www.anerkennung-in-deutschland.de/html/de/service/redirect_7000.php)
+      * [Presse](https://www.anerkennung-in-deutschland.de/html/de/service/presse.php)
+      * [Feedback zum Portal](https://www.anerkennung-in-deutschland.de/html/de/service/redirect_7002.php)
+
+    * [Chatbot Aidy](https://www.anerkennung-in-deutschland.de/html/de/service/redirect_10810.php)
+    * [Über uns](https://www.anerkennung-in-deutschland.de/html/de/service/ueber-uns.php)
+
+
+
+
+Deutsch Information on languages Leichte Sprache Gebardensprache
+
+  * [Leichte Sprache](https://www.anerkennung-in-deutschland.de/html/de/leichte-sprache.php)
+  * [Gebardensprache](https://www.anerkennung-in-deutschland.de/html/de/gebaerdensprache.php)
+
+
+
+Zielgruppe: Alle Fachkrafte Beratende Arbeitgeber
+
+Suchen
+
+  * [Anerkennungsportal](https://www.anerkennung-in-deutschland.de/html/de/index.php)
+  * [Für Arbeitgeber](https://www.anerkennung-in-deutschland.de/html/de/arbeitgeber.php)
+  * [Anerkennung](https://www.anerkennung-in-deutschland.de/html/de/ag/grundlagen-anerkennung.php)
+  * [Rechtliche Grundlagen](https://www.anerkennung-in-deutschland.de/html/de/ag/rechtliche-grundlagen.php)
+
+
+
+# Rechtliche Grundlagen
+
+#### Die berufliche Anerkennung in Deutschland hat verschiedene rechtliche Grundlagen. Die wichtigsten stellen wir hier vor.
+
+copyright
+
+(C) (C) BIBB 
+
+#### [Anerkennungsgesetz des Bundes Das Anerkennungsgesetz regelt die Verfahren zur Anerkennung auslandischer Berufsqualifikationen. Es gilt fur Berufe, die durch Bundesrecht geregelt sind. ](https://www.anerkennung-in-deutschland.de/html/de/ag/anerkennungsgesetz.php "Anerkennungsgesetz des Bundes")
+
+copyright
+
+(C) Jurgen Falchle / Adobe Stock 
+
+#### [Anerkennungsgesetze der Lander Die Bundeslander regeln die Anerkennung auslandischer Berufsqualifikationen fur Berufe, fur die nicht der Bund, sondern die Bundeslander zustandig sind. ](https://www.anerkennung-in-deutschland.de/html/de/ag/laendergesetze.php "Anerkennungsgesetze der Bundesländer")
+
+copyright
+
+(C) Grecaud Paul / Adobe Stock 
+
+#### [EU-Berufsanerkennungsrichtlinie Die EU-Berufsanerkennungsrichtlinie regelt die Anerkennung von Berufsqualifikationen in der EU und ermoglicht den freien Zugang zum Arbeitsmarkt. ](https://www.anerkennung-in-deutschland.de/html/de/ag/eu-berufsanerkennungsrichtlinie.php "EU-Berufsanerkennungsrichtlinie")
+
+copyright
+
+(C) Kiengcan / Adobe Stock 
+
+#### [Regelungen zur Fachkrafteeinwanderung Hier erfahren Sie, wie die Einwanderung von Fachkraften aus Drittstaaten gesetzlich geregelt ist und welche Rolle die Anerkennung dabei spielt. ](https://www.anerkennung-in-deutschland.de/html/de/ag/fachkraefteeinwanderungsgesetz.php "Regelungen zur Fachkräfteeinwanderung")
+
+copyright
+
+(C) moofushi / Adobe Stock 
+
+#### [Anerkennung nach dem Brexit Fur die Anerkennung britischer Berufsqualifikationen in Deutschland gelten seit dem 1. Januar 2021 die Regelungen fur Qualifikationen aus Drittstaaten. ](https://www.anerkennung-in-deutschland.de/html/de/ag/anerkennung-brexit.php "Anerkennung nach dem Brexit")
+
+  * Diese Seite teilen:
+  * [_![Icon: Facebook](/webassets/aidworld/images/social-icons/facebook_blue_100.png)_](https://www.facebook.com/dialog/share?app_id=966242223397117&href=https://www.anerkennung-in-deutschland.de/html/de/ag/rechtliche-grundlagen.php&t=Anerkennung+in+Deutschland)
+  * [_![Icon: LinkedIn](/webassets/aidworld/images/social-icons/linkedin.png)_](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anerkennung-in-deutschland.de/html/de/ag/rechtliche-grundlagen.php&source=www.anerkennung-in-deutschland.de&title=Anerkennung+in+Deutschland&summary=Die+berufliche+Anerkennung+in+Deutschland+ist+gesetzlich+geregelt+und+hat+verschiedene+rechtliche+Grundlagen.)
+  * [_![Icon: WhatsApp](/webassets/aidworld/images/social-icons/whatsapp.png)_](https://api.whatsapp.com/send?text=https://www.anerkennung-in-deutschland.de/html/de/ag/rechtliche-grundlagen.php)
+
+
+
+**Indem Sie diesen Inhalt teilen, erkl aren Sie sich bereit, dass Ihre Daten an den jeweiligen Dienst ubermittelt werden und dass Sie die [Datenschutzerklarung](https://www.anerkennung-in-deutschland.de/html/de/datenschutz.php) gelesen haben. **
+
+Abbrechen Akzeptieren
+
+### [Fur Fachkrafte](https://www.anerkennung-in-deutschland.de/html/de/fachkraefte.php)
+
+Sie mochten in Deutschland in Ihrem Beruf arbeiten? Wie und wo Sie Ihren Abschluss anerkennen lassen konnen, erfahren Sie hier in 11 Sprachen.
+
+[Zum Fachkrafte-Bereich](https://www.anerkennung-in-deutschland.de/html/de/fachkraefte.php "Zum Bereich für Privatpersonen")   
+
+
+### [Fur Beratende](https://www.anerkennung-in-deutschland.de/html/de/profis.php)
+
+Sie beraten oder recherchieren zur Anerkennung auslandischer Berufsqualifikationen? Hier erhalten Sie Fachinformationen auf Deutsch und Englisch.
+
+[Zum Beratenden-Bereich](https://www.anerkennung-in-deutschland.de/html/de/profis.php "Zum Bereich für Beratende")   
+
+
+### [Fur Arbeitgeber](https://www.anerkennung-in-deutschland.de/html/de/arbeitgeber.php)
+
+Sie mochten Fachkrafte mit auslandischen Qualifikationen beschaftigen? Hier gibt es praktische Informationen und Unterstutzung (nur auf Deutsch).
+
+[Zum Arbeitgeber-Bereich](https://www.anerkennung-in-deutschland.de/html/de/arbeitgeber.php "Zum Bereich für Arbeitgeber")   
+
+
+### [Service](https://www.anerkennung-in-deutschland.de/html/de/service.php)
+
+  * [Veranstaltungen](https://www.anerkennung-in-deutschland.de/html/de/redirect_7109.php)
+  * [Kontakt](https://www.anerkennung-in-deutschland.de/html/de/service/kontakt.php)
+  * [Newsletter](https://www.anerkennung-in-deutschland.de/html/de/pro/redirect_5392.php)
+  * [Presse](https://www.anerkennung-in-deutschland.de/html/de/service/presse.php)
+  * [Glossar](https://www.anerkennung-in-deutschland.de/html/de/service/glossar.php)
+  * [Über uns](https://www.anerkennung-in-deutschland.de/html/de/service/ueber-uns.php)
+
+
+
+Hotline „Arbeiten und Leben in Deutschland“
+
+[Hier finden Sie die Servicezeiten und weitere Informationen.](https://www.anerkennung-in-deutschland.de/html/de/hotline.php)
+
+Informationsportale zur Anerkennung auslandischer Berufsqualifikationen
+
+[Hier erfahren Sie mehr uber die Informationsportale zur Anerkennung und weitere Kooperationspartner.](https://www.anerkennung-in-deutschland.de/html/de/pro/akteure.php)
+
+Besuchen Sie uns auf:
+
+  * [__ Facebook](https://de-de.facebook.com/anerkennungindeutschland/)
+  * [__ LinkedIn](https://www.linkedin.com/company/anerkennungindeutschland)
+
+
+
+  * [ Netiquette Soziale Medien](https://www.anerkennung-in-deutschland.de/html/de/netiquette-soziale-netzwerke.php)
+  * [Information on languages](https://www.anerkennung-in-deutschland.de/html/de/sprachangebot.php)
+  * [Barrierefreiheit](https://www.anerkennung-in-deutschland.de/html/de/barrierefreiheit.php)
+  * [Impressum](https://www.anerkennung-in-deutschland.de/html/de/impressum.php)
+  * [Datenschutz](https://www.anerkennung-in-deutschland.de/html/de/datenschutz.php)
+
+
+  *[de]: Deutsch
+  *[ar]: عربي
+  *[ru]: Русский
+  *[tr]: Türkçe
+  *[en]: English
+  *[BZSt]: Bundeszentralamt für Steuern
+  *[IdNr]: steuerliche Identifikationsnummer
+  *[**Telefon:**]: Telefon
+  *[**E-Mail:**]: E-Mail
+  *[*]: Bitte füllen Sie alle mit * markierten Felder aus, bevor Sie auf "Absenden" klicken.

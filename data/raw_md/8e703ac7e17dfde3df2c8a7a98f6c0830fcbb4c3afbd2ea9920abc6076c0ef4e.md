@@ -1,0 +1,341 @@
+[ ![Startseite](/_astro/logo.DgD24Dlc.svg) ](/)
+
+        * [ Leichte Sprache  ](/der-rundfunkbeitrag/beitragsservice/barrierefreiheit/informationen-in-leichter-sprache)
+        * [ Service-Portal für Unternehmen  ](https://portal.rundfunkbeitrag.de/)
+
+Suche
+
+Menü
+
+Schließen
+        * [ Startseite ](/)
+        * Für Bürgerinnen und Bürger
+          * Formulare für Bürgerinnen und Bürger 
+
+Formulare für Bürgerinnen und Bürger 
+
+            * [ Namen, Adresse, Zahlungsweise ändern ](/buergerinnen-und-buerger/formulare/aendern)
+            * [ Erstmalig anmelden ](/buergerinnen-und-buerger/formulare/anmelden)
+            * [ Befreiung oder Ermäßigung beantragen ](/buergerinnen-und-buerger/formulare/befreiung-oder-ermaessigung-beantragen)
+            * [ Wohnung abmelden ](/buergerinnen-und-buerger/formulare/abmelden)
+            * [ Kontakt ](/buergerinnen-und-buerger/formulare/kontakt)
+            * [ Mehr Formulare anzeigen](/buergerinnen-und-buerger/formulare)
+          * Informationen für Bürgerinnen und Bürger 
+
+Informationen für Bürgerinnen und Bürger 
+
+            * [ Ausnahmen von der Rundfunkbeitragspflicht ](/ausnahmen-von-der-rundfunkbeitragspflicht)
+            * [ Informationen für Studierende ](/buergerinnen-und-buerger/informationen/informationen-fuer-studierende)
+            * [ Informationen zum Meldedatenabgleich ](/buergerinnen-und-buerger/informationen/informationen-zum-meldedatenabgleich)
+            * [ Informationen zur Zahlung ](/buergerinnen-und-buerger/informationen/zahlung)
+            * [ Infomaterialien ](/buergerinnen-und-buerger/informationen/infomaterialien)
+            * [ Mehr Informationen anzeigen](/buergerinnen-und-buerger/informationen)
+        * Für Unternehmen und Institutionen
+          * Formulare für Unternehmen und Institutionen 
+
+Formulare für Unternehmen und Institutionen 
+
+            * [ Betriebsstätte anmelden ](/unternehmen-und-institutionen/formulare/betriebsstaette-anmelden)
+            * [ Daten ändern ](/unternehmen-und-institutionen/formulare/aendern)
+            * [ Anfrage zur Beitragspflicht beantworten ](/unternehmen-und-institutionen/formulare/antworten)
+            * [ Kontakt ](/unternehmen-und-institutionen/formulare/kontakt)
+            * [ Mehr Formulare anzeigen](/unternehmen-und-institutionen/formulare)
+          * Informationen für Unternehmen und Institutionen 
+
+Informationen für Unternehmen und Institutionen 
+
+            * [ Ausnahmen von der Rundfunkbeitragspflicht ](/ausnahmen-von-der-rundfunkbeitragspflicht/unternehmen-und-institutionen)
+            * [ Wissenswertes zu Beschäftigten ](/unternehmen-und-institutionen/informationen/beschaeftigte)
+            * [ Wissenswertes zu Betriebsstätten ](/unternehmen-und-institutionen/informationen/betriebsstaette)
+            * [ Wissenswertes zu Kraftfahrzeugen ](/unternehmen-und-institutionen/informationen/kraftfahrzeuge)
+            * [ Beitragsrechner ](/unternehmen-und-institutionen/informationen/beitragsrechner)
+            * [ Informationen zur Zahlung ](/unternehmen-und-institutionen/informationen/zahlung)
+            * [ Infomaterialien ](/unternehmen-und-institutionen/informationen/infomaterialien)
+            * [ Mehr Informationen anzeigen](/unternehmen-und-institutionen/informationen)
+        * Für Einrichtungen des Gemeinwohls
+          * Formulare für Einrichtungen des Gemeinwohls 
+
+Formulare für Einrichtungen des Gemeinwohls 
+
+            * [ Anfrage zur Beitragspflicht beantworten ](/einrichtungen-des-gemeinwohls/formulare/antworten)
+            * [ Kontakt ](/einrichtungen-des-gemeinwohls/formulare/kontakt)
+            * [ Mehr Formulare anzeigen](/einrichtungen-des-gemeinwohls/formulare)
+          * Informationen für Einrichtungen des Gemeinwohls 
+
+Informationen für Einrichtungen des Gemeinwohls 
+
+            * [ Ausnahmen von der Rundfunkbeitragspflicht ](/ausnahmen-von-der-rundfunkbeitragspflicht/einrichtungen-des-gemeinwohls)
+            * [ Wissenswertes zu Betriebsstätten ](/einrichtungen-des-gemeinwohls/informationen/betriebsstaette)
+            * [ Beitragsrechner ](/einrichtungen-des-gemeinwohls/informationen/beitragsrechner)
+            * [ Informationen zur Zahlung ](/einrichtungen-des-gemeinwohls/informationen/zahlung)
+            * [ Infomaterialien ](/einrichtungen-des-gemeinwohls/informationen/infomaterialien)
+            * [ Mehr Informationen anzeigen](/einrichtungen-des-gemeinwohls/informationen)
+        * Über uns
+          * Über den Rundfunkbeitrag 
+
+Über den Rundfunkbeitrag 
+
+            * [ Die Senderfamilie von ARD, ZDF und Deutschlandradio ](/der-rundfunkbeitrag/senderfamilie)
+            * [ Der Beitragsservice ](/der-rundfunkbeitrag/beitragsservice)
+            * [ Solidarmodell ](/der-rundfunkbeitrag/solidarmodell)
+          * Presse und Aktuelles 
+
+Presse und Aktuelles 
+
+            * [ Presse ](/presse-und-aktuelles/presse)
+            * [ Servicethemen ](/presse-und-aktuelles/servicethemen)
+            * [ Wichtige Hinweise ](/presse-und-aktuelles/hinweise)
+            * [ 🔒Sicherheitswarnungen ](/presse-und-aktuelles/sicherheitshinweise)
+
+        * [ Leichte Sprache](/der-rundfunkbeitrag/beitragsservice/barrierefreiheit/informationen-in-leichter-sprache)
+        * [ Service-Portal für Unternehmen](https://portal.rundfunkbeitrag.de/)
+
+        * [ Startseite ](/)
+        * [ Informationen für Einrichtungen des Gemeinwohls ](/einrichtungen-des-gemeinwohls/informationen)
+        * Beitragsrechner für Einrichtungen des Gemeinwohls
+
+# Beitragsrechner für Einrichtungen des Gemeinwohls
+
+Mithilfe des Beitragsrechners können Einrichtungen des Gemeinwohls bequem eine unverbindliche Übersicht zu Ihren monatlichen Rundfunkbeiträgen ermitteln.
+
+Geben Sie hierfür Ihre beitragspflichtigen Betriebsstätten, und Ihre eventuell vorhandenen Hotelzimmer, Gästezimmer oder Ferienwohnungen an.
+
+## Beitragsrechner
+
+Geben Sie bitte für die Beitragsberechnung die Anzahl der beitragspflichtigen Betriebsstätten an.
+
+Seit dem 01.01.2017 ist der Rundfunkbeitrag für Einrichtungen des Gemeinwohls pro beitragspflichtiger Betriebsstätte, unabhängig von der Anzahl der Beschäftigten, auf ein Drittel des Rundfunkbeitrags festgelegt.
+
+Wenn zutreffend, geben Sie bitte die Anzahl der beitragspflichtigen Hotel- und Gästezimmer und/oder Ferienwohnungen für die jeweilige Betriebsstätte an.
+
+### Betriebsstätte 1
+
+Anzahl der beitragspflichtigen Gästezimmer/Ferienwohnungen(optional)
+
+Betriebsstätte hinzufügenBeitrag berechnen
+
+        * Allgemein
+          * [Kontakt](/buergerinnen-und-buerger/formulare/kontakt)
+          * [Nutzungshinweise](/nutzungshinweise)
+          * [Zugangseröffnung](/zugangseroeffnung)
+          * [Datenschutz](/datenschutz)
+          * [Impressum](/impressum)
+        * Häufig gesucht
+          * [Anmelden](/anmelden)
+          * [Abmelden](/buergerinnen-und-buerger/formulare/abmelden)
+          * [Befreiung](/buergerinnen-und-buerger/formulare/befreiung-oder-ermaessigung-beantragen)
+          * [Antworten](/antworten)
+          * [Beitragsnummer](/nutzungshinweise/glossar#beitragsnummer)
+          * [Bankverbindung](/bankverbindung)
+          * [Zahlung](/zahlung)
+          * [Freistellung Betriebsstätte](/pxy/assets/102445cbb33cb0bbedde2fa855de37e438b811c8/Einrichtungen_des_Gemeinwohls_befr_Freistellung_Stilllegungen_0109.pdf)
+        * Other Languages
+          * [English](/welcome/english)
+          * [Español](/welcome/spanisch)
+          * [Français](/welcome/franzoesisch)
+          * [中文](/welcome/chinesisch)
+          * [العربية](/welcome/arabisch)
+          * [Русский](/welcome/russisch)
+          * [Українська](/welcome/ukrainisch)
+        * Der Beitragsservice
+          * [Der Beitragsservice](/der-rundfunkbeitrag/beitragsservice)
+          * [Jobs und Karriere](https://karriere.rundfunkbeitrag.de/)
+          * [Ausschreibungen](/der-rundfunkbeitrag/beitragsservice/ausschreibungen)
+          * [Presse](https://presse.rundfunkbeitrag.de/)
+          * [Servicethemen](https://presse.rundfunkbeitrag.de/latest_news/tag/servicebeitrag/)
+          * [Wichtige Hinweise](/presse-und-aktuelles/hinweise)
+          * [Service-Portal für Unternehmen](https://portal.rundfunkbeitrag.de/)
+
+Aktenzeichen  Schließen
+
+Das 10- oder 15-stellige Akten­zeichen finden Sie auf Anschreiben rechts unter dem Datum oder im Text und auf Antwort­bögen rechts neben der Anschrift.
+
+Beitragsnummer  Schließen
+
+Die 9-stellige Beitragsnummer finden Sie auf der Anmeldebestätigung, auf Ihrem Kontoauszug, auf der Zahlungsaufforderung oder oben rechts auf den Schreiben des Beitragsservice. [Details](/nutzungshinweise/glossar#beitragsnummer "Wechseln Sie zum Glossareintrag 'Beitragsnummer'")
+
+Beitreibung  Schließen
+
+Zwangsvollstreckung wegen Geldforderungen des Gläubigers durch die amtlich zuständige Vollstreckungsbehörde oder den Gerichtsvollzieher.
+
+Beschäftigte in Unternehmen  Schließen
+
+Als Beschäftigte gelten alle sozialversicherungspflichtig Voll- und Teilzeitbeschäftigten sowie Bedienstete im öffentlich-rechtlichen Dienst. [Details](/unternehmen-und-institutionen/informationen/beschaeftigte "Wissenswertes zu Beschäftigen")
+
+Betriebsstätte von Einrichtungen  Schließen
+
+Eine Betriebsstätte ist jede ortsfeste Raumeinheit, die nicht ausschließlich zu privaten Zwecken bestimmt ist. [Details](/einrichtungen-des-gemeinwohls/informationen/betriebsstaette "Wissenswertes zu Betriebsstätten")
+
+Betriebsstätte Unternehmen  Schließen
+
+Eine Betriebsstätte ist jede ortsfeste Raumeinheit, die nicht ausschließlich zu privaten Zwecken bestimmt ist. [Details](/unternehmen-und-institutionen/informationen/betriebsstaette "Wissenswertes zu Betriebsstätten")
+
+Hotel- und Gästezimmer / Ferienwohnungen  Schließen
+
+Das jeweils erste Zimmer oder die erste Wohnung für jede zugehörige Betriebsstätte ist beitragsfrei und muss nicht mit angegeben werden.
+
+Festsetzungsbescheid  Schließen
+
+Der Festsetzungsbescheid entspricht einem vollstreckbaren Titel oder Vollstreckungstitel. Dieser ist die Voraussetzung für eine Zwangsvollstreckung.
+
+Hotel- und Gästezimmer / Ferienwohnungen  Schließen
+
+Das jeweils erste Zimmer oder die erste Wohnung für jede zugehörige Betriebsstätte ist beitragsfrei und muss nicht mit angegeben werden.
+
+Inhaber  Schließen
+
+Inhaber einer Betriebsstätte ist die natürliche oder juristische Person, die die Betriebsstätte im eigenen Namen nutzt oder in deren Namen die Betriebsstätte genutzt wird.
+
+Kraftfahrzeuge in Unternehmen  Schließen
+
+Grundsätzlich sind zugelassene Kraftfahrzeuge beitragspflichtig. Für jede beitragspflichtige Betriebsstätte ist ein nicht ausschließlich privat genutztes Kraftfahrzeug beitragsfrei. [Details](/unternehmen-und-institutionen/informationen/kraftfahrzeuge "Wissenswertes zu Kraftfahrzeugen")
+
+Pfändungsfreigrenze  Schließen
+
+Die Pfändungsfreigrenze stellt sicher, dass ein Schuldner auch bei einer Pfändung des Netto-Arbeitseinkommens über das Existenzminimum verfügen kann. Den pfändbaren/unpfändbaren Betrag ermittelt der Arbeitgeber.
+
+Pfändungsschutzkonto  Schließen
+
+Wichtig: Ein Pfändungsschutzkonto (P-Konto) verhindert keine Pfändung.
+
+Das Pfändungsschutzkonto ist ein Girokonto, das im Falle einer Kontopfändung dem Schuldner die Verfügung über den monatlichen pfändungsfreien Betrag ermöglicht.
+
+ 
+
+Ein Pfändungsschutzkonto kann nur bei Ihrer Bank eingerichtet werden. Dort erhalten Sie weitere Informationen.
+
+QR-Code  Schließen
+
+Ein QR-Code ist ein zweidimensionaler Code, bestehend aus einer quadratischen Matrix aus schwarzen und weißen Punkten und Linien.   
+Ähnlich wie beim Barcode lassen sich darin Informationen einbetten, die mit einer entsprechenden Smartphone-App ausgelesen werden können.
+
+SEPA  Schließen
+
+Das nationale Lastschriftverfahren wurde am 1. Februar 2014 durch das europäische SEPA-Lastschriftverfahren abgelöst. SEPA (Single Euro Payments Area) bedeutet übersetzt Einheitlicher Euro-Zahlungsverkehrsraum. [Details](/sepa "Informationen zu SEPA")
+
+Wohnung  Schließen
+
+Eine Wohnung ist eine ortsfeste, baulich abgeschlossene Einheit, die zum Wohnen oder Schlafen geeignet ist oder genutzt wird, einen eigenen Eingang hat   
+und nicht ausschließlich über eine andere Wohnung begehbar ist. Beitragsfrei sind Zimmer oder Wohnungen in Gemeinschaftsunterkünften wie Internaten oder Kasernen.
+
+Zählweise A  Schließen
+
+Bei der Zählweise A wird die Anzahl aller sozialversicherungspflichtig Beschäftigten ohne Differenzierung zwischen Voll- und Teilzeitbeschäftigten gezählt und eingetragen.
+
+Zählweise B  Schließen
+
+Bei der Zählweise B wird die Anzahl der sozialversicherungspflichtig Beschäftigten entsprechend ihrer Wochenarbeitszeit berechnet.  
+Teilzeitbeschäftigte mit einer regelmäßigen wöchentlichen Arbeitszeit  
+  
+\- von nicht mehr als 20 Stunden werden mit 0,5,  
+\- von nicht mehr als 30 Stunden werden mit 0,75 und  
+\- von mehr als 30 Stunden werden mit 1,0  
+  
+gezählt und eingetragen.
+
+Der Beitragsservice verwendet Matomo zur Analyse des Nutzerverhaltens, um den Internetauftritt zu optimieren und das Nutzungserlebnis zu verbessern. Hierfür werden auf Ihrem Gerät Analyse-Cookies mit einer pseudonymen Kennung gespeichert. Ihre IP-Adresse wird sofort gekürzt, die Daten bleiben ausschließlich auf den Servern des Beitragsservice. Hierzu bitten wir Sie um Ihre Einwilligung, diese können Sie jederzeit [widerrufen](/datenschutz/datenschutzhinweise-website#cookies). Weitere Informationen, auch zu den eingesetzten Cookies, finden Sie in unserem [Datenschutzhinweis](/datenschutz/datenschutzhinweise-website). 
+
+Ablehnen Zustimmen
+  *[de]: Deutsch
+  *[ar]: عربي
+  *[ru]: Русский
+  *[tr]: Türkçe
+  *[en]: English
+  *[BZSt]: Bundeszentralamt für Steuern
+  *[IdNr]: Identifikationsnummer
+  *[**Telefon:**]: Telefon
+  *[**E-Mail:**]: E-Mail
+  *[*]: Pflichtangabe
+  *[DE]: Deutsch
+  *[EN]: English
+  *[FR]: Français
+  *[ELEFAND]: Elektronische Erfassung von Deutschen im Ausland
+  *[FAQ]: Häufig gestellte Fragen
+  *[EU]: Europäische Union
+  *[USA]: Vereinigte Staaten von Amerika
+  *[NATO]: Nordatlantikvertrags-Organisation
+  *[OVCW]: Organisation für das Verbot Chemischer Waffen 
+  *[UNESCO]: Organisation der Vereinten Nationen für Erziehung, Wissenschaft und Kultur
+  *[OSZE]: Organisation für Sicherheit und Zusammenarbeit in Europa
+  *[OECD]: Organisation für wirtschaftliche Zusammenarbeit und Entwicklung
+  *[VN]: Vereinte Nationen
+  *[ggf.]: gegebenenfalls
+  *[ZKG]: Zahlungskontengesetz
+  *[Abs.]: Absatz
+  *[PDF]: Die PDF-Datei wird in einem neuen Fenster angezeigt
+  *[BAMF]: Bundesamt für Migration und Flüchtlinge
+  *[IT]: Informationstechnik
+  *[BSK]: Berufssprachkurs
+  *[P-Konto]: Pfändungsschutzkonto
+  *[z. B.]: zum Beispiel
+  *[vgl.]: “vergleiche“
+  *[BGHZ]: Entscheidungen des Bundesgerichtshofs in Zivilsachen
+  *[BGBl]: Bundesgesetzblatt
+  *[z.B.]: zum Beispiel
+  *[ P-Konto]: Pfändungsschutzkonto
+  *[d. h.]: das heißt
+  *[bzw.]: beziehungsweise
+  *[§]: Paragraph
+  *[GmbH]: Gesellschaft mit beschränkter Haftung
+  *[ IdNr]: Identifikationsnummer
+  *[ELSTER]: Elektronische Steuererklärung
+  *[St]: Steuerabteilung
+  *[AO]: Abgabenordnung
+  *[IdNrn]: Identifikationsnummern
+  *[BMF]: Bundesministerium der Finanzen
+  *[ViOlA]: Virtuelle Online Auskunft
+  *[USt-IdNr.]: Umsatzsteuer-Identifikationsnummer
+  *[IdNr.]: steuerliche Identifikationsnummer
+  *[Tel.]: Telefon
+  *[Mo]: Montag
+  *[Fr]: Freitag
+  *[BOP]: BZStOnline-Portal
+  *[IBAN]: International Bank Account Number
+  *[EStG]: Einkommensteuergesetz
+  *[ELStAM]: Elektronische Lohnsteuerabzugsmerkmale
+  *[PStTG]: Plattformen-Steuertransparenzgesetz
+  *[Nr.]: Nummer/number
+  *[FVG]: Finanzverwaltungsgesetz/Finance Administration Act
+  *[sog.]: sogenannt
+  *[CRS]: Common Reporting Standard
+  *[FATCA]: Foreign Account Tax Compliance Act
+  *[DIA]: Deutsche Internationale Abiturprüfung
+  *[KMK]: Sekretariat der ständigen Kultusministerkonferenz der Länder in der Bundesrepublik Deutschland
+  *[d.h.]: das heißt
+  *[EWR]: Europäischer Wirtschaftsraum
+  *[ICT]: Informations- und Kommunikationstechnologie
+  *[ggfs]: gegebenenfalls
+  *[u.a.]: unter anderem
+  *[AufenthG]: Aufenthaltsgesetz
+  *[DSD]: Deutsches Sprachdiplom
+  *[usw.]: und so weiter
+  *[ ELStAM]: Elektronische Lohnsteuerabzugsmerkmale
+  *[PUK]: Personal Unblocking Key (PUK)
+  *[%]: Prozent
+  *[VR]: Volks- und Raiffeisenbanken (VR)
+  *[DRV]: Deutsche Rentenversicherung (DRV)
+  *[GbR]: Gesellschaft bürgerlichen Rechts
+  *[OHG]: Offene Handelsgesellschaft
+  *[eID]: electronic Identity
+  *[€]: Euro
+  *[StDÜV]: Steuerdaten-Übermittlungsverordnung
+  *[StDAV]: Steuerdaten-Abrufverordnung
+  *[BDSG]: Bundesdatenschutzgesetz
+  *[BayDSG]: Bayerisches Datenschutzgesetz
+  *[DSG]: Datenschutzgesetz
+  *[NRW]: Nordrhein-Westfalen
+  *[ESR]: Extended Support Release
+  *[OS]: Operating System (OS)
+  *[Anlage 34a]: Begünstigung des nicht entnommenen Gewinns
+  *[OZG]: Onlinezugangsgesetz
+  *[BSI]: Bundesamt für Sicherheit in der Informationstechnik
+  *[PSE]: persönliche Sicherheitsumgebung
+  *[PKI]: Public Key Infrastructure
+  *[KapEStA]: Kapitalertragsteuer-Anmeldung
+  *[InvStG]: Investmentsteuergesetz
+  *[LStB]: Lohnsteuerbescheinigung
+  *[einschreiben]: 
+  *[XML]: Verweis auf ein zip-Paket, das zum Download angeboten wird
+  *[EPUB]: Verweis auf eine epub-Datei, die zum Download angeboten wird
+  *[BGB]: 
+  *[AGG]: 

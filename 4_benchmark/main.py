@@ -35,7 +35,7 @@ _hf_tokenizer = None
 load_dotenv()
 
 
-def load_config(config_path: str = "5_benchmark/config.yaml") -> dict:
+def load_config(config_path: str = "4_benchmark/config.yaml") -> dict:
     """Load configuration from YAML file."""
     with open(config_path, "r", encoding="utf-8") as f:
         config = yaml.safe_load(f)
@@ -242,6 +242,29 @@ def save_benchmark_file(benchmark_file: str, questions: list[dict]) -> None:
     with open(benchmark_file, "w", encoding="utf-8") as f:
         for q in questions:
             f.write(json.dumps(q, ensure_ascii=False) + "\n")
+
+
+def remove_questions_from_source(qna_file: str, questions_to_remove: list[dict]) -> None:
+    """Remove benchmarked questions from the source JSONL file."""
+    # Load all existing data
+    all_data = load_qna_data(qna_file)
+    
+    # Create a set of hashes to remove for efficiency
+    hashes_to_remove = {q.get("hash") for q in questions_to_remove if q.get("hash")}
+    
+    # Filter out questions that match the hashes
+    remaining_data = [q for q in all_data if q.get("hash") not in hashes_to_remove]
+    
+    removed_count = len(all_data) - len(remaining_data)
+    
+    # Save the remaining data back to the same file
+    if removed_count > 0:
+        with open(qna_file, "w", encoding="utf-8") as f:
+            for q in remaining_data:
+                f.write(json.dumps(q, ensure_ascii=False) + "\n")
+        print(f"  Removed {removed_count} questions from source data: {qna_file}")
+    else:
+        print(f"  No questions were removed (already removed or hashes missing).")
 
 
 @retry(wait=wait_exponential(multiplier=1, min=2, max=10), stop=stop_after_attempt(5))
@@ -482,6 +505,9 @@ def main():
         print(f"(To regenerate, delete {benchmark_file})")
         benchmark_questions = load_qna_data(str(benchmark_file))
         print(f"Loaded {len(benchmark_questions)} questions from existing benchmark")
+        
+        # Ensure benchmark questions are removed from source (in case the run was interrupted)
+        remove_questions_from_source(qna_file, benchmark_questions)
     else:
         print(f"\nLoading Q&A from: {qna_file}")
         qna_data = load_qna_data(qna_file)
@@ -496,6 +522,9 @@ def main():
         # Save benchmark file
         save_benchmark_file(str(benchmark_file), benchmark_questions)
         print(f"Saved to: {benchmark_file}")
+        
+        # Remove sampled benchmark questions from the source JSONL data file
+        remove_questions_from_source(qna_file, benchmark_questions)
 
     # Create results directory
     results_dir = create_results_dir(config["data"]["results_dir"])

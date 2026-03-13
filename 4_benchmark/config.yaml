@@ -36,7 +36,7 @@ answer_llm:
 judge_llm:
   # Provider: "openai" or "local" (LM Studio)
   # Note: huggingface not recommended for judge (slower, less reliable JSON output)
-  provider: "openai"
+  provider: "local"
   
   # OpenAI API settings
   openai:
@@ -48,14 +48,14 @@ judge_llm:
   # Local LLM settings (LM Studio)
   local:
     base_url: "http://localhost:1234/v1"
-    model: "local-model"
+    model: "openai/gpt-oss-20b"
     temperature: 0.0
     max_tokens: 100
 
 # Benchmark Settings
 benchmark:
   # Number of questions per category to sample
-  questions_per_category: 10
+  questions_per_category: 50
   
   # Categories to include (leave empty for all)
   # categories: ["UTN", "Germany", "Nuremberg", "Studies", "Other"]
@@ -84,8 +84,8 @@ judge_prompt: |
 data:
   qna_file: "data/llm_qna.jsonl"
   # Benchmark file will be named benchmark_{n}.jsonl based on questions_per_category
-  benchmark_file: "5_benchmark/benchmark.jsonl"
-  results_dir: "5_benchmark/results"
+  benchmark_file: "4_benchmark/benchmark.jsonl"
+  results_dir: "4_benchmark/results"
 
 # Processing settings
 processing:

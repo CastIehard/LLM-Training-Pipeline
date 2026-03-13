@@ -1,5 +1,5 @@
 {
-    "timestamp": "2026-03-13T22:29:32.089909",
+    "timestamp": "2026-03-13T22:34:40.005856",
     "processing_info": {
         "hardware": "Mac Mini M4",
         "model": "gpt-oss-20b",
@@ -12,7 +12,7 @@
         "files_after_cleaning": 3224,
         "raw_size_mb": 107.38,
         "cleaned_size_mb": 22.89,
-        "reduction_percentage": 78.69
+        "reduction_percentage": 96.14
     },
     "document_relevancy": {
         "relevant_docs": 1769,

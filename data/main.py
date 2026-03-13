@@ -42,16 +42,18 @@ def analyze_data():
     num_webscraped = len(raw_files)
     num_after_cleaning = len(cleaned_files)
     
+    html_raw_size = 593.4  # Hardcoded as requested
     raw_size = get_dir_size(raw_md_dir) / (1024 * 1024) # MB
     cleaned_size = get_dir_size(cleaned_md_dir) / (1024 * 1024) # MB
-    reduction_pct = (1 - (cleaned_size / raw_size)) * 100 if raw_size > 0 else 0
+    reduction_pct = (1 - (cleaned_size / html_raw_size)) * 100 if html_raw_size > 0 else 0
 
     print(f"--- General Stats ---")
     print(f"Files webscraped: {num_webscraped}")
     print(f"Files after cleaning: {num_after_cleaning}")
-    print(f"Raw data size: {raw_size:.2f} MB")
-    print(f"Cleaned data size: {cleaned_size:.2f} MB")
-    print(f"Size reduction: {reduction_pct:.2f}%")
+    print(f"HTML Raw size: {html_raw_size:.2f} MB")
+    print(f"MD Raw size: {raw_size:.2f} MB")
+    print(f"MD Cleaned size: {cleaned_size:.2f} MB")
+    print(f"Total size reduction: {reduction_pct:.2f}%")
 
     # 2. QnA Analysis
     qna_data = []
@@ -150,13 +152,13 @@ def analyze_data():
 
     # Plot 1: Size Reduction
     plt.subplot(2, 2, 1)
-    sizes = [raw_size, cleaned_size]
-    labels = ['Raw', 'Cleaned']
+    sizes = [html_raw_size, raw_size, cleaned_size]
+    labels = ['Raw HTML', 'Raw MD', 'Cleaned MD']
     ax1 = sns.barplot(x=labels, y=sizes, palette='viridis')
-    # Add labels inside the bars
+    # Add labels above the bars for better visibility
     for i, size in enumerate(sizes):
-        ax1.text(i, size / 2, f'{size:.2f} MB', ha='center', color='white', fontweight='bold')
-    plt.title('Size reduction in markdown files')
+        ax1.text(i, size + (max(sizes) * 0.01), f'{size:.2f} MB', ha='center', color='black', fontweight='bold')
+    plt.title('Data Pipeline Size Reduction')
     plt.ylabel('Size in MB')
 
     # Plot 2: Category Distribution

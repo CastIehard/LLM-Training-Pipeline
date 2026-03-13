@@ -14333,9 +14333,11 @@
     "content_length": 41398,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "44fc0afff1adb4b35467575af69b497dc309fd9106a6ba1044e7fc5232228144",
@@ -43843,9 +43845,11 @@
     "content_length": 19000,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "cec08cc67849cc6bba3f8140a4b670138324c95fbdef8f801341868dea8b895a",

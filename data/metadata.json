@@ -1,0 +1,36 @@
+{
+    "timestamp": "2026-03-13T22:29:32.089909",
+    "processing_info": {
+        "hardware": "Mac Mini M4",
+        "model": "gpt-oss-20b",
+        "total_duration_hours": 18.88,
+        "total_duration_seconds": 67984.26,
+        "tqdm_snapshot": "Processing Documents: 100%|\u2588| 3092/3092 [18:53:04<00:00, 21.99s/doc, failed=2, hash=1fa1d58c, irrelevant=1425, questions=13555]"
+    },
+    "scraping": {
+        "total_files_scraped": 3378,
+        "files_after_cleaning": 3224,
+        "raw_size_mb": 107.38,
+        "cleaned_size_mb": 22.89,
+        "reduction_percentage": 78.69
+    },
+    "document_relevancy": {
+        "relevant_docs": 1769,
+        "irrelevant_docs": 1455,
+        "total_docs": 3224
+    },
+    "llm_stats": {
+        "total_questions": 14446,
+        "categories": {
+            "Nuremberg": 5999,
+            "Germany": 4644,
+            "UTN": 2792,
+            "Studies": 976
+        },
+        "questions_per_doc": {
+            "avg": 8.15,
+            "min": 1,
+            "max": 82
+        }
+    }
+}

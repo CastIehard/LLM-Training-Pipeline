@@ -12,7 +12,7 @@ Results are stored in:
   - data/index.json   → updated with `category` and `llm_processed` flags
   - data/llm_qna.jsonl → Q&A pairs (one JSON object per line)
 """
-c
+
 import json
 import os
 import re

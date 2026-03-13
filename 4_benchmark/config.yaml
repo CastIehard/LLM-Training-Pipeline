@@ -67,18 +67,27 @@ answer_prompt: |
 
 # Judge Prompt (sent to the judge LLM)
 judge_prompt: |
-  You are evaluating an AI's answer to a question.
+  You are an expert evaluator. Your task is to compare an AI's answer with an expected (correct) answer.
   
   Question: {question}
   Expected Answer: {expected_answer}
   AI's Answer: {ai_answer}
   
-  Score the AI's answer:
-  - 1.0 = Fully correct and complete answer
-  - 0.5 = Partially correct or incomplete answer
-  - 0.0 = Wrong or no answer
+  Grading Rubric:
+  - 1.0: The AI answer is fully accurate and covers all main points of the expected answer.
+  - 0.5: The AI answer is partially correct, or missing some key information, or includes significant irrelevant info.
+  - 0.0: The AI answer is completely wrong, irrelevant, or hallucinates info not in the expected answer.
   
-  Respond with ONLY a JSON object: {{"score": <number>, "reason": "<brief explanation>"}}
+  Think step-by-step about what parts of the expected answer are present and what might be incorrect.
+  Summarize your thinking and then provide the final score.
+  
+  Your response MUST be a JSON object with this exact structure:
+  {{
+    "reasoning": "<your step-by-step thinking here>",
+    "score": <number (0, 0.5, or 1)>,
+    "reason": "<one sentence summary of the score>"
+  }}
+  Ensure the JSON is complete and well-formatted. Do not truncate.
 
 # Data paths
 data:

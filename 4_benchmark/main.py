@@ -214,7 +214,11 @@ def load_qna_data(qna_file: str) -> list[dict]:
 def sample_questions(
     qna_data: list[dict], questions_per_category: int, categories: list[str]
 ) -> list[dict]:
-    """Sample questions from each category."""
+    """Sample questions randomly from each category with unique document constraint.
+    
+    Ensures that no two questions in the entire benchmark come from the same
+    document (same hash).
+    """
     # Group by category
     by_category = defaultdict(list)
     for entry in qna_data:
@@ -225,12 +229,34 @@ def sample_questions(
     if categories:
         by_category = {k: v for k, v in by_category.items() if k in categories}
 
-    # Sample from each category
     sampled = []
-    for cat, entries in by_category.items():
-        n_sample = min(questions_per_category, len(entries))
-        sampled.extend(random.sample(entries, n_sample))
-        print(f"  {cat}: {n_sample} questions sampled (from {len(entries)} available)")
+    used_hashes = set()
+
+    # Shuffle categories to ensure fairness if multiple categories share hashes
+    category_list = list(by_category.keys())
+    random.shuffle(category_list)
+
+    for cat in category_list:
+        entries = by_category[cat]
+        # Shuffle entries within category for random sampling
+        random.shuffle(entries)
+        
+        cat_sampled_count = 0
+        for entry in entries:
+            if cat_sampled_count >= questions_per_category:
+                break
+                
+            h = entry.get("hash")
+            if h and h not in used_hashes:
+                sampled.append(entry)
+                used_hashes.add(h)
+                cat_sampled_count += 1
+            elif not h:
+                # If no hash (shouldn't happen with our data), still sample it
+                sampled.append(entry)
+                cat_sampled_count += 1
+
+        print(f"  {cat}: {cat_sampled_count} questions sampled (requested {questions_per_category})")
 
     random.shuffle(sampled)
     return sampled
@@ -245,15 +271,25 @@ def save_benchmark_file(benchmark_file: str, questions: list[dict]) -> None:
 
 
 def remove_questions_from_source(qna_file: str, questions_to_remove: list[dict]) -> None:
-    """Remove benchmarked questions from the source JSONL file."""
+    """Remove benchmarked questions from the source JSONL file.
+    
+    Uses both hash and question text to ensure we only remove the specific
+    sampled questions, not all questions from the same document.
+    """
     # Load all existing data
     all_data = load_qna_data(qna_file)
     
-    # Create a set of hashes to remove for efficiency
-    hashes_to_remove = {q.get("hash") for q in questions_to_remove if q.get("hash")}
+    # Create a set of unique identifiers (hash + question text) for removal
+    to_remove = {
+        (q.get("hash", ""), q.get("question", "")) 
+        for q in questions_to_remove
+    }
     
-    # Filter out questions that match the hashes
-    remaining_data = [q for q in all_data if q.get("hash") not in hashes_to_remove]
+    # Filter out questions that match the identifiers
+    remaining_data = [
+        q for q in all_data 
+        if (q.get("hash", ""), q.get("question", "")) not in to_remove
+    ]
     
     removed_count = len(all_data) - len(remaining_data)
     
@@ -262,9 +298,9 @@ def remove_questions_from_source(qna_file: str, questions_to_remove: list[dict])
         with open(qna_file, "w", encoding="utf-8") as f:
             for q in remaining_data:
                 f.write(json.dumps(q, ensure_ascii=False) + "\n")
-        print(f"  Removed {removed_count} questions from source data: {qna_file}")
+        print(f"  Removed {removed_count} specific questions from source data: {qna_file}")
     else:
-        print(f"  No questions were removed (already removed or hashes missing).")
+        print(f"  No questions were removed (already removed or identifiers missing).")
 
 
 @retry(wait=wait_exponential(multiplier=1, min=2, max=10), stop=stop_after_attempt(5))
@@ -300,41 +336,72 @@ def get_answer(
 
 @retry(wait=wait_exponential(multiplier=1, min=2, max=10), stop=stop_after_attempt(5))
 def judge_answer_with_retry(client: OpenAI, settings: dict, prompt: str) -> dict:
-    """Judge answer with automatic retry."""
+    """Judge answer with automatic retry. Includes logic to fix truncated JSON."""
     response = client.chat.completions.create(
         model=settings["model"],
         messages=[
             {
                 "role": "system",
-                "content": "You are a fair evaluator. Always respond with valid JSON.",
+                "content": "You are a fair evaluator. Always respond with a single, complete, valid JSON object. Do not include any text before or after the JSON.",
             },
             {"role": "user", "content": prompt},
         ],
-        temperature=settings["temperature"],
-        max_tokens=settings["max_tokens"],
+        temperature=settings.get("temperature", 0.0),
+        max_tokens=512, # Increased max_tokens for reasoning
     )
 
     content = response.choices[0].message.content.strip()
 
-    # Handle markdown code blocks
-    if content.startswith("```"):
-        content = content.split("```")[1]
-        if content.startswith("json"):
-            content = content[4:]
-        content = content.strip()
+    # Improved JSON extraction
+    try:
+        # 1. Try simple json.loads first
+        result = json.loads(content)
+    except json.JSONDecodeError as base_e:
+        # 2. Try to find any curly braces
+        import re
+        json_match = re.search(r"(\{.*\})", content, re.DOTALL)
+        if json_match:
+            try:
+                result = json.loads(json_match.group(1))
+            except json.JSONDecodeError as inner_e:
+                # 3. Handle truncation
+                if "Unterminated string" in str(inner_e) or "Expecting value" in str(inner_e):
+                    fixed_content = json_match.group(1).strip()
+                    if fixed_content.count('"') % 2 != 0:
+                        fixed_content += '"'
+                    if not fixed_content.endswith("}"):
+                        fixed_content += "}"
+                    try:
+                        result = json.loads(fixed_content)
+                    except:
+                        raise inner_e
+                else:
+                    raise inner_e
+        else:
+            raise base_e
 
-    result = json.loads(content)
-
-    # Validate score
+    # Validate result is a dictionary
+    if not isinstance(result, dict):
+        raise ValueError(f"Expected JSON object, got {type(result)}")
+    
+    # Extract and validate score
     score = result.get("score", 0)
+    if not isinstance(score, (int, float)):
+        try:
+            score = float(score)
+        except (ValueError, TypeError):
+            score = 0.0
+
+    # Map to valid [0, 0.5, 1] scale
     if score not in [0, 0.5, 1, 0.0, 1.0]:
-        # Round to nearest valid score
         if score < 0.25:
             result["score"] = 0.0
         elif score < 0.75:
             result["score"] = 0.5
         else:
             result["score"] = 1.0
+    else:
+        result["score"] = float(score)
 
     return result
 

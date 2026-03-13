@@ -12,9 +12,10 @@ Results are stored in:
   - data/index.json   → updated with `category` and `llm_processed` flags
   - data/llm_qna.jsonl → Q&A pairs (one JSON object per line)
 """
-
+c
 import json
 import os
+import re
 import time
 from pathlib import Path
 
@@ -274,6 +275,48 @@ def needs_processing(entry: dict, processed_hashes: set[str]) -> bool:
     return True
 
 
+def filter_generated_qa(output_file: str, blacklist_terms: list[str]) -> None:
+    """Filter out generated Q&A containing excluded keywords."""
+    out_path = Path(output_file)
+    if not out_path.exists() or not blacklist_terms:
+        return
+
+    # Use the requested filename extension
+    removed_file = str(out_path).replace(".jsonl", "_removed.json")
+
+    # Regular expression for blacklisted terms
+    # Combine the words from the config into an OR pattern
+    pattern = re.compile(
+        f"({'|'.join(blacklist_terms)})",
+        re.IGNORECASE
+    )
+
+    kept_lines = []
+    removed_lines = []
+
+    with open(output_file, "r", encoding="utf-8") as f:
+        for line in f:
+            if pattern.search(line):
+                removed_lines.append(line)
+            else:
+                kept_lines.append(line)
+
+    if removed_lines:
+        print(f"\nFiltering output... Found {len(removed_lines)} Q&A pairs containing excluded terms.")
+        
+        # Write back kept lines to original file
+        with open(output_file, "w", encoding="utf-8") as f:
+            f.writelines(kept_lines)
+            
+        # Append removed lines to the removed file
+        with open(removed_file, "a", encoding="utf-8") as f:
+            f.writelines(removed_lines)
+            
+        print(f"Removed items have been moved to: {removed_file}")
+    else:
+        print("\nNo excluded terms found in the generated Q&A pairs. File is clean.")
+
+
 def main():
     """Run the combined classification and Q&A generation pipeline."""
     print("=" * 60)
@@ -309,6 +352,10 @@ def main():
 
     if not to_process:
         print("\nAll entries are already processed. Nothing to do.")
+        
+        # Run post-processing filter even if no new items were processed
+        blacklist_terms = config.get("filtering", {}).get("blacklist", [])
+        filter_generated_qa(output_file, blacklist_terms)
         return
 
     print(f"\nInitializing {provider} client...")
@@ -398,6 +445,10 @@ def main():
     print(f"Irrelevant documents: {irrelevant_count}")
     print(f"Failed entries: {failed_count}")
     print(f"Output saved to: {output_file}")
+    
+    # Run post-processing filter
+    blacklist_terms = config.get("filtering", {}).get("blacklist", [])
+    filter_generated_qa(output_file, blacklist_terms)
 
 
 if __name__ == "__main__":

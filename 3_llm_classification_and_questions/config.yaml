@@ -96,3 +96,13 @@ data:
 processing:
   # Delay between API calls in seconds (0 = no delay; OpenAI handles rate limits internally)
   delay: 0
+
+# Filtering settings
+filtering:
+  blacklist:
+    - "Technische\\s+Hochschule\\s+Nürnberg\\s+Georg\\s+Simon\\s+Ohm\\??"
+    - "Hochschule\\s+für\\s+Musik\\s+Nürnberg"
+    - "\\bIU\\b"
+    - "International\\s+University"
+    - "\\bTHN\\b"
+    - "\\bBachelor\\b"

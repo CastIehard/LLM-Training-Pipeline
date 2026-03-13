@@ -15981,9 +15981,11 @@
     "content_length": 51838,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "04daf0872cae2a49616283d45e7d9618b0fa01dd4de733d2a4b44969ddf3b29c",
@@ -15994,9 +15996,11 @@
     "content_length": 52141,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "1cb3cddd59deb17e1b24117ff9287df2cfd8ff63054ee0bbee3b2de883c2ca45",
@@ -16007,9 +16011,11 @@
     "content_length": 48605,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "737eba7535abd780a9fad9a992ac3eb86bd50566f039b7e7852a57688feeb5bb",
@@ -16022,7 +16028,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "61f471d804661ba55a98aaf2dbc243943a61bc4f87fe053fbca37eba7c291bd2",
@@ -16035,7 +16043,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "3dec87eeb52c5c9c3b767362c43568b2a0e370e72db5be7c22e8880163f4ee8e",
@@ -16059,9 +16069,11 @@
     "content_length": 43026,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "e82004b8f7b00ae4cafd3cfa7e927fd3b5d122e7d2d298f70aec3c5a20c4e6ac",
@@ -16074,7 +16086,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "acf344c0225507605b099509dc13f067c19effef7c9908335926913815ca3928",
@@ -16087,7 +16101,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "adcf95456384079b309c92bf0e877786fbab826f34672b0d6eb5a11751721d36",
@@ -16098,9 +16114,11 @@
     "content_length": 35316,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "234daf3c2ad05cd1bc8d2a5b78153e95f665287c0850ae09e254d670f490ce81",
@@ -16113,7 +16131,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "2bffc06a22d773be42f50cd9072b55d6824080fcbb1a9564b76d4d6fea48b8bd",
@@ -16124,9 +16144,11 @@
     "content_length": 33556,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "d07d87ecd1b1c5d7dc09149d5d05d92992bf6cefeed627c6dad574a56043ac75",
@@ -16139,7 +16161,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "0c5162d40e1cc67558ba24d898060a7e1fda88bd3c01d86ab6874d42fd02b3de",
@@ -16152,7 +16176,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "70c0b0499e11672100e6546c0dea56ef7a65ec44d5800fb8105832ef57ea8383",
@@ -16163,9 +16189,11 @@
     "content_length": 16950,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "72a426f2efeea15092a1f11d885540a3d7f0c6587b73a8e0d578e9c4e987c439",
@@ -16178,7 +16206,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "73076e7b0a540bea03b45a6680a895d8bd0551ad1874d00983996df9865d2abc",
@@ -16192,7 +16222,9 @@
     "questions_generated": false,
     "pii_redactions": 0,
     "cleaning_status": "kept",
-    "cleaning_reason": "duplicate (minhash)"
+    "cleaning_reason": "duplicate (minhash)",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "63f51cec540a372eae6a064ee49bc0574bf508f2d4da3e9427df7543167a73dd",
@@ -16205,7 +16237,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "29ce79749ed4dd294db96eede6eaa102866b86ae5175b29f87dd3d29578eedd1",
@@ -16219,7 +16253,9 @@
     "questions_generated": false,
     "pii_redactions": 0,
     "cleaning_status": "kept",
-    "cleaning_reason": "duplicate (minhash)"
+    "cleaning_reason": "duplicate (minhash)",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "005e1a6aca85f0ed85ebdee9835fcb632449fdffc21a9aecac6d32f18ff2aaa8",
@@ -16232,7 +16268,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "211532e130f2c21f9c24e7a936097a25bdfaf9d0af28b8ad8e6923e0b76c6e56",
@@ -16246,7 +16284,9 @@
     "questions_generated": false,
     "pii_redactions": 0,
     "cleaning_status": "kept",
-    "cleaning_reason": "duplicate (minhash)"
+    "cleaning_reason": "duplicate (minhash)",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "4326926fb8a200f33aa0009d344fffffa7e6ad7f89b823616ef75a82bb30f4f9",
@@ -16257,9 +16297,11 @@
     "content_length": 43910,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "9292ec46b60d92c68614d8d91cdbc9858f541fe41b1f26aa0fedcf026b6f2c3d",
@@ -16270,9 +16312,11 @@
     "content_length": 46359,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "eadfe4db798b5a7b6217bba94a20abc3d76cfdd53aaadf9111985c8e00229ae1",
@@ -16285,7 +16329,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "8a4845d5d4e4d9e21353acbe1fe05077fd4f5c903ae78021a7f176a26f925539",
@@ -16298,7 +16344,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "beccbd0e67b3bb4d9cdec7864fc5e9ad4950ea77d5bb992363ee9507ef453dd7",
@@ -16311,7 +16359,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "1c9b8994d2055fef3cad8adb78d6f9c97e5113b2ea3294523b35ca69adda92a6",
@@ -16324,7 +16374,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "5340f5b542bcdf370af1814958f0a35f230e23d93a04d6474840dfa8a1d9efdd",
@@ -16337,7 +16389,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "8a7b18083cfcb97249bbac4e2e5fe177cbcf54171848972923f3dea020711ebf",
@@ -16348,9 +16402,11 @@
     "content_length": 30030,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "bd49d14064656c573a75f1916fe1a43ce9c2a7b96ae7eb66002e2f896a45d67c",
@@ -16363,7 +16419,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "93c48164f27254cc930c00437367aabf896ff33bdb0dc94216dc72cf601a2536",
@@ -16374,9 +16432,11 @@
     "content_length": 45634,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "094045a3dccae8f36dbc9ed4b76fd20217bcdccdd57e3871cf1822e0fcd56acc",
@@ -16389,7 +16449,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "376324bf989f8fe7a85fac7f4312ecaf18f4ad9a3d1d3129f34b274415bf57d4",
@@ -16400,9 +16462,11 @@
     "content_length": 53842,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "51d68e43d3b503bd572d1f6c7cd2e90deaa4118f0663a3e765c4a1b968d8fd7f",
@@ -16415,7 +16479,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 2,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "3bf8a5c53942bfa8b47320c1dbd0d8c1082835665a93e2000b6ef88b0b3de64c",
@@ -16429,7 +16495,9 @@
     "questions_generated": false,
     "pii_redactions": 0,
     "cleaning_status": "kept",
-    "cleaning_reason": "duplicate (minhash)"
+    "cleaning_reason": "duplicate (minhash)",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "2f7cc59b681678ba2eb3d3c55e78a119666d5121bd01be6f8aee1efd76438234",
@@ -16443,7 +16511,9 @@
     "questions_generated": false,
     "pii_redactions": 0,
     "cleaning_status": "kept",
-    "cleaning_reason": "duplicate (minhash)"
+    "cleaning_reason": "duplicate (minhash)",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "ddec94766d279675db544dd740434604ec21fba9a6d99ee10deb1f92fd4734b1",
@@ -16471,7 +16541,9 @@
     "questions_generated": false,
     "pii_redactions": 0,
     "cleaning_status": "kept",
-    "cleaning_reason": "duplicate (minhash)"
+    "cleaning_reason": "duplicate (minhash)",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "c939ed7acda2e107433ae5c7a3d74ede0563e475f3d2317b5bbdc20b314e79a0",
@@ -16485,7 +16557,9 @@
     "questions_generated": false,
     "pii_redactions": 0,
     "cleaning_status": "kept",
-    "cleaning_reason": "duplicate (minhash)"
+    "cleaning_reason": "duplicate (minhash)",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "a563c7f2a828dc0038158cfc8caf8776ade0e6a1737d04c948cd61bcd160b96c",
@@ -16498,7 +16572,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "f8157fbb5f75eca505177eee039a2cae345e0aff34674841f15c8edf4564266d",
@@ -16511,7 +16587,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "a348b84fc470bde212702db6e42a9876cbc843b4f7c8f9e98b20940b6a0d36ce",
@@ -16522,9 +16600,11 @@
     "content_length": 16584,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "7bdba93bfe0ee8713486ce604eec5cd5cfdb4e633dbe8fc7f0c9333c9fb41c38",
@@ -16535,9 +16615,11 @@
     "content_length": 43256,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "67356a8dcb81b9ed28afd5e2380de422b91d5be280b115a523e0c28f57cbbc95",
@@ -16550,7 +16632,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "ce288ad05e1baa0398cf922827a0eaadbf8945456dac0d60f87d587349ab2ad1",
@@ -16563,7 +16647,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "41876eb0905d92ad7b4ca31147637c4d5c561cbaa69b8c4e0ba5ffb73c95a7c2",
@@ -16576,7 +16662,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "5af29b0636efdd2d9431774ee703e9f8f102dfe915f940a1c86ebd27c367bd79",
@@ -16589,7 +16677,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "7661c5089dd9f05ddaf80d56a0e124c1cfbb872b1c1efa79e63bcb7e4d061461",
@@ -16600,9 +16690,11 @@
     "content_length": 31478,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "7162758687ac7d8bda7a20214f1af95369b73d7925194b83bc340edd97addb07",
@@ -16613,9 +16705,11 @@
     "content_length": 33717,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "410e33aba7d1f000efaeac34a0853a0e3c4d0b0343517354fc213b3957a4ff80",
@@ -16628,7 +16722,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "d65cac5911f8a77fbede284e704568c87a4be000ee15d7bccac0177637573274",
@@ -16639,9 +16735,11 @@
     "content_length": 5014,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "ca9af5cd7e6fc18dd1e0c6b40f2bc20f8e2ed963dd3eb13616bd984aff29dd6d",
@@ -16652,9 +16750,11 @@
     "content_length": 42693,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "198f38daddeacfd2982519c1137ba36fc9d790c5fed7c20dea4455781814995a",
@@ -16665,9 +16765,11 @@
     "content_length": 40009,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "0ee6ccb9fe543a71a31bac13e8edc4eab7d0a36707d25980992397d12aea591c",
@@ -16678,9 +16780,11 @@
     "content_length": 10880,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "d36a4c5812a5ca7a7e195782c2df6d1c1f04015322baa3fe99d77fb60685ffd9",
@@ -16706,7 +16810,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "094d70ec30aabd69888bb030e21253d1c56a71d4226c3a22ddff0e29b1add191",
@@ -16730,9 +16836,11 @@
     "content_length": 26672,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "ceb263fb69e676559e69fab6118de1a035c5e2ee10c28ccface32809f05b110b",
@@ -16743,9 +16851,11 @@
     "content_length": 38820,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "9f31d6803711403f96de2b1256792fa77ba36041aee7e208152df43d6ec480d6",
@@ -16756,9 +16866,11 @@
     "content_length": 4301,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "aeb15069a8996c0c83ac6156a7d2f95ce7c282a0ad64e1aa609df441f0440287",
@@ -16769,9 +16881,11 @@
     "content_length": 51936,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "f08d88b9e000c086df4cb13a7cec03fb72a1f7b7a6e20b6c2c22a11f16327b25",
@@ -16782,9 +16896,11 @@
     "content_length": 8997,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "515b58b5356cddd02a80611d8e2fb266f95c86363734ac287053f7d7bb86e9a4",
@@ -16795,9 +16911,11 @@
     "content_length": 8703,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "7fc56abdfd92fffcf74e37acfaa55d25e5ae5b857f99cf91b07f15e56c835780",
@@ -16808,9 +16926,11 @@
     "content_length": 31450,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "9136a0de6123e1029c41163d7a3c063d1e95538286590d03502b20c79a8c6258",
@@ -16821,9 +16941,11 @@
     "content_length": 16487,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "5d4cee276a409f2029cd733c6af1825380aa96fee062382a6fc7137c155b042c",
@@ -16836,7 +16958,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "dc9eff6d9a844cf50825fee1a3b6f21077086ed391790d55e1c3d612b44f55dd",
@@ -16863,7 +16987,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "1bbf0aacb0f7cd931fdc84ec07de931c0d323b2f7ae84334e60c436b5e64f40b",
@@ -16874,9 +17000,11 @@
     "content_length": 47804,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "cf94294798b6bb647d15e173f2ef6cfe42739fd330ef97840de58b73d022f64e",
@@ -16889,7 +17017,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "7edc6ca21ca56acf1c2c63572ac98e052dfd3533bd3617fab3347214e28863f0",
@@ -16902,7 +17032,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "b0af5c8063f3d9eadb7421a7b13a3bf274b8cf5361bca7aedc7b108060a1b206",
@@ -16913,9 +17045,11 @@
     "content_length": 41034,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "73b1183d62a254165c779fddd0914abd8c17403fe5fe6aa02faf2c2f939a072a",
@@ -16928,7 +17062,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "224ef8df318e2424198d44f2540ed8b9cf7aeb071d6c2e161849c8f403a94144",
@@ -16939,9 +17075,11 @@
     "content_length": 38268,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "7dad991cc3e0aab1f0c437f56799bad6667aebbcd3b5710eda3b3facc2f2c026",
@@ -16952,9 +17090,11 @@
     "content_length": 39400,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "55c86ddac2fae6f7f629da6aed4989b10c53aaa915ab6449188604a094251a74",
@@ -16965,9 +17105,11 @@
     "content_length": 37606,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "a2fcdecf6b6518a48daf0b6e69f62f9e30f605a60e8777cef5aee7030a6185f7",
@@ -16980,7 +17122,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "8dc63b0be7392b76fe4c78e4fdbc4cd7c75fb531c67c8bd8df30e4f099a5a2c6",
@@ -16991,9 +17135,11 @@
     "content_length": 46453,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "a34a94ac07c0dbe9b650cf6c83494c0b7238aec6c3ad02be667f5ec99393c81e",
@@ -17004,9 +17150,11 @@
     "content_length": 27650,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "0a0123069b37203c7fa46ca21c0c0c41234e0652a40a47c29eac19bf24133c10",
@@ -17017,9 +17165,11 @@
     "content_length": 28564,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "7cf1030c5e6e611cf5a864119cf3d4abddeb3f62ca5a998f7ea08fdcf09b4b44",
@@ -17032,7 +17182,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "3d800fea1e4e196f10792aa2b12640314f08e00fec7601aa1a0faa31a7c8536b",
@@ -17045,7 +17197,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "5b029d400d09f8f9fc9e0538f6b7604cf5448dc4cc27465f4ed2737d01f3aaab",
@@ -17056,9 +17210,11 @@
     "content_length": 28591,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "e1019325f1ec8718ab4a9c46f12231629ed130642d3e6ac3962acf1537e1a4dc",
@@ -17069,9 +17225,11 @@
     "content_length": 31392,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "97e2ae9ec026f5fc110ef4c447c92cb35e7bcae152961d8bc5266adcd35f1b34",
@@ -17082,9 +17240,11 @@
     "content_length": 26566,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "9a6f919a9165f92acb36d0a9c51c314c5524aefdaa007dd2367d9225ddc4c79f",
@@ -17095,9 +17255,11 @@
     "content_length": 50743,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "e0b5bfd9915d7ff96df368d1fefed5d7adf008ba706796335ec56172bae8003a",
@@ -17108,9 +17270,11 @@
     "content_length": 24501,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "106bcc88be8689d4d786db7e60a038ea809468bd63b11f09a4928ebf5180199e",
@@ -17121,9 +17285,11 @@
     "content_length": 36423,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "674c524a93f902289b046864cfc60c19ff39cfba35ef8b244312b761a0871658",
@@ -17134,10 +17300,12 @@
     "content_length": 10988,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
     "cleaning_status": "kept",
-    "cleaning_reason": "duplicate (minhash)"
+    "cleaning_reason": "duplicate (minhash)",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "ba77a9e0aeba9d1805a20954e244c2a60186c94ad2132c949ac63a6d8a95e103",
@@ -17148,9 +17316,11 @@
     "content_length": 29198,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "596b78b4a974b1b4a57f51dfe7d714be970dc2b9d962268a5f004da6ad660cd6",
@@ -17161,9 +17331,11 @@
     "content_length": 26304,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "443afd2c1da7716992755d1c7ce792df1941974ba3cb5689f40f48c2f5bb4d80",
@@ -17176,7 +17348,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "658c6b6511b7b7b1e2de04ad4a2bfab3a27e9b749ba82ba69699d7b9fa4e4282",
@@ -17187,9 +17361,11 @@
     "content_length": 31219,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "6324c3a9db4bd1b6559839f9f499d0d0e3e387d3c8cc41bd113987673afda2bc",
@@ -17200,9 +17376,11 @@
     "content_length": 24707,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "0efa23283541bc9aae79b64dc47b4ff7e253ba2a33ef078829fc1da454126173",
@@ -17213,9 +17391,11 @@
     "content_length": 48033,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "d787f890e26e5e189a250dae771a57d848c2857e3c177b46957363c5088baea0",
@@ -17226,9 +17406,11 @@
     "content_length": 31982,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "9d67dbfc942abd3fb05d31cf90e178a7eac49ee536a2c1cc77d265e06018efac",
@@ -17239,9 +17421,11 @@
     "content_length": 39670,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "ce2c3274266d482fffc81cbf96aa1d7e88dd6e88fa1e4911d235753ccb35c465",
@@ -17252,9 +17436,11 @@
     "content_length": 36453,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "ef5ad5204c5d1809b30590daba136863d677cb26ed071b6a67a2de819b5854b5",
@@ -17265,9 +17451,11 @@
     "content_length": 26539,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "685f68b4e233add3db174ccfb4bcff326f8d80e49ef56d083ebfbb30b61f4778",
@@ -17280,7 +17468,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "ca174e2f40091117ffc33ef756a71cbceb5465f3b36caf1640edf420588aba87",
@@ -17291,9 +17481,11 @@
     "content_length": 25184,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "354053ac21caa2829aa8424d664838fef7c28fc2047c360a0f54d2887fa64439",
@@ -17306,7 +17498,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "4498058b8a05d1bbdd89e4eb5ec7e1b745dd4ccba8d5f0f6ddcb8ad8d76235b4",
@@ -17319,7 +17513,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "b3292343a90dd036e7ece79037a7389598a8ddbccc6727bfcc976a0a2fbc2cde",
@@ -17330,9 +17526,11 @@
     "content_length": 26726,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "8d252e3d28d1ae89c30fdb1cd0c1ebfc78515e85f282e5084eb37faa8e5939e3",
@@ -17346,7 +17544,9 @@
     "questions_generated": false,
     "pii_redactions": 0,
     "cleaning_status": "kept",
-    "cleaning_reason": "duplicate (minhash)"
+    "cleaning_reason": "duplicate (minhash)",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "b5012612661ba30b196e6a7ba33e14518b5c1077a51d7eec23438abc95b70d4a",
@@ -17357,9 +17557,11 @@
     "content_length": 33548,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "954f16aa8d47739b91cb062b3524ef5a4305c93f7ccbef45d5aceaac45995642",
@@ -17370,9 +17572,11 @@
     "content_length": 26401,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "c3abecd1a53c387f51abb40de443ce1a83f89f43c7da0eb6222e705bca85e8a5",
@@ -17385,7 +17589,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "6531a81ba5b3c61bc9c911b9deae345eb2a3729ccc42286a733303124b5df9d6",
@@ -17396,9 +17602,11 @@
     "content_length": 28338,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "5d0a48c43ab2d1d0fce8da0342659d9848447e8cb2f6d6b6cf8a5853ed6e351a",
@@ -17409,9 +17617,11 @@
     "content_length": 27459,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "b8e4574b2185b7b249de369e1e40fb0859cdba2796c102d617fa4cfa1769204f",
@@ -17424,7 +17634,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "c594b360b945a7ae28d7b25a734c3308be1a49a403725b6998f52b8db6eef48e",
@@ -17435,9 +17647,11 @@
     "content_length": 26582,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "c04b2549780bedc5143867d7ec631b636c1df3349d37078e7eae089e518c17b1",
@@ -17448,10 +17662,12 @@
     "content_length": 49926,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
     "cleaning_status": "kept",
-    "cleaning_reason": "duplicate (minhash)"
+    "cleaning_reason": "duplicate (minhash)",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "90ffb59bca373a1022d6b5b2d3c29bb676bc1abf5b2619fc40cdd6f774782210",
@@ -17464,7 +17680,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "3625033f5fc22b73f370a23a145af8e3552c78e38684384c264ba72c6a5a85c3",
@@ -17475,10 +17693,12 @@
     "content_length": 32995,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
     "cleaning_status": "kept",
-    "cleaning_reason": "duplicate (minhash)"
+    "cleaning_reason": "duplicate (minhash)",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "0e4625a5f6d9d2acb02bba1f36fe44e6a50bc2abc43170f99dcacdfceb78addf",
@@ -17489,9 +17709,11 @@
     "content_length": 28363,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "e22897aabfb956400b6564c4b40d0d2e93be740e0d7f53a713af4454f296cf62",
@@ -17504,7 +17726,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "6ca84953c07ebe4545987fa9c62f46b5b0a5bcc0c462d6242fde8fa166fe694d",
@@ -17515,9 +17739,11 @@
     "content_length": 39364,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "042e899ee617387fec929c9977780eab1fa7486d0612cf3ae98e6074431b9eab",
@@ -17528,9 +17754,11 @@
     "content_length": 26455,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "33cd279e30d676ae054af3d6ff55c4aceee475f203738a1133770e7a960fc013",
@@ -17543,7 +17771,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "fbe787601cc843da2bd6381c59990ea78a0d1fe45796d3055794a4a0274cf8f7",
@@ -17554,9 +17784,11 @@
     "content_length": 28391,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "e4b4cea4e443f99764fe0193e052d54d456bba49582b9876f1630e11dfccac84",
@@ -17567,9 +17799,11 @@
     "content_length": 45497,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "d3b4e8337340c30317a67f82b1ad027e0c3a30beefa789f38834bbaaa775f194",
@@ -17580,9 +17814,11 @@
     "content_length": 28585,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "b778d1b2c5a64c2cf1ffe22bab15924762273426e7c9351d9a2e5149a69e25a4",
@@ -17593,9 +17829,11 @@
     "content_length": 30480,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "5a8ea763f1ef372aace3172813190149002d8fd688446cfa5efe2a1207c71f06",
@@ -17608,7 +17846,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "c8513827e65ceb4610f5ccb0589f531ce45171729d61be7bc3783ca431ef68c8",
@@ -17619,9 +17859,11 @@
     "content_length": 26684,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "514a3203ab2372e23ee4f9a0f97b4e3c3f0180a78a02d519064599c7cc0906e0",
@@ -17632,9 +17874,11 @@
     "content_length": 41219,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "6044f4eff7cc993a9cb6975ff68ef83aae50b77e6f4da8c023059c27fc465395",
@@ -17647,7 +17891,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "e9fccd208c24f2f091faeb46126471c76cb9808c9393ef5dc1f7106b42c4f6ff",
@@ -17658,9 +17904,11 @@
     "content_length": 54825,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "267686e9964778ed13b3eb5e43ae61f6a47a7ef76cc13de8f996107e3cc85da0",
@@ -17673,7 +17921,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "3d9c3e112cc512448d0817601368bf4589470099961100e5cf1ef27ec0039561",
@@ -17684,9 +17934,11 @@
     "content_length": 16558,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "7111f99bfebbabbad842c9023c8fa1aec6df3e532822af58253a7285fde463cf",
@@ -17697,9 +17949,11 @@
     "content_length": 41846,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "57cdba67d3db43cfe95fa658a53c0f17d7a7afe1815b044512a660d48e5744ea",
@@ -17710,9 +17964,11 @@
     "content_length": 39397,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "a1e7f197ac760c3cd153d9e6b318e25aa653e11f6963f628cafebcc8a63441f5",
@@ -17723,9 +17979,11 @@
     "content_length": 33699,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "ed7606b6d8e107484fe7b82f1ac7396e8afb101704a586dfe8ae2f53e323e804",
@@ -17736,9 +17994,11 @@
     "content_length": 27480,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "d47a1ad8208a8875f397a178f7f632d9f44ecf05148c1f680a91c9c54bbaf659",
@@ -17749,9 +18009,11 @@
     "content_length": 49905,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "ad3299b0a5046d2a17255daa522ce26820a2c2ab6860c23d55c9e464853b9b28",
@@ -17762,9 +18024,11 @@
     "content_length": 34715,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "21c34e1100c25e986dc8079b1e5b8144e47402465c646fbe83a5897286b43217",
@@ -17775,9 +18039,11 @@
     "content_length": 28311,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "cf8160e04d9225b59e0d5b6178fa9f256fe914c22b07f56f62e458fab3bae780",
@@ -17788,9 +18054,11 @@
     "content_length": 51440,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "808412156154b78c874446a395cb985eea848d0b186c7028e1c424182c681c22",
@@ -17801,9 +18069,11 @@
     "content_length": 34508,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "472b66db046c5a6eea5af5cae7d04aadc7b661d5f172796634d7f984aaa38ea4",
@@ -17814,9 +18084,11 @@
     "content_length": 38825,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 1,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "1fa1ba7ebe071215e9234d4aa2e2a4275e6a990ba951c8ead2a552444834776f",
@@ -17827,9 +18099,11 @@
     "content_length": 38450,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "00163479845dca0a76e5290a0f65d65ceb814457944fecbd2b5402cb25a4be31",
@@ -17840,10 +18114,12 @@
     "content_length": 24517,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
     "cleaning_status": "kept",
-    "cleaning_reason": "duplicate (minhash)"
+    "cleaning_reason": "duplicate (minhash)",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "b54181be2e4d67acf1a1a5935b162ccbf515e1566f778baac03f9a6e98a197b2",
@@ -17854,9 +18130,11 @@
     "content_length": 29228,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "e2a5a3a8b92531fde3ad7b91683ab14ed54863ac148d957e13e6ea76f20287d0",
@@ -17867,9 +18145,11 @@
     "content_length": 48009,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "9f95eb35579cc2a22a6efa1be628d2bbeaf2225fea9f14149ddfe286d596b092",
@@ -17880,9 +18160,11 @@
     "content_length": 32765,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "cbf005dae0c897e29f3142f72dc606a2e204b36381f64c04ab777c57bbffadf4",
@@ -17893,9 +18175,11 @@
     "content_length": 38296,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "e52d9d4524dbd41225cfba00dd1893603ed4d00f261c156afb4f96dd4da2af04",
@@ -17906,9 +18190,11 @@
     "content_length": 38235,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "1972178fdaa53a8782060a4820be37560f6f19d5469c77323c664b346b51ed9d",
@@ -17919,9 +18205,11 @@
     "content_length": 49143,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "e338d510c17fed4cdbbcd85ecbea37c35e7b330fb616250571fb055c12b624ef",
@@ -17932,9 +18220,11 @@
     "content_length": 36548,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "564ecfe07ae669aee294acd610f1422b34401a7335260eecf8757e3e766f20a1",
@@ -17945,9 +18235,11 @@
     "content_length": 39490,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "45bb9eb8d2c6119b8697e6e42c8d8c18781b06b6f47ff932eff34beabee72843",
@@ -17958,9 +18250,11 @@
     "content_length": 37356,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "24833628be2339923e71e7e65eb1f997025120319f47bc6f93e83107de53f561",
@@ -17971,9 +18265,11 @@
     "content_length": 36182,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "6624d5fbf3ad8d7370d794dbc0fa1909398ef13376a6418c23858357236062d1",
@@ -17986,7 +18282,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "83366e48bd588c046d7baf911c1a496f3a5d35062329a3b8411136c6b6e004b8",
@@ -17997,9 +18295,11 @@
     "content_length": 33702,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "5a3ecb4d6be482a7c555867224bb7da1286f96d61f40d8fd0c278bc2a5d11303",
@@ -18010,9 +18310,11 @@
     "content_length": 32509,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "383cfb5fb538442d24f4c930a7c674664ccd1c4baccdf2979ad65ffd1e904e62",
@@ -18023,9 +18325,11 @@
     "content_length": 32992,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "1d263d0558d5ce9363da0a3738bfd850a5dc1af1709cb17cdfe9230c54354f58",
@@ -18038,7 +18342,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "caf2a8dcf6931d889f70c15cb700e76d1d98e5b802ce10d6990bb1aa8650e7d9",
@@ -18049,9 +18355,11 @@
     "content_length": 42699,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "f566d0f41e749604b7bb5c2c242b348fd0b57d5ba5c46b737c224f56e1f5124a",
@@ -18062,9 +18370,11 @@
     "content_length": 33555,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "1032ddc919292326e4987e3a28521982faeb3cbe004691957460fce134ff7237",
@@ -18075,9 +18385,11 @@
     "content_length": 31348,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "838e4d44c76ba8285f3343a6c8f58b85d504731f34b806be48c0af3b0fc5f575",
@@ -18088,9 +18400,11 @@
     "content_length": 37457,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "24652f5bafbb3a8d45b402e40250ec8ad1c231c46b8e713ada63d9292eed6aa0",
@@ -18101,9 +18415,11 @@
     "content_length": 32909,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "3e131cd75ae7cba1502a2bbb52bdbc7b5f90af634e3f230b17fc452072c6f35b",
@@ -18114,9 +18430,11 @@
     "content_length": 69725,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "aa7be7a791fad66f0e3c671455b1915c5a4cb99f9020ea20046e340d40cb9ac7",
@@ -18129,7 +18447,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "33ef99df181ee538d412d6676fc3c38fc6f974e7896e804d9ed03b85ad19b326",
@@ -18140,9 +18460,11 @@
     "content_length": 28575,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "fa41e5fb9dbe1794f3d277e16b32146a7b3d98dab46eb76212d7fd015eaba93e",
@@ -18153,9 +18475,11 @@
     "content_length": 24801,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "433a37d7c3abab755ba5e832c85c6b02c9015464a48b79195e0b389438a3dd3f",
@@ -18166,9 +18490,11 @@
     "content_length": 25157,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "23296c5d18e25ad2c4bef3ba5554b45dbe9bba3570222c90dda2b3a4743d92e6",
@@ -18179,9 +18505,11 @@
     "content_length": 26960,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "29178ec6503804e17a112dbe732e79e143c6b184f4f5e0ea5d866088b56739c3",
@@ -18194,7 +18522,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "b267f522b56cab93ef3cd4a399cb3988a90087df13971df0e4b8de0e63860e87",
@@ -18219,9 +18549,11 @@
     "content_length": 25192,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "f20f305219282633704df017b9ea92495bcf5f6c137acf38a020c1efb651ad86",
@@ -18232,9 +18564,11 @@
     "content_length": 33102,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "191ef86589ad30514655f71f753185a6781c17638b1eaf0f2a098e09561cb745",
@@ -18245,10 +18579,12 @@
     "content_length": 23914,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
     "cleaning_status": "kept",
-    "cleaning_reason": "duplicate (minhash)"
+    "cleaning_reason": "duplicate (minhash)",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "09333dec2344eab79c8697c7115b30f7312815f37cb32e4f71dd8c3a7e1c5722",
@@ -18259,9 +18595,11 @@
     "content_length": 23687,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "d3dcbcaf8775943cbbc2b20786074bb0d37396b6da81123b4edbe62b73d1a4db",
@@ -18272,9 +18610,11 @@
     "content_length": 38253,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "702488b5f4272a4a64fc2a5a09d00bad1d09513f92aaf628d989f71ef90d7c07",
@@ -18285,9 +18625,11 @@
     "content_length": 24754,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "9f974d7d078da3b56f3a75b382afcdd2a02ad95fec1e78506f048264c5561da7",
@@ -18298,9 +18640,11 @@
     "content_length": 24918,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "e26ce638246956fec7d05c231dfd652bb0ab28c408f12624f6239bdbb5afcf36",
@@ -18311,9 +18655,11 @@
     "content_length": 25313,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "e164a7e41d9b93e3881184e0b5f978b2ce04f2a4a8cf1b0eca215d51246c37ea",
@@ -18324,9 +18670,11 @@
     "content_length": 27488,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "484b55e004b2e5f7d83cb9e62c5cd792c5b02e3b0f02c3dcff5576e2a5d1fbea",
@@ -18339,7 +18687,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "59caf1708f09c0e7d4318171349b6f141b60eea4449d5b46a29dd1243fd38eac",
@@ -18350,9 +18700,11 @@
     "content_length": 24898,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "973c3e422537f3bf53d323105168ec8b3600a9ab1a975c826f3442105600d225",
@@ -18363,9 +18715,11 @@
     "content_length": 27542,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "5ca0f349fdbf7db6104a6a802ec1e4d94ffae639cb8a8f7b59004b213361746b",
@@ -18376,9 +18730,11 @@
     "content_length": 29707,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "09c0cc764402df4da476e678dd05f639826dfd950d50f6d6247d8c93c498d3ba",
@@ -18389,9 +18745,11 @@
     "content_length": 30652,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "26899f040a211718f8dc4a7d797fca15d5ad74e75e6841e7450f3f64b1b74a9a",
@@ -18404,7 +18762,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "a94deebf08a2277926010809ec93acef518ec96d6211ed54a283a753120eaec5",
@@ -18417,7 +18777,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "8b55ad40e43e60d0647aed0e4fcb63716103236196bff162acf8e53e546ec86d",
@@ -18428,9 +18790,11 @@
     "content_length": 52639,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "082482f9302417db3f741f24f8274931e464c076f3bb4f39b1e6bba4cc6d30a2",
@@ -18441,9 +18805,11 @@
     "content_length": 30901,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "8bae55291b3bfd9d5f764294de1f57ce04048aa26d9ca74e9972a1d6a0e0d239",
@@ -18454,9 +18820,11 @@
     "content_length": 31013,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "ab6db7632e448aee57dc4709f31a472300e33c56f92d33a0f565bed71991f18f",
@@ -18469,7 +18837,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "cdc807e4b537afcc9f712abd80d7eaee32d44a02c8d9ceb93f182b4d754660bb",
@@ -18480,9 +18850,11 @@
     "content_length": 48750,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "65e57b0381a204e2eb2e037f824e91d935ac4e092823127cc1c0e0b229728603",
@@ -18493,9 +18865,11 @@
     "content_length": 28719,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "7443428c00b92a2d1b5a73e9c80fed56a1cb12e6ff3dd3bdfca11f59d4342c92",
@@ -18508,7 +18882,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "00f60b021e020541d653586e69cc66c4dae46d36613a780ecfa8877549f49f7e",
@@ -18519,9 +18895,11 @@
     "content_length": 16589,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "5fbf21b48b3b1402079fc366d92473b1e958fcc41cad2c22018f0eb86866307f",
@@ -18532,9 +18910,11 @@
     "content_length": 39814,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "141d0da08854f845aef75910247e82ed9be1042a501ffc0804593abbffd00710",
@@ -18547,7 +18927,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "fd07d43cda62ab02c9ee4c90c9006630bf476063f0da83d6b7c2da50511d19e6",
@@ -18560,7 +18942,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "87edafed6d96dbb4a4995cc70d83573e52abf06ac3a24cf8437fb8ae8273a814",
@@ -18571,9 +18955,11 @@
     "content_length": 36049,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "77ea737861a5de535b1a97d018b1016613d4eb1901988103b430dce9c69eef27",
@@ -18586,7 +18972,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "3d11976d19ac4811fdf43bfa89461c186a257faf921e2988361eea200ff3c4e0",
@@ -18597,9 +18985,11 @@
     "content_length": 27083,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "099c9686289c29ed2b72b90507fe2069874da0bd9b38abe61ea9f7a2d58f7779",
@@ -18610,9 +19000,11 @@
     "content_length": 43842,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "46c76909d68b16772b1a2329cf777c27fd27395f55c67bd1c12549e2b57cc4d6",
@@ -18623,9 +19015,11 @@
     "content_length": 48019,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "68cbe90a187621dd131a6305677244f95e2d77e556318acad3954e36447bafaf",
@@ -18638,7 +19032,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "ee7cd1da3016855464d6514d60216d5ab67100cd67266c8af5f55d497f79b00e",
@@ -18649,9 +19045,11 @@
     "content_length": 58009,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "b425d797d82a8779f6fa67fe49f2091f608d4fb4383bbadfef3dda96f607601d",
@@ -18662,9 +19060,11 @@
     "content_length": 26207,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "3f492bfe18604f867e4aaf6398fa1b4fcb0fccfc1fa4d76126f87c6d17209a91",
@@ -18675,9 +19075,11 @@
     "content_length": 26192,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "c8613cda3a3a1d2386788259f6d71f7113567d3db3830a0a6ced270dc79d8a2d",
@@ -18688,9 +19090,11 @@
     "content_length": 44563,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "f25ad94e5c91ff14e0a8dbfc4eff5980dd091284a20cae70ed02747fe54f800a",
@@ -18703,7 +19107,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "375fe6e39e4423cea812a6d8bf725d2f1be04baa93574e0cf6219964bc9265cd",
@@ -18714,9 +19120,11 @@
     "content_length": 27544,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "ab0d996def3e0a30691202776b2da1d7c1f9182a8a09cccae70c9728831eacc8",
@@ -18727,9 +19135,11 @@
     "content_length": 32589,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "0e53278e050f081f28b741b7114d4b1000294388a29ff1eb0d37553831586d56",
@@ -18740,9 +19150,11 @@
     "content_length": 15938,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "cca043362c58f2982989f6d43375d6c421678f813f7abef1174926e39c8bd4d1",
@@ -18753,9 +19165,11 @@
     "content_length": 30671,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "01cf7974fa10ce0f93de55b1707ff03ad476d2c3080f9e0bdea1d046ede0f2a3",
@@ -18766,9 +19180,11 @@
     "content_length": 41024,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "18ae74cf15930d0bf0991a09676938c0291081c21c2d13ccf16a3df624bef47d",
@@ -18781,7 +19197,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "5ac0315c0265ac690204e7ee26e8663d543753f7e4672c370dc7144edb869d84",
@@ -18792,9 +19210,11 @@
     "content_length": 37671,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "75e023dc1eb176f55ff0dcbc0518b0a7f9fd35480d0160dbd63a2520186b7bd5",
@@ -18805,9 +19225,11 @@
     "content_length": 38554,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "9562169877b17f02fcefbbf653e403ce220b43904d996ab76e32433756a72953",
@@ -18818,9 +19240,11 @@
     "content_length": 40376,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "5594eec4bd7cdf0c795347f66ad68c69ced5b657cf4b521f2a4ce08479941a5e",
@@ -18831,9 +19255,11 @@
     "content_length": 31851,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "39f8ed1591be8fb4ff77c9fe124510ecd2838e595a399c82e98a45a16b7d595d",
@@ -18844,9 +19270,11 @@
     "content_length": 27347,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "0c6a86a496d5b0769a28787cba63d583672667f73163938734c6a78e1bb2b0ac",
@@ -18857,9 +19285,11 @@
     "content_length": 30890,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "d39ab52550a74ffe4adf31410c8534c7eaed89f2b87bc9a9efa7dc9aa57871e7",
@@ -18870,9 +19300,11 @@
     "content_length": 25063,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "d2042714f9807c29058dffa12ed4915ab3ca34e9aa33ecafa432e3e2297607d3",
@@ -18883,9 +19315,11 @@
     "content_length": 34245,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "1bff07524c06d3121dcdb287671d795041036475d8d414d5018370fcdfa43a4a",
@@ -18896,9 +19330,11 @@
     "content_length": 25383,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "fac6fb1202e40a33b89cb83549fc4d06d7231568952ec40c45c22b896739f46f",
@@ -18909,9 +19345,11 @@
     "content_length": 26478,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "8ead49695e9f8d76d620c589647094829609196d35413771ef9a41fa2fdc79fb",
@@ -18922,9 +19360,11 @@
     "content_length": 33499,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "2ec2085f983685d8cb1ba41253b36257c241a46a3a784a063b47d333842b6e95",
@@ -18935,9 +19375,11 @@
     "content_length": 80507,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "460ad3e303948295bb7b94555e0b09527e219ce59f9d7026f0a50c4cd195e2fc",
@@ -18948,9 +19390,11 @@
     "content_length": 7790,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "2ee5e14727dba812a75727d4068bce1f342c067a05020c8c373f9b4008fe2b28",
@@ -18961,9 +19405,11 @@
     "content_length": 24289,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "af2b4185a02c5d488ad858a575a1a88895fcd99c69abafa76bc6e5c76b8ed442",
@@ -18974,9 +19420,11 @@
     "content_length": 29852,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "fa5b5325dab52b02ffc5dae1103a807b72d660c4184cfa4dbf60b0d1a88de716",
@@ -18987,9 +19435,11 @@
     "content_length": 44333,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "aa3c0dd043b9312529b0727613320bfcfb602a10da858c28ab2a92686625523b",
@@ -19002,7 +19452,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "5f7fb1c36b247e098fd99c040dc74d7a1c608eab93a3089229e1b65f1b3280b9",
@@ -19013,9 +19465,11 @@
     "content_length": 42283,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 2,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "6cab18e7ed56ddbce7bc4765b7951d5469db5c0e5bab13acda8e4fc67eb4bac7",
@@ -19026,9 +19480,11 @@
     "content_length": 36494,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "effa731f9eb5c9eb3e3ffbb1dc3b21918058c65d0467b40aa8583409a729b9a8",
@@ -19039,9 +19495,11 @@
     "content_length": 33163,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "3c6214fe541f2bce992d984c538ea74f018abc1b98c22d07bfb0f9499ec601df",
@@ -19052,9 +19510,11 @@
     "content_length": 27628,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "2a3c1d309aaaeba25608c5625770d14aa5b4c0fe09f158edd2e0704c1f19922d",
@@ -19065,9 +19525,11 @@
     "content_length": 31223,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "5341228a860189b62019faaaeba71788775183a9dd960fb37677deeaf4a68a2f",
@@ -19078,9 +19540,11 @@
     "content_length": 31677,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "581b2eeb8bbcb52cd69841fb605e6d4a93b7bfb55fe8b5ec16ff00a5658b7c38",
@@ -19091,9 +19555,11 @@
     "content_length": 31337,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "35665c1260cf60ae32cc357c400d22848321cfee5a79893e94ea75dc1b86d66c",
@@ -19104,9 +19570,11 @@
     "content_length": 40072,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "30e0c6268ede2aebcdb220f2e671a8e898bddb03bcab469c510c4be640fb98ba",
@@ -19117,9 +19585,11 @@
     "content_length": 34008,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "76e9add4320969205bbd54b2b9df60e3ee13d4ad8c4a23ff916e23c3a32fef9e",
@@ -19130,9 +19600,11 @@
     "content_length": 29684,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "5e3f4ad4755f7f39d345aebc7aa10243035e5cca15fba17d323074f704369e2a",
@@ -19143,9 +19615,11 @@
     "content_length": 24601,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "16da3f9bbab7c0dbe48fc6b87761f414c3e45490791aa3a34b26bd9131453b1d",
@@ -19156,9 +19630,11 @@
     "content_length": 28130,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "27327b72a508b57e02a486c1d0bd8938060fbd82a273571cf1cd7f532c92a25c",
@@ -19169,9 +19645,11 @@
     "content_length": 11622,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "4054c68da57d205dbd40ac1ec98df706e3daf453611d2335d93e37f415477589",
@@ -19182,9 +19660,11 @@
     "content_length": 27459,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "144c479c1955d49d7e8e8e1965e22d4ba4a21a7880cccddacc257fecac37cbe5",
@@ -19195,9 +19675,11 @@
     "content_length": 31361,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "33f16eabc200b73d56d3faeb9948d4c8d975ea5b707b2a8b9363bc36c8011ebc",
@@ -19208,9 +19690,11 @@
     "content_length": 38397,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "7e412b83adf20bb5802d590953dc0e51d7c1d41bf30d86c8bad97a2e4f2aa32b",
@@ -19221,9 +19705,11 @@
     "content_length": 50903,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "3183de9c1481bd163fe902e66fb9c1bd978940c38050504f876f3af9de3ead55",
@@ -19234,9 +19720,11 @@
     "content_length": 29371,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "459fd824c685abf12136984ead9985b0dd0c25cf8c0f53e61d087c49240ffdd5",
@@ -19247,9 +19735,11 @@
     "content_length": 38587,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "f2ebc392e15871da84d936b60f63796700954d59d8d0393835e107d0eb655e07",
@@ -19262,7 +19752,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "937f427179d927e4b68a773a04639cc18fd1d33d031ef2e89718806285e5716d",
@@ -19273,9 +19765,11 @@
     "content_length": 27199,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "ede4e0216d2129aa5c50f6d4c556a5abf660725d91fcc707abc5271350ed2ccc",
@@ -19286,9 +19780,11 @@
     "content_length": 25954,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "ea2a79f1983690e19ebe9c0c62817037c9bba4a797ebdfd058adb2b9c430849d",
@@ -19299,9 +19795,11 @@
     "content_length": 32287,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "32e540abb71f2693c27fd0d36f7b9d243ced241e3f12fa94d70447bfca0646a0",
@@ -19312,9 +19810,11 @@
     "content_length": 36679,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "15693c226c8c7649f11f9fc106c541e5deab91811be3e727552a65da5b24cdbf",
@@ -19325,9 +19825,11 @@
     "content_length": 37627,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "1638b9d3830ded7cb77001f3c95c6948f266d9dee18b30192e41b44012f7afee",
@@ -19338,9 +19840,11 @@
     "content_length": 32883,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "30d0b544292ccd72bb6954f8fe7b8831bf9f54ea2957fb2fd646c7366b89c327",
@@ -19351,9 +19855,11 @@
     "content_length": 24694,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "438cf861aa64a566898cc80e3ad3f356ebcbb81241b8ace5a02aff4486f8ea6b",
@@ -19364,9 +19870,11 @@
     "content_length": 34122,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "9f1e726de6bfaa18cd074a80520031411a0e995642214a2e666d27dc5249f752",
@@ -19377,9 +19885,11 @@
     "content_length": 35096,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "b9b04375a954fafb72d43cc8251f39d5d9dd2a4c2bb60db5ee86d605dc4d7b5a",
@@ -19390,9 +19900,11 @@
     "content_length": 24249,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "d510fb7881f6f35f38ef9a31b084973a183f44baefb43a27f3f03f9854108c7c",
@@ -19403,9 +19915,11 @@
     "content_length": 26071,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "6fc21ffd08506ce68790ae0d6ac40548afaa5ff375fd2f5a0a1d595982cffcc1",
@@ -19416,9 +19930,11 @@
     "content_length": 35221,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "3fa8a5df11497ca22e24cc4f8e25e605e09efdf99bfe7dc1a8aa0121332f530f",
@@ -19429,9 +19945,11 @@
     "content_length": 26156,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "667b6073990380904f5abf08583d4c6945528c20b051881ab127b51d7bf1dcd2",
@@ -19442,9 +19960,11 @@
     "content_length": 27926,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "b8f6be492a861d97c96da43a649cccd5d37e0772dd2ec654b86fe9378a7a74cc",
@@ -19455,9 +19975,11 @@
     "content_length": 42084,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "3d8756c690fc96af56df6da82c2fb9955a2289cbc79da9d8f7e636f0b0bc0cbf",
@@ -19468,9 +19990,11 @@
     "content_length": 31291,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "9b171f23db828afae432cbda3ec7f1828d07c9cf00962b6e14b75ef5f3df868f",
@@ -19481,9 +20005,11 @@
     "content_length": 30543,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "323ea07924434ee808e80564f749206a998605519e2e63b9961e22b15562f893",
@@ -19494,9 +20020,11 @@
     "content_length": 25873,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "409b8064b95a220e124be98cb65dac9fca67c41300431d92a2c9e3e2bbed6dc6",
@@ -19507,9 +20035,11 @@
     "content_length": 37973,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "b85906c61a1dede0a9eac7edfb8fcab5bb8ac976f787dc7abdff5fb07002f827",
@@ -19520,9 +20050,11 @@
     "content_length": 30374,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "45d847d537d058ad8ad07b4bd9f32eda5ff0818bffd8dcf2f70bc4e691a9557b",
@@ -19533,9 +20065,11 @@
     "content_length": 47864,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "9a404ea7ac77d203166ac26dd97ff6ba091ce5bbbb2db5c59b368642f396f50c",
@@ -19546,9 +20080,11 @@
     "content_length": 40371,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "825831b120588fcfaa385fbc5e5f5fb51a1eecf4e8f3fe2c6084a22aab1b107a",
@@ -19559,9 +20095,11 @@
     "content_length": 26850,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "0d6c937505c84ba28e9cef985c5d8361dc428ee7ec8e4066ff98e8bf2b8a0db6",
@@ -19572,9 +20110,11 @@
     "content_length": 28090,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "4c0a31bb014047d397214ecf0fe1a3cad3256d59541a32b410728d204d6bd353",
@@ -19585,9 +20125,11 @@
     "content_length": 26237,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "362799a649a2c9ba4e3a91896b61a63655de8a071cd0b99ba6bbe23e6ccaa563",
@@ -19598,9 +20140,11 @@
     "content_length": 31902,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "f7bb017fa2f1df54bc308c77fbf252c7d2fce3cfd42e25392b1f10faed12fa76",
@@ -19624,9 +20168,11 @@
     "content_length": 49074,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "5b7e9b511fd9cbec8f4d30c7ce11790c5da3bc90ec6930a85fc77fcb367f2735",
@@ -19637,9 +20183,11 @@
     "content_length": 31609,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "95a3902d5d41d12b2e91f65bcdc6c26003aafdfeb47df3d6e819de2a53efe067",
@@ -19650,9 +20198,11 @@
     "content_length": 16194,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "735a1281166f2ad29e1dc986ac83538a2e265bee0b753509ad4f8b2012d3c23c",
@@ -19663,9 +20213,11 @@
     "content_length": 28551,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "987c226967657f4adf63417d62be9cd00302a34cfae3514358d603293b7f2d62",
@@ -19676,10 +20228,12 @@
     "content_length": 23393,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
     "cleaning_status": "kept",
-    "cleaning_reason": "duplicate (minhash)"
+    "cleaning_reason": "duplicate (minhash)",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "9b398c346ef798d39bfb54b1cdb84942189a2a440285c9bf04dd4d4a9e2393d0",
@@ -19690,9 +20244,11 @@
     "content_length": 93262,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "efb8af570075e14a552ec0bb2d9b74b24825eae4feb5d615fdcd91ce9167e39b",
@@ -19705,7 +20261,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "59d66d9f90d02bde4ae22649cf58e889e6d1354ea1e0593ffc4a98fc2223c36d",
@@ -19716,9 +20274,11 @@
     "content_length": 32704,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "3503f8c420df75ad19cfd4f9dd9c2d093d7d7f2085e6e3a80dfafd053121d819",
@@ -19729,9 +20289,11 @@
     "content_length": 30431,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "55b80ba03e6ef74ce5ff0448225e278fc46d691b71c29160a3ad81835afd9c68",
@@ -19742,9 +20304,11 @@
     "content_length": 52515,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "e5c0543ac2ccee41de6864451dc0d24778594231a6755782d58d664c372e1933",
@@ -19755,9 +20319,11 @@
     "content_length": 36317,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "ed8c442456d391e07b144035ac677df88e7e20fd52f1f7c8bb27a94df727fd14",
@@ -19768,9 +20334,11 @@
     "content_length": 37582,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "84d284a04fd90b06e576dcd1e3479cf5f285bc0501d922d9b5ddee7b1cf6149a",
@@ -19781,9 +20349,11 @@
     "content_length": 25903,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "40dc31328b859e1a06adec48f17686b09a5b44b85c4c76de2a9240fadd0a4732",
@@ -19794,9 +20364,11 @@
     "content_length": 25473,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "ebda5f3d530a539fd21bd4e0eeec210bcd1b91d13357ebc2c78e1b34609a142a",
@@ -19809,7 +20381,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "73327f5acb3bb4ca83af24cc276a9cc21d141bfa509fe1ebd5f703fb874f06da",
@@ -19820,9 +20394,11 @@
     "content_length": 26512,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "3750cb28d3aa382c73a2db06289e72d02646b98d74974530ef31115702098b13",
@@ -19833,9 +20409,11 @@
     "content_length": 44922,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "36821437cd4c9e4dcd09c3195ada9201dd43393ea168c8dcb5d830809070c75c",
@@ -19846,9 +20424,11 @@
     "content_length": 82474,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "70f517953d0fbf616a2bd6c1a1c89cb8dbd6a37bd779ded6bd1fcffc31054a89",
@@ -19859,9 +20439,11 @@
     "content_length": 25187,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "d8e7a73f20f07e7816b983f3c190778ea0949392ae9c75deb9f834e8cdaaf027",
@@ -19872,9 +20454,11 @@
     "content_length": 46729,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "6b0a249c500dd8aa9a97fb93c8aca37a2d3d9d07ca54871d7392e71e95a9ed5d",
@@ -19887,7 +20471,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 1,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "5dd23636c2b325370ed7c4f2df9925e5b5903decc5a12fa274fa79e486173444",
@@ -19900,7 +20486,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "7f9d614d81ff8a72fcad797d8dd663564907a6ff56abc7fbf0655acc86f631d4",
@@ -19911,9 +20499,11 @@
     "content_length": 45223,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "5636f35700777f4573e634d87d5181235ec8c7134e9870f0ea523c280bccec0d",
@@ -19938,9 +20528,11 @@
     "content_length": 30908,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "6d2d666e0855d4a78504b82571c00397c8716faa9d1a2705cbb871f54e052014",
@@ -19951,9 +20543,11 @@
     "content_length": 32739,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "cda8c1226a5e12576be49cd9824e7591618774d39fc20d71b9dae6b3b2472229",
@@ -19964,9 +20558,11 @@
     "content_length": 6012,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "200106aab1c7df238a1a54355ab44991a6f4659245c3a307bec29466f846239c",
@@ -19977,9 +20573,11 @@
     "content_length": 35346,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "5e6ced9597193a292ca68cf569b9947912e938c5a90c8b7267001219fe358504",
@@ -19990,9 +20588,11 @@
     "content_length": 36822,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "46ebf57840358f2e64ee87f60a3e6d93ef4df3668fcc05d4fe566c5abfc83761",
@@ -20003,9 +20603,11 @@
     "content_length": 28319,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "954fab0c5469325987d5eedc6058ea746dd191ed9859a3bbd25699e0a41cc13e",
@@ -20016,9 +20618,11 @@
     "content_length": 14397,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "6d7fd0d1f8666332a7214680fe94a077bb1970809ddb354b0fc9a1caaa3357a3",
@@ -20029,9 +20633,11 @@
     "content_length": 11763,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "63f6f06ffce67fa03f812016ea9a2bd8c14cba772bb367bbd98ca0d41f73a31d",
@@ -20042,9 +20648,11 @@
     "content_length": 9530,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "a3fe71c1b65603c8fa1a646dd4ef333d951dbcc53b7720a7dc1397a89660cc2c",
@@ -20055,9 +20663,11 @@
     "content_length": 11962,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "7c757474f30bd2b2dd5beccf7c0223928b9a273a3359bcb06157fb7c207cb1dd",
@@ -20068,9 +20678,11 @@
     "content_length": 14360,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "fd61d25f7d11d17950813a70ac2fed45d6802edb626c2d70f936d2e1e16959de",
@@ -20081,9 +20693,11 @@
     "content_length": 14749,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "0e1e009323134d8865372b2dd90a6abe7bca31d9d421657d098cd619e360a257",
@@ -20094,9 +20708,11 @@
     "content_length": 14393,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "12663810efc894b2f530c542c6405510083393be146b3aa7c62147c8d77ebaf8",
@@ -20107,9 +20723,11 @@
     "content_length": 11737,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "90553e45afc453e65f9d8d435e976920141627f23fb505cfba2c269091281edb",
@@ -20120,9 +20738,11 @@
     "content_length": 14768,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "bfd4e29762fe862647674a3d8bd2a4b697813aa054982f9aa58d61c7c110fc3a",
@@ -20133,9 +20753,11 @@
     "content_length": 9395,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "6c11bf534dc5e5fc55316da7885a6f977b280d75bcf0acc1097ec78c6e64ba2b",
@@ -20146,9 +20768,11 @@
     "content_length": 55102,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "01e5cd3d0444d9b5b7e7c7878e974924ce1bcede7c445f584d2caf4c6c8f6083",
@@ -20159,9 +20783,11 @@
     "content_length": 28274,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "f4eb0fcfae5ca759c721c177b0dd63f6d8a187897fb1750264bcbc7a93386173",
@@ -20203,7 +20829,9 @@
     "questions_generated": false,
     "pii_redactions": 0,
     "cleaning_status": "kept",
-    "cleaning_reason": "duplicate (minhash)"
+    "cleaning_reason": "duplicate (minhash)",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "81a021f5b9d88a3376790323d5038b941779089c72073f0f6598865bc853ba4b",
@@ -20240,9 +20868,11 @@
     "content_length": 9644,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "2e3e0879d25eaaeb5ab85fdd5a9661228e2fdd09431790938e1df31e6c96567e",
@@ -20267,9 +20897,11 @@
     "content_length": 4612,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "8b1f139453c10ef9bb72c8330461b358cff2891bf034bf2da9ba2fefe69e47f2",
@@ -20296,7 +20928,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "5b135f6c10663be58e74befdca411b8ba7e29d2c1e62a0d3d34efac69723ba5f",
@@ -20309,7 +20943,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "c962e3c4d7d7fe33e2a485acf1cd0fa3629dcfa5cb73e5a9404d43bdfbb51d77",
@@ -20333,9 +20969,11 @@
     "content_length": 31484,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "61e6ce1f8d3303045612de44b081901cb317c6242ef93797b14b56631fa587df",
@@ -20346,9 +20984,11 @@
     "content_length": 19971,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "264c0cf54a715642f4e0c91ac5e3a216aa8e2e2a6665b9052d5b726afad26478",
@@ -20373,9 +21013,11 @@
     "content_length": 16992,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "0566b97d7b21efc3305ad5bf7257a58a2de2a76103e036d382167a2d5a7d1144",
@@ -20400,9 +21042,11 @@
     "content_length": 17376,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "8a56c52bbd42036ea957e706df3bcc7278f968bd41ff38996e7a95f5a732cf10",
@@ -20441,9 +21085,11 @@
     "content_length": 28665,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "3771d485797fda2135bc47d05a16f46c56ec435213cd2aa5d010a63da19f3488",
@@ -20468,9 +21114,11 @@
     "content_length": 11859,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "abc60a18ade477c20c8d8694ec00e72f562f3302448c41acbeacfb3bb7d44c5b",
@@ -20495,9 +21143,11 @@
     "content_length": 32655,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "15412bdf3b679c22c98776fca8642e52034c1771c7fe0c15fc7d17fd09d227bf",
@@ -20510,7 +21160,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "42e6ba217a763ee140ec13a8c23d74e7c400f1f6ade4860248fe3bd581d9c954",
@@ -20521,9 +21173,11 @@
     "content_length": 25159,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "1c555b0fc2bbb59b4efcdbf3a98324885079199b878c085a5119571668038dc5",
@@ -20547,9 +21201,11 @@
     "content_length": 29517,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "4d27bd1af82a9b7946e83a86f21613da955599534fe8aae1159cedcafdbc0b4b",
@@ -20560,9 +21216,11 @@
     "content_length": 26527,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "4bb8cb7e2b06c254561f81abde321f99fb226e0f011dcc731ea3e9f8bc284ebe",
@@ -20575,7 +21233,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "470bb4153481066b4013b45632e74075c06f2d777a509a00201840ff100f315d",
@@ -20588,7 +21248,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "f4595ac59439542cb9606409c59250b7d43c2953ede4663156e0bccf5b4c4814",
@@ -20601,7 +21263,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "9f82c60f37a28084f697240261c0ff83705ad25ab3ffd5def42dc7b2e3cce724",
@@ -20612,9 +21276,11 @@
     "content_length": 42371,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "bc05243091b68056d75d270d56c10db11e26caf26e14cb813a81b90a5be5b881",
@@ -20625,9 +21291,11 @@
     "content_length": 13325,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "3203c509e42b73fd23b8df600e78be0a411edf4e384210181d75aae5de750e50",
@@ -20638,9 +21306,11 @@
     "content_length": 35008,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "9dc77756a207356108874126867d5444a12ead7dc3506f884d6005d043ee04a4",
@@ -20651,9 +21321,11 @@
     "content_length": 33454,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "591456c2fc95fdbddee2fede16e7f9a986ce0abf1a816841734f58ad635109b7",
@@ -20664,9 +21336,11 @@
     "content_length": 27034,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "9a30fed07394ea1b05a4add67d4032a6563ee400b5723ff20ae6b530a0c4965a",
@@ -20679,7 +21353,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "1c39b511bc0e6d7595e4efdcba3a0ab1938cec94a5bd348544850eda04b2db6f",
@@ -20692,7 +21368,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "8af4d446cda663aec400c3e3d33a358e7ecdcd0397f51da790874a8a0d37f8d1",
@@ -20705,7 +21383,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "9bb1c13a311b996243f22e7134bce349dbb8a30a08ad73515d4e15162826c883",
@@ -20716,9 +21396,11 @@
     "content_length": 20464,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "60c7d6b75c3a321bde283b38bee302ab1088e0b5d7c591f63a167033f767485d",
@@ -20729,9 +21411,11 @@
     "content_length": 26356,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "bc760d56688af4eeb664164d17e2c86b67bc7c767d41feb1d0c436a7abe3bab6",
@@ -20742,9 +21426,11 @@
     "content_length": 33562,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "11ad86e35d5243bdc60ec0857b847e265a9c25b432d421faa6be1e47015a94e0",
@@ -20770,7 +21456,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "4796e8ed71fa5b83cd90061b15de53e071060c7e5edf73851143060c281678d8",
@@ -20794,10 +21482,12 @@
     "content_length": 20052,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
     "cleaning_status": "kept",
-    "cleaning_reason": "duplicate (minhash)"
+    "cleaning_reason": "duplicate (minhash)",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "f3e114029772ad19fb7fe1a8a5cb4ef2d8b125336634a5c66010f87298502073",
@@ -20810,7 +21500,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "4391d43525a930496d7b8a093b1e4f7e9f1e922013cd5c00d1940a32d2107518",
@@ -20821,9 +21513,11 @@
     "content_length": 4733,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "558578e6ade27c41eefde7a5723f90f65fb9855d04f87686c106a067680cd81d",
@@ -20834,9 +21528,11 @@
     "content_length": 22852,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "UTN",
+    "llm_processed": true
   },
   {
     "hash": "c384bf92057647031ec84af954da48778151d4455dda08c79b5688d50259b00d",
@@ -20847,9 +21543,11 @@
     "content_length": 46588,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "8dc24dead85d42e6accf879736978e2234def6d8c9cb219c5f53d247c4a43b27",
@@ -20860,10 +21558,12 @@
     "content_length": 10879,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
     "cleaning_status": "kept",
-    "cleaning_reason": "duplicate (minhash)"
+    "cleaning_reason": "duplicate (minhash)",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "3f0cb905ad585aba7baf94251b3bdacf31faf8fed6f42b02868c8888243add7c",
@@ -20874,9 +21574,11 @@
     "content_length": 90957,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "fb01887fd309eb7da5c3e4734a1ca860885a069e27fe57863d59fe4b2adaed2a",
@@ -20887,9 +21589,11 @@
     "content_length": 33314,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "00a0f81e79b50ca60e5a43f44873b55e324ad422ccf2edc270587a571e348f89",
@@ -20902,7 +21606,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "3e41409a803b0d561b04aa9d297107234731e885d7ee11afa36aa56919f323da",
@@ -20915,7 +21621,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "65ab992899f76ca405c4b7834898d07ba8c7220a73e90b2a55b3a1cf0da0da48",
@@ -20926,9 +21634,11 @@
     "content_length": 19258,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "169206c4cf16bbb57baede04379f4c04c9dd312f7664dbd035a5a056a01e63bf",
@@ -20939,9 +21649,11 @@
     "content_length": 17387,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "1f7aa5f44254c29e6f228877eb79873d5cd54f5b98c0eeebf64d172f8c862883",
@@ -20952,9 +21664,11 @@
     "content_length": 19088,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "853198b9c61319b27120b63e50e8d6adc64bcdba975471e371fedc8c9e7fc1c9",
@@ -20965,9 +21679,11 @@
     "content_length": 11962,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "117581cfa7330d5af4bc636bb37b21e8ac2374714171006e4632806ba300bdec",
@@ -20978,9 +21694,11 @@
     "content_length": 14659,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "56197d2abbc26c654ffbadb6a3596d62e671c3a6dff8ac0c14e485c95f4280bd",
@@ -20991,9 +21709,11 @@
     "content_length": 13605,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "50fa72c3045138fa187cd25de64e618d8c77d0c599da9d0c6e164751b7ec2ad2",
@@ -21004,9 +21724,11 @@
     "content_length": 13341,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "ac70123847c267c0c88904b78b1e9b445f3e54f41b491da5207d5b8514732344",
@@ -21017,9 +21739,11 @@
     "content_length": 13438,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "ece65e4be78202d82568ad9c7382ba28faef36f23ee6d76205514b82cb6b36ba",
@@ -21030,9 +21754,11 @@
     "content_length": 10970,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "e220d05b9537df6dd0f9a4a651f7620083b81569c717479be0c69c7b439b9e23",
@@ -21043,9 +21769,11 @@
     "content_length": 13262,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "4161ba61fff4fe474a038d01f9d3c940426db1be80814bb222c990f0710da3c0",
@@ -21056,9 +21784,11 @@
     "content_length": 11360,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "8c4c56f26e65fcf263d49d0ee9847e4c33b2008c72c19fce4eeca35c7bc557d9",
@@ -21069,9 +21799,11 @@
     "content_length": 12283,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "a906c3f7a57aea268cfe5a69a6e355935a9be57135cf6150f52db82eeb5d71f1",
@@ -21082,9 +21814,11 @@
     "content_length": 19341,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "e6072929106bf22a10239969cf454f4351f790f210281942c6526e8f3dd6a998",
@@ -21095,9 +21829,11 @@
     "content_length": 17968,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 2,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "5614325ab4f957df4f4757d38b406a2388ea83cd547397a4aa7ef9f48b99345d",
@@ -21108,9 +21844,11 @@
     "content_length": 8773,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "792b8207bfa7f7bd324c7baa4dd1dddfffb86a71a154f41e889ac9d8642a4f6a",
@@ -21121,9 +21859,11 @@
     "content_length": 26632,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "0e05a7901bb28dabe0f0660997abe3e5a6b499c9eea4939930d2eb94e4b57d7e",
@@ -21134,9 +21874,11 @@
     "content_length": 26987,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "413f7028e1a19a74f6893eb145d351160cd61e8b91bce82dec97a42377317652",
@@ -21147,9 +21889,11 @@
     "content_length": 25616,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Germany",
+    "llm_processed": true
   },
   {
     "hash": "a1e7a0aca1a45fd40626f97196bad50d12f397e7c84f5ef23ebe7083395f06c3",
@@ -21162,7 +21906,9 @@
     "max_depth": 1,
     "questions_generated": false,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Other",
+    "llm_processed": true
   },
   {
     "hash": "fdb3640474d574251fea6e60349d9dcbf4d93728bafe636a1ad4d6626e999809",

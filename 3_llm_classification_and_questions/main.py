@@ -28,7 +28,7 @@ from tqdm.auto import tqdm
 load_dotenv()
 
 VALID_CATEGORIES = {"UTN", "Germany", "Nuremberg", "Studies"}
-IRRELEVANT_CATEGORY = "Other"
+IRRELEVANT_CATEGORY = "Irrelevant"
 
 
 def load_config(
@@ -275,46 +275,85 @@ def needs_processing(entry: dict, processed_hashes: set[str]) -> bool:
     return True
 
 
-def filter_generated_qa(output_file: str, blacklist_terms: list[str]) -> None:
-    """Filter out generated Q&A containing excluded keywords."""
+def filter_generated_qa(output_file: str, config: dict) -> None:
+    """Filter out generated Q&A containing excluded keywords, unless they contain whitelisted terms.
+    
+    The filtering is case-sensitive. Before filtering, it pulls back all previously 
+    removed questions from removed.json to re-evaluate them (in case the rules changed).
+    """
     out_path = Path(output_file)
-    if not out_path.exists() or not blacklist_terms:
+    removed_path = Path(str(out_path).replace(".jsonl", "_removed.json"))
+    
+    filtering_cfg = config.get("filtering", {})
+    blacklist_terms = filtering_cfg.get("blacklist", [])
+    whitelist_terms = filtering_cfg.get("whitelist", [])
+
+    if not out_path.exists():
         return
 
-    # Use the requested filename extension
-    removed_file = str(out_path).replace(".jsonl", "_removed.json")
+    # 1. Pull back ALL removed questions first
+    all_questions = []
+    
+    # Load current active questions
+    with open(out_path, "r", encoding="utf-8") as f:
+        for line in f:
+            if line.strip():
+                all_questions.append(line)
+                
+    # Load previously removed questions
+    if removed_path.exists():
+        print(f"Retrieving previously removed questions from {removed_path} for re-evaluation...")
+        with open(removed_path, "r", encoding="utf-8") as f:
+            for line in f:
+                if line.strip():
+                    all_questions.append(line)
+        # Clear the removed file since we are re-evaluating everything
+        open(removed_path, "w").close()
 
-    # Regular expression for blacklisted terms
-    # Combine the words from the config into an OR pattern
-    pattern = re.compile(
-        f"({'|'.join(blacklist_terms)})",
-        re.IGNORECASE
-    )
+    if not blacklist_terms:
+        # If no blacklist, just write everything back to output and exit
+        with open(out_path, "w", encoding="utf-8") as f:
+            f.writelines(all_questions)
+        return
 
+    # 2. Re-evaluate everything with current (case-sensitive) rules
     kept_lines = []
     removed_lines = []
 
-    with open(output_file, "r", encoding="utf-8") as f:
-        for line in f:
-            if pattern.search(line):
-                removed_lines.append(line)
-            else:
-                kept_lines.append(line)
-
-    if removed_lines:
-        print(f"\nFiltering output... Found {len(removed_lines)} Q&A pairs containing excluded terms.")
+    for line in all_questions:
+        # Check blacklist (case-sensitive)
+        has_blacklist = False
+        for term in blacklist_terms:
+            if term in line:
+                has_blacklist = True
+                break
         
-        # Write back kept lines to original file
-        with open(output_file, "w", encoding="utf-8") as f:
-            f.writelines(kept_lines)
+        # Check whitelist (overrides blacklist, also case-sensitive)
+        has_whitelist = False
+        if has_blacklist:
+            for term in whitelist_terms:
+                if term in line:
+                    has_whitelist = True
+                    break
+
+        if has_blacklist and not has_whitelist:
+            removed_lines.append(line)
+        else:
+            kept_lines.append(line)
+
+    # 3. Save the results
+    # Write kept lines to original file
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.writelines(kept_lines)
             
-        # Append removed lines to the removed file
-        with open(removed_file, "a", encoding="utf-8") as f:
+    if removed_lines:
+        print(f"\nFiltering output... {len(kept_lines)} kept, {len(removed_lines)} removed (case-sensitive).")
+        # Write removed lines to the removed file
+        with open(removed_path, "w", encoding="utf-8") as f:
             f.writelines(removed_lines)
-            
-        print(f"Removed items have been moved to: {removed_file}")
+        print(f"Removed items are in: {removed_path}")
     else:
-        print("\nNo excluded terms found in the generated Q&A pairs. File is clean.")
+        print("\nAll questions passed the filtering rules. removed.json is empty.")
 
 
 def main():
@@ -354,8 +393,7 @@ def main():
         print("\nAll entries are already processed. Nothing to do.")
         
         # Run post-processing filter even if no new items were processed
-        blacklist_terms = config.get("filtering", {}).get("blacklist", [])
-        filter_generated_qa(output_file, blacklist_terms)
+        filter_generated_qa(output_file, config)
         return
 
     print(f"\nInitializing {provider} client...")
@@ -447,8 +485,7 @@ def main():
     print(f"Output saved to: {output_file}")
     
     # Run post-processing filter
-    blacklist_terms = config.get("filtering", {}).get("blacklist", [])
-    filter_generated_qa(output_file, blacklist_terms)
+    filter_generated_qa(output_file, config)
 
 
 if __name__ == "__main__":

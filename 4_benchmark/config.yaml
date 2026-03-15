@@ -22,7 +22,7 @@ answer_llm:
   # HuggingFace model settings (downloaded/cached locally)
   huggingface:
     # Model name from HuggingFace Hub (e.g., "Qwen/Qwen3-0.6B")
-    model: "Qwen/Qwen3-0.6B"
+    model: "Qwen_Qwen3-0.6B-SFT-v1"
     # Local directory to cache models
     model_dir: "model"
     # Device: "auto", "cpu", "cuda", "mps"

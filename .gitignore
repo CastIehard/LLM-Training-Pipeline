@@ -1,3 +1,7 @@
+# Lora and LLM
+5_sft_on_qna_peft/adapters
+5_sft_on_qna_peft/data
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

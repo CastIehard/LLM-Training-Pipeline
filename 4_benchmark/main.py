@@ -415,10 +415,17 @@ def judge_answer(
     ai_answer: str,
 ) -> dict | None:
     """Get judgment from the judge LLM."""
+    # For local huggingface models with <think> tags, remove them for the judge
+    # so it evaluates only the final answer
+    eval_ai_answer = ai_answer
+    if "<think>" in ai_answer and "</think>" in ai_answer:
+        import re
+        eval_ai_answer = re.sub(r"<think>.*?</think>", "", ai_answer, flags=re.DOTALL).strip()
+
     prompt = config["judge_prompt"].format(
         question=question,
         expected_answer=expected,
-        ai_answer=ai_answer,
+        ai_answer=eval_ai_answer,
     )
 
     try:

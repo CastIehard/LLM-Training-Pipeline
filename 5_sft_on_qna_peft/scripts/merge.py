@@ -10,8 +10,6 @@ ADAPTER_PATH = BASE_DIR / "adapters" / "domain_adapter_v2"
 SAVE_PATH = PROJECT_ROOT / "model" / "Qwen_Qwen3-0.6B-SFT-v2"
 
 cmd = [
-    sys.executable,
-    "-m",
     "mlx_lm.fuse",
     "--model", str(MODEL_PATH),
     "--adapter-path", str(ADAPTER_PATH),

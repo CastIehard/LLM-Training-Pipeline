@@ -11,7 +11,7 @@ cmd = [
     "--model",
     str(BASE_DIR.parent / "model/Qwen_Qwen3-0.6B"),
     "--adapter-path",
-    str(BASE_DIR / "adapters/domain_adapter_v2"),
+    str(BASE_DIR / "adapters/domain_adapter"),
     "--data",
     str(BASE_DIR / "data"),
     "--test"

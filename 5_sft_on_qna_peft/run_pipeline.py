@@ -23,7 +23,7 @@ def main():
 
     print("\nTraining Pipeline Complete!")
     print("Run inference with:")
-    print("mlx_lm.generate --model ../model/Qwen_Qwen3-0.6B --adapter-path ./adapters/domain_adapter_v2 --prompt 'your question'")
+    print("mlx_lm.generate --model ../model/Qwen_Qwen3-0.6B --adapter-path ./adapters/domain_adapter --prompt 'your question'")
 
 if __name__ == "__main__":
     main()

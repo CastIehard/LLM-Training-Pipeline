@@ -16,23 +16,49 @@ Supports three providers:
 import json
 import os
 import random
+import re
 import time
 from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
 
+import torch
 import yaml
 from dotenv import load_dotenv
 from openai import OpenAI
 from tenacity import retry, stop_after_attempt, wait_exponential
 from tqdm.auto import tqdm
+from transformers import AutoTokenizer, AutoModelForCausalLM
 
 # HuggingFace model cache (loaded once, reused)
 _hf_model = None
 _hf_tokenizer = None
+_hf_generate_defaults = None
 
 # Load environment variables from .env file
 load_dotenv()
+
+JUDGE_RESPONSE_FORMAT = {
+    "type": "json_schema",
+    "json_schema": {
+        "name": "judge_result",
+        "strict": True,
+        "schema": {
+            "type": "object",
+            "properties": {
+                "score": {
+                    "type": "number",
+                    "enum": [0, 0.5, 1],
+                },
+                "reason": {
+                    "type": "string",
+                },
+            },
+            "required": ["score", "reason"],
+            "additionalProperties": False,
+        },
+    },
+}
 
 
 def load_config(config_path: str = "4_benchmark/config.yaml") -> dict:
@@ -51,26 +77,16 @@ def load_config(config_path: str = "4_benchmark/config.yaml") -> dict:
 
 def load_huggingface_model(llm_config: dict):
     """Load HuggingFace model and tokenizer."""
-    global _hf_model, _hf_tokenizer
+    global _hf_model, _hf_tokenizer, _hf_generate_defaults
 
     if _hf_model is not None:
         return _hf_model, _hf_tokenizer
-
-    try:
-        import torch
-        from transformers import AutoModelForCausalLM, AutoTokenizer
-    except ImportError:
-        raise ImportError(
-            "transformers and torch are required for huggingface provider. "
-            "Install with: pip install transformers torch"
-        )
 
     hf_config = llm_config["huggingface"]
     model_name = hf_config["model"]
     model_dir = Path(hf_config.get("model_dir", "model"))
     local_path = model_dir / model_name.replace("/", "_")
 
-    # Check if model exists locally, otherwise download
     if local_path.exists():
         print(f"  Loading model from local cache: {local_path}")
         load_path = str(local_path)
@@ -79,19 +95,13 @@ def load_huggingface_model(llm_config: dict):
         print(f"  Will be cached to: {local_path}")
         load_path = model_name
 
-    # Load tokenizer
     print("  Loading tokenizer...")
-    tokenizer = AutoTokenizer.from_pretrained(
-        load_path,
-        trust_remote_code=True,
-    )
+    tokenizer = AutoTokenizer.from_pretrained(load_path, trust_remote_code=True)
 
-    # Load model
     print("  Loading model (this may take a while)...")
     device = hf_config.get("device", "auto")
     dtype_str = hf_config.get("dtype", "auto")
 
-    # Map dtype string to torch dtype
     dtype_map = {
         "auto": "auto",
         "float16": torch.float16,
@@ -100,63 +110,62 @@ def load_huggingface_model(llm_config: dict):
     }
     dtype = dtype_map.get(dtype_str, "auto")
 
-    model = AutoModelForCausalLM.from_pretrained(
-        load_path,
-        torch_dtype=dtype,
-        device_map=device,
-        trust_remote_code=True,
-    )
+    model = AutoModelForCausalLM.from_pretrained(load_path, dtype=dtype, device_map=device, trust_remote_code=True)
+    model.eval()
 
-    # Save model locally if downloaded from HuggingFace
+    model = torch.compile(model)
+
+    if tokenizer.pad_token_id is None and tokenizer.eos_token_id is not None:
+        tokenizer.pad_token_id = tokenizer.eos_token_id
+
     if not local_path.exists() and load_path == model_name:
         print(f"  Saving model to: {local_path}")
         local_path.mkdir(parents=True, exist_ok=True)
         model.save_pretrained(local_path)
         tokenizer.save_pretrained(local_path)
 
+    temperature = hf_config.get("temperature", 0.3)
+
     _hf_model = model
     _hf_tokenizer = tokenizer
+    _hf_generate_defaults = {
+        "max_new_tokens": hf_config.get("max_tokens", 500),
+        "temperature": temperature,
+        "do_sample": temperature > 0,
+        "pad_token_id": tokenizer.pad_token_id,
+        "use_cache": True,
+    }
+
     print("  Model loaded successfully!")
     return model, tokenizer
 
 
 def generate_huggingface_response(llm_config: dict, prompt: str) -> str:
     """Generate response using HuggingFace model."""
-    import torch
+    global _hf_generate_defaults
 
     model, tokenizer = load_huggingface_model(llm_config)
-    hf_config = llm_config["huggingface"]
 
-    # Build chat messages
     messages = [{"role": "user", "content": prompt}]
 
-    # Apply chat template if available
     if hasattr(tokenizer, "apply_chat_template"):
-        input_text = tokenizer.apply_chat_template(
+        inputs = tokenizer.apply_chat_template(
             messages,
-            tokenize=False,
+            tokenize=True,
             add_generation_prompt=True,
+            return_tensors="pt",
+            return_dict=True,
         )
     else:
-        input_text = prompt
+        inputs = tokenizer(prompt, return_tensors="pt")
 
-    # Tokenize
-    inputs = tokenizer(input_text, return_tensors="pt")
-    inputs = {k: v.to(model.device) for k, v in inputs.items()}
-
-    # Generate
-    with torch.no_grad():
-        outputs = model.generate(
-            **inputs,
-            max_new_tokens=hf_config.get("max_tokens", 500),
-            temperature=hf_config.get("temperature", 0.3),
-            do_sample=hf_config.get("temperature", 0.3) > 0,
-            pad_token_id=tokenizer.eos_token_id,
-        )
-
-    # Decode only the generated part
+    inputs = inputs.to(model.device)
     input_length = inputs["input_ids"].shape[1]
-    generated_tokens = outputs[0][input_length:]
+
+    with torch.inference_mode():
+        outputs = model.generate(**inputs, **_hf_generate_defaults, )
+
+    generated_tokens = outputs[0, input_length:]
     response = tokenizer.decode(generated_tokens, skip_special_tokens=True)
 
     return response.strip()
@@ -202,18 +211,11 @@ def get_llm_settings(llm_config: dict) -> dict:
 
 def load_qna_data(qna_file: str) -> list[dict]:
     """Load Q&A pairs from JSONL file."""
-    entries = []
     with open(qna_file, "r", encoding="utf-8") as f:
-        for line in f:
-            line = line.strip()
-            if line:
-                entries.append(json.loads(line))
-    return entries
+        return [json.loads(line) for line in f if line.strip()]
 
 
-def sample_questions(
-    qna_data: list[dict], questions_per_category: int, categories: list[str]
-) -> list[dict]:
+def sample_questions(qna_data: list[dict], questions_per_category: int, categories: list[str]) -> list[dict]:
     """Sample questions randomly from each category with unique document constraint.
     
     Ensures that no two questions in the entire benchmark come from the same
@@ -240,12 +242,12 @@ def sample_questions(
         entries = by_category[cat]
         # Shuffle entries within category for random sampling
         random.shuffle(entries)
-        
+
         cat_sampled_count = 0
         for entry in entries:
             if cat_sampled_count >= questions_per_category:
                 break
-                
+
             h = entry.get("hash")
             if h and h not in used_hashes:
                 sampled.append(entry)
@@ -278,21 +280,21 @@ def remove_questions_from_source(qna_file: str, questions_to_remove: list[dict])
     """
     # Load all existing data
     all_data = load_qna_data(qna_file)
-    
+
     # Create a set of unique identifiers (hash + question text) for removal
     to_remove = {
-        (q.get("hash", ""), q.get("question", "")) 
+        (q.get("hash", ""), q.get("question", ""))
         for q in questions_to_remove
     }
-    
+
     # Filter out questions that match the identifiers
     remaining_data = [
-        q for q in all_data 
+        q for q in all_data
         if (q.get("hash", ""), q.get("question", "")) not in to_remove
     ]
-    
+
     removed_count = len(all_data) - len(remaining_data)
-    
+
     # Save the remaining data back to the same file
     if removed_count > 0:
         with open(qna_file, "w", encoding="utf-8") as f:
@@ -308,18 +310,14 @@ def get_answer_with_retry(client: OpenAI, settings: dict, prompt: str) -> str:
     """Get answer from LLM with automatic retry."""
     response = client.chat.completions.create(
         model=settings["model"],
-        messages=[
-            {"role": "user", "content": prompt},
-        ],
+        messages=[{"role": "user", "content": prompt}, ],
         temperature=settings["temperature"],
         max_tokens=settings["max_tokens"],
     )
     return response.choices[0].message.content.strip()
 
 
-def get_answer(
-    client: OpenAI | None, settings: dict, config: dict, question: str, llm_config: dict
-) -> str | None:
+def get_answer(client: OpenAI | None, settings: dict, config: dict, question: str, llm_config: dict) -> str | None:
     """Get answer from the answer LLM."""
     prompt = config["answer_prompt"].format(question=question)
 
@@ -334,92 +332,50 @@ def get_answer(
         return None
 
 
-@retry(wait=wait_exponential(multiplier=1, min=2, max=10), stop=stop_after_attempt(5))
+@retry(wait=wait_exponential(multiplier=0.25, min=0.25, max=2), stop=stop_after_attempt(2))
 def judge_answer_with_retry(client: OpenAI, settings: dict, prompt: str) -> dict:
-    """Judge answer with automatic retry. Includes logic to fix truncated JSON."""
+    """Judge answer with automatic retry using structured JSON output."""
     response = client.chat.completions.create(
         model=settings["model"],
         messages=[
             {
                 "role": "system",
-                "content": "You are a fair evaluator. Always respond with a single, complete, valid JSON object. Do not include any text before or after the JSON.",
+                "content": "You are a fair evaluator.",
             },
             {"role": "user", "content": prompt},
         ],
-        temperature=settings.get("temperature", 0.0),
-        max_tokens=512, # Increased max_tokens for reasoning
+        temperature=0.0,
+        max_tokens=512,
+        response_format=JUDGE_RESPONSE_FORMAT,
+        extra_body={
+            "chat_template_kwargs": {"enable_thinking": False},
+        },
     )
 
     content = response.choices[0].message.content.strip()
-
-    # Improved JSON extraction
-    try:
-        # 1. Try simple json.loads first
-        result = json.loads(content)
-    except json.JSONDecodeError as base_e:
-        # 2. Try to find any curly braces
-        import re
-        json_match = re.search(r"(\{.*\})", content, re.DOTALL)
-        if json_match:
-            try:
-                result = json.loads(json_match.group(1))
-            except json.JSONDecodeError as inner_e:
-                # 3. Handle truncation
-                if "Unterminated string" in str(inner_e) or "Expecting value" in str(inner_e):
-                    fixed_content = json_match.group(1).strip()
-                    if fixed_content.count('"') % 2 != 0:
-                        fixed_content += '"'
-                    if not fixed_content.endswith("}"):
-                        fixed_content += "}"
-                    try:
-                        result = json.loads(fixed_content)
-                    except:
-                        raise inner_e
-                else:
-                    raise inner_e
-        else:
-            raise base_e
+    result = json.loads(content)
 
     # Validate result is a dictionary
     if not isinstance(result, dict):
         raise ValueError(f"Expected JSON object, got {type(result)}")
-    
-    # Extract and validate score
-    score = result.get("score", 0)
-    if not isinstance(score, (int, float)):
-        try:
-            score = float(score)
-        except (ValueError, TypeError):
-            score = 0.0
 
-    # Map to valid [0, 0.5, 1] scale
-    if score not in [0, 0.5, 1, 0.0, 1.0]:
-        if score < 0.25:
-            result["score"] = 0.0
-        elif score < 0.75:
-            result["score"] = 0.5
-        else:
-            result["score"] = 1.0
-    else:
-        result["score"] = float(score)
+    # Extract and validate score.
+    try:
+        score = float(result.get("score", 0))
+    except (ValueError, TypeError):
+        score = 0.0
 
+    result["score"] = 0.0 if score < 0.25 else 0.5 if score < 0.75 else 1.0
+    result["reason"] = str(result.get("reason", "")).strip()
     return result
 
 
-def judge_answer(
-    client: OpenAI,
-    settings: dict,
-    config: dict,
-    question: str,
-    expected: str,
-    ai_answer: str,
-) -> dict | None:
+def judge_answer(client: OpenAI, settings: dict, config: dict, question: str, expected: str, ai_answer: str, ) -> dict | None:
     """Get judgment from the judge LLM."""
     # For local huggingface models with <think> tags, remove them for the judge
     # so it evaluates only the final answer
     eval_ai_answer = ai_answer
     if "<think>" in ai_answer and "</think>" in ai_answer:
-        import re
         eval_ai_answer = re.sub(r"<think>.*?</think>", "", ai_answer, flags=re.DOTALL).strip()
 
     prompt = config["judge_prompt"].format(
@@ -445,11 +401,11 @@ def create_results_dir(base_dir: str) -> Path:
 
 
 def save_summary(
-    results_dir: Path,
-    answer_config: dict,
-    judge_config: dict,
-    results: list[dict],
-    duration: float,
+        results_dir: Path,
+        answer_config: dict,
+        judge_config: dict,
+        results: list[dict],
+        duration: float,
 ) -> None:
     """Save summary info to file."""
     answer_settings = get_llm_settings(answer_config)
@@ -516,9 +472,7 @@ def save_summary(
     print("\n" + "=" * 60)
     print("BENCHMARK RESULTS")
     print("=" * 60)
-    print(
-        f"Answer Model: {answer_settings['model']} (temp={answer_settings['temperature']})"
-    )
+    print(f"Answer Model: {answer_settings['model']} (temp={answer_settings['temperature']})")
     print(f"Judge Model: {judge_settings['model']}")
     print(f"Duration: {duration:.2f}s")
     print("-" * 60)
@@ -530,14 +484,10 @@ def save_summary(
     print(f"Failed: {failed}")
     print("-" * 60)
     print("By Category:")
-    print(
-        f"  {'Category':<15} {'Avg':>8} {'Full':>6} {'Part':>6} {'Wrong':>6} {'Count':>6}"
-    )
-    print(f"  {'-'*15} {'-'*8} {'-'*6} {'-'*6} {'-'*6} {'-'*6}")
+    print(f"  {'Category':<15} {'Avg':>8} {'Full':>6} {'Part':>6} {'Wrong':>6} {'Count':>6}")
+    print(f"  {'-' * 15} {'-' * 8} {'-' * 6} {'-' * 6} {'-' * 6} {'-' * 6}")
     for cat, data in summary["stats_by_category"].items():
-        print(
-            f"  {cat:<15} {data['average']:>7.1%} {data['full_correct']:>6} {data['partial']:>6} {data['wrong']:>6} {data['count']:>6}"
-        )
+        print(f"  {cat:<15} {data['average']:>7.1%} {data['full_correct']:>6} {data['partial']:>6} {data['wrong']:>6} {data['count']:>6}")
 
 
 def save_detailed_results(results_dir: Path, results: list[dict]) -> None:
@@ -579,7 +529,7 @@ def main():
         print(f"(To regenerate, delete {benchmark_file})")
         benchmark_questions = load_qna_data(str(benchmark_file))
         print(f"Loaded {len(benchmark_questions)} questions from existing benchmark")
-        
+
         # Ensure benchmark questions are removed from source (in case the run was interrupted)
         remove_questions_from_source(qna_file, benchmark_questions)
     else:
@@ -596,7 +546,7 @@ def main():
         # Save benchmark file
         save_benchmark_file(str(benchmark_file), benchmark_questions)
         print(f"Saved to: {benchmark_file}")
-        
+
         # Remove sampled benchmark questions from the source JSONL data file
         remove_questions_from_source(qna_file, benchmark_questions)
 
@@ -623,9 +573,7 @@ def main():
         hash_id = entry.get("hash", "")
 
         # Get answer from test LLM
-        ai_answer = get_answer(
-            answer_client, answer_settings, config, question, answer_config
-        )
+        ai_answer = get_answer(answer_client, answer_settings, config, question, answer_config)
 
         if ai_answer is None:
             results.append(
@@ -642,9 +590,7 @@ def main():
             continue
 
         # Judge the answer
-        judgment = judge_answer(
-            judge_client, judge_settings, config, question, expected_answer, ai_answer
-        )
+        judgment = judge_answer(judge_client, judge_settings, config, question, expected_answer, ai_answer)
 
         if judgment is None:
             results.append(

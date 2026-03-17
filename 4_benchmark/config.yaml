@@ -22,7 +22,7 @@ answer_llm:
   # HuggingFace model settings (downloaded/cached locally)
   huggingface:
     # Model name from HuggingFace Hub (e.g., "Qwen/Qwen3-0.6B")
-    model: "Qwen_Qwen3-0.6B-SFT-v1"
+    model: "Qwen/Qwen3-0.6B"
     # Local directory to cache models
     model_dir: "model"
     # Device: "auto", "cpu", "cuda", "mps"
@@ -48,7 +48,7 @@ judge_llm:
   # Local LLM settings (LM Studio)
   local:
     base_url: "http://localhost:1234/v1"
-    model: "openai/gpt-oss-20b"
+    model: "qwen/qwen3.5-9b"
     temperature: 0.0
     max_tokens: 100
 
@@ -59,7 +59,7 @@ benchmark:
   
   # Categories to include (leave empty for all)
   # categories: ["UTN", "Germany", "Nuremberg", "Studies", "Other"]
-  categories: []
+  categories: [ ]
 
 # Answer Prompt (sent to the answer LLM)
 answer_prompt: |
@@ -80,14 +80,6 @@ judge_prompt: |
   
   Think step-by-step about what parts of the expected answer are present and what might be incorrect.
   Summarize your thinking and then provide the final score.
-  
-  Your response MUST be a JSON object with this exact structure:
-  {{
-    "reasoning": "<your step-by-step thinking here>",
-    "score": <number (0, 0.5, or 1)>,
-    "reason": "<one sentence summary of the score>"
-  }}
-  Ensure the JSON is complete and well-formatted. Do not truncate.
 
 # Data paths
 data:

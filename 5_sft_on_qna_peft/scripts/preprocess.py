@@ -2,19 +2,16 @@ import json
 import random
 from collections import defaultdict
 from pathlib import Path
-import os
 
-# Adapt paths to the actual project structure
 BASE_DIR = Path(__file__).resolve().parent.parent
 PROJECT_ROOT = BASE_DIR.parent
 
-INPUT = PROJECT_ROOT / "data" / "llm_qna.jsonl"
-OUT_DIR = BASE_DIR / "data"
-os.makedirs(OUT_DIR, exist_ok=True)
+INPUT_PATH = PROJECT_ROOT / "data" / "llm_qna.jsonl"
+OUTPUT_DIR = BASE_DIR / "data"
 
-TRAIN_OUT = OUT_DIR / "train.jsonl"
-VALID_OUT = OUT_DIR / "valid.jsonl"
-TEST_OUT  = OUT_DIR / "test.jsonl"
+TRAIN_PATH = OUTPUT_DIR / "train.jsonl"
+VALID_PATH = OUTPUT_DIR / "valid.jsonl"
+TEST_PATH = OUTPUT_DIR / "test.jsonl"
 
 SYSTEM_PROMPT = (
     "You answer questions factually and concisely. "
@@ -22,82 +19,108 @@ SYSTEM_PROMPT = (
     "If the answer is unknown, say so clearly."
 )
 
-rows = []
-with open(INPUT, "r") as f:
-    for line in f:
-        rows.append(json.loads(line))
+# Qwen3 can disable thinking by adding /no_think,
+NO_THINK_SUFFIX = " /no_think"
+RANDOM_SEED = 42
+TRAIN_RATIO = 0.8
+VALID_RATIO = 0.1
 
-groups = defaultdict(list)
 
-# Use 'hash' if available, otherwise just use a generated sequence or an available ID
-for i, r in enumerate(rows):
-    # Depending on format, hash could be missing
-    h = r.get("hash", str(i))
-    groups[h].append(r)
+def load_rows(path: Path) -> list[dict]:
+    with path.open("r", encoding="utf-8") as file:
+        return [json.loads(line) for line in file]
 
-hashes = list(groups.keys())
-random.seed(42)
-random.shuffle(hashes)
 
-n = len(hashes)
+def group_rows(rows: list[dict]) -> dict[str, list[dict]]:
+    grouped = defaultdict(list)
+    for index, row in enumerate(rows):
+        key = row.get("hash", str(index))
+        grouped[key].append(row)
+    return grouped
 
-train_hash = set(hashes[:int(0.8*n)])
-valid_hash = set(hashes[int(0.8*n):int(0.9*n)])
-test_hash  = set(hashes[int(0.9*n):])
 
-train = []
-valid = []
-test = []
+def split_keys(keys, seed: int = RANDOM_SEED,) -> tuple[set[str], set[str], set[str]]:
+    shuffled_keys = list(keys)
+    rng = random.Random(seed)
+    rng.shuffle(shuffled_keys)
 
-def format_example(r):
-    # Handle the structure if it doesn't match exactly
-    question = r.get("question", r.get("user", ""))
-    answer = r.get("answer", r.get("assistant", ""))
-    return {
-        "messages":[
-            {"role":"system","content":SYSTEM_PROMPT},
-            {"role":"user","content":question},
-            {"role":"assistant","content":answer}
-        ]
-    }
+    total = len(shuffled_keys)
+    train_end = int(total * TRAIN_RATIO)
+    valid_end = int(total * (TRAIN_RATIO + VALID_RATIO))
 
-for h,items in groups.items():
-    for r in items:
-        example = format_example(r)
-        
-        # Validation Check 3
-        assert example["messages"][0]["role"] == "system"
-        assert example["messages"][1]["role"] == "user"
-        assert example["messages"][2]["role"] == "assistant"
+    return (
+        set(shuffled_keys[:train_end]),
+        set(shuffled_keys[train_end:valid_end]),
+        set(shuffled_keys[valid_end:]),
+    )
 
-        if h in train_hash:
-            train.append(example)
-        elif h in valid_hash:
-            valid.append(example)
-        else:
-            test.append(example)
 
-def write(path,data):
-    with open(path,"w") as f:
-        for row in data:
-            f.write(json.dumps(row,ensure_ascii=False)+"\n")
+def format_example(row: dict) -> dict:
+    question = row.get("question", row.get("user", ""))
+    answer = row.get("answer", row.get("assistant", ""))
 
-write(TRAIN_OUT,train)
-write(VALID_OUT,valid)
-write(TEST_OUT,test)
+    messages = [
+        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "user", "content": f"{question}{NO_THINK_SUFFIX}"},
+        {"role": "assistant", "content": answer},
+    ]
 
-print("train samples:",len(train))
-print("valid samples:",len(valid))
-print("test samples:",len(test))
+    assert [message["role"] for message in messages] == ["system", "user", "assistant"]
 
-# Validation Check 1
-total = len(train) + len(valid) + len(test)
-print(f"train %: {len(train)/total:.2f}")
-print(f"valid %: {len(valid)/total:.2f}")
-print(f"test %: {len(test)/total:.2f}")
+    return {"messages": messages}
 
-# Validation Check 2
-assert len(train_hash.intersection(valid_hash)) == 0
-assert len(train_hash.intersection(test_hash)) == 0
-assert len(valid_hash.intersection(test_hash)) == 0
-print("No hashes intersect between splits.")
+
+def assign_examples(groups: dict[str, list[dict]], train_keys: set[str], valid_keys: set[str], ) -> tuple[list[dict], list[dict], list[dict]]:
+    train, valid, test = [], [], []
+
+    for group_key, rows in groups.items():
+        target = (train if group_key in train_keys else valid if group_key in valid_keys else test)
+        target.extend(format_example(row) for row in rows)
+
+    return train, valid, test
+
+
+def write_jsonl(path: Path, rows: list[dict]) -> None:
+    with path.open("w", encoding="utf-8") as file:
+        for row in rows:
+            file.write(json.dumps(row, ensure_ascii=False) + "\n")
+
+
+def print_summary(train: list[dict], valid: list[dict], test: list[dict]) -> None:
+    total = len(train) + len(valid) + len(test)
+
+    print("train samples:", len(train))
+    print("valid samples:", len(valid))
+    print("test samples:", len(test))
+
+    print(f"train %: {len(train) / total:.2f}")
+    print(f"valid %: {len(valid) / total:.2f}")
+    print(f"test %: {len(test) / total:.2f}")
+
+
+def validate_splits(train_keys: set[str], valid_keys: set[str], test_keys: set[str], ) -> None:
+    assert train_keys.isdisjoint(valid_keys)
+    assert train_keys.isdisjoint(test_keys)
+    assert valid_keys.isdisjoint(test_keys)
+    print("No hashes intersect between splits.")
+
+
+def main() -> None:
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    rows = load_rows(INPUT_PATH)
+    groups = group_rows(rows)
+
+    train_keys, valid_keys, test_keys = split_keys(groups.keys())
+    train, valid, test = assign_examples(groups, train_keys, valid_keys)
+
+    write_jsonl(TRAIN_PATH, train)
+    write_jsonl(VALID_PATH, valid)
+    write_jsonl(TEST_PATH, test)
+
+    print_summary(train, valid, test)
+    validate_splits(train_keys, valid_keys, test_keys)
+
+
+if __name__ == "__main__":
+    main()

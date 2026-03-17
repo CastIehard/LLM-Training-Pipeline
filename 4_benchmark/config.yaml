@@ -10,14 +10,14 @@ answer_llm:
     api_key: "${OPENAI_API_KEY}"
     model: "gpt-4.1-nano"
     temperature: 0.3
-    max_tokens: 500
+    max_tokens: 512
   
   # Local LLM settings (LM Studio)
   local:
     base_url: "http://localhost:1234/v1"
     model: "local-model"
     temperature: 0.3
-    max_tokens: 500
+    max_tokens: 512
 
   # HuggingFace model settings (downloaded/cached locally)
   huggingface:
@@ -30,7 +30,7 @@ answer_llm:
     # Dtype: "auto", "float16", "float32", "bfloat16"
     dtype: "auto"
     temperature: 0.3
-    max_tokens: 500
+    max_tokens: 512
 
 # Judge LLM Settings (evaluates the answers)
 judge_llm:
@@ -43,14 +43,14 @@ judge_llm:
     api_key: "${OPENAI_API_KEY}"
     model: "gpt-4.1-nano"
     temperature: 0.0
-    max_tokens: 100
+    max_tokens: 512
   
   # Local LLM settings (LM Studio)
   local:
     base_url: "http://localhost:1234/v1"
     model: "qwen/qwen3.5-9b"
     temperature: 0.0
-    max_tokens: 100
+    max_tokens: 512
 
 # Benchmark Settings
 benchmark:
@@ -67,19 +67,34 @@ answer_prompt: |
 
 # Judge Prompt (sent to the judge LLM)
 judge_prompt: |
-  You are an expert evaluator. Your task is to compare an AI's answer with an expected (correct) answer.
-  
+  You are an expert evaluator. Your task is to compare an AI's answer with an expected correct answer.
+
   Question: {question}
   Expected Answer: {expected_answer}
   AI's Answer: {ai_answer}
-  
+
   Grading Rubric:
   - 1.0: The AI answer is fully accurate and covers all main points of the expected answer.
   - 0.5: The AI answer is partially correct, or missing some key information, or includes significant irrelevant info.
-  - 0.0: The AI answer is completely wrong, irrelevant, or hallucinates info not in the expected answer.
-  
-  Think step-by-step about what parts of the expected answer are present and what might be incorrect.
-  Summarize your thinking and then provide the final score.
+  - 0.0: The AI answer is completely wrong, irrelevant, hallucinates info not in the expected answer, or is truncated/incomplete.
+
+  Think step by step about:
+  1. What essential facts are in the expected answer
+  2. Which of those facts are present in the AI answer
+  3. Whether the AI answer is incomplete, truncated, irrelevant, or hallucinatory
+  4. What the final score should be
+
+  Your response MUST be a single complete valid JSON object with exactly this structure:
+  {{
+    "reasoning": "<brief step-by-step reasoning>",
+    "score": <number: 0, 0.5, or 1>,
+    "reason": "<one sentence summary of the score>"
+  }}
+
+  Do not output markdown.
+  Do not output code fences.
+  Do not output any text before or after the JSON.
+  Ensure the JSON is complete and not truncated.
 
 # Data paths
 data:
@@ -91,3 +106,7 @@ data:
 # Processing settings
 processing:
   delay: 0
+  answer_batch_size: 32
+  judge_batch_size: 8
+  answer_max_workers: 1
+  judge_max_workers: 1

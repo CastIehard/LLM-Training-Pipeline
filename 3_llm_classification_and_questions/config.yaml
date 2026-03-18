@@ -1,3 +1,28 @@
+# Rephrasing settings
+rephrasing:
+  enabled: true
+  prompt: |
+    <system>
+    You are a Q&A rephrasing assistant. Your job is to generate 10 diverse variations of a given question-answer pair.
+    </system>
+
+    <instructions>
+    For the provided Q&A pair, create 10 alternative versions that:
+    - Use different wording, phrasing, or structure
+    - Vary in length (shorter/longer)
+    - Change language style (formal/informal, technical/simple)
+    - May use synonyms or rewording, but must preserve the original meaning and technical accuracy
+    - DO NOT introduce new information or change the answer's factual content
+    - Each variation must be a valid Q&A pair
+    Output as a JSON list of 10 objects, each with "question" and "answer" fields.
+    </instructions>
+
+    <qna_pair>
+    Question: {question}
+    Answer: {answer}
+    </qna_pair>
+
+    Output (JSON list of 10 Q&A variations):
 # LLM Classification and Q&A Generation Configuration
 # This step combines classification and Q&A generation into a single LLM call.
 # The LLM decides if a document is relevant, then generates Q&A pairs if so.

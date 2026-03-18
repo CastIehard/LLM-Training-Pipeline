@@ -455,6 +455,83 @@ def second_pass_llm_filter(output_file: str, config: dict, client: OpenAI) -> No
     print(f"Removed items were appended to: {removed_path}")
 
 
+def rephrase_qna_pairs(output_file: str, config: dict, client: OpenAI) -> None:
+    """Rephrase each approved Q&A pair into 10 variations using the LLM."""
+    rephrasing_cfg = config.get("rephrasing", {})
+    if not rephrasing_cfg.get("enabled", False):
+        print("\nRephrasing is disabled by config.")
+        return
+
+    prompt_template = rephrasing_cfg.get("prompt", "")
+    if not prompt_template:
+        print("\nNo rephrasing prompt found in config.")
+        return
+
+    out_path = Path(output_file)
+    if not out_path.exists():
+        print("\nNo Q&A output file found for rephrasing.")
+        return
+
+    # Load all QnAs that passed second pass
+    all_qnas = []
+    with open(out_path, "r", encoding="utf-8") as f:
+        for line in f:
+            if line.strip():
+                try:
+                    qna = json.loads(line)
+                    if qna.get("second_pass_approved") is True and not qna.get("rephrased"):
+                        all_qnas.append(qna)
+                except Exception:
+                    continue
+
+    if not all_qnas:
+        print("\nNo Q&A pairs found for rephrasing.")
+        return
+
+    print(f"\nStarting rephrasing for {len(all_qnas)} Q&A pairs...")
+    bar = tqdm(all_qnas, desc="Rephrasing QnA", unit="qna", dynamic_ncols=True)
+    for qna in bar:
+        question = qna.get("question", "")
+        answer = qna.get("answer", "")
+        prompt = prompt_template.format(question=question, answer=answer)
+        try:
+            response = client.chat.completions.create(
+                model=get_llm_settings(config)["model"],
+                messages=[{"role": "user", "content": prompt}],
+                temperature=0.7,
+                max_tokens=5000,
+            )
+            raw = response.choices[0].message.content.strip()
+            # Remove code block if present
+            if raw.startswith("```"):
+                parts = raw.split("```")
+                raw = parts[1]
+                if raw.startswith("json"):
+                    raw = raw[4:]
+                raw = raw.strip()
+            variations = json.loads(raw)
+            if not isinstance(variations, list) or len(variations) != 10:
+                raise ValueError("Rephrasing LLM did not return a list of 10 Q&A pairs.")
+        except Exception as e:
+            tqdm.write(f"  Error rephrasing Q&A: {e}")
+            continue
+
+        # Save each variation immediately
+        for idx, var in enumerate(variations, 1):
+            rephrased_qna = dict(qna)  # Copy original fields
+            rephrased_qna["question"] = f"rephrased: original {idx}: {var.get('question', '')}"
+            rephrased_qna["answer"] = var.get("answer", "")
+            rephrased_qna["rephrased"] = True
+            with open(out_path, "a", encoding="utf-8") as f:
+                f.write(json.dumps(rephrased_qna, ensure_ascii=False) + "\n")
+        # Optionally, mark the original as rephrased to avoid duplicate rephrasing
+        qna["rephrased"] = True
+        save_qnas_safely(out_path, all_qnas)
+        time.sleep(config.get("processing", {}).get("delay", 0))
+    bar.close()
+    print("\nRephrasing complete.")
+
+
 def main():
     """Run the combined classification and Q&A generation pipeline."""
     print("=" * 60)
@@ -586,6 +663,13 @@ def main():
     # -------------------------------------------------------------
     if config.get("second_pass", {}).get("enabled", False):
         second_pass_llm_filter(output_file, config, client)
+
+    # -------------------------------------------------------------
+    # 3. Rephrasing Q&A pairs (optional)
+    # -------------------------------------------------------------
+    rephrasing_cfg = config.get("rephrasing", {})
+    if rephrasing_cfg.get("enabled", False):
+        rephrase_qna_pairs(output_file, config, client)
 
 
 if __name__ == "__main__":

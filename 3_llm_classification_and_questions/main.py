@@ -516,17 +516,20 @@ def rephrase_qna_pairs(output_file: str, config: dict, client: OpenAI) -> None:
             tqdm.write(f"  Error rephrasing Q&A: {e}")
             continue
 
-        # Save each variation immediately
+        # Mark the original as rephrased and add rephrased_number = 0
+        qna["rephrased"] = True
+        qna["rephrased_number"] = 0
+        save_qnas_safely(out_path, [qna if x == qna else x for x in all_qnas])
+
+        # Save each variation immediately as a new entry, with clean question/answer and metadata fields
         for idx, var in enumerate(variations, 1):
             rephrased_qna = dict(qna)  # Copy original fields
-            rephrased_qna["question"] = f"rephrased: original {idx}: {var.get('question', '')}"
+            rephrased_qna["question"] = var.get('question', '')
             rephrased_qna["answer"] = var.get("answer", "")
             rephrased_qna["rephrased"] = True
+            rephrased_qna["rephrased_number"] = idx
             with open(out_path, "a", encoding="utf-8") as f:
                 f.write(json.dumps(rephrased_qna, ensure_ascii=False) + "\n")
-        # Optionally, mark the original as rephrased to avoid duplicate rephrasing
-        qna["rephrased"] = True
-        save_qnas_safely(out_path, all_qnas)
         time.sleep(config.get("processing", {}).get("delay", 0))
     bar.close()
     print("\nRephrasing complete.")

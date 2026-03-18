@@ -410,9 +410,30 @@ def second_pass_llm_filter(output_file: str, config: dict, client: OpenAI) -> No
                 temperature=0.0,
                 max_tokens=500,
             )
-            raw_decision = response.choices[0].message.content.strip().lower()
-            clean_decision = re.sub(r'[^a-z]', '', raw_decision)
-            is_good = (clean_decision == "true")
+            raw_decision = response.choices[0].message.content.strip()
+            clean_decision = re.sub(r'[^a-z]', '', raw_decision.lower())
+            # Try to parse as JSON first (for robustness, but not expected)
+            try:
+                parsed = json.loads(raw_decision)
+                # If it's a JSON string, check for relevant/irrelevant
+                if isinstance(parsed, str):
+                    parsed_clean = re.sub(r'[^a-z]', '', parsed.lower())
+                    if parsed_clean == "relevant":
+                        is_good = True
+                    elif parsed_clean == "irrelevant":
+                        is_good = False
+                    else:
+                        raise ValueError(f"Second pass LLM response is not 'relevant' or 'irrelevant': {parsed}")
+                else:
+                    raise ValueError(f"Second pass LLM response is not a string: {parsed}")
+            except json.JSONDecodeError:
+                # If not JSON, check for 'relevant' or 'irrelevant'
+                if clean_decision == "relevant":
+                    is_good = True
+                elif clean_decision == "irrelevant":
+                    is_good = False
+                else:
+                    raise ValueError(f"Second pass LLM response is not valid JSON nor 'relevant'/'irrelevant': {raw_decision}")
         except Exception as e:
             tqdm.write(f"  Error evaluating Q&A via LLM: {e}")
             time.sleep(3)

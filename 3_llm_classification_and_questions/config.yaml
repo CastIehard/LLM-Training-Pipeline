@@ -119,6 +119,7 @@ filtering:
     - "Hochschule für Musik Nürnberg"
     - "Hochschule für angewandtes Management"
     - "Campus M University"
+    - "TH Nürnberg"
     - "FH"
     - "Technical University of Munich"
     - "Ludwig-Maximilians-University"
@@ -146,33 +147,38 @@ filtering:
     - "UTN"
     - "University of Technology"
 
-# ------------------------------------------------------------------
 # Second Pass Filtering Settings
-# ------------------------------------------------------------------
 second_pass:
-  enabled: true
+  enabled: false
   prompt: |
     <system>
-    You are a strict data-quality filter for a Q&A system.
-    Your ONLY job is to evaluate if a given Question-Answer pair is high-quality, relevant, and standalone.
+    You are a quality filter for an FAQ bot helping international students coming to study at UTN in Nuremberg, Germany. 
+    Your goal is to KEEP useful, general questions, and REMOVE broken, ambiguous, or highly irrelevant questions.
     </system>
 
     <instructions>
-    Evaluate the Q&A pair and output EXACTLY the word "relevant" (if it should be kept) or "irrelevant" (if it should be removed).
-    Do NOT output any other text, explanation, or markdown formatting.
+    Evaluate the Q&A pair and output EXACTLY "relevant" (to keep) or "irrelevant" (to remove). 
+    Do NOT output any other text.
 
-    CRITERIA TO KEEP ("relevant"):
-    - Topic is relevant to UTN (University of Technology Nuremberg), Nuremberg city, Germany in general, or studying/student life.
-    - The question is STANDALONE (makes perfect sense without seeing the source document).
-    - The answer is clear and directly answers the question.
+    WHEN TO KEEP ("relevant"):
+    - General, helpful info for students living in Nuremberg or Germany (housing, visas, insurance, banking).
+    - General information about local attractions, public transport, or student life.
+    - Explicitly mentions UTN or is a clear, standalone question about studying or living in Nuremberg/Germany.
 
-    CRITERIA TO REMOVE ("irrelevant"):
-    - Refers to other specific universities (e.g., TU Munich, FAU, LMU, TU Berlin).
-    - Uses non-standalone phrases like "in this document", "according to the text", "the document says", "here".
-    - Asking what the document is about (e.g., "What is the main topic of the document?").
-    - The question or answer is ambiguous, meaningless, incomplete, or contains formatting errors.
-    - The question is not a realistic user query that someone would actually ask.
+    WHEN TO REMOVE ("irrelevant"):
+    - Missing Context: The question uses vague terms like "this university", "the image", "the logo", "the document", or "here". The user won't know what these refer to without the original document.
+    - Too Specific / Niche: Asks about highly specific, transient local events (e.g., a specific children's reading on a specific date) that are useless to a university student.
+    - Wrong University: Focuses on other specific universities (e.g., TU Munich, FAU, LMU).
+    - Broken/Garbage text.
     </instructions>
+
+    <examples>
+    Q: "What degrees are available at this university?" -> irrelevant (ambiguous "this university")
+    Q: "What does the logo in the image represent?" -> irrelevant (refers to "the image")
+    Q: "When is the Lesung für Kinder on April 19, 2026?" -> irrelevant (too specific, irrelevant to university students)
+    Q: "What kind of events does the planetarium host besides children's shows?" -> relevant (good general info about city attractions)
+    Q: "How do I apply for public health insurance in Germany?" -> relevant (important student info)
+    </examples>
 
     <qna_pair>
     Question: {question}

@@ -3,10 +3,10 @@
 This script combines document classification and Q&A generation into a single LLM
 call. For each cleaned document it asks the LLM to:
 
-  1. Decide whether the content is relevant (UTN, Germany, Nuremberg, or studying).
-     Content about other universities (e.g. TU Munich, FAU) is treated as irrelevant.
+  1. Decide whether the content is relevant.
   2. If relevant: classify the document into a category and generate Q&A pairs.
-  3. If irrelevant: mark the document and skip Q&A generation.
+  3. Simple Post-Processing (Blacklist/Whitelist).
+  4. Second LLM Pass to verify if the question is standalone and high-quality.
 
 Results are stored in:
   - data/index.json   → updated with `category` and `llm_processed` flags
@@ -107,16 +107,7 @@ def build_prompt(config: dict, content: str, num_min: int, num_max: int) -> str:
 
 @retry(wait=wait_exponential(multiplier=1, min=2, max=10), stop=stop_after_attempt(5))
 def call_llm_with_retry(client: OpenAI, settings: dict, prompt: str) -> dict | str:
-    """Send a document to the LLM and parse the response.
-
-    Returns:
-        "irrelevant" if the LLM marks the document as irrelevant.
-        dict with keys "category" (str) and "qa_pairs" (list) if relevant.
-
-    Raises:
-        ValueError  if the response cannot be parsed or fails validation.
-        json.JSONDecodeError  if the JSON payload is malformed (triggers retry).
-    """
+    """Send a document to the LLM and parse the response."""
     response = client.chat.completions.create(
         model=settings["model"],
         messages=[
@@ -135,11 +126,9 @@ def call_llm_with_retry(client: OpenAI, settings: dict, prompt: str) -> dict | s
 
     raw = response.choices[0].message.content.strip()
 
-    # Irrelevant response is a single word
     if raw.lower() == "irrelevant":
         return "irrelevant"
 
-    # Strip markdown code fences if the model added them
     if raw.startswith("```"):
         parts = raw.split("```")
         raw = parts[1]
@@ -171,13 +160,7 @@ def call_llm_with_retry(client: OpenAI, settings: dict, prompt: str) -> dict | s
 def process_document(
     client: OpenAI, config: dict, content: str, num_min: int, num_max: int
 ) -> dict | str | None:
-    """Classify a document and generate Q&A pairs in one LLM call.
-
-    Returns:
-        "irrelevant" — document is not relevant to UTN/Germany/studying.
-        dict          — {"category": ..., "qa_pairs": [...]} for relevant documents.
-        None          — all retry attempts failed.
-    """
+    """Classify a document and generate Q&A pairs in one LLM call."""
     prompt = build_prompt(config, content, num_min, num_max)
     settings = get_llm_settings(config)
 
@@ -226,7 +209,7 @@ def append_qa_to_file(
     model_name: str,
     category: str,
 ) -> int:
-    """Append Q&A pairs to the JSONL output file. Returns the number of pairs written."""
+    """Append Q&A pairs to the JSONL output file."""
     with open(output_file, "a", encoding="utf-8") as f:
         for pair in qa_pairs:
             entry = {
@@ -276,11 +259,7 @@ def needs_processing(entry: dict, processed_hashes: set[str]) -> bool:
 
 
 def filter_generated_qa(output_file: str, config: dict) -> None:
-    """Filter out generated Q&A containing excluded keywords, unless they contain whitelisted terms.
-    
-    The filtering is case-sensitive. Before filtering, it pulls back all previously 
-    removed questions from removed.json to re-evaluate them (in case the rules changed).
-    """
+    """Filter out generated Q&A containing excluded keywords, unless they contain whitelisted terms."""
     out_path = Path(output_file)
     removed_path = Path(str(out_path).replace(".jsonl", "_removed.json"))
     
@@ -291,69 +270,181 @@ def filter_generated_qa(output_file: str, config: dict) -> None:
     if not out_path.exists():
         return
 
-    # 1. Pull back ALL removed questions first
     all_questions = []
     
-    # Load current active questions
     with open(out_path, "r", encoding="utf-8") as f:
         for line in f:
             if line.strip():
                 all_questions.append(line)
                 
-    # Load previously removed questions
     if removed_path.exists():
         print(f"Retrieving previously removed questions from {removed_path} for re-evaluation...")
         with open(removed_path, "r", encoding="utf-8") as f:
             for line in f:
                 if line.strip():
                     all_questions.append(line)
-        # Clear the removed file since we are re-evaluating everything
         open(removed_path, "w").close()
 
     if not blacklist_terms:
-        # If no blacklist, just write everything back to output and exit
         with open(out_path, "w", encoding="utf-8") as f:
             f.writelines(all_questions)
         return
 
-    # 2. Re-evaluate everything with current (case-sensitive) rules
     kept_lines = []
     removed_lines = []
 
     for line in all_questions:
-        # Check blacklist (case-sensitive)
-        has_blacklist = False
+        try:
+            qna_obj = json.loads(line)
+        except Exception:
+            qna_obj = {"raw": line}
+
+        # IMPORTANT: Ignore items removed by Second LLM Pass
+        if qna_obj.get("llm_rejected"):
+            removed_lines.append(line)
+            continue
+
+        blacklist_hit = None
         for term in blacklist_terms:
             if term in line:
-                has_blacklist = True
+                blacklist_hit = term
                 break
-        
-        # Check whitelist (overrides blacklist, also case-sensitive)
-        has_whitelist = False
-        if has_blacklist:
+
+        whitelist_hit = None
+        if blacklist_hit:
             for term in whitelist_terms:
                 if term in line:
-                    has_whitelist = True
+                    whitelist_hit = term
                     break
 
-        if has_blacklist and not has_whitelist:
-            removed_lines.append(line)
+        if blacklist_hit and not whitelist_hit:
+            qna_obj["reason"] = f"Removed due to blacklist term '{blacklist_hit}'"
+            removed_lines.append(json.dumps(qna_obj, ensure_ascii=False) + "\n")
         else:
             kept_lines.append(line)
 
-    # 3. Save the results
-    # Write kept lines to original file
     with open(out_path, "w", encoding="utf-8") as f:
         f.writelines(kept_lines)
             
     if removed_lines:
-        print(f"\nFiltering output... {len(kept_lines)} kept, {len(removed_lines)} removed (case-sensitive).")
-        # Write removed lines to the removed file
+        print(f"\nSimple Filter output: {len(kept_lines)} kept, {len(removed_lines)} removed.")
         with open(removed_path, "w", encoding="utf-8") as f:
             f.writelines(removed_lines)
         print(f"Removed items are in: {removed_path}")
     else:
-        print("\nAll questions passed the filtering rules. removed.json is empty.")
+        print("\nAll questions passed the simple filtering rules.")
+
+
+def save_qnas_safely(filepath: str, qnas: list[dict]) -> None:
+    """Safely rewrite the JSONL file to ensure we don't lose data if it crashes mid-write."""
+    tmp_path = str(filepath) + ".tmp"
+    with open(tmp_path, "w", encoding="utf-8") as f:
+        for qna in qnas:
+            f.write(json.dumps(qna, ensure_ascii=False) + "\n")
+    os.replace(tmp_path, filepath)
+
+
+def append_to_removed(filepath: str, qna: dict) -> None:
+    """Append a single rejected Q&A to the removed file."""
+    with open(filepath, "a", encoding="utf-8") as f:
+        f.write(json.dumps(qna, ensure_ascii=False) + "\n")
+
+
+def second_pass_llm_filter(output_file: str, config: dict, client: OpenAI) -> None:
+    """Second LLM pass to evaluate Q&A pairs one by one for high quality."""
+    prompt_template = config.get("second_pass", {}).get("prompt", "")
+    if not prompt_template or not config.get("second_pass", {}).get("enabled", False):
+        return
+
+    out_path = Path(output_file)
+    removed_path = Path(str(out_path).replace(".jsonl", "_removed.json"))
+
+    if not out_path.exists():
+        return
+
+    settings = get_llm_settings(config)
+    delay = config.get("processing", {}).get("delay", 0)
+
+    # Load all current good questions
+    all_qnas = []
+    with open(out_path, "r", encoding="utf-8") as f:
+        for line in f:
+            if line.strip():
+                try:
+                    all_qnas.append(json.loads(line))
+                except json.JSONDecodeError:
+                    continue
+
+    # Count how many still need to be processed
+    to_process_count = sum(1 for q in all_qnas if "second_pass_approved" not in q)
+
+    if to_process_count == 0:
+        print("\nAll questions have already passed the Second Pass LLM filter.")
+        return
+
+    print(f"\nStarting Second Pass LLM Filtering on {to_process_count} unchecked Q&A pairs...")
+
+    bar = tqdm(total=to_process_count, desc="LLM 2nd Pass Filter", unit="qna", dynamic_ncols=True)
+
+    kept_count = 0
+    removed_count = 0
+
+    # We'll process and write each QnA immediately after LLM call
+    i = 0
+    while i < len(all_qnas):
+        qna = all_qnas[i]
+
+        # Skip if already processed previously
+        if "second_pass_approved" in qna:
+            i += 1
+            continue
+
+        question = qna.get("question", "")
+        answer = qna.get("answer", "")
+        prompt = prompt_template.format(question=question, answer=answer)
+
+        try:
+            response = client.chat.completions.create(
+                model=settings["model"],
+                messages=[{"role": "user", "content": prompt}],
+                temperature=0.0,
+                max_tokens=500,
+            )
+            raw_decision = response.choices[0].message.content.strip().lower()
+            clean_decision = re.sub(r'[^a-z]', '', raw_decision)
+            is_good = (clean_decision == "true")
+        except Exception as e:
+            tqdm.write(f"  Error evaluating Q&A via LLM: {e}")
+            time.sleep(3)
+            continue
+
+        if is_good:
+            # Tag as approved and append to output file immediately
+            qna["second_pass_approved"] = True
+            with open(out_path, "a", encoding="utf-8") as f:
+                f.write(json.dumps(qna, ensure_ascii=False) + "\n")
+            # Remove from in-memory list and from file by rewriting file without this qna
+            all_qnas.pop(i)
+            save_qnas_safely(out_path, all_qnas)
+            kept_count += 1
+        else:
+            # Tag as rejected, give reason, and append to removed file immediately
+            qna["second_pass_approved"] = False
+            qna["llm_rejected"] = True
+            qna["reason"] = "Removed by LLM in second pass (non-standalone, irrelevant, or bad format)"
+            append_to_removed(str(removed_path), qna)
+            # Remove from in-memory list and from file by rewriting file without this qna
+            all_qnas.pop(i)
+            save_qnas_safely(out_path, all_qnas)
+            removed_count += 1
+        # No increment of i, as pop shifts next item into index i
+        bar.update(1)
+        bar.set_postfix(kept=kept_count, removed=removed_count)
+        time.sleep(delay)
+
+    bar.close()
+    print(f"\nSecond Pass complete: {kept_count} newly kept, {removed_count} removed.")
+    print(f"Removed items were appended to: {removed_path}")
 
 
 def main():
@@ -389,103 +480,104 @@ def main():
     ]
     print(f"Pending: {len(to_process)}")
 
-    if not to_process:
-        print("\nAll entries are already processed. Nothing to do.")
-        
-        # Run post-processing filter even if no new items were processed
-        filter_generated_qa(output_file, config)
-        return
-
-    print(f"\nInitializing {provider} client...")
     client = create_llm_client(config)
 
-    delay = config["processing"]["delay"]
-    total_questions = 0
-    irrelevant_count = 0
-    failed_count = 0
-    entries_processed = 0
-    start_time = time.time()
+    # -------------------------------------------------------------
+    # 0. First Pass: Q&A Generation
+    # -------------------------------------------------------------
+    if to_process:
+        print(f"\nInitializing {provider} client for Pass 1...")
+        delay = config["processing"]["delay"]
+        total_questions = 0
+        irrelevant_count = 0
+        failed_count = 0
+        entries_processed = 0
+        start_time = time.time()
 
-    print("\nStarting classification and Q&A generation...")
+        print("\nStarting classification and Q&A generation...")
 
-    bar = tqdm(to_process, desc="Processing Documents", unit="doc", dynamic_ncols=True)
-    for entry in bar:
-        hash_id = entry["hash"]
-        filename = entry.get("filename", "")
-        content_length = entry.get("content_length", 0)
+        bar = tqdm(to_process, desc="Processing Documents", unit="doc", dynamic_ncols=True)
+        for entry in bar:
+            hash_id = entry["hash"]
+            filename = entry.get("filename", "")
 
-        bar.set_postfix(
-            hash=hash_id[:8],
-            questions=total_questions,
-            irrelevant=irrelevant_count,
-            failed=failed_count,
-        )
+            bar.set_postfix(
+                hash=hash_id[:8],
+                questions=total_questions,
+                irrelevant=irrelevant_count,
+                failed=failed_count,
+            )
 
-        content = load_md_content(raw_md_dir, filename)
-        if not content:
-            tqdm.write(f"  Skipping {hash_id[:8]}: empty or missing file")
-            failed_count += 1
+            content = load_md_content(raw_md_dir, filename)
+            if not content:
+                tqdm.write(f"  Skipping {hash_id[:8]}: empty or missing file")
+                failed_count += 1
+                entries_processed += 1
+                continue
+
+            chunks = chunk_content(content, max_chunk_size=10000)
+            
+            all_qa_pairs = []
+            final_category = None
+            is_failed = False
+            is_irrelevant = True
+
+            for chunk_idx, chunk in enumerate(chunks):
+                chunk_length = len(chunk)
+                num_min, num_max = calculate_question_count(chunk_length, config)
+                result = process_document(client, config, chunk, num_min, num_max)
+
+                if result is None:
+                    tqdm.write(f"  FAILED {hash_id[:8]} (chunk {chunk_idx+1}/{len(chunks)}): LLM call unsuccessful")
+                    is_failed = True
+                    break
+                elif result != "irrelevant":
+                    is_irrelevant = False
+                    all_qa_pairs.extend(result["qa_pairs"])
+                    final_category = result["category"]
+
+            if is_failed:
+                failed_count += 1
+            elif is_irrelevant:
+                entry["category"] = IRRELEVANT_CATEGORY
+                entry["llm_processed"] = True
+                irrelevant_count += 1
+                tqdm.write(f"  [{hash_id[:8]}] irrelevant")
+            else:
+                entry["category"] = final_category
+                written = append_qa_to_file(
+                    output_file, hash_id, all_qa_pairs, model_name, final_category
+                )
+                entry["llm_processed"] = True
+                entry["questions_generated"] = True
+                total_questions += written
+                tqdm.write(
+                    f"  [{hash_id[:8]}] {final_category} — {written} questions (from {len(chunks)} chunks)"
+                )
+
             entries_processed += 1
-            continue
+            save_index(index_path, index_data)
+            time.sleep(delay)
 
-        chunks = chunk_content(content, max_chunk_size=10000)
-        
-        all_qa_pairs = []
-        final_category = None
-        is_failed = False
-        is_irrelevant = True
-
-        for chunk_idx, chunk in enumerate(chunks):
-            chunk_length = len(chunk)
-            num_min, num_max = calculate_question_count(chunk_length, config)
-            result = process_document(client, config, chunk, num_min, num_max)
-
-            if result is None:
-                tqdm.write(f"  FAILED {hash_id[:8]} (chunk {chunk_idx+1}/{len(chunks)}): LLM call unsuccessful")
-                is_failed = True
-                break
-            elif result != "irrelevant":
-                is_irrelevant = False
-                all_qa_pairs.extend(result["qa_pairs"])
-                # Keeping the latest valid category
-                final_category = result["category"]
-
-        if is_failed:
-            failed_count += 1
-        elif is_irrelevant:
-            entry["category"] = IRRELEVANT_CATEGORY
-            entry["llm_processed"] = True
-            irrelevant_count += 1
-            tqdm.write(f"  [{hash_id[:8]}] irrelevant")
-        else:
-            entry["category"] = final_category
-            written = append_qa_to_file(
-                output_file, hash_id, all_qa_pairs, model_name, final_category
-            )
-            entry["llm_processed"] = True
-            entry["questions_generated"] = True
-            total_questions += written
-            tqdm.write(
-                f"  [{hash_id[:8]}] {final_category} — {written} questions (from {len(chunks)} chunks)"
-            )
-
-        entries_processed += 1
-
-        # Save index.json immediately after every LLM call so that a crash or
-        # interruption at any point never loses more than one document's result.
-        save_index(index_path, index_data)
-
-        time.sleep(delay)
-
-    duration = time.time() - start_time
-    print(f"\nCompleted in {duration:.2f} seconds!")
-    print(f"Total questions generated: {total_questions}")
-    print(f"Irrelevant documents: {irrelevant_count}")
-    print(f"Failed entries: {failed_count}")
-    print(f"Output saved to: {output_file}")
+        duration = time.time() - start_time
+        print(f"\nCompleted in {duration:.2f} seconds!")
+        print(f"Total questions generated: {total_questions}")
+        print(f"Irrelevant documents: {irrelevant_count}")
+        print(f"Failed entries: {failed_count}")
+        print(f"Output saved to: {output_file}")
+    else:
+        print("\nAll entries are already processed in Pass 1.")
     
-    # Run post-processing filter
+    # -------------------------------------------------------------
+    # 1. Post-processing simple filter (Blacklist / Whitelist)
+    # -------------------------------------------------------------
     filter_generated_qa(output_file, config)
+
+    # -------------------------------------------------------------
+    # 2. Post-processing Second Pass LLM Filter
+    # -------------------------------------------------------------
+    if config.get("second_pass", {}).get("enabled", False):
+        second_pass_llm_filter(output_file, config, client)
 
 
 if __name__ == "__main__":

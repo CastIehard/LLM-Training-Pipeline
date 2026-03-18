@@ -127,12 +127,10 @@ filtering:
     - "University of Erlangen-Nuremberg"
     - "OHM Professional School"
     - "Dürer‑Gymnasium"
-    - "vhs.cloud"
     - "Bildungszentrum Nürnberg"
     - "Goethe-Institut"
     - "Hochshuljobbörse"
     - "Hochschuljobbörse"
-    - "Studis Online"
     - "HomeToGo"
     - "Scandic Nürnberg Central"
     - "in this document"
@@ -144,7 +142,37 @@ filtering:
     - "mentioned in the document"
     - "provided document"
     - "this document"
-    - "the text"
   whitelist:
     - "UTN"
     - "University of Technology"
+
+second_pass:
+  enabled: true
+  prompt: |
+    <system>
+    You are a strict data-quality filter for a Q&A system.
+    Your ONLY job is to evaluate if a given Question-Answer pair is high-quality, relevant, and standalone.
+    </system>
+
+    <instructions>
+    Evaluate the Q&A pair and output EXACTLY the word "true" (if it should be kept) or "false" (if it should be removed).
+    Do NOT output any other text, explanation, or markdown formatting.
+
+    CRITERIA TO KEEP ("true"):
+    - Topic is relevant to UTN (University of Technology Nuremberg), Nuremberg city, Germany in general, or studying/student life.
+    - The question is STANDALONE (makes perfect sense without seeing the source document).
+    - The answer is clear and directly answers the question.
+
+    CRITERIA TO REMOVE ("false"):
+    - Refers to other specific universities (e.g., TU Munich, FAU, LMU, TU Berlin).
+    - Uses non-standalone phrases like "in this document", "according to the text", "the document says", "here".
+    - Asking what the document is about (e.g., "What is the main topic of the document?").
+    - The question or answer is ambiguous, meaningless, incomplete, or contains formatting errors.
+    </instructions>
+
+    <qna_pair>
+    Question: {question}
+    Answer: {answer}
+    </qna_pair>
+
+    Decision:

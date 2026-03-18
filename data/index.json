@@ -8492,9 +8492,11 @@
     "content_length": 15532,
     "language_detected": "unknown",
     "max_depth": 1,
-    "questions_generated": false,
+    "questions_generated": true,
     "pii_redactions": 0,
-    "cleaning_status": "kept"
+    "cleaning_status": "kept",
+    "category": "Nuremberg",
+    "llm_processed": true
   },
   {
     "hash": "aee7a86a8f8d61be8a90480fc3a59b00f330f16b872f4112bc35c1d4eb452f39",

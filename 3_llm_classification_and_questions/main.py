@@ -389,7 +389,6 @@ def second_pass_llm_filter(output_file: str, config: dict, client: OpenAI) -> No
     kept_count = 0
     removed_count = 0
 
-    # We'll process and write each QnA immediately after LLM call
     i = 0
     while i < len(all_qnas):
         qna = all_qnas[i]
@@ -408,57 +407,45 @@ def second_pass_llm_filter(output_file: str, config: dict, client: OpenAI) -> No
                 model=settings["model"],
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.0,
-                max_tokens=500,
+                max_tokens=10,
             )
-            raw_decision = response.choices[0].message.content.strip()
-            clean_decision = re.sub(r'[^a-z]', '', raw_decision.lower())
-            # Try to parse as JSON first (for robustness, but not expected)
-            try:
-                parsed = json.loads(raw_decision)
-                # If it's a JSON string, check for relevant/irrelevant
-                if isinstance(parsed, str):
-                    parsed_clean = re.sub(r'[^a-z]', '', parsed.lower())
-                    if parsed_clean == "relevant":
-                        is_good = True
-                    elif parsed_clean == "irrelevant":
-                        is_good = False
-                    else:
-                        raise ValueError(f"Second pass LLM response is not 'relevant' or 'irrelevant': {parsed}")
-                else:
-                    raise ValueError(f"Second pass LLM response is not a string: {parsed}")
-            except json.JSONDecodeError:
-                # If not JSON, check for 'relevant' or 'irrelevant'
-                if clean_decision == "relevant":
-                    is_good = True
-                elif clean_decision == "irrelevant":
-                    is_good = False
-                else:
-                    raise ValueError(f"Second pass LLM response is not valid JSON nor 'relevant'/'irrelevant': {raw_decision}")
+            raw_decision = response.choices[0].message.content.strip().lower()
+            clean_decision = re.sub(r'[^a-z]', '', raw_decision)
+            
+            # Use simple exact matching since prompt asks exactly for the word
+            if clean_decision == "relevant":
+                is_good = True
+            elif clean_decision == "irrelevant":
+                is_good = False
+            else:
+                raise ValueError(f"Second pass LLM response is not 'relevant' or 'irrelevant': {raw_decision}")
+                
         except Exception as e:
             tqdm.write(f"  Error evaluating Q&A via LLM: {e}")
             time.sleep(3)
             continue
-
+            
+        tqdm.write(f"Question: {question[:80]}... | Decision: {raw_decision}")                         
+        
         if is_good:
-            # Tag as approved and append to output file immediately
+            # Tag as approved, KEEP in all_qnas, overwrite file
             qna["second_pass_approved"] = True
-            with open(out_path, "a", encoding="utf-8") as f:
-                f.write(json.dumps(qna, ensure_ascii=False) + "\n")
-            # Remove from in-memory list and from file by rewriting file without this qna
-            all_qnas.pop(i)
             save_qnas_safely(out_path, all_qnas)
             kept_count += 1
+            i += 1
         else:
-            # Tag as rejected, give reason, and append to removed file immediately
+            # Tag as rejected, remove from all_qnas, append to removed list, overwrite main file
             qna["second_pass_approved"] = False
             qna["llm_rejected"] = True
             qna["reason"] = "Removed by LLM in second pass (non-standalone, irrelevant, or bad format)"
+            
             append_to_removed(str(removed_path), qna)
-            # Remove from in-memory list and from file by rewriting file without this qna
+            
             all_qnas.pop(i)
             save_qnas_safely(out_path, all_qnas)
             removed_count += 1
-        # No increment of i, as pop shifts next item into index i
+            # i stays the same because the list shifted left
+
         bar.update(1)
         bar.set_postfix(kept=kept_count, removed=removed_count)
         time.sleep(delay)

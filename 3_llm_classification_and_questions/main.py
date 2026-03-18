@@ -407,7 +407,7 @@ def second_pass_llm_filter(output_file: str, config: dict, client: OpenAI) -> No
                 model=settings["model"],
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.0,
-                max_tokens=10,
+                max_tokens=500,
             )
             raw_decision = response.choices[0].message.content.strip().lower()
             clean_decision = re.sub(r'[^a-z]', '', raw_decision)

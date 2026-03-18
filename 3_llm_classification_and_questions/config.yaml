@@ -149,7 +149,7 @@ filtering:
 
 # Second Pass Filtering Settings
 second_pass:
-  enabled: false
+  enabled: true
   prompt: |
     <system>
     You are a quality filter for an FAQ bot helping international students coming to study at UTN in Nuremberg, Germany. 

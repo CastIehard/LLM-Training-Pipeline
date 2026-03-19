@@ -858,10 +858,7 @@ def main():
     print(f"Judge Model: {judge_config['provider']} / {judge_settings['model']}")
 
     qna_file = config["data"]["qna_file"]
-    questions_per_cat = config["benchmark"]["questions_per_category"]
-
-    benchmark_dir = Path(config["data"]["benchmark_file"]).parent
-    benchmark_file = benchmark_dir / f"benchmark_{questions_per_cat}.jsonl"
+    benchmark_file = Path(config["data"]["benchmark_file"])
 
     if benchmark_file.exists():
         print(f"\nReusing existing benchmark file: {benchmark_file}")
@@ -876,6 +873,7 @@ def main():
         print(f"Total Q&A pairs: {len(qna_data)}")
 
         categories = config["benchmark"]["categories"]
+        questions_per_cat = config["benchmark"]["questions_per_category"]
         print(f"\nSampling {questions_per_cat} questions per category...")
         benchmark_questions = sample_questions(qna_data, questions_per_cat, categories)
         print(f"Total benchmark questions: {len(benchmark_questions)}")

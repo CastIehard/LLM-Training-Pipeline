@@ -1,6 +1,6 @@
 # Rephrasing settings
 rephrasing:
-  enabled: true
+  enabled: false
   prompt: |
     <system>
     You are a Q&A rephrasing assistant. Your job is to generate 10 diverse variations of a given question-answer pair.
@@ -174,7 +174,7 @@ filtering:
 
 # Second Pass Filtering Settings
 second_pass:
-  enabled: false
+  enabled: true
   prompt: |
     <system>
     You are a quality filter for an FAQ bot helping international students coming to study at UTN in Nuremberg, Germany. 

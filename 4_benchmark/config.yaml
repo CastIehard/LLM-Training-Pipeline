@@ -55,10 +55,7 @@ judge_llm:
 # Benchmark Settings
 benchmark:
   # Number of questions per category to sample
-  questions_per_category: 50
-  
-  # Categories to include (leave empty for all)
-  # categories: ["UTN", "Germany", "Nuremberg", "Studies", "Other"]
+  questions_per_category: 50 #note that "reference faq" has only 13 questions.
   categories: [ ]
 
 # Answer Prompt (sent to the answer LLM)

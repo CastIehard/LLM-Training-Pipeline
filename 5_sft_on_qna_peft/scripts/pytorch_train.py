@@ -1,17 +1,16 @@
-import math
 import os
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Any
 
+import lightning as L
 import torch
 from datasets import load_dataset
-from transformers import (
-    AutoModelForCausalLM,
-    AutoTokenizer,
-    Trainer,
-    TrainingArguments,
-    set_seed,
-)
+from lightning.pytorch.loggers import TensorBoardLogger
+from peft import TaskType, get_peft_model, AdaLoraConfig, LoraConfig
+from torch.optim import AdamW
+from torch.utils.data import DataLoader
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 RUN_DIR = SCRIPT_DIR.parent
@@ -19,28 +18,47 @@ PROJECT_DIR = RUN_DIR.parent
 
 DATA_DIR = RUN_DIR / "data"
 MODEL_PATH = PROJECT_DIR / "model" / "Qwen_Qwen3-0.6B"
-OUTPUT_DIR = RUN_DIR / "adapters" / "domain_adapter_full_15000_hf"
+ADAPTER_OUTPUT_DIR = RUN_DIR / "adapters" / "Qwen_Qwen3-0.6B_adalora_lightning"
+TENSORBOARD_ROOT_DIR = RUN_DIR / "tb_logs"
 
-SEED = 42
 
-PER_DEVICE_TRAIN_BATCH_SIZE = 8
-PER_DEVICE_EVAL_BATCH_SIZE = 4
-GRADIENT_ACCUMULATION_STEPS = 8
+@dataclass(frozen=True)
+class TrainConfig:
+    seed: int = 42
 
-MAX_STEPS = 500
-LEARNING_RATE = 5e-5
-MAX_SEQ_LENGTH = 512
+    per_device_train_batch_size: int = 8
+    per_device_eval_batch_size: int = 4
+    gradient_accumulation_steps: int = 8
 
-LOGGING_STEPS = 10
-EVAL_STEPS = 100
-SAVE_STEPS = 100
-SAVE_TOTAL_LIMIT = 4
+    max_steps: int = 1000
+    learning_rate: float = 5e-5
+    max_seq_length: int = 512
 
-COMPILE_MODEL = True
-GRADIENT_CHECKPOINTING = False
-DATALOADER_NUM_WORKERS = 4
+    logging_steps: int = 10
+    eval_every_n_train_batches: int = 25
 
-LIMIT_EVAL_SAMPLES = 50 * PER_DEVICE_EVAL_BATCH_SIZE
+    dataloader_num_workers: int = 7
+
+    run_name: str = "qwen3_adalora"
+
+
+LORA_CONFIG = LoraConfig(
+    task_type=TaskType.CAUSAL_LM,
+    r=32,
+    lora_alpha=64,
+    lora_dropout=0.05,
+    bias="none",
+    target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"],
+)
+
+ADALORA_CONFIG = AdaLoraConfig(
+    task_type=TaskType.CAUSAL_LM,
+    lora_alpha=64,
+    lora_dropout=0.05,
+    bias="none",
+    target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"],
+    total_step=1000
+)
 
 
 @dataclass
@@ -48,11 +66,12 @@ class CausalLMCollator:
     tokenizer: AutoTokenizer
     pad_to_multiple_of: int | None = 8
 
-    def __call__(self, features):
+    def __call__(self, features: list[dict[str, Any]]) -> dict[str, torch.Tensor]:
         max_len = max(len(f["input_ids"]) for f in features)
 
         if self.pad_to_multiple_of is not None:
-            max_len = ((max_len + self.pad_to_multiple_of - 1) // self.pad_to_multiple_of) * self.pad_to_multiple_of
+            m = self.pad_to_multiple_of
+            max_len = ((max_len + m - 1) // m) * m
 
         pad_id = self.tokenizer.pad_token_id
 
@@ -75,61 +94,30 @@ class CausalLMCollator:
         }
 
 
-def get_latest_checkpoint(output_dir: str) -> str | None:
-    output_dir_path = Path(output_dir)
-    if not output_dir_path.exists():
-        return None
-
-    checkpoints = sorted(
-        [p for p in output_dir_path.glob("checkpoint-*") if p.is_dir()],
-        key=lambda p: int(p.name.split("-")[-1]),
-    )
-    return str(checkpoints[-1]) if checkpoints else None
-
-
-def format_and_tokenize(example, tokenizer):
+def format_and_tokenize(example: dict[str, Any], tokenizer: AutoTokenizer, max_seq_length: int, ) -> dict[str, Any]:
     messages = example["messages"]
 
     prompt_messages = messages[:-1]
     assistant_text = messages[-1]["content"].strip()
 
-    prompt_text = tokenizer.apply_chat_template(
-        prompt_messages,
-        tokenize=False,
-        add_generation_prompt=True,
-    )
+    prompt_text = tokenizer.apply_chat_template(prompt_messages, tokenize=False, add_generation_prompt=True, )
     full_text = prompt_text + assistant_text
 
-    prompt_ids = tokenizer(
-        prompt_text,
-        add_special_tokens=False,
-        truncation=True,
-        max_length=MAX_SEQ_LENGTH,
-    )["input_ids"]
+    prompt_ids = tokenizer(prompt_text, add_special_tokens=False, truncation=True, max_length=max_seq_length, )["input_ids"]
 
-    full = tokenizer(
-        full_text,
-        add_special_tokens=False,
-        truncation=True,
-        max_length=MAX_SEQ_LENGTH,
-    )
+    full = tokenizer(full_text, add_special_tokens=False, truncation=True, max_length=max_seq_length, )
 
     input_ids = full["input_ids"]
     attention_mask = full["attention_mask"]
 
     prompt_len = min(len(prompt_ids), len(input_ids))
     labels = [-100] * prompt_len + input_ids[prompt_len:]
-    labels = labels[:len(input_ids)]
+    labels = labels[: len(input_ids)]
 
-    return {
-        "input_ids": input_ids,
-        "attention_mask": attention_mask,
-        "labels": labels,
-        "seq_len": len(input_ids),
-    }
+    return {"input_ids": input_ids, "attention_mask": attention_mask, "labels": labels, "seq_len": len(input_ids)}
 
 
-def print_example(dataset, tokenizer) -> None:
+def print_example(dataset, tokenizer: AutoTokenizer) -> None:
     sample = dataset[0]
     prompt_messages = sample["messages"][:-1]
     assistant_text = sample["messages"][-1]["content"].strip()
@@ -151,7 +139,130 @@ def print_example(dataset, tokenizer) -> None:
     print("=" * 80)
 
 
-if __name__ == "__main__":
+class ChatSFTDataModule(L.LightningDataModule):
+    def __init__(self, cfg: TrainConfig, tokenizer: AutoTokenizer) -> None:
+        super().__init__()
+        self.cfg = cfg
+        self.tokenizer = tokenizer
+        self.collator = CausalLMCollator(tokenizer)
+        self._is_setup = False
+        self._printed_example = False
+
+        self.train_dataset = None
+        self.val_dataset = None
+        self.test_dataset = None
+
+    def setup(self, stage: str | None = None) -> None:
+        if self._is_setup:
+            return
+
+        print("Loading datasets...")
+        raw_datasets = load_dataset(
+            "json",
+            data_files={
+                "train": str(DATA_DIR / "train.jsonl"),
+                "validation": str(DATA_DIR / "valid.jsonl"),
+                "test": str(DATA_DIR / "test.jsonl"),
+            },
+        )
+
+        if not self._printed_example:
+            print_example(raw_datasets["train"], self.tokenizer)
+            self._printed_example = True
+
+        remove_columns = raw_datasets["train"].column_names
+
+        print("Tokenizing datasets...")
+        tokenized = raw_datasets.map(
+            lambda ex: format_and_tokenize(ex, self.tokenizer, self.cfg.max_seq_length),
+            remove_columns=remove_columns,
+            desc="Formatting chat + masking prompt",
+        )
+
+        tokenized["train"] = tokenized["train"].sort("seq_len")
+        tokenized["validation"] = tokenized["validation"].sort("seq_len")
+        tokenized["test"] = tokenized["test"].sort("seq_len")
+
+        self.train_dataset = tokenized["train"]
+        self.val_dataset = tokenized["validation"]
+        self.test_dataset = tokenized["test"]
+
+        self._is_setup = True
+
+    def train_dataloader(self) -> DataLoader:
+        return DataLoader(
+            self.train_dataset,
+            batch_size=self.cfg.per_device_train_batch_size,
+            shuffle=True,
+            collate_fn=self.collator,
+            num_workers=self.cfg.dataloader_num_workers,
+            pin_memory=True,
+            persistent_workers=self.cfg.dataloader_num_workers > 0,
+        )
+
+    def val_dataloader(self) -> DataLoader:
+        return DataLoader(
+            self.val_dataset,
+            batch_size=self.cfg.per_device_eval_batch_size,
+            shuffle=False,
+            collate_fn=self.collator,
+            num_workers=self.cfg.dataloader_num_workers,
+            pin_memory=True,
+            persistent_workers=self.cfg.dataloader_num_workers > 0,
+        )
+
+    def test_dataloader(self) -> DataLoader:
+        return DataLoader(
+            self.test_dataset,
+            batch_size=self.cfg.per_device_eval_batch_size,
+            shuffle=False,
+            collate_fn=self.collator,
+            num_workers=self.cfg.dataloader_num_workers,
+            pin_memory=True,
+            persistent_workers=self.cfg.dataloader_num_workers > 0,
+        )
+
+
+class LitQwenSFT(L.LightningModule):
+    def __init__(self, cfg: TrainConfig, tokenizer: AutoTokenizer) -> None:
+        super().__init__()
+        self.cfg = cfg
+        self.tokenizer = tokenizer
+
+        print(f"Loading model from: {MODEL_PATH}")
+        base_model = AutoModelForCausalLM.from_pretrained(str(MODEL_PATH), torch_dtype=torch.bfloat16, attn_implementation="sdpa", local_files_only=True,)
+
+        base_model.config.use_cache = False
+        base_model.config.pad_token_id = tokenizer.pad_token_id
+
+        self.model = get_peft_model(base_model, LORA_CONFIG)
+        self.model.print_trainable_parameters()
+
+    def forward(self, batch: dict[str, torch.Tensor]):
+        return self.model(**batch)
+
+    def training_step(self, batch: dict[str, torch.Tensor], batch_idx: int) -> torch.Tensor:
+        outputs = self.model(**batch)
+        loss = outputs.loss
+        self.log("train_loss", loss, on_step=True, on_epoch=False, prog_bar=True, logger=True, batch_size=batch["input_ids"].size(0), )
+        return loss
+
+    def validation_step(self, batch: dict[str, torch.Tensor], batch_idx: int) -> None:
+        outputs = self.model(**batch)
+        loss = outputs.loss
+        self.log("val_loss", loss, on_step=False, on_epoch=True, prog_bar=True, logger=True, batch_size=batch["input_ids"].size(0), )
+
+    def test_step(self, batch: dict[str, torch.Tensor], batch_idx: int) -> None:
+        outputs = self.model(**batch)
+        loss = outputs.loss
+        self.log("test_loss", loss, on_step=False, on_epoch=True, prog_bar=True, logger=True, batch_size=batch["input_ids"].size(0), )
+
+    def configure_optimizers(self):
+        trainable_params = [p for p in self.model.parameters() if p.requires_grad]
+        return AdamW(trainable_params, lr=self.cfg.learning_rate)
+
+
+def main() -> None:
     os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
 
     if not torch.cuda.is_available():
@@ -163,141 +274,60 @@ if __name__ == "__main__":
     if not (MODEL_PATH / "config.json").exists():
         raise FileNotFoundError(f"config.json not found in model path: {MODEL_PATH}")
 
+    ADAPTER_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    TENSORBOARD_ROOT_DIR.mkdir(parents=True, exist_ok=True)
+
     torch.backends.cuda.matmul.allow_tf32 = True
     torch.backends.cudnn.allow_tf32 = True
+    torch.set_float32_matmul_precision("high")
 
-    set_seed(SEED)
+    cfg = TrainConfig()
+    L.seed_everything(cfg.seed, workers=True)
 
     print(f"Loading tokenizer from: {MODEL_PATH}")
-    tokenizer = AutoTokenizer.from_pretrained(
-        str(MODEL_PATH),
-        use_fast=True,
-        local_files_only=True,
-    )
+    tokenizer = AutoTokenizer.from_pretrained(str(MODEL_PATH), use_fast=True, local_files_only=True)
 
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
 
-    print("Loading datasets...")
-    raw_datasets = load_dataset(
-        "json",
-        data_files={
-            "train": str(DATA_DIR / "train.jsonl"),
-            "validation": str(DATA_DIR / "valid.jsonl"),
-            "test": str(DATA_DIR / "test.jsonl"),
-        },
+    datamodule = ChatSFTDataModule(cfg, tokenizer)
+    model = LitQwenSFT(cfg, tokenizer)
+
+    logger = TensorBoardLogger(save_dir=str(TENSORBOARD_ROOT_DIR), name=cfg.run_name, default_hp_metric=False)
+
+    trainer = L.Trainer(
+        accelerator="gpu",
+        devices=1,
+        precision="bf16-mixed",
+        logger=logger,
+        max_steps=cfg.max_steps,
+        max_epochs=-1,
+        accumulate_grad_batches=cfg.gradient_accumulation_steps,
+        log_every_n_steps=cfg.logging_steps,
+        val_check_interval=cfg.eval_every_n_train_batches,
+        num_sanity_val_steps=0,
+        enable_checkpointing=False,
     )
-
-    if LIMIT_EVAL_SAMPLES is not None:
-        eval_n = min(LIMIT_EVAL_SAMPLES, len(raw_datasets["validation"]))
-        raw_datasets["validation"] = raw_datasets["validation"].select(range(eval_n))
-
-    print_example(raw_datasets["train"], tokenizer)
-
-    print("Tokenizing datasets...")
-    tokenized = raw_datasets.map(
-        lambda ex: format_and_tokenize(ex, tokenizer),
-        remove_columns=["messages"],
-        desc="Formatting chat + masking prompt",
-    )
-
-    tokenized["train"] = tokenized["train"].sort("seq_len")
-    tokenized["validation"] = tokenized["validation"].sort("seq_len")
-    tokenized["test"] = tokenized["test"].sort("seq_len")
-
-    print(f"Loading model from: {MODEL_PATH}")
-    model = AutoModelForCausalLM.from_pretrained(
-        str(MODEL_PATH),
-        dtype=torch.bfloat16,
-        attn_implementation="sdpa",
-        local_files_only=True,
-    )
-
-    if COMPILE_MODEL:
-        model = torch.compile(model)
-
-    model.config.use_cache = False
-    model.config.pad_token_id = tokenizer.pad_token_id
-    model.config.tie_word_embeddings = False
-
-    if GRADIENT_CHECKPOINTING:
-        model.gradient_checkpointing_enable()
-
-    training_args = TrainingArguments(
-        output_dir=str(OUTPUT_DIR),
-        max_steps=MAX_STEPS,
-        learning_rate=LEARNING_RATE,
-        per_device_train_batch_size=PER_DEVICE_TRAIN_BATCH_SIZE,
-        per_device_eval_batch_size=PER_DEVICE_EVAL_BATCH_SIZE,
-        gradient_accumulation_steps=GRADIENT_ACCUMULATION_STEPS,
-        gradient_checkpointing=GRADIENT_CHECKPOINTING,
-        bf16=True,
-        fp16=False,
-        tf32=True,
-        optim="adamw_torch_fused",
-        lr_scheduler_type="constant",
-        warmup_steps=0,
-        logging_strategy="steps",
-        logging_steps=LOGGING_STEPS,
-        eval_strategy="steps",
-        eval_steps=EVAL_STEPS,
-        save_strategy="steps",
-        save_steps=SAVE_STEPS,
-        save_total_limit=SAVE_TOTAL_LIMIT,
-        report_to="none",
-        dataloader_num_workers=DATALOADER_NUM_WORKERS,
-        dataloader_pin_memory=True,
-        remove_unused_columns=False,
-        label_names=["labels"],
-    )
-
-    trainer = Trainer(
-        model=model,
-        args=training_args,
-        train_dataset=tokenized["train"],
-        eval_dataset=tokenized["validation"],
-        processing_class=tokenizer,
-        data_collator=CausalLMCollator(tokenizer),
-    )
-
-    resume_checkpoint = get_latest_checkpoint(str(OUTPUT_DIR))
-    if resume_checkpoint:
-        print(f"Resuming from checkpoint: {resume_checkpoint}")
 
     print("Starting training...")
-    train_result = trainer.train(resume_from_checkpoint=resume_checkpoint)
-
-    print("Saving final model and tokenizer...")
-    trainer.save_model(str(OUTPUT_DIR))
-    tokenizer.save_pretrained(str(OUTPUT_DIR))
-
-    train_metrics = train_result.metrics
-    train_metrics["train_samples"] = len(tokenized["train"])
-    trainer.log_metrics("train", train_metrics)
-    trainer.save_metrics("train", train_metrics)
-    trainer.save_state()
+    trainer.fit(model, datamodule=datamodule)
 
     print("Running validation...")
-    eval_metrics = trainer.evaluate(eval_dataset=tokenized["validation"])
-    eval_metrics["eval_samples"] = len(tokenized["validation"])
-    try:
-        eval_metrics["perplexity"] = math.exp(eval_metrics["eval_loss"])
-    except Exception:
-        pass
-    trainer.log_metrics("eval", eval_metrics)
-    trainer.save_metrics("eval", eval_metrics)
+    trainer.validate(model, datamodule=datamodule)
 
     print("Running test evaluation...")
-    test_metrics = trainer.evaluate(eval_dataset=tokenized["test"], metric_key_prefix="test")
-    test_metrics["test_samples"] = len(tokenized["test"])
-    try:
-        test_metrics["test_perplexity"] = math.exp(test_metrics["test_loss"])
-    except Exception:
-        pass
-    trainer.log_metrics("test", test_metrics)
-    trainer.save_metrics("test", test_metrics)
+    trainer.test(model, datamodule=datamodule)
+
+    print("Saving final adapter and tokenizer...")
+    model.model.save_pretrained(str(ADAPTER_OUTPUT_DIR))
+    tokenizer.save_pretrained(str(ADAPTER_OUTPUT_DIR))
 
     print("=" * 80)
     print("Training complete.")
-    print(f"Final model saved to: {OUTPUT_DIR}")
+    print(f"Adapter saved to: {ADAPTER_OUTPUT_DIR}")
+    print(f"TensorBoard logs saved to: {logger.log_dir}")
     print("=" * 80)
+
+
+if __name__ == "__main__":
+    main()

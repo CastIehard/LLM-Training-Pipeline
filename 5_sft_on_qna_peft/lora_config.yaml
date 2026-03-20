@@ -3,8 +3,8 @@ model: "../model/Qwen_Qwen3-0.6B"
 train: true
 data: "./data"
 
-fine_tune_type: full
-adapter_path: "./adapters/domain_adapter_full_15000"
+fine_tune_type: lora
+adapter_path: "./adapters/domain_adapter_SFT_lora_new_questions"
 
 optimizer: muon
 seed: 42
@@ -14,7 +14,7 @@ num_layers: -1   # or full layer count if your mx-lm version needs an integer
 batch_size: 4
 grad_accumulation_steps: 16
 
-iters: 15000
+iters: 4800
 learning_rate: 5e-5
 
 max_seq_length: 512

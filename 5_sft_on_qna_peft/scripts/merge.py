@@ -6,8 +6,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 PROJECT_ROOT = BASE_DIR.parent
 
 MODEL_PATH = PROJECT_ROOT / "model" / "Qwen_Qwen3-0.6B"
-ADAPTER_PATH = BASE_DIR / "adapters" / "domain_adapter"
-SAVE_PATH = PROJECT_ROOT / "model" / "Qwen_Qwen3-0.6B-SFT"
+ADAPTER_PATH = BASE_DIR / "adapters" / "domain_adapter_SFT_lora_new_questions"
+SAVE_PATH = PROJECT_ROOT / "model" / "Qwen_Qwen3-0.6B-SFT_lora_new_questions"
 
 cmd = [
     "mlx_lm.fuse",

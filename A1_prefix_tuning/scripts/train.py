@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import math
+import os
 
 import torch
 from accelerate import Accelerator
@@ -14,8 +15,12 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, get_scheduler
 
 from common import (
     CausalLMCollator,
+    apply_runtime_environment,
     get_split_paths,
+    get_dataset_cache_dir,
+    get_model_cache_dir,
     load_config,
+    maybe_export_results,
     parse_torch_dtype,
     resolve_model_name_or_path,
     resolve_path,
@@ -68,6 +73,13 @@ def main() -> None:
     model_config = config["model"]
     peft_config = config["peft"]
     evaluation_config = config["evaluation"]
+    storage = apply_runtime_environment(config)
+
+    if not torch.cuda.is_available():
+        raise RuntimeError(
+            "CUDA is required for A1_prefix_tuning/scripts/train.py, but no GPU was detected by PyTorch. "
+            "Check your CUDA-enabled PyTorch install, NVIDIA driver/runtime, and cluster/container GPU visibility."
+        )
 
     model_dtype = parse_torch_dtype(model_config["torch_dtype"])
     if model_dtype == torch.bfloat16:
@@ -89,15 +101,21 @@ def main() -> None:
     set_seed(config["seed"])
 
     model_name_or_path = resolve_model_name_or_path(model_config["name_or_path"])
+    model_cache_dir = get_model_cache_dir(config)
+    dataset_cache_dir = get_dataset_cache_dir(config)
     split_paths = get_split_paths(config)
     output_dir = resolve_path(training_config["output_dir"])
     checkpoint_root = output_dir / "checkpoints"
     final_adapter_dir = output_dir / "final_adapter"
 
     accelerator.print(f"Loading tokenizer from {model_name_or_path}")
+    accelerator.print(f"Persistent root: {storage['persistent_root']}")
+    accelerator.print(f"Scratch root: {storage['scratch_root']}")
+    accelerator.print(f"Hugging Face cache: {os.environ['HF_HOME']}")
     tokenizer = AutoTokenizer.from_pretrained(
         model_name_or_path,
         use_fast=True,
+        cache_dir=str(model_cache_dir),
         local_files_only=model_config.get("local_files_only", False),
         trust_remote_code=model_config.get("trust_remote_code", False),
     )
@@ -112,6 +130,7 @@ def main() -> None:
             "validation": str(split_paths["validation"]),
             "test": str(split_paths["test"]),
         },
+        cache_dir=str(dataset_cache_dir),
     )
 
     max_seq_length = config["data"]["max_seq_length"]
@@ -145,6 +164,7 @@ def main() -> None:
         model_name_or_path,
         torch_dtype=model_dtype,
         attn_implementation=model_config.get("attn_implementation"),
+        cache_dir=str(model_cache_dir),
         local_files_only=model_config.get("local_files_only", False),
         trust_remote_code=model_config.get("trust_remote_code", False),
     )
@@ -307,6 +327,10 @@ def main() -> None:
             "total_parameters": parameter_counts["total"],
         },
     )
+    if accelerator.is_main_process:
+        exported_path = maybe_export_results(final_adapter_dir, config)
+        if exported_path is not None:
+            accelerator.print(f"Exported final adapter to {exported_path}")
 
 
 if __name__ == "__main__":

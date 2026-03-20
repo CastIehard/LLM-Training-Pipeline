@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import json
 import math
+import os
 import random
+import re
 import shutil
 from collections import defaultdict
 from dataclasses import dataclass
@@ -20,18 +22,57 @@ PROJECT_ROOT = MODULE_DIR.parent
 def load_config(config_path: str | Path) -> dict[str, Any]:
     config_path = Path(config_path).expanduser().resolve()
     with config_path.open("r", encoding="utf-8") as handle:
-        return yaml.safe_load(handle)
+        raw_config = yaml.safe_load(handle)
+    return expand_config_values(raw_config)
+
+
+def expand_config_values(value: Any) -> Any:
+    if isinstance(value, dict):
+        return {key: expand_config_values(item) for key, item in value.items()}
+    if isinstance(value, list):
+        return [expand_config_values(item) for item in value]
+    if isinstance(value, str):
+        return expand_env_vars(value)
+    return value
+
+
+def expand_env_vars(value: str) -> str:
+    pattern = re.compile(r"\$\{([^}:]+)(?::-([^}]*))?\}|\$([A-Za-z_][A-Za-z0-9_]*)")
+
+    def replacer(match: re.Match[str]) -> str:
+        var_name = match.group(1) or match.group(3)
+        default = match.group(2)
+        if var_name is None:
+            return match.group(0)
+        return os.environ.get(var_name, default if default is not None else match.group(0))
+
+    expanded = value
+    previous = None
+    while expanded != previous:
+        previous = expanded
+        expanded = pattern.sub(replacer, expanded)
+    return os.path.expanduser(expanded)
+
+
+def ensure_no_unresolved_env(value: str) -> str:
+    if "$" in value:
+        raise ValueError(
+            f"Unresolved environment variable in path/value: {value}. "
+            "Set the required PREFIX_TUNING_* variables or edit config_hpc.yaml."
+        )
+    return value
 
 
 def resolve_path(path_str: str | Path) -> Path:
-    path = Path(path_str).expanduser()
+    path = Path(ensure_no_unresolved_env(expand_env_vars(str(path_str)))).expanduser()
     if path.is_absolute():
         return path
     return (MODULE_DIR / path).resolve()
 
 
 def resolve_model_name_or_path(value: str) -> str:
-    candidate = Path(value).expanduser()
+    expanded_value = ensure_no_unresolved_env(expand_env_vars(value))
+    candidate = Path(expanded_value).expanduser()
     if candidate.is_absolute():
         return str(candidate)
 
@@ -43,7 +84,102 @@ def resolve_model_name_or_path(value: str) -> str:
     if project_relative.exists():
         return str(project_relative)
 
-    return value
+    return expanded_value
+
+
+def default_persistent_root() -> Path:
+    if os.environ.get("PREFIX_TUNING_PERSISTENT_ROOT"):
+        return Path(os.environ["PREFIX_TUNING_PERSISTENT_ROOT"]).expanduser().resolve()
+    if os.environ.get("WORK"):
+        return (Path(os.environ["WORK"]).expanduser() / "prefix_tuning").resolve()
+    if os.environ.get("HOME"):
+        return (Path(os.environ["HOME"]).expanduser() / "prefix_tuning").resolve()
+    return (MODULE_DIR / "storage").resolve()
+
+
+def default_scratch_root() -> Path:
+    if os.environ.get("PREFIX_TUNING_SCRATCH_ROOT"):
+        return Path(os.environ["PREFIX_TUNING_SCRATCH_ROOT"]).expanduser().resolve()
+    if os.environ.get("TMPDIR"):
+        return (Path(os.environ["TMPDIR"]).expanduser() / "prefix_tuning").resolve()
+    if os.environ.get("WORK"):
+        return (Path(os.environ["WORK"]).expanduser() / "prefix_tuning_tmp").resolve()
+    return (default_persistent_root() / "tmp").resolve()
+
+
+def get_storage_config(config: dict[str, Any]) -> dict[str, Any]:
+    storage = dict(config.get("storage", {}))
+
+    persistent_root = resolve_path(storage["persistent_root"]) if storage.get("persistent_root") else default_persistent_root()
+    scratch_root = resolve_path(storage["scratch_root"]) if storage.get("scratch_root") else default_scratch_root()
+
+    return {
+        "persistent_root": persistent_root,
+        "scratch_root": scratch_root,
+        "hf_home": resolve_path(storage["hf_home"]) if storage.get("hf_home") else persistent_root / "huggingface",
+        "hf_datasets_cache": resolve_path(storage["hf_datasets_cache"]) if storage.get("hf_datasets_cache") else persistent_root / "huggingface" / "datasets",
+        "torch_home": resolve_path(storage["torch_home"]) if storage.get("torch_home") else persistent_root / "torch",
+        "triton_cache_dir": resolve_path(storage["triton_cache_dir"]) if storage.get("triton_cache_dir") else scratch_root / "triton",
+        "results_export_dir": resolve_path(storage["results_export_dir"]) if storage.get("results_export_dir") else None,
+    }
+
+
+def apply_runtime_environment(config: dict[str, Any]) -> dict[str, Path | None]:
+    storage = get_storage_config(config)
+
+    for key in ("persistent_root", "scratch_root", "hf_home", "hf_datasets_cache", "torch_home", "triton_cache_dir"):
+        path = storage[key]
+        if path is not None:
+            Path(path).mkdir(parents=True, exist_ok=True)
+
+    os.environ.setdefault("HF_HOME", str(storage["hf_home"]))
+    os.environ.setdefault("HF_HUB_CACHE", str(Path(storage["hf_home"]) / "hub"))
+    os.environ.setdefault("HF_DATASETS_CACHE", str(storage["hf_datasets_cache"]))
+    os.environ.setdefault("TORCH_HOME", str(storage["torch_home"]))
+    os.environ.setdefault("TRITON_CACHE_DIR", str(storage["triton_cache_dir"]))
+    os.environ.setdefault("TMPDIR", str(storage["scratch_root"]))
+    os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
+
+    Path(os.environ["HF_HUB_CACHE"]).mkdir(parents=True, exist_ok=True)
+
+    return storage
+
+
+def maybe_export_results(source_dir: Path, config: dict[str, Any]) -> Path | None:
+    export_dir = get_storage_config(config)["results_export_dir"]
+    if export_dir is None:
+        return None
+
+    export_dir.mkdir(parents=True, exist_ok=True)
+    target_dir = export_dir / source_dir.name
+    if target_dir.exists():
+        shutil.rmtree(target_dir)
+    shutil.copytree(source_dir, target_dir)
+    return target_dir
+
+
+def get_model_cache_dir(config: dict[str, Any]) -> Path | None:
+    model_cache_dir = config.get("model", {}).get("cache_dir")
+    if model_cache_dir:
+        cache_dir = resolve_path(model_cache_dir)
+        cache_dir.mkdir(parents=True, exist_ok=True)
+        return cache_dir
+    storage = get_storage_config(config)
+    cache_dir = Path(storage["hf_home"]) / "hub"
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    return cache_dir
+
+
+def get_dataset_cache_dir(config: dict[str, Any]) -> Path:
+    data_cache_dir = config.get("data", {}).get("cache_dir")
+    if data_cache_dir:
+        cache_dir = resolve_path(data_cache_dir)
+        cache_dir.mkdir(parents=True, exist_ok=True)
+        return cache_dir
+    storage = get_storage_config(config)
+    cache_dir = Path(storage["hf_datasets_cache"])
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    return cache_dir
 
 
 def get_split_paths(config: dict[str, Any]) -> dict[str, Path]:

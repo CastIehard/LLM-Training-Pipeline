@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Recommended usage on Alex/Helma style systems:
+# - code lives in /home/hpc
+# - large model caches, dataset caches, and checkpoints live in a workspace or $WORK
+# - node-local temporary files live in $TMPDIR
+# - small final artifacts can be copied back to /home/hpc or /home/vault
+
+if [[ -z "${PREFIX_TUNING_PERSISTENT_ROOT:-}" ]]; then
+  if [[ -n "${PREFIX_TUNING_WORKSPACE_NAME:-}" ]] && command -v ws_find >/dev/null 2>&1; then
+    PREFIX_TUNING_PERSISTENT_ROOT="$(ws_find "${PREFIX_TUNING_WORKSPACE_NAME}")"
+    export PREFIX_TUNING_PERSISTENT_ROOT
+  elif [[ -n "${WORK:-}" ]]; then
+    export PREFIX_TUNING_PERSISTENT_ROOT="${WORK}/prefix_tuning"
+  else
+    echo "Set PREFIX_TUNING_PERSISTENT_ROOT or PREFIX_TUNING_WORKSPACE_NAME before training." >&2
+    return 1 2>/dev/null || exit 1
+  fi
+fi
+
+export PREFIX_TUNING_SCRATCH_ROOT="${PREFIX_TUNING_SCRATCH_ROOT:-${TMPDIR:-${PREFIX_TUNING_PERSISTENT_ROOT}/tmp}}"
+export PREFIX_TUNING_HF_HOME="${PREFIX_TUNING_HF_HOME:-${PREFIX_TUNING_PERSISTENT_ROOT}/huggingface}"
+export PREFIX_TUNING_HF_DATASETS_CACHE="${PREFIX_TUNING_HF_DATASETS_CACHE:-${PREFIX_TUNING_HF_HOME}/datasets}"
+export PREFIX_TUNING_TORCH_HOME="${PREFIX_TUNING_TORCH_HOME:-${PREFIX_TUNING_PERSISTENT_ROOT}/torch}"
+export PREFIX_TUNING_MODEL_CACHE_DIR="${PREFIX_TUNING_MODEL_CACHE_DIR:-${PREFIX_TUNING_HF_HOME}/hub}"
+export PREFIX_TUNING_DATASET_CACHE_DIR="${PREFIX_TUNING_DATASET_CACHE_DIR:-${PREFIX_TUNING_HF_DATASETS_CACHE}}"
+export PREFIX_TUNING_DATA_DIR="${PREFIX_TUNING_DATA_DIR:-${PREFIX_TUNING_PERSISTENT_ROOT}/data}"
+export PREFIX_TUNING_OUTPUT_DIR="${PREFIX_TUNING_OUTPUT_DIR:-${PREFIX_TUNING_PERSISTENT_ROOT}/outputs/qwen3_0_6b_prefix}"
+export PREFIX_TUNING_TRITON_CACHE_DIR="${PREFIX_TUNING_TRITON_CACHE_DIR:-${PREFIX_TUNING_SCRATCH_ROOT}/triton}"
+export PREFIX_TUNING_RESULTS_EXPORT_DIR="${PREFIX_TUNING_RESULTS_EXPORT_DIR:-${HOME}/prefix_tuning_results}"
+
+mkdir -p \
+  "${PREFIX_TUNING_PERSISTENT_ROOT}" \
+  "${PREFIX_TUNING_SCRATCH_ROOT}" \
+  "${PREFIX_TUNING_HF_HOME}" \
+  "${PREFIX_TUNING_HF_DATASETS_CACHE}" \
+  "${PREFIX_TUNING_TORCH_HOME}" \
+  "${PREFIX_TUNING_MODEL_CACHE_DIR}" \
+  "${PREFIX_TUNING_DATA_DIR}" \
+  "${PREFIX_TUNING_OUTPUT_DIR}" \
+  "${PREFIX_TUNING_TRITON_CACHE_DIR}"

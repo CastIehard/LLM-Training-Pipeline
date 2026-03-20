@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 
 from common import (
+    apply_runtime_environment,
     format_chat_example,
     get_split_paths,
     load_config,
@@ -21,6 +22,7 @@ def main() -> None:
     args = parser.parse_args()
 
     config = load_config(args.config)
+    storage = apply_runtime_environment(config)
     source_path = resolve_path(config["data"]["source_jsonl"])
     split_paths = get_split_paths(config)
 
@@ -43,6 +45,8 @@ def main() -> None:
 
     summary = {
         "source_path": str(source_path),
+        "persistent_root": str(storage["persistent_root"]),
+        "scratch_root": str(storage["scratch_root"]),
         "train_samples": len(formatted_train),
         "validation_samples": len(formatted_valid),
         "test_samples": len(formatted_test),
@@ -55,4 +59,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

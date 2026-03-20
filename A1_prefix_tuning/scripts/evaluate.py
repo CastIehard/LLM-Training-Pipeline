@@ -11,7 +11,10 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from common import (
     CausalLMCollator,
+    apply_runtime_environment,
     get_split_paths,
+    get_dataset_cache_dir,
+    get_model_cache_dir,
     load_config,
     parse_torch_dtype,
     resolve_model_name_or_path,
@@ -43,14 +46,18 @@ def main() -> None:
     model_config = config["model"]
     training_config = config["training"]
     eval_config = config["evaluation"]
+    apply_runtime_environment(config)
 
     split_paths = get_split_paths(config)
     adapter_dir = resolve_path(args.adapter_dir) if args.adapter_dir else resolve_path(training_config["output_dir"]) / "final_adapter"
     model_name_or_path = resolve_model_name_or_path(model_config["name_or_path"])
+    model_cache_dir = get_model_cache_dir(config)
+    dataset_cache_dir = get_dataset_cache_dir(config)
 
     tokenizer = AutoTokenizer.from_pretrained(
         adapter_dir if adapter_dir.exists() else model_name_or_path,
         use_fast=True,
+        cache_dir=str(model_cache_dir),
         local_files_only=model_config.get("local_files_only", False),
         trust_remote_code=model_config.get("trust_remote_code", False),
     )
@@ -64,6 +71,7 @@ def main() -> None:
             "validation": str(split_paths["validation"]),
             "test": str(split_paths["test"]),
         },
+        cache_dir=str(dataset_cache_dir),
     )
 
     split_name = eval_config["split"]
@@ -89,6 +97,7 @@ def main() -> None:
         model_name_or_path,
         torch_dtype=parse_torch_dtype(model_config["torch_dtype"]),
         attn_implementation=model_config.get("attn_implementation"),
+        cache_dir=str(model_cache_dir),
         local_files_only=model_config.get("local_files_only", False),
         trust_remote_code=model_config.get("trust_remote_code", False),
     )

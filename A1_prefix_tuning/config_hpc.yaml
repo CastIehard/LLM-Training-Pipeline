@@ -1,26 +1,26 @@
 seed: 42
 
 storage:
-  persistent_root: null
-  scratch_root: null
-  hf_home: null
-  hf_datasets_cache: null
-  torch_home: null
-  triton_cache_dir: null
-  results_export_dir: null
+  persistent_root: "${PREFIX_TUNING_PERSISTENT_ROOT}"
+  scratch_root: "${PREFIX_TUNING_SCRATCH_ROOT:-$TMPDIR/prefix_tuning}"
+  hf_home: "${PREFIX_TUNING_HF_HOME:-$PREFIX_TUNING_PERSISTENT_ROOT/huggingface}"
+  hf_datasets_cache: "${PREFIX_TUNING_HF_DATASETS_CACHE:-$PREFIX_TUNING_PERSISTENT_ROOT/huggingface/datasets}"
+  torch_home: "${PREFIX_TUNING_TORCH_HOME:-$PREFIX_TUNING_PERSISTENT_ROOT/torch}"
+  triton_cache_dir: "${PREFIX_TUNING_TRITON_CACHE_DIR:-$PREFIX_TUNING_SCRATCH_ROOT/triton}"
+  results_export_dir: "${PREFIX_TUNING_RESULTS_EXPORT_DIR:-$HOME/prefix_tuning_results}"
 
 model:
   name_or_path: "Qwen/Qwen3-0.6B"
-  cache_dir: null
+  cache_dir: "${PREFIX_TUNING_MODEL_CACHE_DIR:-$PREFIX_TUNING_PERSISTENT_ROOT/huggingface/hub}"
   local_files_only: false
   trust_remote_code: false
   torch_dtype: "bfloat16"
   attn_implementation: "sdpa"
 
 data:
-  source_jsonl: "../data/llm_qna.jsonl"
-  output_dir: "./data"
-  cache_dir: null
+  source_jsonl: "${PREFIX_TUNING_SOURCE_JSONL:-../data/llm_qna.jsonl}"
+  output_dir: "${PREFIX_TUNING_DATA_DIR:-$PREFIX_TUNING_PERSISTENT_ROOT/data}"
+  cache_dir: "${PREFIX_TUNING_DATASET_CACHE_DIR:-$PREFIX_TUNING_PERSISTENT_ROOT/huggingface/datasets}"
   group_by_key: "hash"
   question_field: "question"
   answer_field: "answer"
@@ -32,7 +32,7 @@ data:
   max_seq_length: 1024
 
 training:
-  output_dir: "./outputs/qwen3_0_6b_prefix"
+  output_dir: "${PREFIX_TUNING_OUTPUT_DIR:-$PREFIX_TUNING_PERSISTENT_ROOT/outputs/qwen3_0_6b_prefix}"
   num_train_epochs: 3
   max_steps: null
   learning_rate: 0.002
@@ -64,3 +64,4 @@ evaluation:
   generation_max_new_tokens: 128
   generation_temperature: 0.0
   generation_top_p: 1.0
+

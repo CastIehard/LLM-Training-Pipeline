@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Option 1: point directly at a workspace or $WORK subdirectory.
+export PREFIX_TUNING_PERSISTENT_ROOT="/path/to/workspace/prefix-tuning"
+
+# Option 2: let hpc_env.sh resolve a workspace for you.
+# export PREFIX_TUNING_WORKSPACE_NAME="prefix-tuning"
+
+# Keep node-local temporary files on the job-local SSD or ramdisk when available.
+export PREFIX_TUNING_SCRATCH_ROOT="${TMPDIR:-${PREFIX_TUNING_PERSISTENT_ROOT}/tmp}"
+
+# Store small final artifacts in HOME by default. For longer retention, point this to /home/vault/... .
+export PREFIX_TUNING_RESULTS_EXPORT_DIR="${HOME}/prefix_tuning_results"
+# export PREFIX_TUNING_RESULTS_EXPORT_DIR="/home/vault/${USER}/prefix_tuning_results"
+# export PREFIX_TUNING_SOURCE_JSONL="/path/to/llm_qna.jsonl"
+# export PREFIX_TUNING_OUTPUT_DIR="${PREFIX_TUNING_PERSISTENT_ROOT}/outputs/qwen3_0_6b_prefix"

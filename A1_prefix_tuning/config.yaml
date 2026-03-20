@@ -1,0 +1,56 @@
+seed: 42
+
+model:
+  name_or_path: "Qwen/Qwen3-0.6B"
+  local_files_only: false
+  trust_remote_code: false
+  torch_dtype: "bfloat16"
+  attn_implementation: "sdpa"
+
+data:
+  source_jsonl: "../data/llm_qna.jsonl"
+  output_dir: "./data"
+  group_by_key: "hash"
+  question_field: "question"
+  answer_field: "answer"
+  train_ratio: 0.8
+  valid_ratio: 0.1
+  system_prompt: "You answer questions factually and concisely. Do not invent information. If the answer is unknown, say so clearly."
+  append_no_think_suffix: true
+  no_think_suffix: " /no_think"
+  max_seq_length: 1024
+
+training:
+  output_dir: "./outputs/qwen3_0_6b_prefix"
+  num_train_epochs: 3
+  max_steps: null
+  learning_rate: 0.002
+  weight_decay: 0.0
+  lr_scheduler_type: "cosine"
+  num_warmup_steps: 50
+  per_device_train_batch_size: 4
+  per_device_eval_batch_size: 4
+  gradient_accumulation_steps: 8
+  max_grad_norm: 1.0
+  logging_steps: 10
+  eval_steps: 100
+  save_steps: 100
+  save_total_limit: 3
+  dataloader_num_workers: 4
+  gradient_checkpointing: false
+  compile_model: false
+  tf32: true
+
+peft:
+  num_virtual_tokens: 32
+  prefix_projection: true
+  encoder_hidden_size: null
+
+evaluation:
+  split: "test"
+  max_eval_batches: null
+  num_generation_samples: 5
+  generation_max_new_tokens: 128
+  generation_temperature: 0.0
+  generation_top_p: 1.0
+

@@ -21,24 +21,25 @@ MODEL_PATH = PROJECT_DIR / "model" / "Qwen_Qwen3-0.6B"
 ADAPTER_OUTPUT_DIR = RUN_DIR / "adapters" / "Qwen_Qwen3-0.6B_adalora_lightning"
 TENSORBOARD_ROOT_DIR = RUN_DIR / "tb_logs"
 
+MAX_EPOCHS: int = 15
+
 
 @dataclass(frozen=True)
 class TrainConfig:
     seed: int = 42
 
-    per_device_train_batch_size: int = 8
+    per_device_train_batch_size: int = 4
     per_device_eval_batch_size: int = 4
-    gradient_accumulation_steps: int = 8
+    gradient_accumulation_steps: int = 16
 
-    max_steps: int = 1000
     learning_rate: float = 5e-5
     max_seq_length: int = 512
 
+    val_check_interval: float = 0.5
     logging_steps: int = 10
-    eval_every_n_train_batches: int = 25
+    dataloader_num_workers: int = 15
 
-    dataloader_num_workers: int = 7
-
+    compile_model: bool = False
     run_name: str = "qwen3_adalora"
 
 
@@ -57,7 +58,7 @@ ADALORA_CONFIG = AdaLoraConfig(
     lora_dropout=0.05,
     bias="none",
     target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"],
-    total_step=1000
+    total_step=2116 * MAX_EPOCHS
 )
 
 
@@ -230,12 +231,12 @@ class LitQwenSFT(L.LightningModule):
         self.tokenizer = tokenizer
 
         print(f"Loading model from: {MODEL_PATH}")
-        base_model = AutoModelForCausalLM.from_pretrained(str(MODEL_PATH), torch_dtype=torch.bfloat16, attn_implementation="sdpa", local_files_only=True,)
+        base_model = AutoModelForCausalLM.from_pretrained(str(MODEL_PATH), torch_dtype=torch.bfloat16, attn_implementation="sdpa", local_files_only=True, )
 
         base_model.config.use_cache = False
         base_model.config.pad_token_id = tokenizer.pad_token_id
 
-        self.model = get_peft_model(base_model, LORA_CONFIG)
+        self.model = get_peft_model(base_model, ADALORA_CONFIG)
         self.model.print_trainable_parameters()
 
     def forward(self, batch: dict[str, torch.Tensor]):
@@ -259,7 +260,7 @@ class LitQwenSFT(L.LightningModule):
 
     def configure_optimizers(self):
         trainable_params = [p for p in self.model.parameters() if p.requires_grad]
-        return AdamW(trainable_params, lr=self.cfg.learning_rate)
+        return AdamW(trainable_params, lr=self.cfg.learning_rate, fused=True)
 
 
 def main() -> None:
@@ -292,19 +293,19 @@ def main() -> None:
 
     datamodule = ChatSFTDataModule(cfg, tokenizer)
     model = LitQwenSFT(cfg, tokenizer)
+    if cfg.compile_model:
+        model = torch.compile(model)
 
     logger = TensorBoardLogger(save_dir=str(TENSORBOARD_ROOT_DIR), name=cfg.run_name, default_hp_metric=False)
 
     trainer = L.Trainer(
-        accelerator="gpu",
-        devices=1,
         precision="bf16-mixed",
         logger=logger,
-        max_steps=cfg.max_steps,
-        max_epochs=-1,
+        max_epochs=MAX_EPOCHS,
         accumulate_grad_batches=cfg.gradient_accumulation_steps,
         log_every_n_steps=cfg.logging_steps,
-        val_check_interval=cfg.eval_every_n_train_batches,
+        val_check_interval=cfg.val_check_interval,
+        check_val_every_n_epoch=1,
         num_sanity_val_steps=0,
         enable_checkpointing=False,
     )

@@ -1,0 +1,29 @@
+Bootstrap: docker
+From: ubuntu:22.04
+
+%files
+    A1_prefix_tuning/container/requirements.txt /opt/a1_prefix_tuning_requirements.txt
+
+%post
+    export DEBIAN_FRONTEND=noninteractive
+    apt-get update && apt-get install -y \
+        python3 \
+        python3-pip \
+        git \
+        ca-certificates \
+        && rm -rf /var/lib/apt/lists/*
+
+    pip3 install --upgrade pip
+    pip3 install -r /opt/a1_prefix_tuning_requirements.txt
+
+%environment
+    export LC_ALL=C
+    export LANG=C
+    export PATH=/usr/local/bin:$PATH
+    export PYTHONUNBUFFERED=1
+    export TOKENIZERS_PARALLELISM=false
+
+%runscript
+    echo "Arguments received: $*"
+    exec "$@"
+

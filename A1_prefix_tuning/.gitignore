@@ -4,3 +4,5 @@ data/*.jsonl
 data/*.json
 data/*.yaml
 outputs/
+container/*.sif
+container/*.sqsh

@@ -105,20 +105,15 @@ def parse_args() -> Config:
         description="Continued pretraining for Qwen/Qwen3-0.6B on a folder of raw markdown/text files.")
     parser.add_argument("--corpus_dir", type=str, required=True, help="Folder containing .md/.markdown/.txt files.")
     parser.add_argument("--output_dir", type=str, required=True, help="Where checkpoints, logs and the final model are written.")
-    parser.add_argument(
-        "--model_name_or_path",
-        type=str,
-        default="Qwen/Qwen3-0.6B",
-        help="HF model id or local model path. Use the BASE model, not an instruct checkpoint.",
-    )
+    parser.add_argument("--model_name_or_path", type=str, default="Qwen/Qwen3-0.6B", help="HF model id or local model path. Use the BASE model, not an instruct checkpoint.",)
     parser.add_argument("--cache_dir", type=str, default=None)
-    parser.add_argument("--block_size", type=int, default=2048)
+    parser.add_argument("--block_size", type=int, default=1024)
     parser.add_argument("--validation_ratio", type=float, default=0.1)
     parser.add_argument("--per_device_train_batch_size", type=int, default=2)
     parser.add_argument("--per_device_eval_batch_size", type=int, default=2)
     parser.add_argument("--gradient_accumulation_steps", type=int, default=16)
     parser.add_argument("--num_train_epochs", type=float, default=1.0)
-    parser.add_argument("--learning_rate", type=float, default=5e-5)
+    parser.add_argument("--learning_rate", type=float, default=1e-6)
     parser.add_argument("--weight_decay", type=float, default=0.01)
     parser.add_argument("--warmup_ratio", type=float, default=0.0)
     parser.add_argument("--logging_steps", type=int, default=10)

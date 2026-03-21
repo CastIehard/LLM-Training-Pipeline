@@ -10,8 +10,8 @@ RUN_DIR = SCRIPT_DIR.parent
 PROJECT_DIR = RUN_DIR.parent
 
 BASE_MODEL_PATH = PROJECT_DIR / "model" / "Qwen_Qwen3-0.6B"
-ADAPTER_PATH = RUN_DIR / "adapters" / "Qwen_Qwen3-0.6B_lora_lightning"
-MERGED_MODEL_PATH = RUN_DIR / "merged" / "Qwen_Qwen3-0.6B_lora_merged"
+ADAPTER_PATH = RUN_DIR / "adapters" / "Qwen_Qwen3-0.6B_lora_lightning_epoch1"
+MERGED_MODEL_PATH = RUN_DIR / "merged" / "Qwen_Qwen3-0.6B_lora_merged_epoch1"
 
 
 def main() -> None:
@@ -38,11 +38,7 @@ def main() -> None:
     torch.backends.cudnn.allow_tf32 = True
 
     print(f"Loading tokenizer from: {BASE_MODEL_PATH}")
-    tokenizer = AutoTokenizer.from_pretrained(
-        str(BASE_MODEL_PATH),
-        use_fast=True,
-        local_files_only=True,
-    )
+    tokenizer = AutoTokenizer.from_pretrained(str(BASE_MODEL_PATH), use_fast=True, local_files_only=True,)
 
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
@@ -58,20 +54,13 @@ def main() -> None:
     base_model.config.pad_token_id = tokenizer.pad_token_id
 
     print(f"Loading adapter from: {ADAPTER_PATH}")
-    peft_model = PeftModel.from_pretrained(
-        base_model,
-        str(ADAPTER_PATH),
-        is_trainable=False,
-    )
+    peft_model = PeftModel.from_pretrained(base_model, str(ADAPTER_PATH), is_trainable=False,)
 
     print("Merging adapter into base model...")
     merged_model = peft_model.merge_and_unload()
 
     print(f"Saving merged model to: {MERGED_MODEL_PATH}")
-    merged_model.save_pretrained(
-        str(MERGED_MODEL_PATH),
-        safe_serialization=True,
-    )
+    merged_model.save_pretrained(str(MERGED_MODEL_PATH), safe_serialization=True,)
     tokenizer.save_pretrained(str(MERGED_MODEL_PATH))
 
     print("=" * 80)

@@ -1,10 +1,10 @@
-model: "../model/Qwen_Qwen3-0.6B"
+model: "../model/Qwen_Qwen3-0.6B-cpt5e-3"
 
 train: true
 data: "./data"
 
 fine_tune_type: lora
-adapter_path: "./adapters/domain_adapter_SFT_lora_new_questions"
+adapter_path: "./adapters/domain_adapter_cpt5e-3-SFT"
 
 optimizer: muon
 seed: 42

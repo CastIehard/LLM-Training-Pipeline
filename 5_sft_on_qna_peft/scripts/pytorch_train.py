@@ -18,10 +18,10 @@ PROJECT_DIR = RUN_DIR.parent
 
 DATA_DIR = RUN_DIR / "data"
 MODEL_PATH = PROJECT_DIR / "model" / "Qwen_Qwen3-0.6B"
-ADAPTER_OUTPUT_DIR = RUN_DIR / "adapters" / "Qwen_Qwen3-0.6B_adalora_lightning"
+ADAPTER_OUTPUT_DIR = RUN_DIR / "adapters" / "Qwen_Qwen3-0.6B_lora_lightning_epoch3"
 TENSORBOARD_ROOT_DIR = RUN_DIR / "tb_logs"
 
-MAX_EPOCHS: int = 15
+MAX_EPOCHS: int = 1
 
 
 @dataclass(frozen=True)
@@ -35,12 +35,12 @@ class TrainConfig:
     learning_rate: float = 5e-5
     max_seq_length: int = 512
 
-    val_check_interval: float = 0.5
+    val_check_interval: float = 1.0
     logging_steps: int = 10
     dataloader_num_workers: int = 15
 
     compile_model: bool = False
-    run_name: str = "qwen3_adalora"
+    run_name: str = "qwen3_lora"
 
 
 LORA_CONFIG = LoraConfig(
@@ -236,7 +236,7 @@ class LitQwenSFT(L.LightningModule):
         base_model.config.use_cache = False
         base_model.config.pad_token_id = tokenizer.pad_token_id
 
-        self.model = get_peft_model(base_model, ADALORA_CONFIG)
+        self.model = get_peft_model(base_model, LORA_CONFIG)
         self.model.print_trainable_parameters()
 
     def forward(self, batch: dict[str, torch.Tensor]):
@@ -312,12 +312,6 @@ def main() -> None:
 
     print("Starting training...")
     trainer.fit(model, datamodule=datamodule)
-
-    print("Running validation...")
-    trainer.validate(model, datamodule=datamodule)
-
-    print("Running test evaluation...")
-    trainer.test(model, datamodule=datamodule)
 
     print("Saving final adapter and tokenizer...")
     model.model.save_pretrained(str(ADAPTER_OUTPUT_DIR))

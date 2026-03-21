@@ -1,5 +1,5 @@
 {
-    "timestamp": "2026-03-13T22:34:40.005856",
+    "timestamp": "2026-03-21T00:48:26.537128",
     "processing_info": {
         "hardware": "Mac Mini M4",
         "model": "gpt-oss-20b",
@@ -15,22 +15,22 @@
         "reduction_percentage": 96.14
     },
     "document_relevancy": {
-        "relevant_docs": 1769,
-        "irrelevant_docs": 1455,
+        "relevant_docs": 1687,
+        "irrelevant_docs": 1537,
         "total_docs": 3224
     },
     "llm_stats": {
-        "total_questions": 14446,
+        "total_questions": 10313,
         "categories": {
-            "Nuremberg": 5999,
-            "Germany": 4644,
-            "UTN": 2792,
-            "Studies": 976
+            "Nuremberg": 4026,
+            "Germany": 3685,
+            "UTN": 2031,
+            "Studies": 571
         },
         "questions_per_doc": {
-            "avg": 8.15,
+            "avg": 6.11,
             "min": 1,
-            "max": 82
+            "max": 66
         }
     }
 }

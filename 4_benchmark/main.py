@@ -27,6 +27,7 @@ import torch
 import yaml
 from dotenv import load_dotenv
 from openai import OpenAI
+from peft import PeftModel
 from tenacity import retry, stop_after_attempt, wait_exponential
 from tqdm.auto import tqdm
 from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -133,6 +134,7 @@ def _get_hf_cache_key(llm_config: dict) -> str:
     hf_config = llm_config["huggingface"]
     model_name = hf_config["model"]
     model_dir = str(Path(hf_config.get("model_dir", "model")))
+    adapter_dir = hf_config.get("adapter_dir")
     device = hf_config.get("device", "auto")
     dtype = hf_config.get("dtype", "auto")
     trust_remote_code = hf_config.get("trust_remote_code", True)
@@ -141,6 +143,7 @@ def _get_hf_cache_key(llm_config: dict) -> str:
         {
             "model": model_name,
             "model_dir": model_dir,
+            "adapter_dir": adapter_dir,
             "device": device,
             "dtype": dtype,
             "trust_remote_code": trust_remote_code,
@@ -160,8 +163,11 @@ def load_huggingface_model(llm_config: dict):
     hf_config = llm_config["huggingface"]
     model_name = hf_config["model"]
     model_dir = Path(hf_config.get("model_dir", "model"))
+    adapter_dir_value = hf_config.get("adapter_dir")
+    adapter_path = Path(adapter_dir_value).expanduser().resolve() if adapter_dir_value else None
     local_path = model_dir / model_name.replace("/", "_")
     trust_remote_code = hf_config.get("trust_remote_code", True)
+    is_adapter_run = adapter_path is not None
 
     if local_path.exists():
         print(f"  Loading model from local cache: {local_path}")
@@ -171,10 +177,15 @@ def load_huggingface_model(llm_config: dict):
         print(f"  Downloading model from HuggingFace: {model_name}")
         print(f"  Will be cached to: {local_path}")
         load_path = model_name
-        should_save_local = True
+        should_save_local = not is_adapter_run
 
     print("  Loading tokenizer...")
-    tokenizer = AutoTokenizer.from_pretrained(load_path, padding_side='left', trust_remote_code=trust_remote_code)
+    tokenizer_load_path = str(adapter_path) if is_adapter_run and adapter_path.exists() else load_path
+    tokenizer = AutoTokenizer.from_pretrained(
+        tokenizer_load_path,
+        padding_side='left',
+        trust_remote_code=trust_remote_code,
+    )
 
     print("  Loading model (this may take a while)...")
     device = hf_config.get("device", "auto")
@@ -194,6 +205,13 @@ def load_huggingface_model(llm_config: dict):
         device_map=device,
         trust_remote_code=trust_remote_code,
     )
+
+    if is_adapter_run:
+        if not adapter_path.exists():
+            raise FileNotFoundError(f"Adapter directory does not exist: {adapter_path}")
+        print(f"  Loading PEFT adapter from: {adapter_path}")
+        model = PeftModel.from_pretrained(model, str(adapter_path))
+
     model.eval()
 
     if tokenizer.pad_token_id is None and tokenizer.eos_token_id is not None:
@@ -775,11 +793,13 @@ def save_summary(
         "answer_model": {
             "provider": answer_config["provider"],
             "model": answer_settings["model"],
+            "adapter_dir": answer_settings.get("adapter_dir"),
             "temperature": answer_settings["temperature"],
         },
         "judge_model": {
             "provider": judge_config["provider"],
             "model": judge_settings["model"],
+            "adapter_dir": judge_settings.get("adapter_dir"),
             "temperature": judge_settings["temperature"],
         },
         "stats": {

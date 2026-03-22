@@ -2,7 +2,7 @@
 
 Single-GPU prefix tuning for `Qwen/Qwen3-0.6B` using Hugging Face Transformers, PEFT, Accelerate, and Apptainer.
 
-This module is now scoped to one GPU on one node. There is no multi-node setup in `A1_prefix_tuning`.
+This module is scoped to one GPU on one node. There is no multi-node setup in `A1_prefix_tuning`.
 
 ## What It Does
 

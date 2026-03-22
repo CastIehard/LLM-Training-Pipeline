@@ -1,7 +1,7 @@
 #!/bin/bash -l
 #SBATCH --job-name=run_experiment
 #SBATCH --output=results_%A.out
-#SBATCH --time=00:59:00
+#SBATCH --time=12:00:00
 #SBATCH --ntasks=1
 #SBATCH --gres=gpu:a40:1
 #SBATCH --nodes=1

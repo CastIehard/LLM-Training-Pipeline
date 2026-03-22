@@ -1,0 +1,7 @@
+{
+  "global_step": 795,
+  "eval_loss": 5.8586106300354,
+  "eval_perplexity": 350.2371967816174,
+  "trainable_parameters": 59859968,
+  "total_parameters": 811492352
+}

@@ -4,7 +4,7 @@ train: true
 data: "./data"
 
 fine_tune_type: lora
-adapter_path: "./adapters/Qwen_Qwen3-0.6B-tuplecpt-1e-6_25epoch-SFT"
+adapter_path: "./adapters/Qwen_Qwen3-0.6B-tuplecpt-1e-6_25epoch2-SFT"
 
 optimizer: muon
 seed: 42
@@ -15,7 +15,7 @@ batch_size: 4
 grad_accumulation_steps: 16
 
 # This refers to the batches processed. One epoch = 2115.
-iters: 8461
+iters: 4800
 learning_rate: 1e-5
 
 max_seq_length: 512

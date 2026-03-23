@@ -14,7 +14,7 @@ adapter_value = config["adapter_path"]
 
 MODEL_PATH = (CONFIG_PATH.parent / model_value).resolve()
 ADAPTER_PATH = (CONFIG_PATH.parent / adapter_value).resolve()
-SAVE_PATH = MODEL_PATH.parent / f"{MODEL_PATH.name}-SFT"
+SAVE_PATH = MODEL_PATH.parent / f"{ADAPTER_PATH.name}"
 
 cmd = [
     "mlx_lm.fuse",

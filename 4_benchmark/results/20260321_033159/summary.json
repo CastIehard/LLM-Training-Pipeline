@@ -1,0 +1,60 @@
+{
+  "run_timestamp": "2026-03-21T03:39:50.760985",
+  "duration_seconds": 468.97,
+  "answer_model": {
+    "provider": "huggingface",
+    "model": "Qwen_Qwen3-0.6B-cpt5e-3",
+    "temperature": 0.3
+  },
+  "judge_model": {
+    "provider": "local",
+    "model": "qwen/qwen3.5-9b",
+    "temperature": 0.0
+  },
+  "stats": {
+    "total_questions": 213,
+    "answered": 213,
+    "failed": 0,
+    "average_score": 0.0305,
+    "full_correct": 1,
+    "partial_correct": 11,
+    "wrong": 201
+  },
+  "stats_by_category": {
+    "Nuremberg": {
+      "count": 50,
+      "average": 0.03,
+      "full_correct": 1,
+      "partial": 1,
+      "wrong": 48
+    },
+    "Studies": {
+      "count": 50,
+      "average": 0.04,
+      "full_correct": 0,
+      "partial": 4,
+      "wrong": 46
+    },
+    "UTN": {
+      "count": 50,
+      "average": 0.01,
+      "full_correct": 0,
+      "partial": 1,
+      "wrong": 49
+    },
+    "Germany": {
+      "count": 50,
+      "average": 0.05,
+      "full_correct": 0,
+      "partial": 5,
+      "wrong": 45
+    },
+    "reference faq": {
+      "count": 13,
+      "average": 0.0,
+      "full_correct": 0,
+      "partial": 0,
+      "wrong": 13
+    }
+  }
+}

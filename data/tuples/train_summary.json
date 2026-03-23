@@ -1,0 +1,20 @@
+{
+  "num_examples": 8461,
+  "num_extracted_triples_raw": 6647,
+  "num_unique_triples": 6209,
+  "num_subject_relation_pairs": 2947,
+  "num_relations": 10,
+  "avg_triples_per_example": 0.7856045384706299,
+  "files": {
+    "qa_clean": "data/tuples/train_qa_clean.jsonl",
+    "triples_raw": "data/tuples/train_triples_raw.jsonl",
+    "triples_dedup": "data/tuples/train_triples_dedup.jsonl",
+    "cpt_triples_pipe": "data/tuples/train_cpt_triples_pipe.jsonl",
+    "cpt_atomic_sentences": "data/tuples/train_cpt_atomic_sentences.jsonl",
+    "cpt_triples_pipe_text_md": "data/tuples/train_cpt_triples_pipe_text.md",
+    "cpt_atomic_sentences_text_md": "data/tuples/train_cpt_atomic_sentences_text.md",
+    "qa_to_triples_debug": "data/tuples/train_qa_to_triples_debug.jsonl",
+    "relation_stats": "data/tuples/train_relation_stats.json",
+    "subject_relation_to_objects": "data/tuples/train_subject_relation_to_objects.jsonl"
+  }
+}

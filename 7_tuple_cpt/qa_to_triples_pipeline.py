@@ -857,7 +857,7 @@ def main() -> int:
     p = argparse.ArgumentParser(description="Convert chat-style QA JSONL into condensed triple datasets for CPT.")
     p.add_argument("--output-dir", type=Path, default="./data/tuples", help="Directory for output files.")
     p.add_argument("--output-prefix", type=str, default="train_", help="Optional file prefix, e.g. 'train_'.")
-    p.add_argument("--limit", type=int, default=25, help="Optional max number of examples.")
+    p.add_argument("--limit", type=int, default=None, help="Optional max number of examples.")
     p.add_argument("--shuffle", action="store_true", help="Shuffle before applying --limit.")
     p.add_argument("--seed", type=int, default=0)
     p.add_argument("--workers", type=int, default=1, help="Parallel workers. Start with 1 for LM Studio.")

@@ -1,0 +1,1081 @@
+{
+  "relations": [
+    [
+      "has",
+      1917
+    ],
+    [
+      "requires",
+      1906
+    ],
+    [
+      "allows",
+      1775
+    ],
+    [
+      "costs",
+      531
+    ],
+    [
+      "deadline",
+      216
+    ],
+    [
+      "amount",
+      124
+    ],
+    [
+      "website",
+      118
+    ],
+    [
+      "starts",
+      40
+    ],
+    [
+      "ends",
+      19
+    ],
+    [
+      "ends_at_age",
+      1
+    ]
+  ],
+  "top_subject_relation_pairs": [
+    {
+      "subject": "Nuremberg",
+      "relation": "has",
+      "count": 133
+    },
+    {
+      "subject": "Technische Hochschule Nürnberg",
+      "relation": "has",
+      "count": 64
+    },
+    {
+      "subject": "VGN",
+      "relation": "has",
+      "count": 58
+    },
+    {
+      "subject": "universities",
+      "relation": "has",
+      "count": 39
+    },
+    {
+      "subject": "UTN",
+      "relation": "has",
+      "count": 39
+    },
+    {
+      "subject": "VGN website",
+      "relation": "has",
+      "count": 37
+    },
+    {
+      "subject": "VGN",
+      "relation": "allows",
+      "count": 37
+    },
+    {
+      "subject": "students",
+      "relation": "requires",
+      "count": 33
+    },
+    {
+      "subject": "VAG",
+      "relation": "has",
+      "count": 33
+    },
+    {
+      "subject": "student",
+      "relation": "requires",
+      "count": 30
+    },
+    {
+      "subject": "UTN",
+      "relation": "allows",
+      "count": 27
+    },
+    {
+      "subject": "Germany",
+      "relation": "has",
+      "count": 26
+    },
+    {
+      "subject": "University of Technology Nuremberg",
+      "relation": "has",
+      "count": 25
+    },
+    {
+      "subject": "VGN Fahrplan & Tickets app",
+      "relation": "allows",
+      "count": 23
+    },
+    {
+      "subject": "Bildungszentrum in Nuremberg",
+      "relation": "has",
+      "count": 21
+    },
+    {
+      "subject": "VGN",
+      "relation": "website",
+      "count": 21
+    },
+    {
+      "subject": "admission requirements",
+      "relation": "requires",
+      "count": 20
+    },
+    {
+      "subject": "VAG",
+      "relation": "allows",
+      "count": 20
+    },
+    {
+      "subject": "DAAD scholarship application",
+      "relation": "requires",
+      "count": 20
+    },
+    {
+      "subject": "Studierendenwerke",
+      "relation": "allows",
+      "count": 19
+    },
+    {
+      "subject": "Fachkraft",
+      "relation": "requires",
+      "count": 19
+    },
+    {
+      "subject": "city of Nuremberg",
+      "relation": "has",
+      "count": 19
+    },
+    {
+      "subject": "enrollment",
+      "relation": "requires",
+      "count": 18
+    },
+    {
+      "subject": "recognition application",
+      "relation": "requires",
+      "count": 18
+    },
+    {
+      "subject": "Verkehrsverbund Großraum Nürnberg",
+      "relation": "has",
+      "count": 18
+    },
+    {
+      "subject": "NürnbergMOBIL app",
+      "relation": "allows",
+      "count": 17
+    },
+    {
+      "subject": "portal",
+      "relation": "has",
+      "count": 16
+    },
+    {
+      "subject": "BAföG",
+      "relation": "requires",
+      "count": 16
+    },
+    {
+      "subject": "applicants",
+      "relation": "requires",
+      "count": 16
+    },
+    {
+      "subject": "BAföG application",
+      "relation": "requires",
+      "count": 16
+    },
+    {
+      "subject": "Nuremberg",
+      "relation": "allows",
+      "count": 16
+    },
+    {
+      "subject": "Technische Hochschule Nürnberg Georg Simon Ohm",
+      "relation": "allows",
+      "count": 16
+    },
+    {
+      "subject": "German rental contract",
+      "relation": "has",
+      "count": 15
+    },
+    {
+      "subject": "Nuremberg forum",
+      "relation": "has",
+      "count": 14
+    },
+    {
+      "subject": "Studierendenwerk",
+      "relation": "has",
+      "count": 14
+    },
+    {
+      "subject": "Chancenkarte",
+      "relation": "requires",
+      "count": 14
+    },
+    {
+      "subject": "VAG",
+      "relation": "website",
+      "count": 14
+    },
+    {
+      "subject": "VGN Fahrplan & Tickets",
+      "relation": "allows",
+      "count": 14
+    },
+    {
+      "subject": "website",
+      "relation": "has",
+      "count": 13
+    },
+    {
+      "subject": "Wohnungsgeberbestätigung",
+      "relation": "requires",
+      "count": 13
+    },
+    {
+      "subject": "non-EU citizen",
+      "relation": "requires",
+      "count": 13
+    },
+    {
+      "subject": "dual programs",
+      "relation": "has",
+      "count": 13
+    },
+    {
+      "subject": "international students",
+      "relation": "requires",
+      "count": 12
+    },
+    {
+      "subject": "student services",
+      "relation": "has",
+      "count": 12
+    },
+    {
+      "subject": "Verwaltung und Rat",
+      "relation": "has",
+      "count": 12
+    },
+    {
+      "subject": "Bürgeramt Süd",
+      "relation": "allows",
+      "count": 12
+    },
+    {
+      "subject": "City of Nuremberg career portal",
+      "relation": "allows",
+      "count": 12
+    },
+    {
+      "subject": "parent-independent BAföG",
+      "relation": "requires",
+      "count": 12
+    },
+    {
+      "subject": "shared apartment room in Nuremberg",
+      "relation": "costs",
+      "count": 12
+    },
+    {
+      "subject": "Department Computer Science & Artificial Intelligence",
+      "relation": "has",
+      "count": 12
+    },
+    {
+      "subject": "Castle Apartments",
+      "relation": "has",
+      "count": 12
+    },
+    {
+      "subject": "Urban Living Nürnberg",
+      "relation": "has",
+      "count": 12
+    },
+    {
+      "subject": "VGN service section",
+      "relation": "has",
+      "count": 12
+    },
+    {
+      "subject": "student housing in Nuremberg",
+      "relation": "costs",
+      "count": 11
+    },
+    {
+      "subject": "semester contribution",
+      "relation": "has",
+      "count": 11
+    },
+    {
+      "subject": "BAföG",
+      "relation": "amount",
+      "count": 11
+    },
+    {
+      "subject": "BAföG",
+      "relation": "allows",
+      "count": 11
+    },
+    {
+      "subject": "user account",
+      "relation": "allows",
+      "count": 11
+    },
+    {
+      "subject": "Aufenthaltserlaubnis",
+      "relation": "allows",
+      "count": 11
+    },
+    {
+      "subject": "Biotonne",
+      "relation": "allows",
+      "count": 11
+    },
+    {
+      "subject": "dual study program",
+      "relation": "allows",
+      "count": 11
+    },
+    {
+      "subject": "Studierendenwerke",
+      "relation": "has",
+      "count": 10
+    },
+    {
+      "subject": "Bürgeramt Mitte",
+      "relation": "has",
+      "count": 10
+    },
+    {
+      "subject": "DAAD",
+      "relation": "has",
+      "count": 10
+    },
+    {
+      "subject": "applicant",
+      "relation": "requires",
+      "count": 10
+    },
+    {
+      "subject": "EU citizens",
+      "relation": "requires",
+      "count": 10
+    },
+    {
+      "subject": "Working Holiday Visa for Germany",
+      "relation": "allows",
+      "count": 10
+    },
+    {
+      "subject": "Bürgeramt Mitte",
+      "relation": "allows",
+      "count": 10
+    },
+    {
+      "subject": "University Co-operatives in Japan and Germany",
+      "relation": "allows",
+      "count": 10
+    },
+    {
+      "subject": "co-ops",
+      "relation": "has",
+      "count": 10
+    },
+    {
+      "subject": "student living in Nuremberg",
+      "relation": "costs",
+      "count": 10
+    },
+    {
+      "subject": "framework agreement and university contract for Technische Hochschule Nürnberg",
+      "relation": "has",
+      "count": 10
+    },
+    {
+      "subject": "UTN Climate Protection Concept",
+      "relation": "has",
+      "count": 10
+    },
+    {
+      "subject": "Hauptbahnhof Nürnberg",
+      "relation": "allows",
+      "count": 10
+    },
+    {
+      "subject": "DAAD scholarship",
+      "relation": "requires",
+      "count": 10
+    },
+    {
+      "subject": "Deutschlandstipendium",
+      "relation": "requires",
+      "count": 9
+    },
+    {
+      "subject": "VGN network",
+      "relation": "has",
+      "count": 9
+    },
+    {
+      "subject": "residence permit",
+      "relation": "allows",
+      "count": 9
+    },
+    {
+      "subject": "Make it in Germany website",
+      "relation": "has",
+      "count": 9
+    },
+    {
+      "subject": "Kunsthandwerkermarkt",
+      "relation": "has",
+      "count": 9
+    },
+    {
+      "subject": "student housing",
+      "relation": "costs",
+      "count": 9
+    },
+    {
+      "subject": "VAG services",
+      "relation": "allows",
+      "count": 9
+    },
+    {
+      "subject": "VGN Fahrplan & Tickets app",
+      "relation": "has",
+      "count": 9
+    },
+    {
+      "subject": "VGN leisure tips",
+      "relation": "has",
+      "count": 9
+    },
+    {
+      "subject": "study residence permit application",
+      "relation": "requires",
+      "count": 9
+    },
+    {
+      "subject": "stipend application",
+      "relation": "requires",
+      "count": 9
+    },
+    {
+      "subject": "students in Germany",
+      "relation": "requires",
+      "count": 8
+    },
+    {
+      "subject": "basic account",
+      "relation": "requires",
+      "count": 8
+    },
+    {
+      "subject": "Career-Service",
+      "relation": "allows",
+      "count": 8
+    },
+    {
+      "subject": "scholarship application",
+      "relation": "requires",
+      "count": 8
+    },
+    {
+      "subject": "Mein ELSTER",
+      "relation": "requires",
+      "count": 8
+    },
+    {
+      "subject": "GCE recognition in Germany",
+      "relation": "requires",
+      "count": 8
+    },
+    {
+      "subject": "German student visa",
+      "relation": "requires",
+      "count": 8
+    },
+    {
+      "subject": "expat testimonials",
+      "relation": "has",
+      "count": 8
+    },
+    {
+      "subject": "Nuremberg city portal contact form",
+      "relation": "requires",
+      "count": 8
+    },
+    {
+      "subject": "Nuremberg weekly markets",
+      "relation": "has",
+      "count": 8
+    },
+    {
+      "subject": "Hauptmarkt weekly market",
+      "relation": "has",
+      "count": 8
+    },
+    {
+      "subject": "children in Nuremberg",
+      "relation": "allows",
+      "count": 8
+    },
+    {
+      "subject": "VAG website",
+      "relation": "has",
+      "count": 8
+    },
+    {
+      "subject": "Familienbildung Nürnberg",
+      "relation": "allows",
+      "count": 8
+    },
+    {
+      "subject": "Technical University of Nuremberg",
+      "relation": "has",
+      "count": 8
+    },
+    {
+      "subject": "Studienfinanzierungs-Check",
+      "relation": "has",
+      "count": 8
+    },
+    {
+      "subject": "Gap Year",
+      "relation": "allows",
+      "count": 8
+    },
+    {
+      "subject": "disadvantage adjustment",
+      "relation": "requires",
+      "count": 8
+    },
+    {
+      "subject": "VGN-InfoMobil",
+      "relation": "has",
+      "count": 8
+    },
+    {
+      "subject": "Neuburg residence hall",
+      "relation": "has",
+      "count": 8
+    },
+    {
+      "subject": "DAAD commission",
+      "relation": "requires",
+      "count": 8
+    },
+    {
+      "subject": "master program",
+      "relation": "requires",
+      "count": 8
+    },
+    {
+      "subject": "program",
+      "relation": "has",
+      "count": 7
+    },
+    {
+      "subject": "students",
+      "relation": "has",
+      "count": 7
+    },
+    {
+      "subject": "regulated professions",
+      "relation": "requires",
+      "count": 7
+    },
+    {
+      "subject": "BAföG application",
+      "relation": "deadline",
+      "count": 7
+    },
+    {
+      "subject": "Sicher in Alltag und Beruf! B2.1",
+      "relation": "has",
+      "count": 7
+    },
+    {
+      "subject": "job seeker visa",
+      "relation": "requires",
+      "count": 7
+    },
+    {
+      "subject": "internship application",
+      "relation": "requires",
+      "count": 7
+    },
+    {
+      "subject": "Working Holiday Visa in Germany",
+      "relation": "requires",
+      "count": 7
+    },
+    {
+      "subject": "visa change for Studienkolleg",
+      "relation": "requires",
+      "count": 7
+    },
+    {
+      "subject": "visa change to study at a Studienkolleg",
+      "relation": "requires",
+      "count": 7
+    },
+    {
+      "subject": "Hochschuljobbörse",
+      "relation": "allows",
+      "count": 7
+    },
+    {
+      "subject": "Expat.com forum",
+      "relation": "allows",
+      "count": 7
+    },
+    {
+      "subject": "Nürnberg Card",
+      "relation": "allows",
+      "count": 7
+    },
+    {
+      "subject": "Nuremberg event calendar",
+      "relation": "has",
+      "count": 7
+    },
+    {
+      "subject": "Stadtarchiv Nürnberg",
+      "relation": "has",
+      "count": 7
+    },
+    {
+      "subject": "rooms or apartments provided by the Studierendenwerke",
+      "relation": "has",
+      "count": 7
+    },
+    {
+      "subject": "fine arts degree",
+      "relation": "has",
+      "count": 7
+    },
+    {
+      "subject": "Hochschule für angewandtes Management FH",
+      "relation": "has",
+      "count": 7
+    },
+    {
+      "subject": "UTN concept",
+      "relation": "has",
+      "count": 7
+    },
+    {
+      "subject": "playground",
+      "relation": "allows",
+      "count": 7
+    },
+    {
+      "subject": "VGN app",
+      "relation": "allows",
+      "count": 7
+    },
+    {
+      "subject": "VGN site",
+      "relation": "has",
+      "count": 7
+    },
+    {
+      "subject": "VGN-Freizeit-Tipps",
+      "relation": "allows",
+      "count": 7
+    },
+    {
+      "subject": "Freizeit-Tipps",
+      "relation": "has",
+      "count": 7
+    },
+    {
+      "subject": "DAAD scholarship application in German",
+      "relation": "requires",
+      "count": 7
+    },
+    {
+      "subject": "Master's Thesis Registration form",
+      "relation": "requires",
+      "count": 7
+    },
+    {
+      "subject": "Make it in Germany",
+      "relation": "allows",
+      "count": 6
+    },
+    {
+      "subject": "admission",
+      "relation": "requires",
+      "count": 6
+    },
+    {
+      "subject": "landlords",
+      "relation": "requires",
+      "count": 6
+    },
+    {
+      "subject": "rental contract",
+      "relation": "requires",
+      "count": 6
+    },
+    {
+      "subject": "profession-specific documents",
+      "relation": "has",
+      "count": 6
+    },
+    {
+      "subject": "German A2.2 intensive course",
+      "relation": "requires",
+      "count": 6
+    },
+    {
+      "subject": "European Health Insurance Card",
+      "relation": "allows",
+      "count": 6
+    },
+    {
+      "subject": "visa application",
+      "relation": "requires",
+      "count": 6
+    },
+    {
+      "subject": "expat services",
+      "relation": "allows",
+      "count": 6
+    },
+    {
+      "subject": "international student",
+      "relation": "requires",
+      "count": 6
+    },
+    {
+      "subject": "Goethe Institute language travel program",
+      "relation": "has",
+      "count": 6
+    },
+    {
+      "subject": "Praxistage",
+      "relation": "allows",
+      "count": 6
+    },
+    {
+      "subject": "German student dormitories",
+      "relation": "has",
+      "count": 6
+    },
+    {
+      "subject": "German work visa application",
+      "relation": "requires",
+      "count": 6
+    },
+    {
+      "subject": "higher education institution",
+      "relation": "has",
+      "count": 6
+    },
+    {
+      "subject": "International Figurentheaterfestival",
+      "relation": "allows",
+      "count": 6
+    },
+    {
+      "subject": "Veranstaltungen (events",
+      "relation": "has",
+      "count": 6
+    },
+    {
+      "subject": "Ab jetzt in Nürnberg",
+      "relation": "allows",
+      "count": 6
+    },
+    {
+      "subject": "Lorenzer Platz",
+      "relation": "has",
+      "count": 6
+    },
+    {
+      "subject": "Amt für Migration und Integration",
+      "relation": "has",
+      "count": 6
+    },
+    {
+      "subject": "Bürgeramt on Brucker Straße",
+      "relation": "has",
+      "count": 6
+    },
+    {
+      "subject": "Ordnungsamt",
+      "relation": "allows",
+      "count": 6
+    },
+    {
+      "subject": "service area",
+      "relation": "has",
+      "count": 6
+    },
+    {
+      "subject": "student",
+      "relation": "has",
+      "count": 6
+    },
+    {
+      "subject": "BAföG eligibility calculation",
+      "relation": "requires",
+      "count": 6
+    },
+    {
+      "subject": "forum",
+      "relation": "has",
+      "count": 6
+    },
+    {
+      "subject": "Medizintechnik program",
+      "relation": "allows",
+      "count": 6
+    },
+    {
+      "subject": "new minijob or Werkstudentenjob while receiving BAföG",
+      "relation": "requires",
+      "count": 6
+    },
+    {
+      "subject": "TH Nürnberg",
+      "relation": "allows",
+      "count": 6
+    },
+    {
+      "subject": "Common European Framework of Reference for Languages",
+      "relation": "has",
+      "count": 6
+    },
+    {
+      "subject": "Master Thesis module",
+      "relation": "has",
+      "count": 6
+    },
+    {
+      "subject": "Career-Service",
+      "relation": "has",
+      "count": 6
+    },
+    {
+      "subject": "Nuremberg Metropolitan Region",
+      "relation": "allows",
+      "count": 6
+    },
+    {
+      "subject": "UTN",
+      "relation": "requires",
+      "count": 6
+    },
+    {
+      "subject": "UTN study programs",
+      "relation": "has",
+      "count": 6
+    },
+    {
+      "subject": "Langwasser Mitte station",
+      "relation": "has",
+      "count": 6
+    },
+    {
+      "subject": "Goldbachwiese playground",
+      "relation": "has",
+      "count": 6
+    },
+    {
+      "subject": "VAG Customer Center",
+      "relation": "allows",
+      "count": 6
+    },
+    {
+      "subject": "KombiTicket",
+      "relation": "allows",
+      "count": 6
+    },
+    {
+      "subject": "VGN public transport",
+      "relation": "has",
+      "count": 6
+    },
+    {
+      "subject": "Verkehrsverbund Großraum Nürnberg",
+      "relation": "allows",
+      "count": 6
+    },
+    {
+      "subject": "VGN free-time tips",
+      "relation": "has",
+      "count": 6
+    },
+    {
+      "subject": "meinVGN",
+      "relation": "allows",
+      "count": 6
+    },
+    {
+      "subject": "WohnGut Max",
+      "relation": "has",
+      "count": 6
+    },
+    {
+      "subject": "master's application to UTN",
+      "relation": "requires",
+      "count": 6
+    },
+    {
+      "subject": "Advanced Module",
+      "relation": "allows",
+      "count": 6
+    },
+    {
+      "subject": "foreigners",
+      "relation": "requires",
+      "count": 5
+    },
+    {
+      "subject": "residence permit",
+      "relation": "requires",
+      "count": 5
+    },
+    {
+      "subject": "residence registration",
+      "relation": "requires",
+      "count": 5
+    },
+    {
+      "subject": "Schengen area",
+      "relation": "has",
+      "count": 5
+    },
+    {
+      "subject": "portal",
+      "relation": "allows",
+      "count": 5
+    },
+    {
+      "subject": "studying",
+      "relation": "costs",
+      "count": 5
+    },
+    {
+      "subject": "health insurance in Germany",
+      "relation": "has",
+      "count": 5
+    },
+    {
+      "subject": "student services organizations",
+      "relation": "has",
+      "count": 5
+    },
+    {
+      "subject": "study location",
+      "relation": "requires",
+      "count": 5
+    },
+    {
+      "subject": "universities",
+      "relation": "requires",
+      "count": 5
+    },
+    {
+      "subject": "modular structure",
+      "relation": "allows",
+      "count": 5
+    },
+    {
+      "subject": "minimum wage in Germany",
+      "relation": "costs",
+      "count": 5
+    },
+    {
+      "subject": "student dormitories",
+      "relation": "has",
+      "count": 5
+    },
+    {
+      "subject": "utility costs",
+      "relation": "allows",
+      "count": 5
+    },
+    {
+      "subject": "German social insurance system",
+      "relation": "has",
+      "count": 5
+    },
+    {
+      "subject": "computer science part",
+      "relation": "allows",
+      "count": 5
+    },
+    {
+      "subject": "university selection at UTN",
+      "relation": "requires",
+      "count": 5
+    },
+    {
+      "subject": "Anabin",
+      "relation": "has",
+      "count": 5
+    },
+    {
+      "subject": "Anerkennungspartnerschaft",
+      "relation": "allows",
+      "count": 5
+    },
+    {
+      "subject": "regulated professions",
+      "relation": "has",
+      "count": 5
+    }
+  ],
+  "allowed_relations": [
+    "allows",
+    "amount",
+    "applies_to",
+    "appointed_as",
+    "available_to",
+    "based_on",
+    "can_apply_for",
+    "can_work_as",
+    "contact_email",
+    "contact_phone",
+    "costs",
+    "covered_by",
+    "deadline",
+    "ends",
+    "ends_at",
+    "ends_at_age",
+    "ends_on",
+    "has",
+    "has_address",
+    "income_limit",
+    "is",
+    "led_by",
+    "limited_to",
+    "located_in",
+    "maximum_number",
+    "maximum_size",
+    "maximum_work_limit",
+    "requires",
+    "responsible_for",
+    "starts",
+    "starts_at",
+    "starts_on",
+    "website"
+  ]
+}

@@ -105,7 +105,7 @@ def parse_args() -> Config:
     parser.add_argument("--per_device_eval_batch_size", type=int, default=2)
     parser.add_argument("--gradient_accumulation_steps", type=int, default=16)
     parser.add_argument("--num_train_epochs", type=float, default=1.0)
-    parser.add_argument("--learning_rate", type=float, default=2e-6)
+    parser.add_argument("--learning_rate", type=float, default=1e-6)
     parser.add_argument("--weight_decay", type=float, default=0.01)
     parser.add_argument("--warmup_ratio", type=float, default=0.0)
     parser.add_argument("--logging_steps", type=int, default=10)

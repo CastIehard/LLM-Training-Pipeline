@@ -92,13 +92,8 @@ def copied_model_name(cpt_lr: str, cpt_epochs: int) -> str:
 
 
 def build_adapter_name(cpt_lr: str, cpt_epochs: int, sft_lr: str, sft_epochs: int, multiple_sft_variants: bool) -> str:
-    base = f"{copied_model_name(cpt_lr, cpt_epochs)}-SFT"
-    # Your requested format is exactly "...-SFT".
-    # To avoid collisions when sweeping multiple SFT configs for the same base model,
-    # append SFT hyperparameters only when necessary.
-    if multiple_sft_variants:
-        return f"{base}-lr_{sft_lr}-ep_{sft_epochs}"
-    return base
+    base = copied_model_name(cpt_lr, cpt_epochs)
+    return f"{base}-lr_{sft_lr}-ep_{sft_epochs}-SFT"
 
 
 def sft_iters_from_epochs(sft_epochs: int) -> int:

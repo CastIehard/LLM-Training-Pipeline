@@ -25,7 +25,7 @@ def clean_display_name(name):
 def is_sft_model(name):
     if not isinstance(name, str):
         return False
-    return name.endswith("-SFT")
+    return "-SFT" in name
 
 
 def load_results(results_dir):

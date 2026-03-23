@@ -22,6 +22,7 @@ try:
 except Exception:
     requests = None
 
+
 NO_ANSWER_STRINGS = {
     "unknown",
     "not specified",
@@ -33,49 +34,132 @@ NO_ANSWER_STRINGS = {
     "none",
 }
 
+# Closed schema for normalization. Keep this fairly small on purpose.
 RELATION_ALIASES = {
+    "is": "is",
+    "are": "is",
+    "was": "is",
+    "were": "is",
+    "means": "is",
+    "refers to": "is",
+    "defined as": "is",
+    "consists of": "has",
+    "includes": "has",
+    "contains": "has",
+    "has": "has",
+    "have": "has",
+    "offers": "has",
+    "provides": "has",
+    "has address": "has_address",
+    "address": "has_address",
+    "website": "website",
+    "url": "website",
+    "contact email": "contact_email",
+    "email": "contact_email",
+    "contact phone": "contact_phone",
+    "phone": "contact_phone",
+    "telephone": "contact_phone",
     "is located in": "located_in",
     "located in": "located_in",
     "is in": "located_in",
-    "address": "has_address",
     "location": "located_in",
+    "takes place in": "located_in",
     "starts on": "starts_on",
     "starts at": "starts_at",
     "begins on": "starts_on",
     "begins at": "starts_at",
-    "begins": "starts",
     "starts": "starts",
+    "begins": "starts",
     "ends on": "ends_on",
     "ends at": "ends_at",
     "ends": "ends",
+    "deadline": "deadline",
+    "deadlines": "deadline",
+    "requires": "requires",
+    "requirement": "requires",
+    "requirements": "requires",
+    "needs": "requires",
+    "needed for": "requires",
+    "applies to": "applies_to",
+    "available to": "available_to",
+    "open to": "available_to",
+    "for": "applies_to",
+    "allows": "allows",
+    "permits": "allows",
+    "can apply for": "can_apply_for",
+    "can work as": "can_work_as",
+    "covered by": "covered_by",
+    "limited to": "limited_to",
+    "based on": "based_on",
+    "responsible for": "responsible_for",
+    "led by": "led_by",
+    "appointed as": "appointed_as",
     "cost": "costs",
     "costs": "costs",
     "price": "costs",
-    "fee": "fee",
-    "fees": "fee",
+    "fee": "costs",
+    "fees": "costs",
+    "amount": "amount",
+    "subsidy amount": "amount",
+    "ends at age": "ends_at_age",
     "maximum size": "maximum_size",
     "max size": "maximum_size",
     "maximum number": "maximum_number",
     "max number": "maximum_number",
-    "number of": "number_of",
-    "duration": "duration",
-    "deadline": "deadline",
-    "requirement": "requires",
-    "requirements": "requires",
-    "responsible for": "responsible_for",
-    "contact email": "contact_email",
-    "email": "contact_email",
-    "phone": "contact_phone",
-    "telephone": "contact_phone",
-    "website": "website",
-    "url": "website",
-    "new chancellor": "has_chancellor",
-    "chancellor": "has_chancellor",
-    "professor leading": "led_by",
-    "led by": "led_by",
-    "appointed as": "appointed_as",
-    "can work up to": "maximum_work_limit",
+    "maximum work limit": "maximum_work_limit",
+    "work limit": "maximum_work_limit",
+    "income limit": "income_limit",
 }
+
+ALLOWED_RELATIONS = {
+    "is",
+    "has",
+    "has_address",
+    "website",
+    "contact_email",
+    "contact_phone",
+    "located_in",
+    "starts",
+    "starts_on",
+    "starts_at",
+    "ends",
+    "ends_on",
+    "ends_at",
+    "deadline",
+    "requires",
+    "applies_to",
+    "available_to",
+    "allows",
+    "can_apply_for",
+    "can_work_as",
+    "covered_by",
+    "limited_to",
+    "based_on",
+    "responsible_for",
+    "led_by",
+    "appointed_as",
+    "costs",
+    "amount",
+    "ends_at_age",
+    "maximum_size",
+    "maximum_number",
+    "maximum_work_limit",
+    "income_limit",
+}
+
+# Relations that are strong signs the model just reformatted a question instead of extracting a fact.
+BANNED_RELATION_PATTERNS = (
+    r"^answer(_for)?_",
+    r"^what$",
+    r"^when$",
+    r"^where$",
+    r"^who$",
+    r"^which$",
+    r"^how$",
+    r"^can$",
+    r"^does$",
+    r"^is_question$",
+)
 
 SKIP_SUBJECTS = {
     "it",
@@ -91,7 +175,27 @@ SKIP_SUBJECTS = {
     "one",
     "someone",
     "people",
-    "students",
+}
+
+QUESTION_STARTERS = {
+    "what",
+    "when",
+    "where",
+    "who",
+    "which",
+    "how",
+    "why",
+    "can",
+    "could",
+    "should",
+    "would",
+    "does",
+    "do",
+    "did",
+    "is",
+    "are",
+    "was",
+    "were",
 }
 
 
@@ -146,13 +250,12 @@ def normalize_relation_text(text: str) -> str:
     text = text.strip(" .,:;!?\"'`()[]{}")
     text = unicodedata.normalize("NFKC", text).lower()
     text = text.replace("/", " ")
-    text = re.sub(r"\bis\b", "", text)
-    text = re.sub(r"\bare\b", "", text)
-    text = re.sub(r"\bthe\b", "", text)
+    text = text.replace("-", " ")
+    text = re.sub(r"\b(is|are|was|were)\b", " ", text)
+    text = re.sub(r"\bthe\b", " ", text)
     text = re.sub(r"\s+", " ", text).strip()
     if text in RELATION_ALIASES:
         return RELATION_ALIASES[text]
-    text = text.replace("-", " ")
     text = re.sub(r"[^a-z0-9 ]+", "", text)
     text = re.sub(r"\s+", "_", text).strip("_")
     if text in RELATION_ALIASES:
@@ -176,6 +279,25 @@ def is_bad_value(text: str) -> bool:
     if len(t) < 2:
         return True
     return False
+
+
+def looks_like_question(text: str) -> bool:
+    t = clean_text(text).strip()
+    if not t:
+        return False
+    if t.endswith("?"):
+        return True
+    first = t.split()[0].lower() if t.split() else ""
+    return first in QUESTION_STARTERS
+
+
+def normalize_numberish(text: str) -> str:
+    t = normalize_entity(text)
+    # Small canonicalizations that help exact-match recall without being too invasive.
+    t = t.replace("€", " euros")
+    t = re.sub(r"\bEUR\b", "euros", t, flags=re.IGNORECASE)
+    t = re.sub(r"\s+", " ", t).strip()
+    return t
 
 
 def parse_chat_jsonl(path: Path, limit: Optional[int] = None, seed: int = 0, shuffle: bool = False) -> List[Example]:
@@ -244,23 +366,22 @@ def extract_json_block(text: str) -> Optional[Any]:
 
 def heuristic_extract(example: Example) -> List[Dict[str, str]]:
     q = example.question.rstrip(" ?")
-    a = normalize_entity(example.answer)
+    a = normalize_numberish(example.answer)
     triples: List[Dict[str, str]] = []
 
     patterns: List[Tuple[str, Any]] = [
         (r"^What is the address of (.+)$", lambda m: (m.group(1), "has_address", a)),
         (r"^Where is (.+?) located$", lambda m: (m.group(1), "located_in", a)),
         (r"^Where is (.+)$", lambda m: (m.group(1), "located_in", a)),
-        (r"^When does (.+?) begin(?: and at what time)?$", lambda m: (m.group(1), "starts", a)),
-        (r"^When does (.+?) start(?: and at what time)?$", lambda m: (m.group(1), "starts", a)),
+        (r"^When does (.+?) begin$", lambda m: (m.group(1), "starts", a)),
+        (r"^When does (.+?) start$", lambda m: (m.group(1), "starts", a)),
         (r"^When does (.+?) end$", lambda m: (m.group(1), "ends", a)),
-        (r"^Who is the professor leading (.+)$", lambda m: (m.group(1), "led_by", a)),
-        (r"^Who has been appointed as the new chancellor of (.+)$", lambda m: (m.group(1), "has_chancellor", a)),
         (r"^Who is responsible for (.+)$", lambda m: (m.group(1), "responsible_for", a)),
         (r"^What is the maximum size of (.+)$", lambda m: (m.group(1), "maximum_size", a)),
         (r"^What is the maximum number of (.+)$", lambda m: (m.group(1), "maximum_number", a)),
-        (r"^How many (.+?) does (.+)$", lambda m: (m.group(2), f"number_of_{normalize_relation_text(m.group(1))}", a)),
-        (r"^Which city is specifically mentioned as a location where (.+)$", lambda m: (m.group(1), "mentioned_location", a)),
+        (r"^What is the deadline for (.+)$", lambda m: (m.group(1), "deadline", a)),
+        (r"^What does (.+?) cost$", lambda m: (m.group(1), "costs", a)),
+        (r"^Who leads (.+)$", lambda m: (m.group(1), "led_by", a)),
     ]
 
     for pattern, fn in patterns:
@@ -270,33 +391,11 @@ def heuristic_extract(example: Example) -> List[Dict[str, str]]:
             triples.append({
                 "subject": normalize_entity(subject),
                 "relation": normalize_relation_text(relation),
-                "object": normalize_entity(obj),
+                "object": normalize_numberish(obj),
             })
             return triples
 
-    wh_map = [
-        ("when", "answer_for_when"),
-        ("where", "answer_for_where"),
-        ("who", "answer_for_who"),
-        ("what", "answer_for_what"),
-        ("which", "answer_for_which"),
-        ("how", "answer_for_how"),
-        ("can", "answer_for_can"),
-        ("does", "answer_for_does"),
-        ("is", "answer_for_is"),
-        ("are", "answer_for_are"),
-    ]
-    q_lower = q.lower()
-    relation = "answer"
-    for prefix, rel in wh_map:
-        if q_lower.startswith(prefix + " "):
-            relation = rel
-            break
-    triples.append({
-        "subject": normalize_entity(q),
-        "relation": normalize_relation_text(relation),
-        "object": normalize_entity(a),
-    })
+    # Deliberately do not create question-shaped fallback triples anymore.
     return triples
 
 
@@ -306,10 +405,12 @@ def build_messages(example: Example) -> List[Dict[str, str]]:
         "Return only JSON. Use the answer as the factual source of truth. "
         "Keep only self-contained, meaningful facts. "
         "Prefer one named entity or one clearly defined concept as the subject. "
-        "Use a short normalized relation in snake_case. "
+        "Use a short normalized relation from a small closed schema. "
+        "Allowed relations: is, has, has_address, website, contact_email, contact_phone, located_in, starts, starts_on, starts_at, ends, ends_on, ends_at, deadline, requires, applies_to, available_to, allows, can_apply_for, can_work_as, covered_by, limited_to, based_on, responsible_for, led_by, appointed_as, costs, amount, ends_at_age, maximum_size, maximum_number, maximum_work_limit, income_limit. "
         "Use the smallest answer span that preserves the fact. "
         "If one QA contains multiple independent facts, output multiple triples. "
-        "If the QA is comparative or too vague for a reliable triple, output an empty list."
+        "If the QA is comparative, too vague, or would force a question-shaped subject, output an empty list. "
+        "Never output relations like answer_for_what. Never use the full question as subject."
     )
     user_prompt = f"""
 Extract atomic factual triples from this QA pair.
@@ -317,31 +418,36 @@ Extract atomic factual triples from this QA pair.
 Rules:
 1. Use only facts supported by the answer.
 2. Keep each triple self-contained.
-3. Avoid pronouns as subjects.
-4. Normalize relations to short snake_case labels.
+3. Avoid pronouns and avoid full questions as subjects.
+4. Use only the allowed relation schema from the system message.
 5. Keep subjects and objects concise, but preserve exact facts like dates, numbers, addresses, names, and limits.
-6. You may use concepts as objects, not only named entities, because this dataset contains dates, amounts, conditions, and definitions.
+6. Split multiple objects into multiple triples if needed.
 7. Output JSON with exactly this schema:
 {{"triples": [{{"subject": "...", "relation": "...", "object": "..."}}]}}
 
-Examples:
+Good:
 Q: What is the address of Stab Wohnen?
 A: Stab Wohnen is located at Marienstraße 6, 90402 Nürnberg.
 JSON:
 {{"triples": [{{"subject": "Stab Wohnen", "relation": "has_address", "object": "Marienstraße 6, 90402 Nürnberg"}}]}}
 
+Good:
 Q: When does the student mandatory insurance end?
 A: It generally ends with the semester in which the student turns 30, unless exceptions apply.
 JSON:
-{{"triples": [{{"subject": "student mandatory insurance", "relation": "ends", "object": "the semester in which the student turns 30"}}]}}
+{{"triples": [{{"subject": "student mandatory insurance", "relation": "ends_at_age", "object": "30"}}]}}
 
-Q: What is the main difference between family insurance and student mandatory insurance?
-A: Family insurance is free and based on income limits, while student mandatory insurance is a specific statutory insurance for students under 30 or under certain conditions.
+Bad:
+Q: Can students work while studying in Germany?
+A: Yes, students can work up to 140 full days or 280 half days per year.
 JSON:
+{{"triples": [{{"subject": "Can students work while studying in Germany", "relation": "answer_for_can", "object": "Yes, students can work..."}}]}}
+Reason: question-shaped subject and banned relation.
+
+Better:
 {{"triples": [
-  {{"subject": "family insurance", "relation": "cost", "object": "free"}},
-  {{"subject": "family insurance", "relation": "based_on", "object": "income limits"}},
-  {{"subject": "student mandatory insurance", "relation": "is", "object": "a specific statutory insurance for students under 30 or under certain conditions"}}
+  {{"subject": "students in Germany", "relation": "maximum_work_limit", "object": "140 full days per year"}},
+  {{"subject": "students in Germany", "relation": "maximum_work_limit", "object": "280 half days per year"}}
 ]}}
 
 Now process this pair.
@@ -374,18 +480,45 @@ def call_openai_compatible(base_url: str, api_key: str, model: str, messages: Li
     return data["choices"][0]["message"]["content"]
 
 
+def relation_is_banned(rel: str) -> bool:
+    for pattern in BANNED_RELATION_PATTERNS:
+        if re.match(pattern, rel):
+            return True
+    return False
+
+
+def infer_relation_from_object(subject: str, obj: str, relation: str) -> str:
+    rel = relation
+    obj_l = obj.lower()
+    if rel == "ends" and re.search(r"\b(age|turns?)\s+(\d{1,3})\b", obj_l):
+        return "ends_at_age"
+    if rel == "is" and re.search(r"\b\d+\s*(euros?|€)\b", obj_l):
+        return "amount"
+    return rel
+
+
 def normalize_triplet_obj(obj: Dict[str, Any]) -> Optional[Dict[str, str]]:
     subject = normalize_entity(str(obj.get("subject", "")))
     relation = normalize_relation_text(str(obj.get("relation", "")))
-    out = normalize_entity(str(obj.get("object", "")))
+    out = normalize_numberish(str(obj.get("object", "")))
+
     if is_bad_value(subject) or is_bad_value(out) or not relation:
         return None
     if subject.lower() in SKIP_SUBJECTS:
         return None
+    if looks_like_question(subject):
+        return None
     if relation == "related_to":
+        return None
+    if relation_is_banned(relation):
         return None
     if subject.lower() == out.lower():
         return None
+
+    relation = infer_relation_from_object(subject, out, relation)
+    if relation not in ALLOWED_RELATIONS:
+        return None
+
     return {"subject": subject, "relation": relation, "object": out}
 
 
@@ -454,7 +587,8 @@ def extract_one(example: Example, args: argparse.Namespace) -> Tuple[Example, Li
 
     if not triples:
         triples = [t for t in heuristic_extract(example) if normalize_triplet_obj(t)]
-        extractor = "heuristic"
+        if triples:
+            extractor = "heuristic"
 
     out: List[Triple] = []
     seen = set()
@@ -478,7 +612,7 @@ def extract_one(example: Example, args: argparse.Namespace) -> Tuple[Example, Li
             )
         )
 
-    meta["extractor"] = extractor
+    meta["extractor"] = extractor if out else "none"
     meta["num_triples"] = len(out)
     if raw_output is not None:
         meta["raw_model_output"] = raw_output
@@ -486,7 +620,42 @@ def extract_one(example: Example, args: argparse.Namespace) -> Tuple[Example, Li
 
 
 def verbalize_relation(rel: str) -> str:
-    return rel.replace("_", " ").strip()
+    verbalizers = {
+        "is": "is",
+        "has": "has",
+        "has_address": "has address",
+        "website": "has website",
+        "contact_email": "has contact email",
+        "contact_phone": "has contact phone",
+        "located_in": "is located in",
+        "starts": "starts",
+        "starts_on": "starts on",
+        "starts_at": "starts at",
+        "ends": "ends",
+        "ends_on": "ends on",
+        "ends_at": "ends at",
+        "deadline": "has deadline",
+        "requires": "requires",
+        "applies_to": "applies to",
+        "available_to": "is available to",
+        "allows": "allows",
+        "can_apply_for": "can apply for",
+        "can_work_as": "can work as",
+        "covered_by": "is covered by",
+        "limited_to": "is limited to",
+        "based_on": "is based on",
+        "responsible_for": "is responsible for",
+        "led_by": "is led by",
+        "appointed_as": "was appointed as",
+        "costs": "costs",
+        "amount": "has amount",
+        "ends_at_age": "ends at age",
+        "maximum_size": "has maximum size",
+        "maximum_number": "has maximum number",
+        "maximum_work_limit": "has maximum work limit",
+        "income_limit": "has income limit",
+    }
+    return verbalizers.get(rel, rel.replace("_", " ").strip())
 
 
 def triple_to_sentence(subject: str, relation: str, obj: str) -> str:
@@ -503,6 +672,16 @@ def write_jsonl(path: Path, rows: Iterable[Dict[str, Any]]) -> None:
             f.write(json_dumps(row) + "\n")
 
 
+def write_text_md(path: Path, texts: Iterable[str]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8") as f:
+        for text in texts:
+            t = clean_text(text)
+            if not t:
+                continue
+            f.write(t + "\n")
+
+
 def build_outputs(examples: List[Example], extracted: List[Triple], metas: List[Dict[str, Any]], out_dir: Path, prefix: str) -> Dict[str, Path]:
     out_dir.mkdir(parents=True, exist_ok=True)
 
@@ -510,7 +689,9 @@ def build_outputs(examples: List[Example], extracted: List[Triple], metas: List[
     triples_raw_path = out_dir / f"{prefix}triples_raw.jsonl"
     triples_dedup_path = out_dir / f"{prefix}triples_dedup.jsonl"
     cpt_pipe_path = out_dir / f"{prefix}cpt_triples_pipe.jsonl"
-    cpt_sentence_path = out_dir / f"{prefix}cpt_triples_sentences.jsonl"
+    cpt_sentence_path = out_dir / f"{prefix}cpt_atomic_sentences.jsonl"
+    cpt_pipe_md_path = out_dir / f"{prefix}cpt_triples_pipe_text.md"
+    cpt_sentence_md_path = out_dir / f"{prefix}cpt_atomic_sentences_text.md"
     qa2triple_path = out_dir / f"{prefix}qa_to_triples_debug.jsonl"
     rel_stats_path = out_dir / f"{prefix}relation_stats.json"
     subj_rel_objects_path = out_dir / f"{prefix}subject_relation_to_objects.jsonl"
@@ -574,6 +755,8 @@ def build_outputs(examples: List[Example], extracted: List[Triple], metas: List[
         })
     write_jsonl(cpt_pipe_path, cpt_pipe_rows)
     write_jsonl(cpt_sentence_path, cpt_sentence_rows)
+    write_text_md(cpt_pipe_md_path, (row["text"] for row in cpt_pipe_rows))
+    write_text_md(cpt_sentence_md_path, (row["text"] for row in cpt_sentence_rows))
 
     sr_to_objects: Dict[Tuple[str, str], List[str]] = defaultdict(list)
     for row in dedup_rows:
@@ -596,6 +779,7 @@ def build_outputs(examples: List[Example], extracted: List[Triple], metas: List[
         "top_subject_relation_pairs": [
             {"subject": s, "relation": r, "count": c} for (s, r), c in relation_subject_counter.most_common(200)
         ],
+        "allowed_relations": sorted(ALLOWED_RELATIONS),
     }
     rel_stats_path.write_text(json.dumps(relation_stats, ensure_ascii=False, indent=2), encoding="utf-8")
 
@@ -611,7 +795,9 @@ def build_outputs(examples: List[Example], extracted: List[Triple], metas: List[
             "triples_raw": str(triples_raw_path),
             "triples_dedup": str(triples_dedup_path),
             "cpt_triples_pipe": str(cpt_pipe_path),
-            "cpt_triples_sentences": str(cpt_sentence_path),
+            "cpt_atomic_sentences": str(cpt_sentence_path),
+            "cpt_triples_pipe_text_md": str(cpt_pipe_md_path),
+            "cpt_atomic_sentences_text_md": str(cpt_sentence_md_path),
             "qa_to_triples_debug": str(qa2triple_path),
             "relation_stats": str(rel_stats_path),
             "subject_relation_to_objects": str(subj_rel_objects_path),
@@ -624,7 +810,9 @@ def build_outputs(examples: List[Example], extracted: List[Triple], metas: List[
         "triples_raw": triples_raw_path,
         "triples_dedup": triples_dedup_path,
         "cpt_triples_pipe": cpt_pipe_path,
-        "cpt_triples_sentences": cpt_sentence_path,
+        "cpt_atomic_sentences": cpt_sentence_path,
+        "cpt_triples_pipe_text_md": cpt_pipe_md_path,
+        "cpt_atomic_sentences_text_md": cpt_sentence_md_path,
         "qa_to_triples_debug": qa2triple_path,
         "relation_stats": rel_stats_path,
         "subject_relation_to_objects": subj_rel_objects_path,
@@ -640,7 +828,7 @@ def run(args: argparse.Namespace) -> Dict[str, Path]:
     metas: List[Dict[str, Any]] = []
 
     if args.workers <= 1:
-        for idx, ex in tqdm(enumerate(examples, start=1), total=len(examples), desc="Tuple creation"):
+        for ex in tqdm(examples, desc="Tuple creation"):
             _, triples, meta = extract_one(ex, args)
             extracted.extend(triples)
             metas.append(meta)
@@ -674,7 +862,7 @@ def main() -> int:
     p.add_argument("--seed", type=int, default=0)
     p.add_argument("--workers", type=int, default=1, help="Parallel workers. Start with 1 for LM Studio.")
     p.add_argument("--progress-every", type=int, default=100)
-    p.add_argument("--use-llm" ,action="store_true", help="Use an OpenAI-compatible local model for extraction.")
+    p.add_argument("--use-llm", action="store_true", help="Use an OpenAI-compatible local model for extraction.")
     p.add_argument("--base-url", type=str, default=os.environ.get("LM_STUDIO_BASE_URL", "http://127.0.0.1:1234/v1"))
     p.add_argument("--api-key", type=str, default=os.environ.get("LM_STUDIO_API_KEY", "lm-studio"))
     p.add_argument("--model", type=str, default=os.environ.get("LM_STUDIO_MODEL", "qwen/qwen3.5-9b"))

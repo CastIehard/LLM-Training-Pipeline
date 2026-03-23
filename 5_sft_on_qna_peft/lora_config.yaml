@@ -4,7 +4,7 @@ train: true
 data: "./data"
 
 fine_tune_type: lora
-adapter_path: "./adapters/Qwen_Qwen3-0.6B-tuplecpt_1e-6_1-epoch-SFT-lr_1e-5-ep_2"
+adapter_path: "./adapters/Qwen_Qwen3-0.6B-tuplecpt_1e-6_1-epoch-SFT-lr_5e-4-ep_2"
 
 optimizer: muon
 seed: 42
@@ -16,14 +16,16 @@ grad_accumulation_steps: 16
 
 # This refers to the batches processed. One epoch = 2115.
 iters: 4230
-learning_rate: 1e-5
+learning_rate: 5e-4
 
 max_seq_length: 512
 grad_checkpoint: true # set false if memory allows and you want more speed
 
-steps_per_report: 100
-steps_per_eval: 1000
-save_every: 1000
+val_batches: 1
+
+steps_per_report: 250
+steps_per_eval: 10000
+save_every: 10000
 
 lora_parameters:
   keys:

@@ -80,7 +80,7 @@ def dir_has_adapters_safetensors(path: Path) -> bool:
 
 
 def dir_has_model_safetensors(path: Path) -> bool:
-    return (path / "model_safetensors").is_dir()
+    return (path / "model.safetensors").is_file()
 
 
 def cpt_run_name(cpt_lr: str, cpt_epochs: int) -> str:

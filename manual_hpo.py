@@ -9,16 +9,15 @@ import subprocess
 import sys
 from pathlib import Path
 
-
 # =========================
 # Edit only this section
 # =========================
 
-CPT_LEARNING_RATES = ["2e-6", "5e-6", "1e-5"]
-CPT_EPOCHS = [1, 5, 30]
+CPT_LEARNING_RATES = ["1e-6"]  # , "2e-6", "5e-6", "1e-5"
+CPT_EPOCHS = [1]  # , 3, 5, 30
 
-SFT_LEARNING_RATES = ["1e-5", "5e-6"]
-SFT_EPOCHS = [4]
+SFT_LEARNING_RATES = ["5e-7", "1e-6", "5e-6", "1e-5", "5e-5", "1e-4", "5e-4"]
+SFT_EPOCHS = [2]  # 4
 
 # For your setup you noted: one SFT epoch = 2115 iterations.
 SFT_ITERS_PER_EPOCH = 2115
@@ -27,7 +26,7 @@ SFT_ITERS_PER_EPOCH = 2115
 SKIP_EXISTING_CPT = True
 SKIP_EXISTING_MODEL_COPY = True
 SKIP_EXISTING_SFT = True
-STOP_ON_ERROR = True
+STOP_ON_ERROR = False
 DRY_RUN = False
 CREATE_LORA_CONFIG_BACKUP = True
 
@@ -76,6 +75,14 @@ def ensure_exists(path: Path, label: str) -> None:
         raise FileNotFoundError(f"{label} does not exist: {path}")
 
 
+def dir_has_adapters_safetensors(path: Path) -> bool:
+    return (path / "adapters.safetensors").is_file()
+
+
+def dir_has_model_safetensors(path: Path) -> bool:
+    return (path / "model_safetensors").is_dir()
+
+
 def cpt_run_name(cpt_lr: str, cpt_epochs: int) -> str:
     return f"{CPT_RUN_PREFIX}_{cpt_lr}_{cpt_epochs}-epoch"
 
@@ -102,7 +109,7 @@ def replace_yaml_scalar(text: str, key: str, value: str) -> str:
     pattern = rf"(?m)^({re.escape(key)}:\s*).*$"
     if not re.search(pattern, text):
         raise KeyError(f"Could not find YAML key '{key}' in {SFT_CONFIG_PATH}")
-    return re.sub(pattern, rf"\1{value}", text, count=1)
+    return re.sub(pattern, lambda m: f"{m.group(1)}{value}", text, count=1)
 
 
 def backup_lora_config() -> Path | None:
@@ -158,10 +165,12 @@ def copy_final_model_to_model_store(src_final_model_dir: Path, dst_model_dir: Pa
     MODEL_STORE_DIR.mkdir(parents=True, exist_ok=True)
 
     if dst_model_dir.exists():
-        if SKIP_EXISTING_MODEL_COPY:
-            log(f"Model copy already exists, skipping: {dst_model_dir}")
+        if SKIP_EXISTING_MODEL_COPY and dir_has_model_safetensors(dst_model_dir):
+            log(f"Model copy already exists and contains .safetensors, skipping: {dst_model_dir}")
             return
-        shutil.rmtree(dst_model_dir)
+        log(f"Model copy directory exists but is incomplete, replacing: {dst_model_dir}")
+        if not DRY_RUN:
+            shutil.rmtree(dst_model_dir)
 
     if DRY_RUN:
         log(f"[DRY RUN] Would copy {src_final_model_dir} -> {dst_model_dir}")
@@ -208,11 +217,13 @@ def run_cpt(cpt_lr: str, cpt_epochs: int) -> tuple[Path, Path, int | float]:
     final_model_dir = output_dir / "final_model"
     final_model_config = final_model_dir / "config.json"
 
-    cpt_already_done = final_model_dir.exists() and final_model_config.exists()
+    cpt_already_done = final_model_dir.exists() and final_model_config.exists() and dir_has_model_safetensors(final_model_dir)
 
     if cpt_already_done and SKIP_EXISTING_CPT:
-        log(f"\nCPT already exists, skipping training: {output_dir}")
+        log(f"\nCPT already exists and contains .safetensors, skipping training: {output_dir}")
     else:
+        if final_model_dir.exists() and not cpt_already_done:
+            log(f"\nCPT output exists but looks incomplete, re-running: {output_dir}")
         cmd = [
             sys.executable,
             str(CPT_SCRIPT),
@@ -225,6 +236,10 @@ def run_cpt(cpt_lr: str, cpt_epochs: int) -> tuple[Path, Path, int | float]:
         run_cmd(cmd, cwd=REPO_ROOT)
 
     ensure_exists(final_model_dir, "final_model directory after CPT")
+    ensure_exists(final_model_config, "final_model config.json after CPT")
+    if not dir_has_model_safetensors(final_model_dir):
+        raise FileNotFoundError(f"No .safetensors file found in final_model directory after CPT: {final_model_dir}")
+
     rope_theta = patch_rope_theta_in_final_model_config(final_model_config)
     return output_dir, final_model_dir, rope_theta
 
@@ -235,8 +250,10 @@ def run_sft_for_model(cpt_lr: str, cpt_epochs: int, sft_lr: str, sft_epochs: int
     adapter_name = build_adapter_name(cpt_lr, cpt_epochs, sft_lr, sft_epochs, multiple_sft_variants)
     adapter_dir = SFT_ADAPTERS_DIR / adapter_name
 
-    if adapter_dir.exists() and SKIP_EXISTING_SFT:
-        log(f"SFT adapter already exists, skipping training: {adapter_dir}")
+    adapter_already_done = dir_has_adapters_safetensors(adapter_dir)
+
+    if adapter_already_done and SKIP_EXISTING_SFT:
+        log(f"SFT adapter already exists and contains .safetensors, skipping training: {adapter_dir}")
         return {
             "model_name": model_name,
             "model_dir": str(model_dir),
@@ -248,6 +265,11 @@ def run_sft_for_model(cpt_lr: str, cpt_epochs: int, sft_lr: str, sft_epochs: int
             "skipped_sft": True,
         }
 
+    if adapter_dir.exists() and not adapter_already_done:
+        log(f"SFT adapter directory exists but has no .safetensors, removing incomplete run: {adapter_dir}")
+        if not DRY_RUN:
+            shutil.rmtree(adapter_dir)
+
     sft_iters = update_lora_config_for_run(
         model_name=model_name,
         adapter_name=adapter_name,
@@ -257,6 +279,9 @@ def run_sft_for_model(cpt_lr: str, cpt_epochs: int, sft_lr: str, sft_epochs: int
 
     cmd = [sys.executable, str(SFT_TRAIN_SCRIPT)]
     run_cmd(cmd, cwd=REPO_ROOT)
+
+    if not dir_has_adapters_safetensors(adapter_dir):
+        raise FileNotFoundError(f"SFT finished but no .safetensors file was found in adapter directory: {adapter_dir}")
 
     return {
         "model_name": model_name,

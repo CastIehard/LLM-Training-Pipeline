@@ -5,9 +5,9 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 PROJECT_ROOT = BASE_DIR.parent
 
-MODEL_PATH = PROJECT_ROOT / "model" / "Qwen_Qwen3-0.6B-cpt5e-3"
-ADAPTER_PATH = BASE_DIR / "adapters" / "domain_adapter_cpt5e-3-SFT"
-SAVE_PATH = PROJECT_ROOT / "model" / "Qwen_Qwen3-0.6B-cpt5e-3-SFT"
+MODEL_PATH = PROJECT_ROOT / "model" / "Qwen_Qwen3-0.6B-cpt2e-6"
+ADAPTER_PATH = BASE_DIR / "adapters" / "domain_adapter_cpt2e-6"
+SAVE_PATH = PROJECT_ROOT / "model" / "Qwen_Qwen3-0.6B-cpt2e-6-SFT"
 
 cmd = [
     "mlx_lm.fuse",

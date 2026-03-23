@@ -1,10 +1,10 @@
-model: "../model/Qwen_Qwen3-0.6B-cpt5e-3"
+model: "../model/Qwen_Qwen3-0.6B-cpt2e-6"
 
 train: true
 data: "./data"
 
 fine_tune_type: lora
-adapter_path: "./adapters/domain_adapter_cpt5e-3-SFT"
+adapter_path: "./adapters/domain_adapter_cpt2e-6"
 
 optimizer: muon
 seed: 42
@@ -14,17 +14,18 @@ num_layers: -1   # or full layer count if your mx-lm version needs an integer
 batch_size: 4
 grad_accumulation_steps: 16
 
-iters: 4800
-learning_rate: 5e-5
+# This refers to the batches processed. One epoch = 2115.
+iters: 8461
+learning_rate: 1e-5
 
 max_seq_length: 512
 grad_checkpoint: true # set false if memory allows and you want more speed
 
-val_batches: 50
+val_batches: 200
 
-steps_per_report: 50
-steps_per_eval: 250
-save_every: 250
+steps_per_report: 100
+steps_per_eval: 1000
+save_every: 1000
 
 lora_parameters:
   keys:

@@ -70,7 +70,6 @@ class Config:
     preprocessing_num_workers: int
     dataloader_num_workers: int
     attn_implementation: str
-    optim: str
     gradient_checkpointing: bool
     trust_remote_code: bool
     resume_from_checkpoint: str | None
@@ -78,17 +77,11 @@ class Config:
     disable_default_boilerplate_filter: bool
     extra_drop_line_regex: tuple[str, ...]
     torch_compile: bool
+    lr_scheduler_type: str
 
 
 class EvalPerplexityCallback(TrainerCallback):
-    def on_evaluate(
-        self,
-        args: TrainingArguments,
-        state: TrainerState,
-        control: TrainerControl,
-        metrics: dict[str, float] | None = None,
-        **kwargs,
-    ) -> None:
+    def on_evaluate(self, args: TrainingArguments, state: TrainerState, control: TrainerControl, metrics: dict[str, float] | None = None, **kwargs, ) -> None:
         if not metrics:
             return
         eval_loss = metrics.get("eval_loss")
@@ -101,11 +94,10 @@ class EvalPerplexityCallback(TrainerCallback):
 
 
 def parse_args() -> Config:
-    parser = argparse.ArgumentParser(
-        description="Continued pretraining for Qwen/Qwen3-0.6B on a folder of raw markdown/text files.")
+    parser = argparse.ArgumentParser(description="Continued pretraining for Qwen/Qwen3-0.6B on a folder of raw markdown/text files.")
     parser.add_argument("--corpus_dir", type=str, required=True, help="Folder containing .md/.markdown/.txt files.")
     parser.add_argument("--output_dir", type=str, required=True, help="Where checkpoints, logs and the final model are written.")
-    parser.add_argument("--model_name_or_path", type=str, default="Qwen/Qwen3-0.6B", help="HF model id or local model path. Use the BASE model, not an instruct checkpoint.",)
+    parser.add_argument("--model_name_or_path", type=str, default="Qwen/Qwen3-0.6B", help="HF model id or local model path. Use the BASE model, not an instruct checkpoint.", )
     parser.add_argument("--cache_dir", type=str, default=None)
     parser.add_argument("--block_size", type=int, default=1024)
     parser.add_argument("--validation_ratio", type=float, default=0.1)
@@ -113,7 +105,7 @@ def parse_args() -> Config:
     parser.add_argument("--per_device_eval_batch_size", type=int, default=2)
     parser.add_argument("--gradient_accumulation_steps", type=int, default=16)
     parser.add_argument("--num_train_epochs", type=float, default=1.0)
-    parser.add_argument("--learning_rate", type=float, default=1e-6)
+    parser.add_argument("--learning_rate", type=float, default=2e-6)
     parser.add_argument("--weight_decay", type=float, default=0.01)
     parser.add_argument("--warmup_ratio", type=float, default=0.0)
     parser.add_argument("--logging_steps", type=int, default=10)
@@ -123,15 +115,15 @@ def parse_args() -> Config:
     parser.add_argument("--max_files", type=int, default=None)
     parser.add_argument("--preprocessing_num_workers", type=int, default=max(1, (os.cpu_count() or 2) // 2))
     parser.add_argument("--dataloader_num_workers", type=int, default=min(8, os.cpu_count() or 2))
-    parser.add_argument("--attn_implementation", type=str, default="auto", choices=["auto", "flash_attention_2", "sdpa", "eager"],)
-    parser.add_argument("--optim", type=str, default="adamw_torch_fused", help="Common good choices: adamw_torch_fused, adamw_torch, adamw_bnb_8bit",)
+    parser.add_argument("--attn_implementation", type=str, default="sdpa", choices=["flash_attention_2", "sdpa", "eager"],)
     parser.add_argument("--gradient_checkpointing", action=argparse.BooleanOptionalAction, default=True)
     parser.add_argument("--trust_remote_code", action="store_true")
     parser.add_argument("--resume_from_checkpoint", type=str, default=None)
     parser.add_argument("--overwrite_output_dir", action="store_true")
     parser.add_argument("--disable_default_boilerplate_filter", action="store_true")
-    parser.add_argument("--extra_drop_line_regex", type=str, nargs="*", default=(), help="Additional regex patterns for dropping obvious boilerplate lines.",)
+    parser.add_argument("--extra_drop_line_regex", type=str, nargs="*", default=(), help="Additional regex patterns for dropping obvious boilerplate lines.", )
     parser.add_argument("--torch_compile", action="store_true")
+    parser.add_argument("--lr_scheduler_type", type=str, default="constant", choices=["linear", "cosine", "constant", "constant_with_warmup"])
 
     args = parser.parse_args()
     if not 0.0 < args.validation_ratio < 0.5:
@@ -147,11 +139,7 @@ def parse_args() -> Config:
 
 
 def setup_logging() -> None:
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
-        handlers=[logging.StreamHandler(sys.stdout)],
-    )
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)s | %(name)s | %(message)s", handlers=[logging.StreamHandler(sys.stdout)], )
 
 
 def list_text_files(corpus_dir: Path, max_files: int | None) -> list[Path]:
@@ -160,10 +148,7 @@ def list_text_files(corpus_dir: Path, max_files: int | None) -> list[Path]:
     if not corpus_dir.is_dir():
         raise NotADirectoryError(f"Corpus path is not a directory: {corpus_dir}")
 
-    files = [
-        path for path in corpus_dir.rglob("*")
-        if path.is_file() and path.suffix.lower() in SUPPORTED_EXTENSIONS
-    ]
+    files = [path for path in corpus_dir.rglob("*") if path.is_file() and path.suffix.lower() in SUPPORTED_EXTENSIONS]
     files.sort()
     if max_files is not None:
         files = files[:max_files]
@@ -294,24 +279,6 @@ def split_files(files: Sequence[Path], validation_ratio: float, seed: int) -> tu
     return train_files, val_files
 
 
-def infer_dtype() -> torch.dtype:
-    if torch.cuda.is_available() and torch.cuda.is_bf16_supported():
-        return torch.bfloat16
-    return torch.float16
-
-
-def resolve_attn_implementation(requested: str) -> str | None:
-    if requested != "auto":
-        return requested
-    if torch.cuda.is_available():
-        try:
-            import flash_attn  # noqa: F401
-            return "flash_attention_2"
-        except Exception:
-            return "sdpa"
-    return None
-
-
 def tokenize_documents(batch: dict[str, list[str]], tokenizer: AutoTokenizer) -> dict[str, list[list[int]]]:
     texts: list[str] = []
     eos = tokenizer.eos_token or ""
@@ -377,51 +344,10 @@ def configure_tensorboard_logging(output_dir: Path) -> Path:
     return tb_dir
 
 
-def build_training_arguments(config: Config, output_dir: str, use_bf16: bool, warmup_steps: int) -> TrainingArguments:
-    init_params = inspect.signature(TrainingArguments.__init__).parameters
-
-    maybe_args: dict[str, object] = {
-        "output_dir": output_dir,
-        "num_train_epochs": config.num_train_epochs,
-        "per_device_train_batch_size": config.per_device_train_batch_size,
-        "per_device_eval_batch_size": config.per_device_eval_batch_size,
-        "gradient_accumulation_steps": config.gradient_accumulation_steps,
-        "learning_rate": config.learning_rate,
-        "weight_decay": config.weight_decay,
-        "warmup_steps": warmup_steps,
-        "logging_steps": config.logging_steps,
-        "save_total_limit": config.save_total_limit,
-        "seed": config.seed,
-        "data_seed": config.seed,
-        "report_to": ["tensorboard"],
-        "optim": config.optim,
-        "remove_unused_columns": False,
-        "dataloader_num_workers": config.dataloader_num_workers,
-        "dataloader_pin_memory": torch.cuda.is_available(),
-        "load_best_model_at_end": False,
-        "overwrite_output_dir": config.overwrite_output_dir,
-        "tf32": torch.cuda.is_available(),
-        "fp16": not use_bf16,
-        "bf16": use_bf16,
-    }
-
-    args_dict = {k: v for k, v in maybe_args.items() if k in init_params}
-
-    if "eval_strategy" in init_params:
-        args_dict["eval_strategy"] = "epoch"
-    elif "evaluation_strategy" in init_params:
-        args_dict["evaluation_strategy"] = "epoch"
-
-    if "save_strategy" in init_params:
-        args_dict["save_strategy"] = "epoch"
-
-    if "logging_strategy" in init_params:
-        args_dict["logging_strategy"] = "steps"
-
-    return TrainingArguments(**args_dict)
-
-
 def main() -> None:
+    torch.backends.cuda.matmul.allow_tf32 = True
+    torch.set_float32_matmul_precision("high")
+
     setup_logging()
     config = parse_args()
     set_seed(config.seed)
@@ -429,10 +355,6 @@ def main() -> None:
     output_dir = Path(config.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     configure_tensorboard_logging(output_dir)
-
-    if torch.cuda.is_available():
-        torch.backends.cuda.matmul.allow_tf32 = True
-        torch.set_float32_matmul_precision("high")
 
     files = list_text_files(Path(config.corpus_dir), max_files=config.max_files)
     train_files, val_files = split_files(files=files, validation_ratio=config.validation_ratio, seed=config.seed)
@@ -503,8 +425,8 @@ def main() -> None:
     warmup_steps = compute_warmup_steps(config=config, total_update_steps=total_update_steps)
     LOG.info("Estimated %s optimizer update steps with %s warmup steps", total_update_steps, warmup_steps)
 
-    torch_dtype = infer_dtype()
-    attn_impl = resolve_attn_implementation(config.attn_implementation)
+    torch_dtype = torch.bfloat16
+    attn_impl = config.attn_implementation
     LOG.info("Using torch dtype %s and attention implementation %s", torch_dtype, attn_impl or "default")
 
     model_init_params = inspect.signature(AutoModelForCausalLM.from_pretrained).parameters
@@ -531,9 +453,6 @@ def main() -> None:
         else:
             raise
 
-    if hasattr(model.config, "tie_word_embeddings"):
-        model.config.tie_word_embeddings = False
-
     model.config.use_cache = False
     if config.gradient_checkpointing:
         try:
@@ -541,15 +460,30 @@ def main() -> None:
         except TypeError:
             model.gradient_checkpointing_enable()
 
-    if config.torch_compile and hasattr(torch, "compile"):
-        LOG.info("Compiling model with torch.compile")
-        model = torch.compile(model)
-
-    training_args = build_training_arguments(
-        config=config,
+    training_args = TrainingArguments(
         output_dir=str(output_dir),
-        use_bf16=(torch_dtype == torch.bfloat16),
+        num_train_epochs=config.num_train_epochs,
+        per_device_train_batch_size=config.per_device_train_batch_size,
+        per_device_eval_batch_size=config.per_device_eval_batch_size,
+        gradient_accumulation_steps=config.gradient_accumulation_steps,
+        learning_rate=config.learning_rate,
+        weight_decay=config.weight_decay,
         warmup_steps=warmup_steps,
+        logging_steps=config.logging_steps,
+        save_total_limit=config.save_total_limit,
+        seed=config.seed,
+        data_seed=config.seed,
+        report_to=["tensorboard"],
+        remove_unused_columns=False,
+        dataloader_num_workers=config.dataloader_num_workers,
+        dataloader_pin_memory=True,
+        load_best_model_at_end=False,
+        lr_scheduler_type=config.lr_scheduler_type,
+        save_strategy="epoch",
+        logging_strategy="steps",
+        bf16=True,
+        tf32=True,
+        torch_compile=config.torch_compile,
     )
 
     data_collator = DefaultDataCollator()

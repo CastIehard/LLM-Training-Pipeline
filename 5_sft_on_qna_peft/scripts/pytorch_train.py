@@ -21,7 +21,7 @@ MODEL_PATH = PROJECT_DIR / "model" / "Qwen_Qwen3-0.6B"
 ADAPTER_OUTPUT_DIR = RUN_DIR / "adapters" / "Qwen_Qwen3-0.6B_lora_lightning_epoch3"
 TENSORBOARD_ROOT_DIR = RUN_DIR / "tb_logs"
 
-MAX_EPOCHS: int = 1
+MAX_EPOCHS: int = 4
 
 
 @dataclass(frozen=True)
@@ -32,7 +32,7 @@ class TrainConfig:
     per_device_eval_batch_size: int = 4
     gradient_accumulation_steps: int = 16
 
-    learning_rate: float = 5e-5
+    learning_rate: float = 1e-5
     max_seq_length: int = 512
 
     val_check_interval: float = 1.0

@@ -14,7 +14,7 @@ from pathlib import Path
 # Edit only this section
 # =========================
 
-CPT_LEARNING_RATES = ["2e-6", "5e-6", "1e-5",]
+CPT_LEARNING_RATES = ["2e-6", "5e-6", "1e-5"]
 CPT_EPOCHS = [1, 5, 30]
 
 SFT_LEARNING_RATES = ["1e-5", "5e-6"]

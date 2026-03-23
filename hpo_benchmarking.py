@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import copy
-import itertools
 import json
 import subprocess
 import sys
@@ -27,9 +26,6 @@ STOP_ON_ERROR = False
 CREATE_CONFIG_BACKUP = True
 RESTORE_ORIGINAL_CONFIG_AT_END = True
 
-INCLUDE_CPT_MODELS = True
-INCLUDE_SFT_ADAPTERS = True
-
 # Naming scheme used by your HPO scripts
 COPIED_MODEL_PREFIX = "Qwen_Qwen3-0.6B-tuplecpt"
 
@@ -43,7 +39,6 @@ BENCHMARK_MAIN = REPO_ROOT / "4_benchmark" / "main.py"
 BENCHMARK_CONFIG = REPO_ROOT / "4_benchmark" / "config.yaml"
 
 MODEL_STORE_DIR = REPO_ROOT / "model"
-SFT_ADAPTERS_DIR = REPO_ROOT / "5_sft_on_qna_peft" / "adapters"
 
 RUN_LOG_PATH = REPO_ROOT / "4_benchmark" / "batch_benchmark_runs.jsonl"
 
@@ -54,9 +49,7 @@ RUN_LOG_PATH = REPO_ROOT / "4_benchmark" / "batch_benchmark_runs.jsonl"
 
 @dataclass(frozen=True)
 class BenchmarkTarget:
-    kind: str
     name: str
-    model_dir_value: str
     path: Path
 
 
@@ -81,61 +74,23 @@ def model_dir_has_safetensors(path: Path) -> bool:
     return path.exists() and path.is_dir() and any(p.is_file() for p in path.glob("*.safetensors"))
 
 
-def adapter_dir_has_safetensors(path: Path) -> bool:
-    return (path / "adapters.safetensors").is_file()
-
-
-def is_cpt_model_dir(path: Path) -> bool:
-    return (
-        path.is_dir()
-        and path.name.startswith(f"{COPIED_MODEL_PREFIX}_")
-        and model_dir_has_safetensors(path)
-    )
-
-
-def is_sft_adapter_dir(path: Path) -> bool:
+def is_hpo_model_dir(path: Path) -> bool:
     if not path.is_dir():
         return False
-    if not adapter_dir_has_safetensors(path):
+    if not path.name.startswith(f"{COPIED_MODEL_PREFIX}_"):
         return False
-
-    name = path.name
-
-    return (
-        name.startswith(f"{COPIED_MODEL_PREFIX}_")
-        and "-epoch-SFT" in name
-    )
+    if not model_dir_has_safetensors(path):
+        return False
+    return True
 
 
 def discover_targets() -> list[BenchmarkTarget]:
+    ensure_exists(MODEL_STORE_DIR, "model store directory")
+
     targets: list[BenchmarkTarget] = []
-
-    if INCLUDE_CPT_MODELS:
-        ensure_exists(MODEL_STORE_DIR, "model store directory")
-        for path in sorted(MODEL_STORE_DIR.iterdir(), key=lambda p: p.name):
-            if is_cpt_model_dir(path):
-                targets.append(
-                    BenchmarkTarget(
-                        kind="cpt_model",
-                        name=path.name,
-                        model_dir_value="model",
-                        path=path,
-                    )
-                )
-
-    if INCLUDE_SFT_ADAPTERS:
-        ensure_exists(SFT_ADAPTERS_DIR, "SFT adapters directory")
-        for path in sorted(SFT_ADAPTERS_DIR.iterdir(), key=lambda p: p.name):
-            if is_sft_adapter_dir(path):
-                targets.append(
-                    BenchmarkTarget(
-                        kind="sft_adapter",
-                        name=path.name,
-                        model_dir_value="5_sft_on_qna_peft/adapters",
-                        path=path,
-                    )
-                )
-
+    for path in sorted(MODEL_STORE_DIR.iterdir(), key=lambda p: p.name):
+        if is_hpo_model_dir(path):
+            targets.append(BenchmarkTarget(name=path.name, path=path))
     return targets
 
 
@@ -170,7 +125,7 @@ def build_config_for_target(base_config: dict, target: BenchmarkTarget) -> dict:
 
     cfg["answer_llm"]["provider"] = "huggingface"
     cfg["answer_llm"]["huggingface"]["model"] = target.name
-    cfg["answer_llm"]["huggingface"]["model_dir"] = target.model_dir_value
+    cfg["answer_llm"]["huggingface"]["model_dir"] = "model"
 
     return cfg
 
@@ -198,8 +153,8 @@ def benchmark_target(base_config: dict, target: BenchmarkTarget) -> None:
     cfg = build_config_for_target(base_config, target)
 
     log("\n========================================")
-    log(f"Benchmarking {target.kind}: {target.name}")
-    log(f"model_dir={target.model_dir_value}")
+    log(f"Benchmarking model: {target.name}")
+    log("model_dir=model")
     log("========================================")
 
     write_yaml(BENCHMARK_CONFIG, cfg)
@@ -209,9 +164,8 @@ def benchmark_target(base_config: dict, target: BenchmarkTarget) -> None:
 
     append_run_log(
         {
-            "kind": target.kind,
             "name": target.name,
-            "model_dir": target.model_dir_value,
+            "model_dir": "model",
             "path": str(target.path),
         }
     )
@@ -220,6 +174,7 @@ def benchmark_target(base_config: dict, target: BenchmarkTarget) -> None:
 def main() -> None:
     ensure_exists(BENCHMARK_MAIN, "benchmark main.py")
     ensure_exists(BENCHMARK_CONFIG, "benchmark config.yaml")
+    ensure_exists(MODEL_STORE_DIR, "model store directory")
 
     create_backup_if_needed(BENCHMARK_CONFIG)
 
@@ -234,7 +189,7 @@ def main() -> None:
 
     log(f"Discovered {len(targets)} benchmark target(s):")
     for target in targets:
-        log(f"- [{target.kind}] {target.name}")
+        log(f"- {target.name}")
 
     try:
         for target in targets:

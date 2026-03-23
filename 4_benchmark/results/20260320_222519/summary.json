@@ -3,7 +3,7 @@
   "duration_seconds": 500.75,
   "answer_model": {
     "provider": "huggingface",
-    "model": "Qwen_Qwen3-0.6B-SFT_lora_new_questions",
+    "model": "Qwen_Qwen3-0.6B_lora_new_questions-SFT",
     "temperature": 0.3
   },
   "judge_model": {

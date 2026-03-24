@@ -16,7 +16,7 @@ grad_accumulation_steps: 16
 
 # This refers to the batches processed. One epoch = 2115.
 iters: 4230
-learning_rate: 5e-4
+learning_rate: 5e-5
 
 max_seq_length: 512
 grad_checkpoint: true # set false if memory allows and you want more speed

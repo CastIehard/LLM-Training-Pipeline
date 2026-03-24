@@ -13,10 +13,10 @@ from pathlib import Path
 # Edit only this section
 # =========================
 
-CPT_LEARNING_RATES = ["1e-6"]  # , "2e-6", "5e-6", "1e-5"
-CPT_EPOCHS = [1]  # , 3, 5, 30
+CPT_LEARNING_RATES = ["1e-6", "2e-6", "5e-6", "1e-5", "5e-5"]
+CPT_EPOCHS = [1, 3, 5, 30]
 
-SFT_LEARNING_RATES = ["5e-7", "1e-6", "5e-6", "1e-5", "5e-5", "1e-4", "5e-4"]
+SFT_LEARNING_RATES = ["5e-5"]
 SFT_EPOCHS = [2]  # 4
 
 # For your setup you noted: one SFT epoch = 2115 iterations.

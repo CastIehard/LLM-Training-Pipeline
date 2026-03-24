@@ -263,11 +263,11 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    #model_path = "/home/martin/PycharmProjects/UTN-3-LLM-Final-Project/model/Qwen_Qwen3-0.6B-cpt1e-6-SFT/"
-#
-    #model = AutoModelForCausalLM.from_pretrained(model_path)
-    #tokenizer = AutoTokenizer.from_pretrained(model_path)
-#
-    #save_model(model, tokenizer, "final_submission")
+    model_path = "/home/martin/PycharmProjects/UTN-3-LLM-Final-Project/model/Qwen_Qwen3-0.6B-cpt1e-6-SFT/"
+
+    model = AutoModelForCausalLM.from_pretrained(model_path)
+    tokenizer = AutoTokenizer.from_pretrained(model_path)
+
+    save_model(model, tokenizer, "final_submission")
 
     main()

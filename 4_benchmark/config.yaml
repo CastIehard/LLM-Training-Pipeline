@@ -22,7 +22,7 @@ answer_llm:
   # HuggingFace model settings (downloaded/cached locally)
   huggingface:
     # Model name from HuggingFace Hub (e.g., "Qwen/Qwen3-0.6B")
-    model: "Qwen_Qwen3-0.6B-GEPA"
+    model: "saeedbenadeeb/UTN-Qwen3-0.6B-LoRA-merged"
     # Local directory to cache models
     model_dir: "model"
     # Device: "auto", "cpu", "cuda", "mps"
@@ -30,7 +30,7 @@ answer_llm:
     # Dtype: "auto", "float16", "float32", "bfloat16"
     dtype: "auto"
     temperature: 0.3
-    max_tokens: 1024
+    max_tokens: 512
 
 # Judge LLM Settings (evaluates the answers)
 judge_llm:
@@ -59,14 +59,7 @@ benchmark:
   categories: [ ]
 
 # System prompt for the answer LLM
-answer_system_prompt: |
-  Answer questions factually and concisely about German bureaucracy, student regulations, insurance, visas, and local services.
-  Limit responses to one or two short sentences (under 25 words).
-  **Do not emit reasoning blocks, CoT, thinking traces, or any content before/after your answer.**
-  **Never hallucinate** dates, office names, visa types, legal acts, or requirements—answer only what you know with high confidence.
-  When in doubt between bureaucratic processes (e.g., visa entry vs. residence registration), distinguish them precisely; do not conflate. 
-  If information is unavailable, state it clearly without fabricating details.
-  Output ONLY the answer text within your final message.
+answer_system_prompt: You answer questions factually and concisely. Do not invent information. If the answer is unknown, say so clearly.
 
 # Answer Prompt (sent to the answer LLM)
 answer_prompt: |

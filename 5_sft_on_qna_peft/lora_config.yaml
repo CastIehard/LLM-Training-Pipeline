@@ -4,7 +4,7 @@ train: true
 data: "./data"
 
 fine_tune_type: lora
-adapter_path: "./adapters/Qwen_Qwen3-0.6B-tuplecpt_1e-6_1-epoch-SFT-lr_5e-4-ep_2"
+adapter_path: "./adapters/Qwen_Qwen3-0.6B-tuplecpt_1e-6_1-epoch-lr_5e-5-ep_2-SFT"
 
 optimizer: muon
 seed: 42

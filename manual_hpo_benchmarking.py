@@ -23,8 +23,9 @@ RESTORE_ORIGINAL_CONFIG_AT_END = True
 
 ONLY_SFT_MODELS = True
 
-# Naming scheme used by your HPO scripts
-COPIED_MODEL_PREFIX = manual_hpo.COPIED_MODEL_PREFIX
+# HPO-produced model dirs now include:
+# <base_model_tag>-tuplecpt_<lr>_<epochs>-epoch
+HPO_MODEL_NAME_MARKER = "-tuplecpt_"
 
 # =========================
 # Paths
@@ -74,7 +75,7 @@ def model_dir_has_safetensors(path: Path) -> bool:
 def is_hpo_model_dir(path: Path) -> bool:
     if not path.is_dir():
         return False
-    if not path.name.startswith(f"{COPIED_MODEL_PREFIX}_"):
+    if HPO_MODEL_NAME_MARKER not in path.name:
         return False
     if not model_dir_has_safetensors(path):
         return False

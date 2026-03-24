@@ -5,6 +5,10 @@ import numpy as np
 from pathlib import Path
 
 
+NUM_RECENT_BENCHMARKS = 10
+TOP_K_PER_GROUP = 3
+
+
 def clean_display_name(name):
     prefix = "Qwen_Qwen3-0.6B"
     if not isinstance(name, str):
@@ -62,6 +66,38 @@ def load_results(results_dir):
     return results
 
 
+def select_results_for_plot(results, num_recent=NUM_RECENT_BENCHMARKS, top_k_per_group=TOP_K_PER_GROUP):
+    if not results:
+        return results
+
+    selected_indices = set()
+
+    # Always include the very first benchmark
+    selected_indices.add(0)
+
+    # Include the last N benchmarks
+    recent_start = max(0, len(results) - num_recent)
+    selected_indices.update(range(recent_start, len(results)))
+
+    non_sft_indices = [i for i, res in enumerate(results) if not res.get('is_sft', False)]
+    sft_indices = [i for i, res in enumerate(results) if res.get('is_sft', False)]
+
+    def add_top_k(indices):
+        ranked = sorted(
+            indices,
+            key=lambda i: results[i].get('stats', {}).get('average_score', 0),
+            reverse=True
+        )
+        selected_indices.update(ranked[:top_k_per_group])
+
+    # Include top-k overall for base and SFT separately
+    add_top_k(non_sft_indices)
+    add_top_k(sft_indices)
+
+    # Preserve chronological order before later grouping
+    return [results[i] for i in range(len(results)) if i in selected_indices]
+
+
 def reorder_results_with_sft_grouping(results):
     non_sft = [res for res in results if not res.get('is_sft', False)]
     sft = [res for res in results if res.get('is_sft', False)]
@@ -88,6 +124,7 @@ def create_comparison_plots(results, output_file="comparison_results.png"):
         print("No valid benchmark results found.")
         return
 
+    results = select_results_for_plot(results)
     results, num_non_sft, num_sft = reorder_results_with_sft_grouping(results)
 
     # Extract data

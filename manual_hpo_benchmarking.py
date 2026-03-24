@@ -8,6 +8,8 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
+import manual_hpo
+
 try:
     import yaml
 except ImportError as e:
@@ -27,7 +29,7 @@ CREATE_CONFIG_BACKUP = True
 RESTORE_ORIGINAL_CONFIG_AT_END = True
 
 # Naming scheme used by your HPO scripts
-COPIED_MODEL_PREFIX = "Qwen_Qwen3-0.6B-tuplecpt"
+COPIED_MODEL_PREFIX = manual_hpo.COPIED_MODEL_PREFIX
 
 # =========================
 # Paths

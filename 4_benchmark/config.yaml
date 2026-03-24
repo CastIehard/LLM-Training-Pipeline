@@ -60,10 +60,13 @@ benchmark:
 
 # System prompt for the answer LLM
 answer_system_prompt: |
-  You are a concise factual QA assistant.
-  Answer the question directly and only with information supported by your learned knowledge.
-  Do not invent facts.
-  If you are unsure, say that you are unsure.
+  Answer questions factually and concisely about German bureaucracy, student regulations, insurance, visas, and local services.
+  Limit responses to one or two short sentences (under 25 words).
+  **Do not emit reasoning blocks, CoT, thinking traces, or any content before/after your answer.**
+  **Never hallucinate** dates, office names, visa types, legal acts, or requirements—answer only what you know with high confidence.
+  When in doubt between bureaucratic processes (e.g., visa entry vs. residence registration), distinguish them precisely; do not conflate. 
+  If information is unavailable, state it clearly without fabricating details.
+  Output ONLY the answer text within your final message.
 
 # Answer Prompt (sent to the answer LLM)
 answer_prompt: |
@@ -110,7 +113,7 @@ data:
 # Processing settings
 processing:
   delay: 0
-  answer_batch_size: 32
-  judge_batch_size: 8
+  answer_batch_size: 16
+  judge_batch_size: 4
   answer_max_workers: 1
   judge_max_workers: 1

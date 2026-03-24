@@ -11,12 +11,13 @@ import sys
 from pathlib import Path
 
 os.environ["MLX_CUDA_GRAPH_CACHE_SIZE"] = "160000"
+REPO_ROOT = Path(__file__).resolve().parent
 
 # =========================
 # Edit only this section
 # =========================
 
-CPT_LEARNING_RATES = ["1e-6"]  # , "2e-6", "3e-6", "5e-6", "1e-5", "5e-5"
+CPT_LEARNING_RATES = ["5e-7", "1e-6", "2e-6", "3e-6", "5e-6", "1e-5", "5e-5"]
 CPT_EPOCHS = [1, 3]
 
 SFT_LEARNING_RATES = ["5e-5"]
@@ -33,11 +34,16 @@ STOP_ON_ERROR = False
 DRY_RUN = False
 CREATE_LORA_CONFIG_BACKUP = True
 
+
+BASE_MODEL_NAME_OR_PATHS = [
+    #REPO_ROOT / "model" / "Qwen_Qwen3-0.6B-cpt2e-6",
+    REPO_ROOT / "model" / "Qwen_Qwen3-0.6B-cpt1e-6",
+    REPO_ROOT / "model" / "Qwen_Qwen3-0.6B",
+]
+
 # =========================
 # Paths and naming
 # =========================
-
-REPO_ROOT = Path(__file__).resolve().parent
 
 CPT_SCRIPT = REPO_ROOT / "6_continuous_pretraining" / "cpt_single_triple_file.py"
 CPT_INPUT_FILE = REPO_ROOT / "data" / "cpt_training_set" / "train_cpt_triples_pipe_text.md"
@@ -48,12 +54,6 @@ MODEL_STORE_DIR = REPO_ROOT / "model"
 SFT_CONFIG_PATH = REPO_ROOT / "5_sft_on_qna_peft" / "lora_config.yaml"
 SFT_TRAIN_SCRIPT = REPO_ROOT / "5_sft_on_qna_peft" / "scripts" / "train.py"
 SFT_ADAPTERS_DIR = REPO_ROOT / "5_sft_on_qna_peft" / "adapters"
-
-BASE_MODEL_NAME_OR_PATHS = [
-    REPO_ROOT / "model" / "Qwen_Qwen3-0.6B-cpt2e-6",
-    REPO_ROOT / "model" / "Qwen_Qwen3-0.6B-cpt1e-6",
-    #REPO_ROOT / "model" / "Qwen_Qwen3-0.6B",
-]
 
 MANIFEST_PATH = REPO_ROOT / "manual_hpo_manifest.jsonl"
 

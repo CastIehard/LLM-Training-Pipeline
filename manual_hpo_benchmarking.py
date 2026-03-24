@@ -8,16 +8,9 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
+import yaml
+
 import manual_hpo
-
-try:
-    import yaml
-except ImportError as e:
-    raise SystemExit(
-        "PyYAML is required for this script. Install it with:\n"
-        "  pip install pyyaml"
-    ) from e
-
 
 # =========================
 # Edit only this section
@@ -27,6 +20,8 @@ DRY_RUN = False
 STOP_ON_ERROR = False
 CREATE_CONFIG_BACKUP = True
 RESTORE_ORIGINAL_CONFIG_AT_END = True
+
+ONLY_SFT_MODELS = True
 
 # Naming scheme used by your HPO scripts
 COPIED_MODEL_PREFIX = manual_hpo.COPIED_MODEL_PREFIX
@@ -86,12 +81,18 @@ def is_hpo_model_dir(path: Path) -> bool:
     return True
 
 
+def is_sft_model_name(name: str) -> bool:
+    return "-SFT" in name
+
+
 def discover_targets() -> list[BenchmarkTarget]:
     ensure_exists(MODEL_STORE_DIR, "model store directory")
 
     targets: list[BenchmarkTarget] = []
     for path in sorted(MODEL_STORE_DIR.iterdir(), key=lambda p: p.name):
         if is_hpo_model_dir(path):
+            if ONLY_SFT_MODELS and not is_sft_model_name(path.name):
+                continue
             targets.append(BenchmarkTarget(name=path.name, path=path))
     return targets
 

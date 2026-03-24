@@ -17,10 +17,10 @@ os.environ["MLX_CUDA_GRAPH_CACHE_SIZE"] = "160000"
 # =========================
 
 CPT_LEARNING_RATES = ["1e-6"]  # , "2e-6", "3e-6", "5e-6", "1e-5", "5e-5"
-CPT_EPOCHS = [1, 3, 5]
+CPT_EPOCHS = [1]
 
 SFT_LEARNING_RATES = ["5e-5"]
-SFT_EPOCHS = [2]  # 4
+SFT_EPOCHS = [4]  # 4
 
 # For your setup you noted: one SFT epoch = 2115 iterations.
 SFT_ITERS_PER_EPOCH = 2115

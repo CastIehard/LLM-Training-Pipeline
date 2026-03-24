@@ -49,10 +49,10 @@ SFT_CONFIG_PATH = REPO_ROOT / "5_sft_on_qna_peft" / "lora_config.yaml"
 SFT_TRAIN_SCRIPT = REPO_ROOT / "5_sft_on_qna_peft" / "scripts" / "train.py"
 SFT_ADAPTERS_DIR = REPO_ROOT / "5_sft_on_qna_peft" / "adapters"
 
-BASE_MODEL_NAME_OR_PATH = "Qwen_Qwen3-0.6B-cpt1e-6"
+BASE_MODEL_NAME_OR_PATH = (REPO_ROOT / "model" / "Qwen_Qwen3-0.6B-cpt1e-6")
+BASE_MODEL_TAG = Path(BASE_MODEL_NAME_OR_PATH).name
 
-CPT_RUN_PREFIX = "qwen3_0_6b_tuplecpt"
-COPIED_MODEL_PREFIX = "Qwen_Qwen3-0.6B-tuplecpt"
+COPIED_MODEL_PREFIX = f"{str(BASE_MODEL_TAG)}-tuplecpt"
 
 MANIFEST_PATH = REPO_ROOT / "manual_hpo_manifest.jsonl"
 
@@ -86,12 +86,8 @@ def dir_has_model_safetensors(path: Path) -> bool:
     return (path / "model.safetensors").is_file()
 
 
-def cpt_run_name(cpt_lr: str, cpt_epochs: int) -> str:
-    return f"{CPT_RUN_PREFIX}_{cpt_lr}_{cpt_epochs}-epoch"
-
-
 def copied_model_name(cpt_lr: str, cpt_epochs: int) -> str:
-    return f"{COPIED_MODEL_PREFIX}_{cpt_lr}_{cpt_epochs}-epoch"
+    return f"{str(COPIED_MODEL_PREFIX)}_{cpt_lr}_{cpt_epochs}-epoch"
 
 
 def build_adapter_name(cpt_lr: str, cpt_epochs: int, sft_lr: str, sft_epochs: int, multiple_sft_variants: bool) -> str:
@@ -210,7 +206,7 @@ def append_manifest(record: dict) -> None:
 
 
 def run_cpt(cpt_lr: str, cpt_epochs: int) -> tuple[Path, Path, int | float]:
-    run_name = cpt_run_name(cpt_lr, cpt_epochs)
+    run_name = copied_model_name(cpt_lr, cpt_epochs)
     output_dir = CPT_RUNS_DIR / run_name
     final_model_dir = output_dir / "final_model"
     final_model_config = final_model_dir / "config.json"
@@ -229,7 +225,7 @@ def run_cpt(cpt_lr: str, cpt_epochs: int) -> tuple[Path, Path, int | float]:
             "--output_dir", str(output_dir),
             f"--num_train_epochs={cpt_epochs}",
             f"--learning_rate={cpt_lr}",
-            "--model_name_or_path", BASE_MODEL_NAME_OR_PATH,
+            "--model_name_or_path", str(BASE_MODEL_NAME_OR_PATH),
         ]
         run_cmd(cmd, cwd=REPO_ROOT)
 

@@ -22,7 +22,7 @@ answer_llm:
   # HuggingFace model settings (downloaded/cached locally)
   huggingface:
     # Model name from HuggingFace Hub (e.g., "Qwen/Qwen3-0.6B")
-    model: "Qwen_Qwen3-0.6B-cpt5e-7-SFT"
+    model: "Qwen_Qwen3-0.6B-cpt1e-6-SFT-GEPA"
     # Local directory to cache models
     model_dir: "model"
     # Device: "auto", "cpu", "cuda", "mps"
@@ -30,7 +30,7 @@ answer_llm:
     # Dtype: "auto", "float16", "float32", "bfloat16"
     dtype: "auto"
     temperature: 0.3
-    max_tokens: 512
+    max_tokens: 1024
 
 # Judge LLM Settings (evaluates the answers)
 judge_llm:
@@ -57,6 +57,13 @@ benchmark:
   # Number of questions per category to sample
   questions_per_category: 50 #note that "reference faq" has only 13 questions.
   categories: [ ]
+
+# System prompt for the answer LLM
+answer_system_prompt: |
+  You are a concise factual QA assistant.
+  Answer the question directly and only with information supported by your learned knowledge.
+  Do not invent facts.
+  If you are unsure, say that you are unsure.
 
 # Answer Prompt (sent to the answer LLM)
 answer_prompt: |

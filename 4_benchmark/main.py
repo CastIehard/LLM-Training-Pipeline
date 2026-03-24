@@ -220,18 +220,27 @@ def load_huggingface_model(llm_config: dict):
     return model, tokenizer
 
 
-def _prepare_hf_inputs(tokenizer, prompts: list[str]) -> dict:
+def _prepare_hf_inputs(tokenizer, prompts: list[str], system_prompt: str | None = None) -> dict:
     """Tokenize a batch of prompts, using chat template when available."""
     if hasattr(tokenizer, "apply_chat_template"):
-        rendered_prompts = [
-            tokenizer.apply_chat_template(
-                [{"role": "user", "content": prompt}],
-                tokenize=False,
-                add_generation_prompt=True,
+        rendered_prompts = []
+        for prompt in prompts:
+            messages = []
+            if system_prompt:
+                messages.append({"role": "system", "content": system_prompt})
+            messages.append({"role": "user", "content": prompt})
+
+            rendered_prompts.append(
+                tokenizer.apply_chat_template(
+                    messages,
+                    tokenize=False,
+                    add_generation_prompt=True,
+                )
             )
-            for prompt in prompts
-        ]
         return tokenizer(rendered_prompts, return_tensors="pt", padding=True)
+
+    if system_prompt:
+        prompts = [f"{system_prompt}\n\n{prompt}" for prompt in prompts]
 
     return tokenizer(prompts, return_tensors="pt", padding=True)
 
@@ -242,11 +251,12 @@ def _generate_huggingface_batch(
         *,
         max_new_tokens: int,
         temperature: float,
+        system_prompt: str | None = None,
 ) -> list[str]:
     """Generate a batch of responses using a HuggingFace model."""
     model, tokenizer = load_huggingface_model(llm_config)
 
-    inputs = _prepare_hf_inputs(tokenizer, prompts)
+    inputs = _prepare_hf_inputs(tokenizer, prompts, system_prompt=system_prompt)
 
     model_device = getattr(model, "device", None)
     if model_device is None:
@@ -284,6 +294,7 @@ def generate_huggingface_responses(
         batch_size: int,
         desc: str,
         delay: float = 0.0,
+        system_prompt: str | None = None,
 ) -> list[str | None]:
     """Generate responses in HuggingFace batches with per-item failure isolation."""
     if not prompts:
@@ -303,6 +314,7 @@ def generate_huggingface_responses(
                     batch_prompts,
                     max_new_tokens=max_new_tokens,
                     temperature=temperature,
+                    system_prompt=system_prompt,
                 )
 
                 for idx, response in zip(batch_indices, batch_responses):
@@ -321,6 +333,7 @@ def generate_huggingface_responses(
                             [prompt],
                             max_new_tokens=max_new_tokens,
                             temperature=temperature,
+                            system_prompt=system_prompt,
                         )[0]
                         results[idx] = single_response
                     except Exception as item_error:
@@ -464,11 +477,16 @@ def remove_questions_from_source(qna_file: str, questions_to_remove: list[dict])
 
 
 @retry(wait=wait_exponential(multiplier=1, min=2, max=10), stop=stop_after_attempt(5))
-def get_answer_with_retry(client: OpenAI, settings: dict, prompt: str) -> str:
+def get_answer_with_retry(client: OpenAI, settings: dict, prompt: str, system_prompt: str | None = None) -> str:
     """Get answer from OpenAI-compatible LLM with automatic retry."""
+    messages = []
+    if system_prompt:
+        messages.append({"role": "system", "content": system_prompt})
+    messages.append({"role": "user", "content": prompt})
+
     response = client.chat.completions.create(
         model=settings["model"],
-        messages=[{"role": "user", "content": prompt}],
+        messages=messages,
         temperature=settings["temperature"],
         max_tokens=settings["max_tokens"],
     )
@@ -505,6 +523,12 @@ def judge_answer_with_retry(client: OpenAI, settings: dict, prompt: str, provide
     return _parse_judge_content(content)
 
 
+def _get_answer_system_prompt(config: dict) -> str | None:
+    """Get optional system prompt for answer generation."""
+    system_prompt = str(config.get("answer_system_prompt", "")).strip()
+    return system_prompt or None
+
+
 def _build_answer_prompt(config: dict, question: str) -> str:
     """Build prompt for answer generation."""
     return config["answer_prompt"].format(question=question)
@@ -528,6 +552,7 @@ def _run_single_answer(
         settings: dict,
         llm_config: dict,
         prompt: str,
+        system_prompt: str | None = None,
 ) -> str | None:
     """Run one answer request for any provider."""
     provider = llm_config["provider"]
@@ -539,9 +564,10 @@ def _run_single_answer(
                 [prompt],
                 max_new_tokens=settings["max_tokens"],
                 temperature=settings["temperature"],
+                system_prompt=system_prompt,
             )[0]
 
-        return get_answer_with_retry(client, settings, prompt)
+        return get_answer_with_retry(client, settings, prompt, system_prompt=system_prompt)
 
     except Exception as e:
         actual_error = e.__cause__ if e.__cause__ else e
@@ -609,6 +635,7 @@ def generate_answers_batch(
 ) -> list[str | None]:
     """Generate all answers first, preserving original order."""
     prompts = [_build_answer_prompt(config, entry["question"]) for entry in benchmark_questions]
+    system_prompt = _get_answer_system_prompt(config)
     provider = llm_config["provider"]
     batch_size = _get_phase_batch_size(config, llm_config, "answer")
     max_workers = _get_phase_max_workers(config, "answer")
@@ -622,6 +649,7 @@ def generate_answers_batch(
             batch_size=batch_size,
             desc="Generating answers",
             delay=delay,
+            system_prompt=system_prompt,
         )
 
     results = [None] * len(prompts)
@@ -632,7 +660,7 @@ def generate_answers_batch(
             if max_workers > 1:
                 with ThreadPoolExecutor(max_workers=max_workers) as executor:
                     futures = {
-                        executor.submit(_run_single_answer, client, settings, llm_config, prompt): idx
+                        executor.submit(_run_single_answer, client, settings, llm_config, prompt, system_prompt): idx
                         for idx, prompt in batch
                     }
                     for future in as_completed(futures):
@@ -641,7 +669,7 @@ def generate_answers_batch(
                         pbar.update(1)
             else:
                 for idx, prompt in batch:
-                    results[idx] = _run_single_answer(client, settings, llm_config, prompt)
+                    results[idx] = _run_single_answer(client, settings, llm_config, prompt, system_prompt)
                     pbar.update(1)
 
             if delay > 0:

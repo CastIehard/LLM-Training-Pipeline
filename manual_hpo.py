@@ -17,10 +17,10 @@ os.environ["MLX_CUDA_GRAPH_CACHE_SIZE"] = "160000"
 # =========================
 
 CPT_LEARNING_RATES = ["1e-6"]  # , "2e-6", "3e-6", "5e-6", "1e-5", "5e-5"
-CPT_EPOCHS = [1]
+CPT_EPOCHS = [1, 3]
 
 SFT_LEARNING_RATES = ["5e-5"]
-SFT_EPOCHS = [4]  # 4
+SFT_EPOCHS = [2]  # 4
 
 # For your setup you noted: one SFT epoch = 2115 iterations.
 SFT_ITERS_PER_EPOCH = 2115
@@ -49,10 +49,11 @@ SFT_CONFIG_PATH = REPO_ROOT / "5_sft_on_qna_peft" / "lora_config.yaml"
 SFT_TRAIN_SCRIPT = REPO_ROOT / "5_sft_on_qna_peft" / "scripts" / "train.py"
 SFT_ADAPTERS_DIR = REPO_ROOT / "5_sft_on_qna_peft" / "adapters"
 
-BASE_MODEL_NAME_OR_PATH = (REPO_ROOT / "model" / "Qwen_Qwen3-0.6B-cpt1e-6")
-BASE_MODEL_TAG = Path(BASE_MODEL_NAME_OR_PATH).name
-
-COPIED_MODEL_PREFIX = f"{str(BASE_MODEL_TAG)}-tuplecpt"
+BASE_MODEL_NAME_OR_PATHS = [
+    REPO_ROOT / "model" / "Qwen_Qwen3-0.6B-cpt2e-6",
+    REPO_ROOT / "model" / "Qwen_Qwen3-0.6B-cpt1e-6",
+    #REPO_ROOT / "model" / "Qwen_Qwen3-0.6B",
+]
 
 MANIFEST_PATH = REPO_ROOT / "manual_hpo_manifest.jsonl"
 
@@ -86,12 +87,22 @@ def dir_has_model_safetensors(path: Path) -> bool:
     return (path / "model.safetensors").is_file()
 
 
-def copied_model_name(cpt_lr: str, cpt_epochs: int) -> str:
-    return f"{str(COPIED_MODEL_PREFIX)}_{cpt_lr}_{cpt_epochs}-epoch"
+def normalize_base_model_path(path_like: str | Path) -> Path:
+    return Path(path_like)
 
 
-def build_adapter_name(cpt_lr: str, cpt_epochs: int, sft_lr: str, sft_epochs: int, multiple_sft_variants: bool) -> str:
-    base = copied_model_name(cpt_lr, cpt_epochs)
+def base_model_tag(base_model_name_or_path: str | Path) -> str:
+    return normalize_base_model_path(base_model_name_or_path).name
+
+
+def copied_model_name(base_model_name_or_path: str | Path, cpt_lr: str, cpt_epochs: int) -> str:
+    model_tag = base_model_tag(base_model_name_or_path)
+    copied_model_prefix = f"{model_tag}-tuplecpt"
+    return f"{copied_model_prefix}_{cpt_lr}_{cpt_epochs}-epoch"
+
+
+def build_adapter_name(base_model_name_or_path: str | Path, cpt_lr: str, cpt_epochs: int, sft_lr: str, sft_epochs: int, multiple_sft_variants: bool) -> str:
+    base = copied_model_name(base_model_name_or_path, cpt_lr, cpt_epochs)
     return f"{base}-lr_{sft_lr}-ep_{sft_epochs}-SFT"
 
 
@@ -205,8 +216,9 @@ def append_manifest(record: dict) -> None:
         f.write(line + "\n")
 
 
-def run_cpt(cpt_lr: str, cpt_epochs: int) -> tuple[Path, Path, int | float]:
-    run_name = copied_model_name(cpt_lr, cpt_epochs)
+def run_cpt(base_model_name_or_path: str | Path, cpt_lr: str, cpt_epochs: int) -> tuple[Path, Path, int | float]:
+    base_model_name_or_path = normalize_base_model_path(base_model_name_or_path)
+    run_name = copied_model_name(base_model_name_or_path, cpt_lr, cpt_epochs)
     output_dir = CPT_RUNS_DIR / run_name
     final_model_dir = output_dir / "final_model"
     final_model_config = final_model_dir / "config.json"
@@ -225,7 +237,7 @@ def run_cpt(cpt_lr: str, cpt_epochs: int) -> tuple[Path, Path, int | float]:
             "--output_dir", str(output_dir),
             f"--num_train_epochs={cpt_epochs}",
             f"--learning_rate={cpt_lr}",
-            "--model_name_or_path", str(BASE_MODEL_NAME_OR_PATH),
+            "--model_name_or_path", str(base_model_name_or_path),
         ]
         run_cmd(cmd, cwd=REPO_ROOT)
 
@@ -238,10 +250,10 @@ def run_cpt(cpt_lr: str, cpt_epochs: int) -> tuple[Path, Path, int | float]:
     return output_dir, final_model_dir, rope_theta
 
 
-def run_sft_for_model(cpt_lr: str, cpt_epochs: int, sft_lr: str, sft_epochs: int, multiple_sft_variants: bool) -> dict:
-    model_name = copied_model_name(cpt_lr, cpt_epochs)
+def run_sft_for_model(base_model_name_or_path: str | Path, cpt_lr: str, cpt_epochs: int, sft_lr: str, sft_epochs: int, multiple_sft_variants: bool) -> dict:
+    model_name = copied_model_name(base_model_name_or_path, cpt_lr, cpt_epochs)
     model_dir = MODEL_STORE_DIR / model_name
-    adapter_name = build_adapter_name(cpt_lr, cpt_epochs, sft_lr, sft_epochs, multiple_sft_variants)
+    adapter_name = build_adapter_name(base_model_name_or_path, cpt_lr, cpt_epochs, sft_lr, sft_epochs, multiple_sft_variants)
     adapter_dir = SFT_ADAPTERS_DIR / adapter_name
 
     adapter_already_done = dir_has_adapters_safetensors(adapter_dir)
@@ -295,6 +307,9 @@ def main() -> None:
     ensure_exists(SFT_CONFIG_PATH, "SFT config file")
     ensure_exists(SFT_TRAIN_SCRIPT, "SFT train script")
 
+    for base_model_name_or_path in BASE_MODEL_NAME_OR_PATHS:
+        ensure_exists(normalize_base_model_path(base_model_name_or_path), "base model path")
+
     backup_lora_config()
 
     sft_grid = list(itertools.product(SFT_LEARNING_RATES, SFT_EPOCHS))
@@ -303,46 +318,59 @@ def main() -> None:
     all_results = []
     os.environ["MLX_CUDA_GRAPH_CACHE_SIZE"] = "160000"
 
-    for cpt_lr, cpt_epochs in itertools.product(CPT_LEARNING_RATES, CPT_EPOCHS):
-        log(f"\n==============================")
-        log(f"Base model sweep: lr={cpt_lr}, epochs={cpt_epochs}")
-        log(f"==============================")
+    for base_model_name_or_path in BASE_MODEL_NAME_OR_PATHS:
+        base_model_name_or_path = normalize_base_model_path(base_model_name_or_path)
+        base_tag = base_model_tag(base_model_name_or_path)
 
-        output_dir, final_model_dir, rope_theta = run_cpt(cpt_lr, cpt_epochs)
+        log(f"\n########################################")
+        log(f"Base model: {base_tag}")
+        log(f"Path: {base_model_name_or_path}")
+        log(f"########################################")
 
-        model_name = copied_model_name(cpt_lr, cpt_epochs)
-        dst_model_dir = MODEL_STORE_DIR / model_name
-        copy_final_model_to_model_store(final_model_dir, dst_model_dir)
+        for cpt_lr, cpt_epochs in itertools.product(CPT_LEARNING_RATES, CPT_EPOCHS):
+            log(f"\n==============================")
+            log(f"CPT sweep: lr={cpt_lr}, epochs={cpt_epochs}")
+            log(f"==============================")
 
-        for sft_lr, sft_epochs in sft_grid:
-            log(f"\n  -> SFT sweep: lr={sft_lr}, epochs={sft_epochs}")
+            output_dir, final_model_dir, rope_theta = run_cpt(base_model_name_or_path, cpt_lr, cpt_epochs)
 
-            sft_result = run_sft_for_model(
-                cpt_lr=cpt_lr,
-                cpt_epochs=cpt_epochs,
-                sft_lr=sft_lr,
-                sft_epochs=sft_epochs,
-                multiple_sft_variants=multiple_sft_variants,
-            )
+            model_name = copied_model_name(base_model_name_or_path, cpt_lr, cpt_epochs)
+            dst_model_dir = MODEL_STORE_DIR / model_name
+            copy_final_model_to_model_store(final_model_dir, dst_model_dir)
 
-            record = {
-                "cpt_learning_rate": cpt_lr,
-                "cpt_epochs": cpt_epochs,
-                "cpt_output_dir": str(output_dir),
-                "copied_model_name": model_name,
-                "copied_model_dir": str(dst_model_dir),
-                "rope_theta": rope_theta,
-                **sft_result,
-            }
-            append_manifest(record)
-            all_results.append(record)
+            for sft_lr, sft_epochs in sft_grid:
+                log(f"\n  -> SFT sweep: lr={sft_lr}, epochs={sft_epochs}")
+
+                sft_result = run_sft_for_model(
+                    base_model_name_or_path=base_model_name_or_path,
+                    cpt_lr=cpt_lr,
+                    cpt_epochs=cpt_epochs,
+                    sft_lr=sft_lr,
+                    sft_epochs=sft_epochs,
+                    multiple_sft_variants=multiple_sft_variants,
+                )
+
+                record = {
+                    "base_model_name_or_path": str(base_model_name_or_path),
+                    "base_model_tag": base_tag,
+                    "cpt_learning_rate": cpt_lr,
+                    "cpt_epochs": cpt_epochs,
+                    "cpt_output_dir": str(output_dir),
+                    "copied_model_name": model_name,
+                    "copied_model_dir": str(dst_model_dir),
+                    "rope_theta": rope_theta,
+                    **sft_result,
+                }
+                append_manifest(record)
+                all_results.append(record)
 
     log("\nDone.")
     log(f"Manifest: {MANIFEST_PATH}")
     log("\nCompleted runs:")
     for record in all_results:
         log(
-            f"- CPT lr={record['cpt_learning_rate']}, CPT ep={record['cpt_epochs']}, "
+            f"- base={record['base_model_tag']}, "
+            f"CPT lr={record['cpt_learning_rate']}, CPT ep={record['cpt_epochs']}, "
             f"SFT lr={record['sft_learning_rate']}, SFT ep={record['sft_epochs']}, "
             f"model={record['copied_model_name']}, adapter={record['adapter_name']}"
         )

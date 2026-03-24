@@ -1,59 +1,106 @@
-answer_llm:
-  provider: huggingface
-  openai:
-    api_key: ${OPENAI_API_KEY}
-    model: gpt-4.1-nano
-    temperature: 0.3
-    max_tokens: 512
-  local:
-    base_url: http://localhost:1234/v1
-    model: local-model
-    temperature: 0.3
-    max_tokens: 512
-  huggingface:
-    model: Qwen_Qwen3-0.6B-cpt1e-6-tuplecpt_1e-6_5-epoch-lr_5e-5-ep_2-SFT
-    model_dir: model
-    device: auto
-    dtype: auto
-    temperature: 0.3
-    max_tokens: 512
-judge_llm:
-  provider: local
-  openai:
-    api_key: ${OPENAI_API_KEY}
-    model: gpt-4.1-nano
-    temperature: 0.0
-    max_tokens: 512
-  local:
-    base_url: http://localhost:1234/v1
-    model: qwen/qwen3.5-9b
-    temperature: 0.0
-    max_tokens: 512
-benchmark:
-  questions_per_category: 50
-  categories: []
-answer_prompt: '{question}
+# Benchmark Configuration
 
-  '
-judge_prompt: "You are an expert evaluator. Your task is to compare an AI's answer\
-  \ with an expected correct answer.\n\nQuestion: {question}\nExpected Answer: {expected_answer}\n\
-  AI's Answer: {ai_answer}\n\nGrading Rubric:\n- 1.0: The AI answer is fully accurate\
-  \ and covers all main points of the expected answer.\n- 0.5: The AI answer is partially\
-  \ correct, or missing some key information, or includes significant irrelevant info.\n\
-  - 0.0: The AI answer is completely wrong, irrelevant, hallucinates info not in the\
-  \ expected answer, or is truncated/incomplete.\n\nThink step by step about:\n1.\
-  \ What essential facts are in the expected answer\n2. Which of those facts are present\
-  \ in the AI answer\n3. Whether the AI answer is incomplete, truncated, irrelevant,\
-  \ or hallucinatory\n4. What the final score should be\n\nYour response MUST be a\
-  \ single complete valid JSON object with exactly this structure:\n{{\n  \"reasoning\"\
-  : \"<brief step-by-step reasoning>\",\n  \"score\": <number: 0, 0.5, or 1>,\n  \"\
-  reason\": \"<one sentence summary of the score>\"\n}}\n\nDo not output markdown.\n\
-  Do not output code fences.\nDo not output any text before or after the JSON.\nEnsure\
-  \ the JSON is complete and not truncated.\n"
+# Answer LLM Settings (the model being tested)
+answer_llm:
+  # Provider: "openai", "local" (LM Studio), or "huggingface" (local model)
+  provider: "huggingface"
+  
+  # OpenAI API settings
+  openai:
+    api_key: "${OPENAI_API_KEY}"
+    model: "gpt-4.1-nano"
+    temperature: 0.3
+    max_tokens: 512
+  
+  # Local LLM settings (LM Studio)
+  local:
+    base_url: "http://localhost:1234/v1"
+    model: "local-model"
+    temperature: 0.3
+    max_tokens: 512
+
+  # HuggingFace model settings (downloaded/cached locally)
+  huggingface:
+    # Model name from HuggingFace Hub (e.g., "Qwen/Qwen3-0.6B")
+    model: "Qwen_Qwen3-0.6B-cpt2e-6-SFT"
+    # Local directory to cache models
+    model_dir: "model"
+    # Device: "auto", "cpu", "cuda", "mps"
+    device: "auto"
+    # Dtype: "auto", "float16", "float32", "bfloat16"
+    dtype: "auto"
+    temperature: 0.3
+    max_tokens: 512
+
+# Judge LLM Settings (evaluates the answers)
+judge_llm:
+  # Provider: "openai" or "local" (LM Studio)
+  # Note: huggingface not recommended for judge (slower, less reliable JSON output)
+  provider: "local"
+  
+  # OpenAI API settings
+  openai:
+    api_key: "${OPENAI_API_KEY}"
+    model: "gpt-4.1-nano"
+    temperature: 0.0
+    max_tokens: 512
+  
+  # Local LLM settings (LM Studio)
+  local:
+    base_url: "http://localhost:1234/v1"
+    model: "qwen/qwen3.5-9b"
+    temperature: 0.0
+    max_tokens: 512
+
+# Benchmark Settings
+benchmark:
+  # Number of questions per category to sample
+  questions_per_category: 50 #note that "reference faq" has only 13 questions.
+  categories: [ ]
+
+# Answer Prompt (sent to the answer LLM)
+answer_prompt: |
+  {question}
+
+# Judge Prompt (sent to the judge LLM)
+judge_prompt: |
+  You are an expert evaluator. Your task is to compare an AI's answer with an expected correct answer.
+
+  Question: {question}
+  Expected Answer: {expected_answer}
+  AI's Answer: {ai_answer}
+
+  Grading Rubric:
+  - 1.0: The AI answer is fully accurate and covers all main points of the expected answer.
+  - 0.5: The AI answer is partially correct, or missing some key information, or includes significant irrelevant info.
+  - 0.0: The AI answer is completely wrong, irrelevant, hallucinates info not in the expected answer, or is truncated/incomplete.
+
+  Think step by step about:
+  1. What essential facts are in the expected answer
+  2. Which of those facts are present in the AI answer
+  3. Whether the AI answer is incomplete, truncated, irrelevant, or hallucinatory
+  4. What the final score should be
+
+  Your response MUST be a single complete valid JSON object with exactly this structure:
+  {{
+    "reasoning": "<brief step-by-step reasoning>",
+    "score": <number: 0, 0.5, or 1>,
+    "reason": "<one sentence summary of the score>"
+  }}
+
+  Do not output markdown.
+  Do not output code fences.
+  Do not output any text before or after the JSON.
+  Ensure the JSON is complete and not truncated.
+
+# Data paths
 data:
-  qna_file: data/llm_qna.jsonl
-  benchmark_file: 4_benchmark/benchmark.jsonl
-  results_dir: 4_benchmark/results
+  qna_file: "data/llm_qna.jsonl"
+  # Benchmark file will be named benchmark_{n}.jsonl based on questions_per_category
+  benchmark_file: "4_benchmark/benchmark.jsonl"
+  results_dir: "4_benchmark/results"
+
+# Processing settings
 processing:
   delay: 0
   answer_batch_size: 32

@@ -5,8 +5,8 @@ import numpy as np
 from pathlib import Path
 
 
-NUM_RECENT_BENCHMARKS = 10
-TOP_K_PER_GROUP = 3
+NUM_RECENT_BENCHMARKS = 7
+TOP_K_PER_GROUP = 4
 
 
 def clean_display_name(name):
